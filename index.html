@@ -1,49 +1,578 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Official personal website of Gidy Nega. Discover my content, projects, and social media.">
-<title>Gidy Nega | Official Website</title>
+<meta name="description" content="Welcome to Gidy Nega's personal website. Explore educational content, creative projects, videos, and my learning journey.">
+<meta name="theme-color" content="#0b0b18">
+<title>Gidy Nega | Learn, Create, Share & Grow</title>
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#101022;color:white;text-align:center}
-header{padding:65px 20px;background:linear-gradient(135deg,#7928ca,#ff0080,#246bfd)}
-h1{font-size:clamp(40px,8vw,70px);margin:15px 0}
-header p{font-size:18px}
-section{padding:40px 20px;max-width:900px;margin:auto}
-.card{background:#1d1d36;padding:25px;margin:15px 0;border-radius:18px;border:1px solid #393957}
-a.button{display:inline-block;padding:13px 20px;margin:7px;background:linear-gradient(100deg,#ff4fc8,#6d7bff);color:white;text-decoration:none;border-radius:10px;font-weight:bold}
-a.button:hover{transform:translateY(-3px)}
-h2{color:#ff79d5}
-footer{padding:25px;color:#b8b5ce;background:#0b0b18}
+:root {
+  --bg: #0b0b18;
+  --panel: rgba(255,255,255,.07);
+  --text: #f8f7ff;
+  --muted: #c0bdd4;
+  --pink: #ff55c8;
+  --blue: #8187ff;
+  --cyan: #65eee4;
+  --line: rgba(255,255,255,.14);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 10% 5%, rgba(129,135,255,.2), transparent 30rem),
+    radial-gradient(circle at 95% 35%, rgba(255,85,200,.13), transparent 27rem),
+    var(--bg);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+  width: min(1100px, 91%);
+  margin: auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(11,11,24,.94);
+  border-bottom: 1px solid var(--line);
+}
+
+nav {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.brand {
+  font-weight: 900;
+  font-size: 1.4rem;
+  letter-spacing: -1px;
+}
+
+.brand span { color: var(--pink); }
+
+.navlinks {
+  display: flex;
+  gap: 18px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.navlinks a:hover { color: var(--cyan); }
+
+.menu-button {
+  display: none;
+  color: white;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+.hero {
+  min-height: 75vh;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 35px;
+  align-items: center;
+  padding: 65px 0;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--cyan);
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 7px 13px;
+  border-radius: 30px;
+  font-size: .85rem;
+}
+
+h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1.05;
+  letter-spacing: -4px;
+  margin: 22px 0;
+}
+
+.gradient {
+  background: linear-gradient(100deg, white, var(--pink), var(--blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 1.1rem;
+  max-width: 600px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 25px 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 17px;
+  border-radius: 12px;
+  font-weight: bold;
+  border: 1px solid var(--line);
+  transition: .2s;
+}
+
+.btn:hover { transform: translateY(-3px); }
+
+.primary {
+  color: #11101c;
+  border: none;
+  background: linear-gradient(100deg, var(--pink), #b39aff, var(--cyan));
+}
+
+.secondary { background: var(--panel); }
+
+.visual {
+  min-height: 330px;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.orb {
+  width: min(300px, 70vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(140deg, var(--pink), var(--blue), var(--cyan));
+  box-shadow: 0 0 90px rgba(129,135,255,.25);
+  display: grid;
+  place-items: center;
+  animation: float 5s ease-in-out infinite;
+}
+
+.initials {
+  width: 165px;
+  height: 165px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #111123;
+  border: 1px solid rgba(255,255,255,.4);
+  font-size: 4rem;
+  font-weight: 900;
+}
+
+.float-card {
+  position: absolute;
+  padding: 12px 15px;
+  background: #19182e;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  animation: float 5s ease-in-out infinite;
+}
+
+.card-one { top: 10%; left: 0; }
+.card-two { bottom: 10%; right: 0; }
+
+section { padding: 60px 0; }
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+
+.section-sub {
+  color: var(--muted);
+  max-width: 700px;
+  margin-bottom: 28px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.tile {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 23px;
+  border-radius: 20px;
+  transition: .2s;
+}
+
+.tile:hover {
+  transform: translateY(-5px);
+  border-color: var(--pink);
+}
+
+.icon {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.tile h3 { margin: 0 0 8px; }
+.tile p { color: var(--muted); margin: 0; }
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.story {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 22px;
+}
+
+.story h3 { margin-top: 8px; }
+.story p { color: var(--muted); }
+
+.tag {
+  display: inline-block;
+  color: var(--cyan);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: .8rem;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.social-link {
+  display: block;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 17px;
+  border-radius: 17px;
+  transition: .2s;
+}
+
+.social-link:hover {
+  transform: translateY(-4px);
+  border-color: var(--cyan);
+}
+
+.social-link b { display: block; }
+.social-link small { color: var(--muted); }
+
+.note {
+  color: var(--muted);
+  font-size: .9rem;
+  margin-top: 18px;
+}
+
+.cta {
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 25px;
+  background: linear-gradient(120deg,
+    rgba(255,85,200,.12),
+    rgba(129,135,255,.13),
+    rgba(101,238,228,.08));
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 25px 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.reveal {
+  animation: appear 1s ease both;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media(max-width: 800px) {
+  .hero { grid-template-columns: 1fr; padding-top: 45px; }
+  .visual { min-height: 300px; }
+  .grid { grid-template-columns: 1fr; }
+  .story-grid { grid-template-columns: 1fr; }
+  .social-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .menu-button { display: block; }
+
+  .navlinks {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    padding: 20px 5%;
+    background: #111123;
+    flex-direction: column;
+  }
+
+  .navlinks.open { display: flex; }
+}
+
+@media(max-width: 420px) {
+  h1 { letter-spacing: -2px; }
+  .social-grid { grid-template-columns: repeat(2, 1fr); }
+}
 </style>
 </head>
+
 <body>
+
 <header>
-<p>WELCOME TO MY PERSONAL WEBSITE</p>
-<h1>Gidy Nega ✨</h1>
-<p>Learn • Create • Share • Grow</p>
-<a class="button" href="https://www.youtube.com/@GidyNega">Visit My YouTube</a>
+  <nav class="container">
+    <a class="brand" href="#home">GIDY<span>.</span></a>
+    <button class="menu-button" id="menuButton">Menu ☰</button>
+
+    <div class="navlinks" id="navlinks">
+      <a href="#about">About</a>
+      <a href="#content">My Content</a>
+      <a href="#journey">My Journey</a>
+      <a href="#socials">Socials</a>
+      <a href="#contact">Connect</a>
+    </div>
+  </nav>
 </header>
-<section>
-<div class="card">
-<h2>About Me</h2>
-<p>Hello! I'm Gidy Nega, a pharmacy student, lifelong learner, and creator. I enjoy exploring education, technology, and new ideas.</p>
-</div>
-<div class="card">
-<h2>My Content</h2>
-<p>Discover my videos, interests, and projects. Follow my journey as I continue learning and creating.</p>
-</div>
-<div class="card">
-<h2>Connect With Me</h2>
-<a class="button" href="https://www.youtube.com/@GidyNega">YouTube</a>
-<a class="button" href="https://www.tiktok.com/">TikTok</a>
-<a class="button" href="https://www.facebook.com/">Facebook</a>
-<a class="button" href="https://www.instagram.com/">Instagram</a>
-<a class="button" href="https://www.whatsapp.com/">WhatsApp</a>
-<p>More of my social links will be added soon.</p>
-</div>
+
+<main>
+
+<section class="container hero" id="home">
+  <div class="reveal">
+    <div class="eyebrow">✨ Welcome to my digital home</div>
+
+    <h1>Hey, I'm<br><span class="gradient">Gidy Nega.</span></h1>
+
+    <p class="lead">
+      I am a learner, creator, and dreamer who believes small steps can lead
+      to great things. Here I share my interests, projects, educational ideas,
+      and experiences. Welcome to my journey!
+    </p>
+
+    <div class="actions">
+      <a class="btn primary" href="https://www.youtube.com/@GidyNega" target="_blank" rel="noopener noreferrer">▶ Visit My YouTube</a>
+      <a class="btn secondary" href="#about">Discover My Story ↓</a>
+    </div>
+  </div>
+
+  <div class="visual reveal">
+    <div class="orb">
+      <div class="initials">GN</div>
+    </div>
+    <div class="float-card card-one"><strong>Curiosity first ✦</strong><br><small>Learn • Create • Share</small></div>
+    <div class="float-card card-two"><strong>Keep growing ↗</strong><br><small>One step at a time</small></div>
+  </div>
 </section>
-<footer>© 2026 Gidy Nega | Keep learning. Keep growing.</footer>
+
+<section class="container reveal" id="about">
+  <h2 class="section-title">A little <span class="gradient">about me.</span></h2>
+
+  <p class="section-sub">
+    I believe knowledge becomes more powerful when we share it.
+    This website is my home on the internet—a place to introduce myself,
+    share what I learn and create, and connect with people who have similar interests.
+  </p>
+
+  <div class="grid">
+    <article class="tile">
+      <div class="icon">📚</div>
+      <h3>Learning</h3>
+      <p>I enjoy exploring new subjects, asking questions, and developing useful skills one step at a time.</p>
+    </article>
+
+    <article class="tile">
+      <div class="icon">🎬</div>
+      <h3>Creating</h3>
+      <p>I want to create useful content, share ideas, and make learning more interesting and accessible.</p>
+    </article>
+
+    <article class="tile">
+      <div class="icon">🚀</div>
+      <h3>Building</h3>
+      <p>I am learning how to turn ideas into real projects and improve them through practice.</p>
+    </article>
+  </div>
+</section>
+
+<section class="container reveal" id="content">
+  <h2 class="section-title">Explore what I <span class="gradient">share.</span></h2>
+
+  <p class="section-sub">
+    This website will grow as I learn and create. Explore my interests below.
+  </p>
+
+  <div class="grid">
+    <article class="tile">
+      <div class="icon">▶️</div>
+      <h3>Videos & Ideas</h3>
+      <p>Watch my videos, explore interesting topics, and join me as I continue creating content.</p>
+      <p style="margin-top:16px">
+        <a class="btn secondary" href="https://www.youtube.com/@GidyNega" target="_blank" rel="noopener noreferrer">Watch Videos ↗</a>
+      </p>
+    </article>
+
+    <article class="tile">
+      <div class="icon">🧠</div>
+      <h3>Learning Resources</h3>
+      <p>My goal is to share useful notes, explanations, study ideas, and resources that can help people learn.</p>
+    </article>
+
+    <article class="tile">
+      <div class="icon">💻</div>
+      <h3>Technology & Projects</h3>
+      <p>Follow my journey as I practise programming, explore digital tools, and build projects from scratch.</p>
+    </article>
+  </div>
+</section>
+
+<section class="container reveal" id="journey">
+  <h2 class="section-title">My journey, <span class="gradient">one step at a time.</span></h2>
+
+  <p class="section-sub">
+    I believe progress comes from curiosity, consistent practice, patience,
+    and sharing what I learn.
+  </p>
+
+  <div class="story-grid">
+    <article class="story">
+      <span class="tag">Learning</span>
+      <span class="tag">Growth</span>
+      <h3>Always a student</h3>
+      <p>Every day is an opportunity to understand something new. I want to keep learning, ask better questions, and turn difficult ideas into clear knowledge.</p>
+    </article>
+
+    <article class="story">
+      <span class="tag">Creativity</span>
+      <span class="tag">Practice</span>
+      <h3>Building through action</h3>
+      <p>Ideas become meaningful when we work on them. I am learning by trying, making mistakes, solving problems, and improving what I create.</p>
+    </article>
+
+    <article class="story">
+      <span class="tag">Sharing</span>
+      <span class="tag">Community</span>
+      <h3>Growing together</h3>
+      <p>I hope my content encourages people to stay curious, support one another, and remember that learning is a journey rather than a competition.</p>
+    </article>
+
+    <article class="story">
+      <span class="tag">Future goals</span>
+      <span class="tag">Consistency</span>
+      <h3>The story continues</h3>
+      <p>This is the beginning, not the finish line. I will update this website as I make new things, learn new skills, and discover experiences worth sharing.</p>
+    </article>
+  </div>
+</section>
+
+<section class="container reveal" id="socials">
+  <h2 class="section-title">Let's connect <span class="gradient">online.</span></h2>
+
+  <p class="section-sub">
+    You can visit my YouTube channel below. The other buttons currently lead to the platforms' homepages.
+    We can replace them with my exact profile links later.
+  </p>
+
+  <div class="social-grid">
+    <a class="social-link" href="https://www.youtube.com/@GidyNega" target="_blank" rel="noopener noreferrer">
+      <span class="icon">▶️</span><b>YouTube</b><small>@GidyNega ↗</small>
+    </a>
+
+    <a class="social-link" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">
+      <span class="icon">♪</span><b>TikTok</b><small>Visit TikTok ↗</small>
+    </a>
+
+    <a class="social-link" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+      <span class="icon">f</span><b>Facebook</b><small>Visit Facebook ↗</small>
+    </a>
+
+    <a class="social-link" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+      <span class="icon">◎</span><b>Instagram</b><small>Visit Instagram ↗</small>
+    </a>
+
+    <a class="social-link" href="https://www.whatsapp.com/" target="_blank" rel="noopener noreferrer">
+      <span class="icon">☏</span><b>WhatsApp</b><small>Visit WhatsApp ↗</small>
+    </a>
+  </div>
+
+  <p class="note">
+    Privacy reminder: only publish contact details you are comfortable sharing publicly.
+    You do not need to publish your personal phone number.
+  </p>
+</section>
+
+<section class="container reveal" id="contact">
+  <div class="cta">
+    <h2 class="section-title">Let's learn, create, and <span class="gradient">grow together.</span></h2>
+
+    <p class="section-sub">
+      Thank you for visiting my website. Explore my content, follow my journey,
+      and come back to see what I create next.
+    </p>
+
+    <a class="btn primary" href="https://www.youtube.com/@GidyNega" target="_blank" rel="noopener noreferrer">Visit My Channel ↗</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© <span id="year"></span> Gidy Nega. Made with curiosity and a growth mindset.</span>
+    <span>Learn · Create · Share · Grow</span>
+  </div>
+</footer>
+
+<script>
+const menuButton = document.getElementById('menuButton');
+const navlinks = document.getElementById('navlinks');
+
+menuButton.addEventListener('click', () => {
+  navlinks.classList.toggle('open');
+});
+
+navlinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navlinks.classList.remove('open');
+  });
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
 </body>
-</html>
+    </html>
