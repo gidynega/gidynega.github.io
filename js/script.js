@@ -1,27 +1,34 @@
-// Welcome message
+// 1. Welcome message
 console.log("Welcome to Gidy Nega's website!");
 
-// Update the footer year automatically
+// 2. Update footer year
 const yearElement = document.querySelector("#year");
 
 if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
 }
 
-// Mobile menu functionality
+// 3. Mobile navigation menu
 const menuButton = document.querySelector("#menuButton");
 const navigation = document.querySelector("#navlinks");
+
 if (menuButton && navigation) {
     menuButton.addEventListener("click", () => {
         navigation.classList.toggle("open");
     });
-}
-// DARK / LIGHT MODE
 
+    navigation.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            navigation.classList.remove("open");
+        });
+    });
+}
+
+// 4. Dark / Light Mode
 const themeToggle = document.getElementById("themeToggle");
 
 if (themeToggle) {
-    themeToggle.addEventListener("click", function () {
+    themeToggle.addEventListener("click", () => {
         document.body.classList.toggle("light-mode");
 
         const isLightMode =
