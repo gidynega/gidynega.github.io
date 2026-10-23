@@ -17,3 +17,26 @@ if (menuButton && navigation) {
         navigation.classList.toggle("open");
     });
 }
+// DARK / LIGHT MODE
+
+const themeToggle = document.getElementById("themeToggle");
+
+if (themeToggle) {
+    themeToggle.addEventListener("click", function () {
+        document.body.classList.toggle("light-mode");
+
+        const isLightMode =
+            document.body.classList.contains("light-mode");
+
+        themeToggle.textContent = isLightMode
+            ? "🌙 Dark Mode"
+            : "☀️ Light Mode";
+
+        themeToggle.setAttribute(
+            "aria-label",
+            isLightMode
+                ? "Switch to dark mode"
+                : "Switch to light mode"
+        );
+    });
+}
