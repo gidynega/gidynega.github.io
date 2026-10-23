@@ -484,4 +484,21 @@ footer {
   .social-link .icon {
     transition: none;
   }
+}/* DARK / LIGHT MODE BUTTON */
+
+.theme-toggle {
+    padding: 10px 15px;
+    border: 1px solid #8b5cf6;
+    border-radius: 12px;
+    background: #17142d;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.theme-toggle:hover {
+    box-shadow: 0 0 15px #8b5cf6;
+    transform: translateY(-2px);
 }
