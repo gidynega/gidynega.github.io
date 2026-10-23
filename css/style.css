@@ -661,3 +661,102 @@ padding: 40px 0;
 grid-template-columns: 1fr;
 }
 }
+/* ==============================
+ABOUT ME — CYBER NEON STYLE
+============================== */
+
+.about-section {
+padding: 60px 0;
+scroll-margin-top: 90px;
+}
+
+.about-heading {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.about-tag {
+color: #22d3ee;
+font-size: 12px;
+font-weight: bold;
+letter-spacing: 3px;
+}
+
+.about-heading h2 {
+color: #f5f3ff;
+font-size: clamp(28px, 5vw, 42px);
+}
+
+.about-heading h2 span {
+color: #a78bfa;
+}
+
+.about-card {
+display: flex;
+align-items: flex-start;
+gap: 25px;
+max-width: 900px;
+margin: 0 auto;
+padding: 30px;
+background: linear-gradient(145deg, #11142c, #1b1030);
+border: 1px solid #514080;
+border-radius: 22px;
+box-shadow: 0 0 20px #8b5cf622;
+}
+
+.about-icon {
+font-size: 55px;
+flex-shrink: 0;
+}
+
+.about-content {
+flex: 1;
+}
+
+.about-content h3 {
+color: #22d3ee;
+font-size: 25px;
+margin-top: 0;
+}
+
+.about-content p {
+color: #c4c4df;
+font-size: 15px;
+line-height: 1.9;
+}
+
+.about-interests {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+margin-top: 22px;
+}
+
+.about-interests span {
+padding: 9px 12px;
+color: #c4b5fd;
+background: #29204a;
+border: 1px solid #514080;
+border-radius: 20px;
+font-size: 12px;
+}
+
+@media (max-width: 550px) {
+.about-section {
+padding: 40px 0;
+}
+
+.about-card {
+    flex-direction: column;
+    padding: 22px;
+}
+
+.about-icon {
+    font-size: 42px;
+}
+
+.about-content h3 {
+    font-size: 22px;
+}
+
+}
