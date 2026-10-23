@@ -502,3 +502,29 @@ footer {
     box-shadow: 0 0 15px #8b5cf6;
     transform: translateY(-2px);
 }
+/* LIGHT MODE THEME */
+
+body.light-mode {
+    background: #f4f7ff;
+    color: #17172b;
+}
+
+body.light-mode .social-link {
+    background: linear-gradient(145deg, #ffffff, #edf0ff);
+    color: #17172b;
+    border-color: #c8c5f5;
+}
+
+body.light-mode .social-link small {
+    color: #555575;
+}
+
+body.light-mode .social-link .icon {
+    background: #ffffff;
+}
+
+body.light-mode .theme-toggle {
+    background: #ffffff;
+    color: #17172b;
+    border-color: #8b5cf6;
+}
