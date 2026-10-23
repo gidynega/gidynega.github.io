@@ -528,3 +528,136 @@ body.light-mode .theme-toggle {
     color: #17172b;
     border-color: #8b5cf6;
 }
+/* ==============================
+CYBER NEON PROJECTS PORTFOLIO
+============================== */
+
+.projects-section {
+padding: 60px 0;
+scroll-margin-top: 90px;
+}
+
+.section-heading {
+text-align: center;
+max-width: 700px;
+margin: 0 auto 35px;
+}
+
+.section-tag {
+color: #22d3ee;
+font-size: 12px;
+font-weight: bold;
+letter-spacing: 3px;
+}
+
+.section-heading h2 {
+font-size: clamp(28px, 5vw, 42px);
+margin: 12px 0;
+color: #f5f3ff;
+}
+
+.section-heading h2 span {
+display: inline-block;
+}
+
+.section-description {
+color: #b9b9d8;
+line-height: 1.8;
+}
+
+.projects-grid {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 20px;
+}
+
+.project-card {
+padding: 25px 20px;
+background: linear-gradient(145deg, #11142c, #1b1030);
+border: 1px solid #393568;
+border-radius: 20px;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+transform: translateY(-6px);
+border-color: #8b5cf6;
+box-shadow: 0 0 22px #8b5cf644;
+}
+
+.project-icon {
+font-size: 38px;
+margin-bottom: 15px;
+}
+
+.project-number {
+color: #22d3ee;
+font-size: 11px;
+font-weight: bold;
+letter-spacing: 2px;
+}
+
+.project-card h3 {
+color: #f5f3ff;
+font-size: 21px;
+}
+
+.project-card > p:not(.project-number) {
+color: #b9b9d8;
+font-size: 14px;
+line-height: 1.8;
+}
+
+.project-tags {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+margin: 20px 0;
+}
+
+.project-tags span {
+padding: 6px 10px;
+color: #c4b5fd;
+background: #29204a;
+border: 1px solid #514080;
+border-radius: 20px;
+font-size: 11px;
+}
+
+.project-button {
+display: inline-block;
+padding: 10px 14px;
+color: #ffffff;
+background: linear-gradient(90deg, #6d28d9, #2563eb);
+border-radius: 10px;
+text-decoration: none;
+font-size: 13px;
+font-weight: bold;
+}
+
+.project-button:hover {
+box-shadow: 0 0 16px #8b5cf688;
+}
+
+.project-status {
+display: inline-block;
+color: #67e8f9;
+font-size: 12px;
+margin-top: 5px;
+}
+
+@media (max-width: 800px) {
+.projects-grid {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+}
+
+@media (max-width: 550px) {
+.projects-section {
+padding: 40px 0;
+}
+
+.projects-grid {
+grid-template-columns: 1fr;
+}
+}
