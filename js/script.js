@@ -9,9 +9,8 @@ if (yearElement) {
 }
 
 // Mobile menu functionality
-const menuButton = document.querySelector("#menu-button");
-const navigation = document.querySelector("#navigation");
-
+const menuButton = document.querySelector("#menuButton");
+const navigation = document.querySelector("#navlinks");
 if (menuButton && navigation) {
     menuButton.addEventListener("click", () => {
         navigation.classList.toggle("open");
