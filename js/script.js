@@ -25,6 +25,7 @@ if (menuButton && navigation) {
 }
 
 // 4. Dark / Light Mode
+console.log("Theme button script is running!");
 const themeToggle = document.getElementById("themeToggle");
 
 if (themeToggle) {
