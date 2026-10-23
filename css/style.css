@@ -340,3 +340,148 @@ footer {
   h1 { letter-spacing: -2px; }
   .social-grid { grid-template-columns: repeat(2, 1fr); }
 }
+/* ==================================
+   CYBER NEON SOCIAL MEDIA CARDS
+================================== */
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.social-link {
+  --neon: #8b5cf6;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 0;
+  min-height: 155px;
+  padding: 20px 10px;
+  overflow: hidden;
+
+  color: #f5f3ff;
+  text-decoration: none;
+  text-align: center;
+
+  background: linear-gradient(145deg, #11142c, #1b1030);
+  border: 1px solid #393568;
+  border-radius: 18px;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.social-link.youtube {
+  --neon: #ff1744;
+}
+
+.social-link.telegram {
+  --neon: #29b6f6;
+}
+
+.social-link.tiktok {
+  --neon: #25f4ee;
+}
+
+.social-link.facebook {
+  --neon: #1877f2;
+}
+
+.social-link.instagram {
+  --neon: #e1306c;
+}
+
+.social-link.whatsapp {
+  --neon: #25d366;
+}
+
+.social-link .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 58px;
+  height: 58px;
+
+  color: var(--neon);
+  background: #101126;
+  border: 1px solid var(--neon);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 10px color-mix(in srgb, var(--neon) 35%, transparent),
+    inset 0 0 10px color-mix(in srgb, var(--neon) 12%, transparent);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.social-link .icon svg {
+  width: 27px;
+  height: 27px;
+}
+
+.social-link b {
+  font-size: 16px;
+  letter-spacing: 0.3px;
+}
+
+.social-link small {
+  color: #b9b9d8;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+@media (hover: hover) {
+  .social-link:hover {
+    transform: translateY(-6px);
+    border-color: var(--neon);
+
+    background: linear-gradient(145deg, #171b3b, #211239);
+
+    box-shadow:
+      0 0 12px color-mix(in srgb, var(--neon) 45%, transparent),
+      0 0 28px color-mix(in srgb, var(--neon) 20%, transparent);
+  }
+
+  .social-link:hover .icon {
+    transform: scale(1.08);
+
+    box-shadow:
+      0 0 15px color-mix(in srgb, var(--neon) 60%, transparent),
+      0 0 28px color-mix(in srgb, var(--neon) 25%, transparent);
+  }
+}
+
+.social-link:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+  .social-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .social-link {
+    min-height: 140px;
+    padding: 16px 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social-link,
+  .social-link .icon {
+    transition: none;
+  }
+}
