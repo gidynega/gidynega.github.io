@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pharmacy Education | Gidy Nega</title>
+
+    <meta name="description"
+          content="Explore pharmacy courses, study notes, PDFs, videos, and practice questions organized by academic year.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 25px 16px;
+            background: #0b0b18;
+            color: #f5f3ff;
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #67e8f9;
+            text-decoration: none;
+        }
+
+        .hero {
+            padding: 35px 20px;
+            text-align: center;
+            background: linear-gradient(145deg, #17152e, #24143b);
+            border: 1px solid #514080;
+            border-radius: 20px;
+        }
+
+        h1 {
+            color: #c4b5fd;
+            font-size: clamp(28px, 5vw, 42px);
+        }
+
+        h2 {
+            color: #22d3ee;
+        }
+
+        .years-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .year-card {
+            padding: 22px;
+            background: #151529;
+            border: 1px solid #393568;
+            border-radius: 16px;
+            transition: 0.3s;
+        }
+
+        .year-card:hover {
+            border-color: #8b5cf6;
+            box-shadow: 0 0 18px #8b5cf644;
+            transform: translateY(-4px);
+        }
+
+        .year-card h2 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .year-card p {
+            color: #b9b9d8;
+        }
+
+        .year-button {
+            display: inline-block;
+            padding: 9px 14px;
+            color: white;
+            background: linear-gradient(90deg, #7c3aed, #2563eb);
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .resource-list {
+            margin-top: 35px;
+            padding: 20px;
+            background: #151529;
+            border: 1px solid #393568;
+            border-radius: 16px;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #b9b9d8;
+        }
+
+        @media (max-width: 600px) {
+            .years-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<main class="container">
+
+    <a class="back-link" href="../../index.html">
+        ← Back to my website
+    </a>
+
+    <header class="hero">
+        <p>GIDY NEGA'S LEARNING HUB</p>
+        <h1>💊 Pharmacy Education</h1>
+
+        <p>
+            Learn step by step, organize your courses,
+            strengthen your knowledge, and prepare for exams.
+        </p>
+    </header>
+
+    <section>
+        <h2>📚 Explore Courses by Academic Year</h2>
+
+        <div class="years-grid">
+
+            <article class="year-card">
+                <h2>First Year</h2>
+                <p>
+                    Explore first-year pharmacy courses,
+                    foundational subjects, notes, and exercises.
+                </p>
+                <a class="year-button" href="year-1/">
+                    Explore Courses →
+                </a>
+            </article>
+
+            <article class="year-card">
+                <h2>Second Year</h2>
+                <p>
+                    Find second-year courses, lecture notes,
+                    presentations, and practice questions.
+                </p>
+                <a class="year-button" href="year-2/">
+                    Explore Courses →
+                </a>
+            </article>
+
+            <article class="year-card">
+                <h2>Third Year</h2>
+                <p>
+                    Organize third-year courses and
+                    study resources in one place.
+                </p>
+                <a class="year-button" href="year-3/">
+                    Explore Courses →
+                </a>
+            </article>
+
+            <article class="year-card">
+                <h2>Fourth Year</h2>
+                <p>
+                    Access fourth-year course materials,
+                    notes, videos, and exam practice.
+                </p>
+                <a class="year-button" href="year-4/">
+                    Explore Courses →
+                </a>
+            </article>
+
+            <article class="year-card">
+                <h2>Fifth Year</h2>
+                <p>
+                    Find fifth-year learning materials
+                    and resources for your courses.
+                </p>
+                <a class="year-button" href="year-5/">
+                    Explore Courses →
+                </a>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="resource-list">
+        <h2>📄 Learning Resources</h2>
+
+        <p>Each academic year can contain:</p>
+
+        <ul>
+            <li>📘 Course notes and summaries</li>
+            <li>📥 Downloadable PDF files</li>
+            <li>📊 PowerPoint presentations</li>
+            <li>🎥 Video lessons</li>
+            <li>📝 Practice questions and quizzes</li>
+            <li>🧠 Exam preparation materials</li>
+        </ul>
+
+        <p>
+            Learning materials will be added as they become available.
+        </p>
+    </section>
+
+    <footer>
+        <p>Learn • Practice • Share • Succeed 💊</p>
+        <p>© Gidy Nega</p>
+    </footer>
+
+</main>
+</body>
+</html>
