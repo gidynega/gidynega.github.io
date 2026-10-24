@@ -1,0 +1,232 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Gidy Nega through Telegram, email, or the website contact form.">
+  <title>Contact Me | Gidy Nega</title>  <style>
+    :root {
+      --bg: #080b18;
+      --card: #11172b;
+      --text: #f3f5ff;
+      --muted: #b6bfd8;
+      --pink: #ff4fd8;
+      --blue: #8187ff;
+      --cyan: #45e6ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, #24153e, transparent 40%),
+        var(--bg);
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 10px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 7vw, 3rem);
+      background: linear-gradient(90deg, var(--pink), var(--blue), var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .intro {
+      color: var(--muted);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid #343b61;
+      border-radius: 18px;
+      padding: 24px;
+      margin: 22px 0;
+      box-shadow: 0 0 25px #8187ff12;
+    }
+
+    h2 {
+      color: var(--cyan);
+      margin-top: 0;
+    }
+
+    .contact-link {
+      display: block;
+      text-decoration: none;
+      color: var(--text);
+      background: #1b2340;
+      border: 1px solid #454d79;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin: 12px 0;
+      transition: 0.2s;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-link:hover {
+      border-color: var(--cyan);
+      transform: translateY(-2px);
+    }
+
+    label {
+      display: block;
+      margin: 14px 0 6px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 13px;
+      border-radius: 9px;
+      border: 1px solid #454d79;
+      background: #090e20;
+      color: var(--text);
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 18px;
+      padding: 14px;
+      border: 0;
+      border-radius: 10px;
+      color: #080b18;
+      font-size: 1rem;
+      font-weight: bold;
+      background: linear-gradient(90deg, var(--pink), var(--cyan));
+      cursor: pointer;
+    }
+
+    .notice {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 0;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--cyan);
+    }
+  </style></head><body>
+  <main class="container">
+    <header>
+      <h1>Contact Me 💬</h1>
+      <p class="intro">
+        Dear Family 🫶 Welcome!
+        Have a question, an idea, or a collaboration opportunity?
+        I'd love to hear from you. Let's connect and grow together! 💪
+      </p>
+    </header><section class="card">
+  <h2>Connect Directly 🌍</h2>
+
+  <a class="contact-link"
+     href="https://t.me/Gidynega"
+     target="_blank"
+     rel="noopener noreferrer">
+    ✈️ Telegram — @Gidynega
+  </a>
+
+  <a class="contact-link"
+     href="mailto:gidynega@gmail.com">
+    📧 Email — gidynega@gmail.com
+  </a>
+
+  <a class="contact-link"
+     href="https://forms.gle/FtPSjvE8cnmR9YTVA"
+     target="_blank"
+     rel="noopener noreferrer">
+    📝 Feedback & Suggestions
+  </a>
+
+  <p class="notice">
+    WhatsApp will be added once the phone number is confirmed.
+  </p>
+</section>
+
+<section class="card">
+  <h2>Send Me a Message ✍️</h2>
+
+  <form id="contactForm">
+    <label for="name">Your name (optional)</label>
+    <input id="name" name="name" autocomplete="name">
+
+    <label for="email">Your email (optional)</label>
+    <input id="email" name="email" type="email" autocomplete="email">
+
+    <label for="topic">Message topic</label>
+    <select id="topic" name="topic" required>
+      <option value="">Choose a topic</option>
+      <option>Question</option>
+      <option>Website suggestion</option>
+      <option>Collaboration</option>
+      <option>Learning materials</option>
+      <option>Other</option>
+    </select>
+
+    <label for="message">Your message</label>
+    <textarea id="message" name="message"
+      placeholder="Write your message here..."
+      required></textarea>
+
+    <button type="submit">Continue to Email 📩</button>
+
+    <p class="notice">
+      This form opens your email app with your message prepared.
+      You must send the email there. Your message is not submitted
+      or stored by this website.
+    </p>
+  </form>
+</section>
+
+<footer>
+  <p>Made with ❤️ by Gidy Nega</p>
+  <a href="../index.html">← Back to Home</a>
+</footer>
+
+  </main>  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const topic = document.getElementById("topic").value;
+      const message = document.getElementById("message").value.trim();
+
+      const subject = encodeURIComponent("Website Contact: " + topic);
+      const body = encodeURIComponent(
+        "Name: " + (name || "Not provided") + "\n" +
+        "Reply email: " + (email || "Not provided") + "\n" +
+        "Topic: " + topic + "\n\n" +
+        "Message:\n" + message
+      );
+
+      window.location.href =
+        "mailto:gidynega@gmail.com?subject=" + subject + "&body=" + body;
+    });
+  </script></body>
+</html>
