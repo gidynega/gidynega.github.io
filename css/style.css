@@ -639,7 +639,15 @@ border: 1px solid #514080;
 border-radius: 20px;
 font-size: 11px;
 }
+.project-tags a {
+    text-decoration: none;
+    display: inline-block;
+}
 
+.project-tags a:hover {
+    border-color: #22d3ee;
+    box-shadow: 0 0 12px #22d3ee55;
+}
 .project-button {
 display: inline-block;
 padding: 10px 14px;
