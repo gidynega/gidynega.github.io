@@ -155,11 +155,10 @@ h1 {
   place-items: center;
   animation: float 5s ease-in-out infinite;
 }
-* Circular profile photo inside the neon ring */
+/* Circular profile photo inside the neon ring */
 
 .orb {
     position: relative;
-    overflow: hidden;
     display: grid;
     place-items: center;
     border-radius: 50%;
@@ -172,6 +171,7 @@ h1 {
     object-position: center 30%;
     border-radius: 50%;
 }
+
 .initials {
   width: 165px;
   height: 165px;
