@@ -640,8 +640,9 @@ border-radius: 20px;
 font-size: 11px;
 }
 .project-tags a {
-    text-decoration: none;
     display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .project-tags a:hover {
