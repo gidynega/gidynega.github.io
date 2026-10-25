@@ -769,6 +769,335 @@ for subject in subjects:
           Mark Lesson Complete ✓
         </button>
       </article>
+<article class="lesson" id="lesson7">
+  <h3>Lesson 7: Python Operators</h3>
+
+  <p>
+    Operators are symbols or keywords that perform operations on values
+    and variables. They allow us to calculate, compare, and make decisions.
+  </p>
+
+  <h4>1. Arithmetic operators</h4>
+
+  <p>These operators perform mathematical calculations.</p>
+
+  <pre>
+a = 10
+b = 3
+
+print(a + b)   # Addition: 13
+print(a - b)   # Subtraction: 7
+print(a * b)   # Multiplication: 30
+print(a / b)   # Division: 3.333...
+print(a // b)  # Floor division: 3
+print(a % b)   # Remainder: 1
+print(a ** b)  # Exponentiation: 1000
+  </pre>
+
+  <ul>
+    <li><code>+</code> adds two values.</li>
+    <li><code>-</code> subtracts one value from another.</li>
+    <li><code>*</code> multiplies values.</li>
+    <li><code>/</code> performs division.</li>
+    <li><code>//</code> gives the floor of the quotient.</li>
+    <li><code>%</code> gives the remainder.</li>
+    <li><code>**</code> raises a value to a power.</li>
+  </ul>
+
+  <div class="note">
+    <strong>Example:</strong> 10 % 3 equals 1 because 3 goes into 10
+    three times, leaving a remainder of 1.
+  </div>
+
+  <h4>2. Comparison operators</h4>
+
+  <p>Comparison operators compare values and produce True or False.</p>
+
+  <pre>
+age = 20
+
+print(age == 20)  # True: equal to
+print(age != 18)  # True: not equal to
+print(age > 18)   # True: greater than
+print(age < 25)   # True: less than
+print(age >= 20)  # True: greater than or equal to
+print(age <= 19)  # False: less than or equal to
+  </pre>
+
+  <div class="note">
+    <strong>Important difference:</strong>
+    <code>=</code> assigns a value, while <code>==</code> compares two values.
+  </div>
+
+  <h4>3. Logical operators</h4>
+
+  <p>Logical operators combine or reverse conditions.</p>
+
+  <pre>
+age = 22
+is_student = True
+
+print(age >= 18 and is_student)  # True
+print(age < 18 or is_student)    # True
+print(not is_student)           # False
+  </pre>
+
+  <ul>
+    <li><code>and</code>: True when both conditions are True.</li>
+    <li><code>or</code>: True when at least one condition is True.</li>
+    <li><code>not</code>: reverses True to False or False to True.</li>
+  </ul>
+
+  <h4>4. Real-life example</h4>
+
+  <p>Imagine a student needs a mark of at least 50 to pass.</p>
+
+  <pre>
+mark = 65
+
+if mark >= 50:
+    print("You passed!")
+else:
+    print("You failed.")
+  </pre>
+
+  <p>
+    Python compares the mark with 50. Since 65 is greater than or equal
+    to 50, the program displays <strong>You passed!</strong>
+  </p>
+
+  <h4>🧠 Practice challenge</h4>
+
+  <p>Predict the output before running this code.</p>
+
+  <pre>
+x = 12
+y = 5
+
+print(x % y)
+print(x > y)
+print(x == 10 or y == 5)
+  </pre>
+
+  <button class="button complete-btn" data-lesson="7">
+    Mark Lesson Complete ✓
+  </button>
+</article>
+<article class="lesson" id="lesson8">
+  <h3>Lesson 8: Python Strings</h3>
+
+  <p>
+    A <strong>string</strong> is a sequence of characters used to represent
+    text. A string can contain letters, numbers, spaces, and symbols.
+  </p>
+
+  <h4>1. Creating strings</h4>
+
+  <pre>
+name = "Gidy"
+subject = 'Pharmacy'
+message = "I am learning Python!"
+
+print(name)
+print(subject)
+print(message)
+  </pre>
+
+  <p>
+    You can create strings using single quotation marks or double quotation
+    marks. Make sure the opening and closing quotation marks match.
+  </p>
+
+  <h4>2. Combining strings</h4>
+
+  <p>Use the <code>+</code> operator to join strings together.</p>
+
+  <pre>
+first_name = "Gidy"
+last_name = "Nega"
+
+full_name = first_name + " " + last_name
+
+print(full_name)
+  </pre>
+
+  <p><strong>Output:</strong></p>
+
+  <pre>Gidy Nega</pre>
+
+  <div class="note">
+    <strong>Remember:</strong> The space inside <code>" "</code> creates
+    a space between the two names.
+  </div>
+
+  <h4>3. Finding the length of a string</h4>
+
+  <p>
+    The <code>len()</code> function counts the characters in a string,
+    including spaces and punctuation.
+  </p>
+
+  <pre>
+word = "Python"
+
+print(len(word))
+  </pre>
+
+  <p><strong>Output:</strong></p>
+
+  <pre>6</pre>
+
+  <h4>4. Accessing characters with indexing</h4>
+
+  <p>
+    Each character has an index. Python starts counting from index
+    <code>0</code>, not <code>1</code>.
+  </p>
+
+  <pre>
+word = "Python"
+
+print(word[0])  # P
+print(word[1])  # y
+print(word[2])  # t
+print(word[-1]) # n
+  </pre>
+
+  <p>
+    Positive indexing starts from the left. Negative indexing starts
+    from the right, so <code>word[-1]</code> accesses the last character.
+  </p>
+
+  <h4>5. String slicing</h4>
+
+  <p>
+    Slicing extracts part of a string. The ending index is excluded.
+  </p>
+
+  <pre>
+word = "Python"
+
+print(word[0:2])  # Py
+print(word[2:5])  # tho
+print(word[:3])   # Pyt
+print(word[3:])   # hon
+  </pre>
+
+  <div class="note">
+    <strong>Easy rule:</strong> In <code>word[0:2]</code>, Python starts
+    at index 0 and stops before index 2.
+  </div>
+
+  <h4>6. Useful string methods</h4>
+
+  <pre>
+text = "  Hello Python  "
+
+print(text.upper())
+print(text.lower())
+print(text.strip())
+print(text.replace("Python", "World"))
+
+word = "pharmacy student"
+print(word.title())
+  </pre>
+
+  <p><strong>What these methods do:</strong></p>
+
+  <ul>
+    <li><code>upper()</code> converts letters to uppercase.</li>
+    <li><code>lower()</code> converts letters to lowercase.</li>
+    <li><code>strip()</code> removes whitespace from the beginning and end.</li>
+    <li><code>replace()</code> replaces matching text.</li>
+    <li><code>title()</code> capitalizes the beginning of each word.</li>
+  </ul>
+
+  <h4>7. Checking whether text exists</h4>
+
+  <pre>
+message = "I am learning Python"
+
+print("Python" in message)
+print("Java" in message)
+  </pre>
+
+  <p><strong>Output:</strong></p>
+
+  <pre>
+True
+False
+  </pre>
+
+  <p>
+    The <code>in</code> operator checks whether a substring appears
+    in another string. String matching is case-sensitive.
+  </p>
+
+  <h4>8. Using f-strings</h4>
+
+  <p>
+    An f-string allows you to insert variable values directly into text.
+  </p>
+
+  <pre>
+name = "Gidy"
+subject = "Python"
+
+print(f"My name is {name}.")
+print(f"I am learning {subject}.")
+  </pre>
+
+  <p><strong>Output:</strong></p>
+
+  <pre>
+My name is Gidy.
+I am learning Python.
+  </pre>
+
+  <h4>9. Real-life example</h4>
+
+  <p>Let's create a simple student introduction.</p>
+
+  <pre>
+name = "Gidy Nega"
+field = "Pharmacy"
+goal = "professional programmer"
+
+print(f"My name is {name}.")
+print(f"I study {field}.")
+print(f"My goal is to become a {goal}.")
+  </pre>
+
+  <h4>🧠 Practice challenge</h4>
+
+  <p>Predict the output before running the code.</p>
+
+  <pre>
+word = "PROGRAMMING"
+
+print(len(word))
+print(word[0])
+print(word[-1])
+print(word[0:4])
+print(word.lower())
+  </pre>
+
+  <p>
+    <strong>Challenge questions:</strong>
+  </p>
+
+  <ol>
+    <li>How many characters are in <code>"PROGRAMMING"</code>?</li>
+    <li>What does <code>word[0]</code> display?</li>
+    <li>What does <code>word[-1]</code> display?</li>
+    <li>Why does <code>word[0:4]</code> return four characters?</li>
+    <li>What is the difference between <code>upper()</code> and <code>lower()</code>?</li>
+  </ol>
+
+  <button class="button complete-btn" data-lesson="8">
+    Mark Lesson Complete ✓
+  </button>
+</article>
     </section>
 
     <section class="section" id="quiz">
