@@ -1497,4 +1497,101 @@ print(len(fruits))</code></pre>
     <div id="quizResult" class="feedback"></div>
     <button type="submit" class="button">Check My Answers</button>
 </form>
+<script>
+const correctAnswers = {
+  q1: "b",
+  q2: "c",
+  q3: "a",
+  q4: "b",
+  q5: "b",
+  q6: "b",
+  q7: "a",
+  q8: "b",
+  q9: "c",
+  q10: "b"
+};
+
+const explanations = {
+  q1: "print() displays output.",
+  q2: "age = 25 assigns 25 to age.",
+  q3: "The = symbol assigns a value.",
+  q4: "input() returns a string by default.",
+  q5: "45 is less than 50, so the answer is Try again.",
+  q6: "range(2, 5) produces 2, 3, and 4.",
+  q7: "Multiplication comes first: 7 + 6 = 13.",
+  q8: "word[-2] is the second-to-last character: o.",
+  q9: "10 % 3 returns the remainder, which is 1.",
+  q10: "Mango is the last item, and the list has 3 items."
+};
+
+const form = document.getElementById("quizForm");
+
+if (form) {
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let score = 0;
+    let unanswered = 0;
+
+    for (let i = 1; i <= 10; i++) {
+      const question = "q" + i;
+      const selected = form.querySelector(
+        'input[name="' + question + '"]:checked'
+      );
+
+      const feedback = document.getElementById("feedback" + i);
+
+      if (!selected) {
+        unanswered++;
+
+        if (feedback) {
+          feedback.textContent = "Please select an answer.";
+          feedback.style.color = "orange";
+        }
+
+        continue;
+      }
+
+      if (selected.value === correctAnswers[question]) {
+        score++;
+
+        if (feedback) {
+          feedback.textContent =
+            "Correct! " + explanations[question];
+          feedback.style.color = "lightgreen";
+        }
+      } else {
+        if (feedback) {
+          feedback.textContent =
+            "Incorrect. " + explanations[question];
+          feedback.style.color = "salmon";
+        }
+      }
+    }
+
+    const result = document.getElementById("quizResult");
+
+    if (result) {
+      if (unanswered > 0) {
+        result.textContent =
+          "You answered " + (10 - unanswered) +
+          " of 10 questions. Please answer the remaining questions.";
+      } else {
+        result.textContent =
+          "Your score: " + score + "/10 (" +
+          (score * 10) + "%). " +
+          (score >= 7
+            ? "Great work! Keep learning!"
+            : "Keep practicing and review your lessons!");
+      }
+
+      result.style.fontWeight = "bold";
+      result.style.marginTop = "20px";
+    }
+  });
+}
+</script>
+
+</body>
+</html>
         
