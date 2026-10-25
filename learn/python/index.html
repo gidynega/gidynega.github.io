@@ -1,177 +1,803 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Learn Python | Gidy Nega</title>
+  <title>Python Academy | Gidy Nega</title>
+  <meta name="description" content="Learn Python programming from zero with simple lessons, examples, quizzes, and coding challenges.">
+  <meta name="theme-color" content="#090914">
 
-    <meta name="description"
-          content="Learn Python programming with simple lessons, practice exercises, notes, and learning resources from Gidy Nega.">
+  <style>
+    :root {
+      --bg: #090914;
+      --card: #131326;
+      --card2: #191932;
+      --text: #f5f5ff;
+      --muted: #aaaac5;
+      --purple: #a855f7;
+      --cyan: #22d3ee;
+      --pink: #f472b6;
+      --border: #30304e;
+      --green: #4ade80;
+    }
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            margin: 0;
-            padding: 25px 16px;
-            background: #0b0b18;
-            color: #f5f3ff;
-            font-family: Arial, sans-serif;
-            line-height: 1.7;
-        }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
 
-        .container {
-            max-width: 850px;
-            margin: auto;
-        }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
 
-        .hero {
-            padding: 30px 20px;
-            text-align: center;
-            border: 1px solid #514080;
-            border-radius: 20px;
-            background: linear-gradient(145deg, #17152e, #24143b);
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        h1 {
-            color: #c4b5fd;
-            font-size: clamp(28px, 6vw, 42px);
-        }
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
 
-        h2 {
-            color: #22d3ee;
-            margin-top: 35px;
-        }
+    button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 4px;
+    }
 
-        .card {
-            margin-top: 20px;
-            padding: 20px;
-            background: #151529;
-            border: 1px solid #393568;
-            border-radius: 15px;
-        }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(9, 9, 20, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
 
-        .button {
-            display: inline-block;
-            margin-top: 12px;
-            padding: 10px 16px;
-            border-radius: 10px;
-            background: linear-gradient(90deg, #7c3aed, #2563eb);
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    .brand {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--cyan);
+    }
 
-        .button:hover {
-            box-shadow: 0 0 15px #8b5cf688;
-        }
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
 
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #67e8f9;
-        }
+    .navlinks a {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
 
-        footer {
-            margin-top: 40px;
-            text-align: center;
-            color: #b9b9d8;
-        }
-    </style>
+    .navlinks a:hover {
+      color: var(--cyan);
+    }
+
+    .menu-button {
+      display: none;
+      padding: 7px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card);
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 75px 6% 55px;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at top, #29204d 0%, transparent 65%);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 5px 13px;
+      border: 1px solid #7542a6;
+      border-radius: 30px;
+      color: var(--cyan);
+      font-size: 0.8rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 7vw, 4.5rem);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, var(--cyan), var(--purple), var(--pink));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto 25px;
+      color: var(--muted);
+    }
+
+    .button {
+      display: inline-block;
+      padding: 11px 19px;
+      margin: 5px;
+      border-radius: 10px;
+      border: 1px solid var(--purple);
+      background: linear-gradient(120deg, #7c3aed, #a855f7);
+      color: white;
+      font-weight: bold;
+      transition: transform 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.secondary {
+      background: transparent;
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: auto;
+      padding: 25px 5% 60px;
+    }
+
+    .section {
+      margin-top: 55px;
+    }
+
+    .section-heading {
+      margin-bottom: 20px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      margin-bottom: 5px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 23px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .card:hover {
+      border-color: var(--purple);
+      transform: translateY(-3px);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-bottom: 14px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 3px 9px;
+      margin: 3px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--cyan);
+      font-size: 0.75rem;
+    }
+
+    .progress-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 22px;
+      border-radius: 15px;
+    }
+
+    .progress-track {
+      height: 12px;
+      border-radius: 20px;
+      background: #292943;
+      overflow: hidden;
+      margin: 12px 0;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--purple), var(--cyan));
+      transition: width 0.3s;
+    }
+
+    .lesson {
+      scroll-margin-top: 90px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: clamp(18px, 4vw, 30px);
+      margin-top: 22px;
+    }
+
+    .lesson h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    .lesson h4 {
+      margin: 20px 0 8px;
+      color: var(--cyan);
+    }
+
+    .lesson p {
+      margin-bottom: 12px;
+      color: #d4d4e8;
+    }
+
+    .lesson ul,
+    .lesson ol {
+      padding-left: 24px;
+      margin: 10px 0 18px;
+      color: #d4d4e8;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      background: #070710;
+      border: 1px solid #292943;
+      border-left: 4px solid var(--purple);
+      padding: 17px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 12px 0;
+      color: #a5f3fc;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 0.9rem;
+    }
+
+    code {
+      font-family: Consolas, Monaco, monospace;
+      color: var(--cyan);
+    }
+
+    .note {
+      background: #1a1733;
+      border-left: 4px solid var(--pink);
+      padding: 14px;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+
+    .quiz-question {
+      padding: 17px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .quiz-question p {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .quiz-question label {
+      display: block;
+      padding: 7px 10px;
+      margin: 5px 0;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .quiz-question label:hover {
+      border-color: var(--purple);
+      background: var(--card2);
+    }
+
+    input[type="radio"] {
+      margin-right: 8px;
+      accent-color: var(--purple);
+    }
+
+    .feedback {
+      margin-top: 12px;
+      font-weight: bold;
+    }
+
+    .success {
+      color: var(--green);
+    }
+
+    .error {
+      color: #fb7185;
+    }
+
+    .challenge-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 22px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 130px;
+      resize: vertical;
+      background: #070710;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      margin: 12px 0;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 0.95rem;
+    }
+
+    .output {
+      background: #070710;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      min-height: 48px;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 5%;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--cyan);
+    }
+
+    @media (max-width: 700px) {
+      .navbar {
+        flex-wrap: wrap;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .navlinks {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 0;
+      }
+
+      .navlinks.open {
+        display: flex;
+      }
+
+      .hero {
+        padding-top: 55px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <main class="container">
 
-        <a class="back-link" href="../../index.html">
-            ← Back to my website
-        </a>
+  <nav class="navbar">
+    <a class="brand" href="#home">🐍 Python Academy</a>
 
-        <header class="hero">
-            <p>GIDY NEGA'S LEARNING HUB</p>
-            <h1>🐍 Learn Python</h1>
+    <button
+      class="menu-button"
+      id="menuButton"
+      aria-expanded="false"
+      aria-controls="navlinks">
+      Menu ☰
+    </button>
 
-            <p>
-                Start from the basics, practice your skills,
-                and grow into a confident programmer.
-            </p>
-        </header>
+    <div class="navlinks" id="navlinks">
+      <a href="#home">Home</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#lessons">Lessons</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#challenge">Challenge</a>
+      <a href="https://gidynega.github.io/">Main Website</a>
+    </div>
+  </nav>
 
-        <section>
-            <h2>📚 Lessons</h2>
+  <header class="hero" id="home">
+    <span class="badge">GIDY NEGA • PROGRAMMING EDUCATION</span>
 
-            <article class="card">
-                <h3>Lesson 1: Introduction to Python</h3>
+    <h1>
+      Learn Python.<br>
+      <span class="gradient">Build Your Future.</span>
+    </h1>
 
-                <p>
-                    Discover what Python is, where it is used,
-                    and why people learn it.
-                </p>
+    <p>
+      Start from zero and become a confident programmer.
+      Learn concepts step by step, explore practical examples,
+      test your knowledge, and build real projects.
+    </p>
 
-                <span>Coming soon</span>
-            </article>
+    <a class="button" href="#lessons">Start Learning →</a>
+    <a class="button secondary" href="#quiz">Test Your Knowledge</a>
+  </header>
 
-            <article class="card">
-                <h3>Lesson 2: Variables and Data Types</h3>
+  <main class="container">
 
-                <p>
-                    Learn how to store information and work
-                    with strings, numbers, and Boolean values.
-                </p>
+    <section class="section" id="progress">
+      <div class="section-heading">
+        <h2>📊 Your Learning Progress</h2>
+        <p>Your completed lessons are saved in this browser on this device.</p>
+      </div>
 
-                <span>Coming soon</span>
-            </article>
+      <div class="progress-box">
+        <strong id="progressText">0 of 6 lessons completed</strong>
 
-            <article class="card">
-                <h3>Lesson 3: Conditions and Loops</h3>
+        <div
+          class="progress-track"
+          role="progressbar"
+          aria-label="Lesson completion"
+          aria-valuemin="0"
+          aria-valuemax="6"
+          aria-valuenow="0"
+          id="progressBar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
 
-                <p>
-                    Learn how programs make decisions and
-                    repeat instructions.
-                </p>
+        <span class="small" id="progressMessage">
+          Your programming journey starts here!
+        </span>
+      </div>
+    </section>
 
-                <span>Coming soon</span>
-            </article>
-        </section>
+    <section class="section" id="roadmap">
+      <div class="section-heading">
+        <h2>🗺️ Your Python Roadmap</h2>
+        <p>Follow the learning path in order, from the basics to practical programming.</p>
+      </div>
 
-        <section>
-            <h2>📄 Notes and Downloads</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="card-icon">🌱</div>
+          <h3>Level 1: Beginner</h3>
+          <p>Understand Python, print statements, variables, data types, input, and conditions.</p>
+          <span class="tag">Start here</span>
+        </article>
 
-            <article class="card">
-                <h3>Python Study Notes</h3>
+        <article class="card">
+          <div class="card-icon">🚀</div>
+          <h3>Level 2: Intermediate</h3>
+          <p>Learn loops, lists, dictionaries, functions, errors, and reusable code.</p>
+          <span class="tag">Build skills</span>
+        </article>
 
-                <p>
-                    Study notes and downloadable learning
-                    materials will appear here.
-                </p>
+        <article class="card">
+          <div class="card-icon">🏆</div>
+          <h3>Level 3: Advanced</h3>
+          <p>Explore object-oriented programming, files, modules, APIs, and larger projects.</p>
+          <span class="tag">Build projects</span>
+        </article>
+      </div>
+    </section>
 
-                <span>Materials coming soon</span>
-            </article>
-        </section>
+    <section class="section" id="lessons">
+      <div class="section-heading">
+        <h2>📚 Python Lessons</h2>
+        <p>Study each lesson and mark it complete when you understand it.</p>
+      </div>
 
-        <section>
-            <h2>💻 Practice and Challenges</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="card-icon">🐍</div>
+          <h3>Lesson 1: Introduction</h3>
+          <p>What Python is, why programmers use it, and how code runs.</p>
+          <a class="button secondary" href="#lesson1">Study Lesson →</a>
+        </article>
 
-            <article class="card">
-                <h3>Test Your Knowledge</h3>
+        <article class="card">
+          <div class="card-icon">📦</div>
+          <h3>Lesson 2: Variables</h3>
+          <p>Store and use information in your programs.</p>
+          <a class="button secondary" href="#lesson2">Study Lesson →</a>
+        </article>
 
-                <p>
-                    Practice programming problems and
-                    test your understanding of Python.
-                </p>
+        <article class="card">
+          <div class="card-icon">🔤</div>
+          <h3>Lesson 3: Data Types</h3>
+          <p>Understand strings, integers, floats, and booleans.</p>
+          <a class="button secondary" href="#lesson3">Study Lesson →</a>
+        </article>
 
-                <span>Exercises coming soon</span>
-            </article>
-        </section>
+        <article class="card">
+          <div class="card-icon">⌨️</div>
+          <h3>Lesson 4: Input and Output</h3>
+          <p>Display results and receive information from users.</p>
+          <a class="button secondary" href="#lesson4">Study Lesson →</a>
+        </article>
 
-        <footer>
-            <p>Learn • Practice • Create • Share 🚀</p>
-            <p>© Gidy Nega</p>
-        </footer>
+        <article class="card">
+          <div class="card-icon">🔀</div>
+          <h3>Lesson 5: Conditions</h3>
+          <p>Make decisions with if, elif, and else.</p>
+          <a class="button secondary" href="#lesson5">Study Lesson →</a>
+        </article>
 
-    </main>
-</body>
-</html>
+        <article class="card">
+          <div class="card-icon">🔁</div>
+          <h3>Lesson 6: Loops</h3>
+          <p>Repeat actions using for and while loops.</p>
+          <a class="button secondary" href="#lesson6">Study Lesson →</a>
+        </article>
+      </div>
+
+      <article class="lesson" id="lesson1">
+        <h3>Lesson 1: Introduction to Python</h3>
+
+        <p>
+          <strong>Python</strong> is a programming language that allows
+          us to give instructions to computers. It is used in web development,
+          automation, data analysis, artificial intelligence, and more.
+        </p>
+
+        <h4>Your first Python program</h4>
+
+        <pre>print("Hello, World!")
+print("My name is Gidy")
+print("I am learning Python")</pre>
+
+        <h4>How does it work?</h4>
+
+        <ul>
+          <li><code>print()</code> tells Python to display something.</li>
+          <li>Text is placed inside quotation marks.</li>
+          <li>Each line is a separate instruction.</li>
+        </ul>
+
+        <div class="note">
+          <strong>Remember:</strong> Python code must follow its syntax rules.
+          For example, quotation marks must be properly opened and closed.
+        </div>
+
+        <button class="button complete-btn" data-lesson="1">
+          Mark Lesson Complete ✓
+        </button>
+      </article>
+
+      <article class="lesson" id="lesson2">
+        <h3>Lesson 2: Variables</h3>
+
+        <p>
+          A variable is a name used to refer to a value.
+          Think of it as a labelled container for information.
+        </p>
+
+        <pre>name = "Gidy"
+age = 22
+subject = "Pharmacy"
+
+print(name)
+print(age)
+print(subject)</pre>
+
+        <h4>Understand each part</h4>
+
+        <ul>
+          <li><code>name</code> is the variable's name.</li>
+          <li><code>=</code> assigns the value to the variable.</li>
+          <li><code>"Gidy"</code> is the value stored in the variable.</li>
+          <li><code>print(name)</code> displays the value of the variable.</li>
+        </ul>
+
+        <div class="note">
+          <strong>Important:</strong> <code>name = "Gidy"</code> stores text.
+          But <code>age = 22</code> stores a whole number.
+        </div>
+
+        <button class="button complete-btn" data-lesson="2">
+          Mark Lesson Complete ✓
+        </button>
+      </article>
+
+      <article class="lesson" id="lesson3">
+        <h3>Lesson 3: Python Data Types</h3>
+
+        <p>A data type tells Python what kind of value you are working with.</p>
+
+        <pre>name = "Gidy"       # str: text
+age = 22            # int: whole number
+height = 1.75       # float: decimal number
+is_student = True   # bool: True or False
+
+print(type(name))
+print(type(age))
+print(type(height))
+print(type(is_student))</pre>
+
+        <h4>The four basic types</h4>
+
+        <ul>
+          <li><code>str</code>: text, such as <code>"Python"</code>.</li>
+          <li><code>int</code>: whole numbers, such as <code>25</code>.</li>
+          <li><code>float</code>: decimal numbers, such as <code>3.14</code>.</li>
+          <li><code>bool</code>: either <code>True</code> or <code>False</code>.</li>
+        </ul>
+
+        <button class="button complete-btn" data-lesson="3">
+          Mark Lesson Complete ✓
+        </button>
+      </article>
+
+      <article class="lesson" id="lesson4">
+        <h3>Lesson 4: Input and Output</h3>
+
+        <p>
+          Use <code>print()</code> to display information and
+          <code>input()</code> to receive information from a user.
+        </p>
+
+        <pre>name = input("Enter your name: ")
+print("Welcome,", name)</pre>
+
+        <h4>Important: input returns text</h4>
+
+        <p>
+          If you ask for a number, convert the input when you need to
+          perform arithmetic.
+        </p>
+
+        <pre>age = int(input("Enter your age: "))
+next_year = age + 1
+
+print("Next year you will be:", next_year)</pre>
+
+        <button class="button complete-btn" data-lesson="4">
+          Mark Lesson Complete ✓
+        </button>
+      </article>
+
+      <article class="lesson" id="lesson5">
+        <h3>Lesson 5: Conditions</h3>
+
+        <p>
+          Conditions allow your program to make decisions.
+          Python uses <code>if</code>, <code>elif</code>, and <code>else</code>.
+        </p>
+
+        <pre>mark = 75
+
+if mark >= 80:
+    print("Excellent")
+elif mark >= 50:
+    print("Pass")
+else:
+    print("Fail")</pre>
+
+        <h4>How the example works</h4>
+
+        <ul>
+          <li>If the mark is at least 80, print "Excellent".</li>
+          <li>Otherwise, if the mark is at least 50, print "Pass".</li>
+          <li>If neither condition is true, print "Fail".</li>
+        </ul>
+
+        <div class="note">
+          <strong>Remember:</strong> The order matters.
+          Python checks conditions from top to bottom and executes the first
+          matching branch.
+        </div>
+
+        <button class="button complete-btn" data-lesson="5">
+          Mark Lesson Complete ✓
+        </button>
+      </article>
+
+      <article class="lesson" id="lesson6">
+        <h3>Lesson 6: Loops</h3>
+
+        <p>
+          A loop repeats instructions. A <code>for</code> loop is useful
+          when going through a sequence or repeating a known number of times.
+        </p>
+
+        <pre>for number in range(1, 6):
+    print(number)</pre>
+
+        <p>The output is:</p>
+
+        <pre>1
+2
+3
+4
+5</pre>
+
+        <p>
+          <code>range(1, 6)</code> starts at 1 and stops before 6.
+          That is why the number 6 is not printed.
+        </p>
+
+        <h4>A loop with a list</h4>
+
+        <pre>subjects = ["Python", "Pharmacy", "AI"]
+
+for subject in subjects:
+    print(subject)</pre>
+
+        <button class="button complete-btn" data-lesson="6">
+          Mark Lesson Complete ✓
+        </button>
+      </article>
+    </section>
+
+    <section class="section" id="quiz">
+      <div class="section-heading">
+        <h2>🧠 Test Your Knowledge</h2>
+        <p>Answer all five questions, then check your score.</p>
+      </div>
+
+      <form class="card" id="quizForm">
+
+        <div class="quiz-question">
+          <p>1. Which function displays output in Python?</p>
+          <label><input type="radio" name="q1" value="a"> input()</label>
+          <label><input type="radio" name="q1" value="b"> print()</label>
+          <label><input type="radio" name="q1" value="c"> type()</label>
+          <div class="feedback" id="feedback1" aria-live="polite"></div>
+        </div>
+
+        <div class="quiz-question">
+          <p>2. Which data type stores whole numbers?</p>
+          <label><input type="radio" name="q2" value="a"> str</label>
+          <label><input type="radio" name="q2" value="b"> float</label>
+          <label><input type="radio" name="q2" value="c"> int</label>
+          <div class="feedback" id="feedback2" aria-live="polite"></div>
+        </div>
+
+        <div class="quiz-question">
+          <p>3. Which symbol assigns a value to a variable?</p>
+          <label><input type="radio" name="q3" value="a"> =</label>
+          <label><input type="radio" name="q3" value="b"> ==</label>
+          <label><input type="radio" name="q3" value="c"> !=</label>
+        
