@@ -1098,6 +1098,282 @@ print(word.lower())
     Mark Lesson Complete ✓
   </button>
 </article>
+<article class="lesson" id="lesson9">
+  <h3>Lesson 9: Python Lists</h3>
+
+  <p>
+    A <strong>list</strong> is a collection that stores multiple items
+    in a single variable. Lists are ordered, changeable, and allow duplicate
+    values.
+  </p>
+
+  <h4>1. Creating a list</h4>
+
+  <pre>
+subjects = ["Python", "Pharmacy", "AI"]
+
+print(subjects)
+  </pre>
+
+  <p><strong>Output:</strong></p>
+
+  <pre>['Python', 'Pharmacy', 'AI']</pre>
+
+  <p>
+    Lists use square brackets <code>[]</code>, and commas separate the items.
+  </p>
+
+  <h4>2. Lists can store different data types</h4>
+
+  <pre>
+student = ["Gidy", 22, 3.75, True]
+
+print(student)
+  </pre>
+
+  <p>
+    This list contains a string, an integer, a float, and a Boolean value.
+    In most programs, using a consistent structure makes data easier to manage.
+  </p>
+
+  <h4>3. Accessing list items</h4>
+
+  <p>
+    Python uses indexing to access items. The first item has index 0.
+  </p>
+
+  <pre>
+animals = ["Dog", "Cat", "Fish"]
+
+print(animals[0])   # Dog
+print(animals[1])   # Cat
+print(animals[2])   # Fish
+print(animals[-1])  # Fish
+  </pre>
+
+  <div class="note">
+    <strong>Remember:</strong> Indexing starts at 0. Negative index -1
+    refers to the last item.
+  </div>
+
+  <h4>4. Finding the number of items</h4>
+
+  <pre>
+animals = ["Dog", "Cat", "Fish"]
+
+print(len(animals))
+  </pre>
+
+  <p><strong>Output:</strong> 3</p>
+
+  <p>The <code>len()</code> function returns the number of items in a list.</p>
+
+  <h4>5. Changing a list item</h4>
+
+  <p>Lists are mutable, meaning you can change their items.</p>
+
+  <pre>
+animals = ["Dog", "Cat", "Fish"]
+
+animals[1] = "Lion"
+
+print(animals)
+  </pre>
+
+  <p><strong>Output:</strong></p>
+
+  <pre>['Dog', 'Lion', 'Fish']</pre>
+
+  <h4>6. Adding items to a list</h4>
+
+  <pre>
+subjects = ["Python", "Pharmacy"]
+
+subjects.append("AI")
+print(subjects)
+
+subjects.insert(1, "Biology")
+print(subjects)
+  </pre>
+
+  <p><strong>Explanation:</strong></p>
+
+  <ul>
+    <li><code>append(item)</code> adds an item to the end.</li>
+    <li><code>insert(index, item)</code> adds an item at a chosen position.</li>
+  </ul>
+
+  <h4>7. Removing items</h4>
+
+  <pre>
+animals = ["Dog", "Cat", "Fish", "Cat"]
+
+animals.remove("Cat")
+print(animals)
+
+last_animal = animals.pop()
+print(last_animal)
+print(animals)
+  </pre>
+
+  <p><strong>Explanation:</strong></p>
+
+  <ul>
+    <li><code>remove(value)</code> removes the first matching value.</li>
+    <li><code>pop()</code> removes and returns the last item by default.</li>
+    <li><code>pop(index)</code> removes and returns an item at a specified index.</li>
+    <li><code>del</code> can delete an item or a slice.</li>
+    <li><code>clear()</code> removes all items.</li>
+  </ul>
+
+  <h4>8. Slicing a list</h4>
+
+  <p>
+    Slicing extracts part of a list. The ending index is excluded.
+  </p>
+
+  <pre>
+numbers = [10, 20, 30, 40, 50]
+
+print(numbers[0:3])
+print(numbers[2:])
+print(numbers[:2])
+print(numbers[-2:])
+  </pre>
+
+  <p><strong>Output:</strong></p>
+
+  <pre>
+[10, 20, 30]
+[30, 40, 50]
+[10, 20]
+[40, 50]
+  </pre>
+
+  <h4>9. Looping through a list</h4>
+
+  <p>A loop lets you process each item in a list.</p>
+
+  <pre>
+subjects = ["Python", "Pharmacy", "AI"]
+
+for subject in subjects:
+    print(subject)
+  </pre>
+
+  <p><strong>Output:</strong></p>
+
+  <pre>
+Python
+Pharmacy
+AI
+  </pre>
+
+  <h4>10. Checking whether an item exists</h4>
+
+  <pre>
+subjects = ["Python", "Pharmacy", "AI"]
+
+print("Python" in subjects)
+print("Java" in subjects)
+  </pre>
+
+  <p><strong>Output:</strong></p>
+
+  <pre>
+True
+False
+  </pre>
+
+  <h4>11. Sorting a list</h4>
+
+  <pre>
+numbers = [5, 2, 9, 1, 7]
+
+numbers.sort()
+print(numbers)
+
+numbers.sort(reverse=True)
+print(numbers)
+  </pre>
+
+  <p>
+    <code>sort()</code> sorts the list in place. By default, it sorts
+    numbers in ascending order. With <code>reverse=True</code>, it sorts
+    them in descending order.
+  </p>
+
+  <h4>12. A practical student example</h4>
+
+  <p>Imagine keeping track of student marks.</p>
+
+  <pre>
+marks = [75, 82, 68, 90, 55]
+
+print("Number of students:", len(marks))
+print("First student's mark:", marks[0])
+
+marks.append(88)
+
+average = sum(marks) / len(marks)
+
+print("Updated marks:", marks)
+print("Average mark:", average)
+  </pre>
+
+  <p>
+    Here, <code>sum()</code> adds the marks, and <code>len()</code>
+    counts them. Dividing the total by the count calculates the average.
+  </p>
+
+  <h4>13. Common mistakes</h4>
+
+  <ul>
+    <li>
+      <strong>IndexError:</strong> Trying to access an index that does
+      not exist, such as <code>animals[5]</code> in a three-item list.
+    </li>
+    <li>
+      <strong>Wrong brackets:</strong> Lists use square brackets
+      <code>[]</code> for indexing.
+    </li>
+    <li>
+      <strong>Confusing append and extend:</strong>
+      <code>append([3, 4])</code> adds one list as a single item,
+      while <code>extend([3, 4])</code> adds its items individually.
+    </li>
+  </ul>
+
+  <h4>🧠 Practice challenge</h4>
+
+  <p>Predict the output before running this code.</p>
+
+  <pre>
+fruits = ["Apple", "Banana", "Mango"]
+
+fruits.append("Orange")
+fruits[1] = "Grape"
+
+print(fruits)
+print(fruits[0])
+print(fruits[-1])
+print(len(fruits))
+  </pre>
+
+  <p><strong>Challenge questions:</strong></p>
+
+  <ol>
+    <li>What is the final list?</li>
+    <li>What does <code>fruits[0]</code> display?</li>
+    <li>What does <code>fruits[-1]</code> display?</li>
+    <li>How many items are in the list?</li>
+    <li>What is the difference between <code>append()</code> and <code>insert()</code>?</li>
+  </ol>
+
+  <button class="button complete-btn" data-lesson="9">
+    Mark Lesson Complete ✓
+  </button>
+</article>
     </section>
 
     <section class="section" id="quiz">
