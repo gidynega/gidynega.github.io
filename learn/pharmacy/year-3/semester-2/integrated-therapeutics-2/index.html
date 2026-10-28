@@ -1,0 +1,424 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Integrated Therapeutics II, Phar3163. Pharmacy Education learning resources by Gidy Nega.">
+  <title>Integrated Therapeutics II | Gidy Nega</title>  <style>
+    :root {
+      --bg: #0b0b18;
+      --card: #17172b;
+      --pink: #ff55c8;
+      --blue: #8187ff;
+      --cyan: #65eee4;
+      --text: #f5f5ff;
+      --muted: #b9bad1;
+      --border: rgba(255,255,255,0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(11,11,24,0.94);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 1.15rem;
+      font-weight: bold;
+      background: linear-gradient(90deg, var(--pink), var(--cyan));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .back {
+      color: var(--cyan);
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 65px 0 45px;
+      background:
+        radial-gradient(circle at top left, rgba(255,85,200,0.13), transparent 38%),
+        radial-gradient(circle at bottom right, rgba(101,238,228,0.10), transparent 35%);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border: 1px solid rgba(101,238,228,0.35);
+      border-radius: 30px;
+      color: var(--cyan);
+      font-size: 0.85rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      line-height: 1.2;
+      margin-bottom: 18px;
+      background: linear-gradient(90deg, var(--pink), var(--blue), var(--cyan));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto 22px;
+      color: var(--muted);
+    }
+
+    .course-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .info-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-size: 0.92rem;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 11px 18px;
+      margin: 5px;
+      border-radius: 10px;
+      font-weight: bold;
+      background: linear-gradient(90deg, var(--pink), var(--blue));
+      color: #fff;
+      transition: transform 0.25s, opacity 0.25s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      opacity: 0.9;
+    }
+
+    .button.secondary {
+      background: transparent;
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+    }
+
+    section {
+      padding: 35px 0;
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+      color: var(--cyan);
+    }
+
+    .section-intro {
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--blue);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 9px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .resource-section {
+      scroll-margin-top: 20px;
+    }
+
+    .resource-status {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 5px 10px;
+      border-radius: 8px;
+      color: var(--cyan);
+      background: rgba(101,238,228,0.08);
+      font-size: 0.85rem;
+    }
+
+    .notice {
+      border-left: 4px solid var(--pink);
+      background: var(--card);
+      padding: 18px;
+      border-radius: 10px;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 35px;
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--cyan);
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 45px 0 30px;
+      }
+
+      .nav {
+        justify-content: center;
+      }
+
+      .section-title {
+        font-size: 1.45rem;
+      }
+    }
+  </style></head><body>  <header>
+    <div class="container nav">
+      <a class="brand" href="../../../../index.html">
+        Gidy Nega | Pharmacy Education
+      </a>  <a class="back" href="../index.html">
+    ← Back to Year III Semester II
+  </a>
+</div>
+
+  </header>  <main><section class="hero">
+  <div class="container">
+    <span class="badge">PHARMACY EDUCATION • YEAR III</span>
+
+    <h1>Integrated Therapeutics II</h1>
+
+    <p>
+      Welcome to your Integrated Therapeutics II learning space.
+      Organize your lecture materials, strengthen your clinical reasoning,
+      review therapeutic concepts, and prepare for examinations.
+    </p>
+
+    <div class="course-info">
+      <div class="info-item">📚 Course Code: Phar3163</div>
+      <div class="info-item">🎓 Year: III</div>
+      <div class="info-item">📅 Semester: II</div>
+      <div class="info-item">⭐ Credit: 7 ECTS</div>
+    </div>
+
+    <div style="margin-top: 25px;">
+      <a class="button" href="#course-modules">Explore Course</a>
+      <a class="button secondary" href="#practice-quizzes">Practice Quizzes</a>
+    </div>
+  </div>
+</section>
+
+<section id="course-modules">
+  <div class="container">
+    <h2 class="section-title">📖 Course Learning Resources</h2>
+    <p class="section-intro">
+      Select a category to access the learning resources available for this course.
+    </p>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="card-icon">📘</div>
+        <h3>Course Modules</h3>
+        <p>Organized course units and learning materials.</p>
+        <a class="button secondary" href="#modules">Open Modules →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">📊</div>
+        <h3>PowerPoint Slides</h3>
+        <p>Lecture presentations for reviewing key concepts.</p>
+        <a class="button secondary" href="#slides">Open Slides →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">📄</div>
+        <h3>PDF Materials</h3>
+        <p>Course handouts and reference documents.</p>
+        <a class="button secondary" href="#pdfs">Open PDFs →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🎥</div>
+        <h3>Video Lessons</h3>
+        <p>Video explanations for difficult therapeutic concepts.</p>
+        <a class="button secondary" href="#videos">Watch Lessons →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🎧</div>
+        <h3>Audio Lessons</h3>
+        <p>Audio learning resources for revision.</p>
+        <a class="button secondary" href="#audio">Listen to Lessons →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">📝</div>
+        <h3>Short Notes</h3>
+        <p>Concise revision notes for exam preparation.</p>
+        <a class="button secondary" href="#notes">Read Notes →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🧠</div>
+        <h3>Practice Quizzes</h3>
+        <p>Test your knowledge and identify topics for revision.</p>
+        <a class="button secondary" href="#practice-quizzes">Start Practice →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🏆</div>
+        <h3>Exams & Past Papers</h3>
+        <p>Practice examination questions and review your preparation.</p>
+        <a class="button secondary" href="#exams">View Exams →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="modules" class="resource-section">
+  <div class="container">
+    <h2 class="section-title">📘 Course Modules</h2>
+    <p class="section-intro">Course units and organized learning materials.</p>
+    <div class="notice">No course modules have been added yet.</div>
+    <span class="resource-status">Materials coming soon</span>
+  </div>
+</section>
+
+<section id="slides" class="resource-section">
+  <div class="container">
+    <h2 class="section-title">📊 PowerPoint Slides</h2>
+    <p class="section-intro">Lecture presentations for this course.</p>
+    <div class="notice">No PowerPoint slides have been added yet.</div>
+    <span class="resource-status">Materials coming soon</span>
+  </div>
+</section>
+
+<section id="pdfs" class="resource-section">
+  <div class="container">
+    <h2 class="section-title">📄 PDF Materials</h2>
+    <p class="section-intro">Course handouts and reference documents.</p>
+    <div class="notice">No PDF materials have been added yet.</div>
+    <span class="resource-status">Materials coming soon</span>
+  </div>
+</section>
+
+<section id="videos" class="resource-section">
+  <div class="container">
+    <h2 class="section-title">🎥 Video Lessons</h2>
+    <p class="section-intro">Video explanations and tutorials.</p>
+    <div class="notice">No video lessons have been added yet.</div>
+    <span class="resource-status">Materials coming soon</span>
+  </div>
+</section>
+
+<section id="audio" class="resource-section">
+  <div class="container">
+    <h2 class="section-title">🎧 Audio Lessons</h2>
+    <p class="section-intro">Audio explanations and revision recordings.</p>
+    <div class="notice">No audio lessons have been added yet.</div>
+    <span class="resource-status">Materials coming soon</span>
+  </div>
+</section>
+
+<section id="notes" class="resource-section">
+  <div class="container">
+    <h2 class="section-title">📝 Short Notes</h2>
+    <p class="section-intro">Concise notes for reviewing important topics.</p>
+    <div class="notice">No short notes have been added yet.</div>
+    <span class="resource-status">Materials coming soon</span>
+  </div>
+</section>
+
+<section id="practice-quizzes" class="resource-section">
+  <div class="container">
+    <h2 class="section-title">🧠 Practice Quizzes</h2>
+    <p class="section-intro">Practice questions to check your understanding.</p>
+    <div class="notice">No practice quizzes have been added yet.</div>
+    <span class="resource-status">Practice questions coming soon</span>
+  </div>
+</section>
+
+<section id="exams" class="resource-section">
+  <div class="container">
+    <h2 class="section-title">🏆 Exams & Past Papers</h2>
+    <p class="section-intro">Examination practice materials, when available.</p>
+    <div class="notice">No examination papers have been added yet.</div>
+    <span class="resource-status">Materials coming soon</span>
+  </div>
+</section>
+
+  </main>  <footer>
+    <div class="container">
+      <p>© 2026 Gidy Nega | Pharmacy Education</p>
+      <p>Learn • Create • Share • Grow</p>
+      <p style="margin-top: 10px;">
+        <a href="../../../../index.html">Visit My Website</a>
+      </p>
+    </div>
+  </footer></body>
+</html>
