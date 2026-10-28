@@ -167,7 +167,7 @@
           <p class="notice">No videos added yet.</p>
         </article>
 
-        <article class="resource" id="audio">
+         <article class="resource" id="audio">
           <h3>🎧 Audio Lessons</h3>
           <p>Audio explanations for revision.</p>
           <p class="notice">No audio lessons added yet.</p>
