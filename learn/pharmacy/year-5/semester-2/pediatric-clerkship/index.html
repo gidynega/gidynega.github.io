@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pediatric Clerkship study resources for Pharmacy students at Jimma University.">
+  <title>Pediatric Clerkship | Gidy Nega</title>
+
+  <style>
+    :root {
+      --bg: #0b0b18;
+      --card: #17172b;
+      --border: #343454;
+      --pink: #ff55c8;
+      --blue: #8187ff;
+      --cyan: #65eee4;
+      --text: #f4f4ff;
+      --muted: #b9bad0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topbar {
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--border);
+      background: rgba(11, 11, 24, 0.96);
+    }
+
+    .brand {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--cyan);
+    }
+
+    .topbar nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .topbar nav a {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .topbar nav a:hover {
+      color: var(--pink);
+    }
+
+    .hero {
+      padding: 65px 6% 45px;
+      text-align: center;
+      background: linear-gradient(
+        135deg,
+        rgba(129, 135, 255, 0.15),
+        rgba(255, 85, 200, 0.10),
+        rgba(101, 238, 228, 0.08)
+      );
+    }
+
+    .hero-icon {
+      font-size: 4rem;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.2;
+      margin-bottom: 18px;
+      background: linear-gradient(90deg, var(--pink), var(--blue), var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: 0 auto 22px;
+      color: var(--muted);
+    }
+
+    .badges {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .badge {
+      border: 1px solid var(--border);
+      background: rgba(23, 23, 43, 0.85);
+      border-radius: 30px;
+      padding: 7px 14px;
+      color: var(--cyan);
+      font-size: 0.88rem;
+    }
+
+    .container {
+      width: min(1100px, 88%);
+      margin: auto;
+    }
+
+    section {
+      padding: 42px 0;
+      scroll-margin-top: 20px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--cyan);
+    }
+
+    .notice {
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--pink);
+      background: var(--card);
+      border-radius: 14px;
+      color: var(--muted);
+    }
+
+    .notice strong {
+      color: var(--text);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 23px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--pink);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 9px 16px;
+      margin-top: 7px;
+      border-radius: 25px;
+      background: linear-gradient(90deg, var(--pink), var(--blue));
+      color: #fff;
+      font-weight: bold;
+      font-size: 0.9rem;
+      transition: opacity 0.2s ease;
+    }
+
+    .button:hover {
+      opacity: 0.85;
+    }
+
+    .button.secondary {
+      background: transparent;
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+    }
+
+    .resource-section {
+      border-top: 1px solid var(--border);
+    }
+
+    .resource-section .card {
+      max-width: 760px;
+    }
+
+    .resource-section .card p {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 6%;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      margin-top: 30px;
+    }
+
+    footer a {
+      color: var(--cyan);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin: 12px 0;
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        padding: 15px 5%;
+      }
+
+      .hero {
+        padding: 45px 5% 35px;
+      }
+
+      .container {
+        width: 90%;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <a class="brand" href="../../../../../index.html">
+      Gidy Nega | Learn, Create, Share & Grow
+    </a>
+
+    <nav>
+      <a href="../../../../../index.html">Home</a>
+      <a href="../index.html">Back to Semester II</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-icon">👶</div>
+
+      <h1>Pediatric Clerkship</h1>
+
+      <p>
+        Welcome to the Pediatric Clerkship learning page. Explore study
+        resources related to pharmaceutical care for infants and children,
+        safe medication use, patient assessment, and collaboration with
+        healthcare professionals.
+      </p>
+
+      <div class="badges">
+        <span class="badge">Course Code: Phar5281</span>
+        <span class="badge">7 ECTS</span>
+        <span class="badge">4 Weeks</span>
+        <span class="badge">Year V · Semester II</span>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <section id="overview">
+        <h2 class="section-title">📘 Course Overview</h2>
+
+        <div class="notice">
+          <p>
+            <strong>About this course:</strong>
+            Pediatric Clerkship is a supervised pharmacy practice rotation
+            focused on applying pharmaceutical knowledge to medication use
+            in infants and children.
+          </p>
+
+          <br>
+
+          <p>
+            Learning areas may include age-appropriate medication use,
+            weight-based dose calculations, medication safety, identifying
+            drug-related problems, monitoring treatment, and communicating
+            with caregivers and healthcare professionals.
+          </p>
+
+          <br>
+
+          <p>
+            <strong>Important:</strong>
+            Use your official Jimma University course materials and follow
+            your clinical supervisor's instructions. Medication decisions
+            for children require careful verification and professional
+            supervision.
+          </p>
+        </div>
+      </section>
+
+      <section id="resources">
+        <h2 class="section-title">📚 Learning Resources</h2>
+
+        <div class="grid">
+
+          <article class="card">
+            <div class="card-icon">📖</div>
+            <h3>Course Modules</h3>
+            <p>Organized topics and learning objectives for the clerkship.</p>
+            <a class="button secondary" href="#modules">Open Modules →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📊</div>
+            <h3>PowerPoint Slides</h3>
+            <p>Presentation materials for reviewing important concepts.</p>
+            <a class="button secondary" href="#slides">Open Slides →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📄</div>
+            <h3>PDF Materials</h3>
+            <p>Downloadable study documents and reference materials.</p>
+            <a class="button secondary" href="#pdfs">Open PDFs →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🎥</div>
+            <h3>Video Lessons</h3>
+            <p>Visual explanations to support your learning.</p>
+            <a class="button secondary" href="#videos">Watch Videos →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🎧</div>
+            <h3>Audio Lessons</h3>
+            <p>Audio-based revision for learning and review.</p>
+            <a class="button secondary" href="#audio">Listen to Audio →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📝</div>
+            <h3>Short Notes</h3>
+            <p>Concise notes for remembering essential concepts.</p>
+            <a class="button secondary" href="#notes">Read Notes →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🧠</div>
+            <h3>Practice Quizzes</h3>
+            <p>Questions to test your understanding of the material.</p>
+            <a class="button secondary" href="#quizzes">Start Quiz →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🎯</div>
+            <h3>Exam Preparation</h3>
+            <p>Revision materials and practice for examinations.</p>
+            <a class="button secondary" href="#exams">Prepare for Exams →</a>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="modules" class="resource-section">
+        <h2 class="section-title">📖 Course Modules</h2>
+
+        <div class="card">
+          <h3>Pediatric Clerkship Modules</h3>
+          <p>
+            Course modules and official learning objectives will be added
+            here when the materials are available.
+          </p>
+          <p><strong>Status:</strong> Materials not added yet.</p>
+        </div>
+      </section>
+
+      <section id="slides" class="resource-section">
+        <h2 class="section-title">📊 PowerPoint Slides</h2>
+
+        <div class="card">
+          <h3>Presentation Materials</h3>
+          <p>
+            Pediatric pharmacy PowerPoint presentations will be listed here.
+          </p>
+          <p><strong>Status:</strong> Slides not added yet.</p>
+        </div>
+      </section>
+
+      <section id="pdfs" class="resource-section">
+        <h2 class="section-title">📄 PDF Materials</h2>
+
+        <div class="card">
+          <h3>PDF Study Documents</h3>
+          <p>
+            Course PDFs, approved reading materials, and study documents
+            will be listed here.
+          </p>
+          <p><strong>Status:</strong> PDFs not added yet.</p>
+        </div>
+      </section>
+
+      <section id="videos" class="resource-section">
+        <h2 class="section-title">🎥 Video Lessons</h2>
+
+        <div class="card">
+          <h3>Video Learning</h3>
+          <p>
+            Relevant video lessons will be added here when available.
+          </p>
+          <p><strong>Status:</strong> Videos not added yet.</p>
+        </div>
+      </section>
+
+      <section id="audio" class="resource-section">
+        <h2 class="section-title">🎧 Audio Lessons</h2>
+
+        <div class="card">
+          <h3>Audio Learning</h3>
+          <p>
+            Audio explanations and revision recordings will be listed here.
+          </p>
+          <p><strong>Status:</strong> Audio lessons not added yet.</p>
+        </div>
+      </section>
+
+      <section id="notes" class="resource-section">
+        <h2 class="section-title">📝 Short Notes</h2>
+
+        <div class="card">
+          <h3>Quick Revision Notes</h3>
+          <p>
+            Concise notes and revision summaries will be added here.
+          </p>
+          <p><strong>Status:</strong> Notes not added yet.</p>
+        </div>
+      </section>
+
+      <section id="quizzes" class="resource-section">
+        <h2 class="section-title">🧠 Practice Quizzes</h2>
+
+        <div class="card">
+          <h3>Test Your Knowledge</h3>
+          <p>
+            Practice questions and interactive quizzes will be added here.
+          </p>
+          <p><strong>Status:</strong> Quizzes not added yet.</p>
+        </div>
+      </section>
+
+      <section id="exams" class="resource-section">
+        <h2 class="section-title">🎯 Exam Preparation</h2>
+
+        <div class="card">
+          <h3>Exam Revision</h3>
+          <p>
+            Practice examinations and revision resources will be added here.
+          </p>
+          <p><strong>Status:</strong> Exam materials not added yet.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <p><strong>Pediatric Clerkship | Phar5281</strong></p>
+
+    <div class="footer-links">
+      <a href="../index.html">Back to Semester II</a>
+      <a href="../../../../../index.html">Main Website</a>
+    </div>
+
+    <p>© 2026 Gidy Nega. Learn, Create, Share & Grow.</p>
+  </footer>
+
+</body>
+</html>
