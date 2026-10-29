@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="Drug Information Service Clerkship learning resources for Pharmacy students.">
+
+  <title>Drug Information Service Clerkship | Gidy Nega</title>
+
+  <style>
+    :root {
+      --bg: #0b0b18;
+      --card: #17172b;
+      --border: #343454;
+      --pink: #ff55c8;
+      --blue: #8187ff;
+      --cyan: #65eee4;
+      --text: #f4f4ff;
+      --muted: #b9bad0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--pink);
+    }
+
+    header {
+      padding: 24px 7%;
+      border-bottom: 1px solid var(--border);
+      background: rgba(11, 11, 24, 0.96);
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .brand {
+      color: var(--pink);
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 65px 7% 45px;
+      text-align: center;
+      background: radial-gradient(
+        circle at top,
+        #29234d 0%,
+        var(--bg) 70%
+      );
+    }
+
+    .hero-icon {
+      font-size: 3.5rem;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      color: var(--pink);
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 750px;
+      margin: 0 auto 12px;
+    }
+
+    .badge {
+      display: inline-block;
+      margin: 8px 5px;
+      padding: 7px 14px;
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      background: var(--card);
+      color: var(--cyan);
+      font-size: 0.9rem;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    section {
+      padding: 35px 0;
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      color: var(--cyan);
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--pink);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      color: var(--pink);
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 9px 15px;
+      border-radius: 8px;
+      background: linear-gradient(100deg, var(--pink), var(--blue));
+      color: #101020;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    .button:hover {
+      color: white;
+      opacity: 0.9;
+    }
+
+    .notice {
+      padding: 20px;
+      background: var(--card);
+      border-left: 4px solid var(--blue);
+      border-radius: 10px;
+      color: var(--muted);
+    }
+
+    .resource-section {
+      scroll-margin-top: 20px;
+    }
+
+    .resource-section .card {
+      min-height: 130px;
+    }
+
+    footer {
+      margin-top: 35px;
+      padding: 30px 7%;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+    }
+
+    footer p {
+      margin: 7px 0;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 20px 5%;
+      }
+
+      .hero {
+        padding: 45px 5% 30px;
+      }
+
+      .container {
+        width: 92%;
+      }
+
+      .section-title {
+        font-size: 1.45rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="topbar">
+      <a class="brand" href="../../../../../index.html">
+        Gidy Nega | Learn & Grow
+      </a>
+
+      <a href="../index.html">← Back to Semester I</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-icon">💊</div>
+
+      <h1>Drug Information Service Clerkship</h1>
+
+      <p>
+        Learn how pharmacists find, evaluate, interpret,
+        and communicate reliable drug information to support
+        safe and effective medication use.
+      </p>
+
+      <span class="badge">Course Code: Phar5272</span>
+      <span class="badge">3 ECTS</span>
+      <span class="badge">Duration: 2 Weeks</span>
+      <span class="badge">Year V · Semester I</span>
+    </section>
+
+    <div class="container">
+
+      <section>
+        <h2 class="section-title">📚 Course Overview</h2>
+
+        <div class="notice">
+          Drug information services help healthcare professionals
+          and patients obtain accurate, relevant, and evidence-based
+          information about medicines.
+
+          <br><br>
+
+          General learning areas may include identifying drug
+          information questions, searching reliable references,
+          evaluating evidence, preparing responses, medication
+          safety, and communicating findings clearly.
+
+          <br><br>
+
+          <strong>Clinical reminder:</strong>
+          Use approved references, protect patient confidentiality,
+          and follow your supervisor's instructions. These are
+          general learning areas, not a verified official syllabus.
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">🗂️ Learning Resources</h2>
+
+        <div class="grid">
+
+          <article class="card">
+            <div class="card-icon">📖</div>
+            <h3>Course Modules</h3>
+            <p>Organize drug information topics and clerkship objectives.</p>
+            <a class="button" href="#modules">View Modules →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📊</div>
+            <h3>PowerPoint Slides</h3>
+            <p>Review lectures and presentations about drug information.</p>
+            <a class="button" href="#slides">View Slides →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📄</div>
+            <h3>PDF Materials</h3>
+            <p>Organize approved drug references and course handouts.</p>
+            <a class="button" href="#pdfs">View PDFs →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🎥</div>
+            <h3>Video Lessons</h3>
+            <p>Review educational demonstrations and relevant lectures.</p>
+            <a class="button" href="#videos">Watch Videos →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🎧</div>
+            <h3>Audio Lessons</h3>
+            <p>Review recorded explanations and audio learning materials.</p>
+            <a class="button" href="#audio">Listen Now →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📝</div>
+            <h3>Short Notes</h3>
+            <p>Revise important drug information concepts.</p>
+            <a class="button" href="#notes">Read Notes →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🧠</div>
+            <h3>Practice Quizzes</h3>
+            <p>Test your ability to evaluate drug information.</p>
+            <a class="button" href="#quizzes">Take Quiz →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🏆</div>
+            <h3>Exam Preparation</h3>
+            <p>Practice questions and revise key learning objectives.</p>
+            <a class="button" href="#exams">Prepare Now →</a>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="modules" class="resource-section">
+        <h2 class="section-title">📖 Course Modules</h2>
+
+        <div class="card">
+          <h3>Clerkship Learning Objectives</h3>
+          <p>
+            Add the official modules and competencies specified
+            by your department and clerkship supervisor.
+          </p>
+          <p><strong>Resource status:</strong> Awaiting official materials.</p>
+        </div>
+      </section>
+
+      <section id="slides" class="resource-section">
+        <h2 class="section-title">📊 PowerPoint Slides</h2>
+
+        <div class="card">
+          <h3>Lecture Presentations</h3>
+          <p>
+            Add approved presentations that correspond to the
+            official drug information course content.
+          </p>
+          <p><strong>Resource status:</strong> No slides added yet.</p>
+        </div>
+      </section>
+
+      <section id="pdfs" class="resource-section">
+        <h2 class="section-title">📄 PDF Materials</h2>
+
+        <div class="card">
+          <h3>Drug Information References</h3>
+          <p>
+            Add approved course documents, medicine references,
+            and other relevant reading materials.
+          </p>
+          <p><strong>Resource status:</strong> No PDFs added yet.</p>
+        </div>
+      </section>
+
+      <section id="videos" class="resource-section">
+        <h2 class="section-title">🎥 Video Lessons</h2>
+
+        <div class="card">
+          <h3>Video Learning Library</h3>
+          <p>
+            Add educational videos that support the official
+            clerkship learning objectives.
+          </p>
+          <p><strong>Resource status:</strong> No videos added yet.</p>
+        </div>
+      </section>
+
+      <section id="audio" class="resource-section">
+        <h2 class="section-title">🎧 Audio Lessons</h2>
+
+        <div class="card">
+          <h3>Audio Learning Library</h3>
+          <p>
+            Add recorded lectures and audio summaries
+            for revision.
+          </p>
+          <p><strong>Resource status:</strong> No audio added yet.</p>
+        </div>
+      </section>
+
+      <section id="notes" class="resource-section">
+        <h2 class="section-title">📝 Short Notes</h2>
+
+        <div class="card">
+          <h3>Drug Information Revision Notes</h3>
+          <p>
+            Add concise summaries on information searching,
+            evidence evaluation, and communicating findings.
+          </p>
+          <p><strong>Resource status:</strong> No notes added yet.</p>
+        </div>
+      </section>
+
+      <section id="quizzes" class="resource-section">
+        <h2 class="section-title">🧠 Practice Quizzes</h2>
+
+        <div class="card">
+          <h3>Test Your Knowledge</h3>
+          <p>
+            Add multiple-choice questions with explanations
+            aligned with the official clerkship objectives.
+          </p>
+          <p><strong>Resource status:</strong> No quizzes added yet.</p>
+        </div>
+      </section>
+
+      <section id="exams" class="resource-section">
+        <h2 class="section-title">🏆 Exam Preparation</h2>
+
+        <div class="card">
+          <h3>Revision and Assessment Practice</h3>
+          <p>
+            Add revision exercises and authorized past
+            examination materials.
+          </p>
+          <p><strong>Resource status:</strong> No exam materials added yet.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>💊 Drug Information Service Clerkship · Pharmacy Education</p>
+    <p>Created for learning, sharing, and growing together.</p>
+
+    <p>
+      <a href="../index.html">← Back to Semester I</a>
+      &nbsp; | &nbsp;
+      <a href="../../../../../index.html">Main Website</a>
+    </p>
+
+    <p>© 2026 Gidy Nega</p>
+  </footer>
+
+</body>
+</html>
