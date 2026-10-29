@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Hospital Pharmacy Clerkship learning resources for pharmacy students.">
+  <meta name="description" content="Hospital Pharmacy Clerkship learning materials, notes, quizzes, and exam preparation by Gidy Nega.">
   <title>Hospital Pharmacy Clerkship | Gidy Nega</title>
 
   <style>
@@ -19,9 +19,9 @@
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html {
@@ -46,24 +46,24 @@
 
     header {
       padding: 18px 6%;
-      border-bottom: 1px solid var(--border);
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
       gap: 12px;
+      border-bottom: 1px solid var(--border);
     }
 
-    .brand {
+    .logo {
       color: var(--pink);
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: bold;
     }
 
-    .back-link {
+    .back {
       background: var(--card);
-      padding: 9px 15px;
       border: 1px solid var(--border);
+      padding: 9px 15px;
       border-radius: 10px;
     }
 
@@ -73,14 +73,14 @@
     }
 
     .hero {
-      padding: 65px 0 40px;
       text-align: center;
+      padding: 55px 0 35px;
     }
 
     .badge {
       display: inline-block;
-      color: var(--cyan);
       border: 1px solid var(--cyan);
+      color: var(--cyan);
       border-radius: 30px;
       padding: 5px 14px;
       font-size: 0.85rem;
@@ -88,29 +88,34 @@
     }
 
     h1 {
-      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-size: clamp(2rem, 5vw, 3.4rem);
       line-height: 1.2;
       margin-bottom: 18px;
-      background: linear-gradient(90deg, var(--pink), var(--blue), var(--cyan));
+      background: linear-gradient(
+        90deg,
+        var(--pink),
+        var(--blue),
+        var(--cyan)
+      );
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
     .hero p {
-      max-width: 750px;
-      margin: 0 auto 22px;
+      max-width: 760px;
+      margin: 0 auto 20px;
       color: var(--muted);
     }
 
     .button {
       display: inline-block;
-      background: linear-gradient(100deg, var(--pink), var(--blue));
-      color: white;
-      padding: 11px 20px;
-      border-radius: 10px;
-      font-weight: bold;
+      padding: 10px 18px;
       margin: 5px;
+      border-radius: 10px;
+      color: white;
+      font-weight: bold;
+      background: linear-gradient(100deg, var(--pink), var(--blue));
       transition: transform 0.25s;
     }
 
@@ -125,8 +130,8 @@
     }
 
     section {
-      margin: 30px 0;
-      padding: 28px;
+      margin: 28px 0;
+      padding: 26px;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 18px;
@@ -134,7 +139,7 @@
 
     h2 {
       color: var(--cyan);
-      margin-bottom: 15px;
+      margin-bottom: 14px;
       font-size: 1.6rem;
     }
 
@@ -143,16 +148,17 @@
       margin-bottom: 8px;
     }
 
-    p, li {
+    p {
       color: var(--muted);
     }
 
-    ul, ol {
-      padding-left: 23px;
+    ul {
+      padding-left: 22px;
       margin-top: 10px;
     }
 
     li {
+      color: var(--muted);
       margin-bottom: 8px;
     }
 
@@ -163,28 +169,28 @@
       margin-top: 18px;
     }
 
-    .resource-card {
-      padding: 20px;
+    .card {
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 14px;
+      padding: 20px;
       transition: transform 0.25s, border-color 0.25s;
     }
 
-    .resource-card:hover {
+    .card:hover {
       transform: translateY(-4px);
       border-color: var(--pink);
     }
 
-    .resource-card .icon {
+    .card-icon {
       font-size: 1.8rem;
       margin-bottom: 8px;
     }
 
     .notice {
-      padding: 15px;
-      border-left: 4px solid var(--pink);
       background: rgba(255, 85, 200, 0.07);
+      border-left: 4px solid var(--pink);
+      padding: 14px;
       border-radius: 8px;
       margin-top: 15px;
     }
@@ -195,271 +201,231 @@
 
     footer {
       text-align: center;
-      padding: 30px 6%;
       border-top: 1px solid var(--border);
-      margin-top: 50px;
+      margin-top: 45px;
+      padding: 28px 6%;
     }
 
     footer p {
-      margin: 7px 0;
+      margin: 6px 0;
     }
 
     @media (max-width: 600px) {
-      header {
-        padding: 15px 5%;
-      }
-
       main {
         width: 92%;
       }
 
-      .hero {
-        padding-top: 45px;
-      }
-
       section {
         padding: 20px;
+      }
+
+      .hero {
+        padding-top: 40px;
       }
     }
   </style>
 </head>
 
 <body>
+
   <header>
-    <a class="brand" href="../../../../../index.html">Gidy Nega</a>
-    <a class="back-link" href="../index.html">← Year V · Semester I</a>
+    <a class="logo" href="../../../../../index.html">Gidy Nega</a>
+    <a class="back" href="../index.html">← Year V · Semester I</a>
   </header>
 
   <main>
+
     <div class="hero">
       <span class="badge">YEAR V · SEMESTER I</span>
+
       <h1>Hospital Pharmacy Clerkship</h1>
+
       <p>
-        Learn how hospital pharmacy services support safe medication use,
-        effective patient care, and collaboration among healthcare professionals.
+        Explore hospital pharmacy services, medicine management,
+        medication safety, dispensing systems, and the pharmacist's
+        contribution to quality patient care.
       </p>
 
-      <a class="button" href="#modules">Start Learning ↓</a>
-      <a class="button secondary" href="#resources">Study Resources</a>
+      <a class="button" href="#modules">Start Learning →</a>
+      <a class="button secondary" href="#notes">Study Notes</a>
     </div>
 
     <section id="overview">
       <h2>📘 Course Overview</h2>
 
       <div class="grid">
-        <div class="resource-card">
+        <div class="card">
+          <div class="card-icon">📚</div>
           <h3>Course Code</h3>
           <p>Phar5274</p>
         </div>
 
-        <div class="resource-card">
-          <h3>Credit Value</h3>
+        <div class="card">
+          <div class="card-icon">🎓</div>
+          <h3>Credit Hours</h3>
           <p>7 ECTS</p>
         </div>
 
-        <div class="resource-card">
+        <div class="card">
+          <div class="card-icon">📅</div>
           <h3>Duration</h3>
-          <p>4 weeks</p>
+          <p>4 Weeks</p>
         </div>
 
-        <div class="resource-card">
+        <div class="card">
+          <div class="card-icon">🏥</div>
           <h3>Study Level</h3>
           <p>Fifth-Year Pharmacy</p>
         </div>
       </div>
 
-      <p style="margin-top:18px;">
-        This page organizes learning materials for hospital pharmacy practice.
-        Use your university's official course guide to confirm the required
-        competencies, activities, and assessment criteria.
-      </p>
+      <div class="notice">
+        <p>
+          This page is a learning-resource hub. Confirm the official
+          learning objectives and clerkship requirements using your
+          university's course guide and supervisor's instructions.
+        </p>
+      </div>
     </section>
 
     <section id="objectives">
       <h2>🎯 Learning Objectives</h2>
-      <p>During your learning and supervised clerkship, aim to understand how to:</p>
+
+      <p>Use this list to guide your preparation:</p>
 
       <ul>
-        <li>Describe the organization and responsibilities of hospital pharmacy services.</li>
-        <li>Explain medication procurement, storage, distribution, and inventory management.</li>
-        <li>Understand medication-order review and dispensing procedures.</li>
-        <li>Identify common medication errors and strategies for preventing them.</li>
-        <li>Explain the principles of medication safety and reporting adverse drug reactions.</li>
-        <li>Understand the role of pharmacists in antimicrobial stewardship.</li>
-        <li>Communicate effectively with patients and healthcare professionals.</li>
-        <li>Apply professional ethics, confidentiality, and appropriate documentation.</li>
+        <li>Describe the organization and functions of hospital pharmacy services.</li>
+        <li>Explain medicine procurement, storage, inventory, and distribution.</li>
+        <li>Understand medication-order screening and dispensing procedures.</li>
+        <li>Identify medication errors and methods of preventing them.</li>
+        <li>Explain adverse drug reaction reporting and medication safety.</li>
+        <li>Understand the importance of antimicrobial stewardship.</li>
+        <li>Practice professional communication and accurate documentation.</li>
+        <li>Respect patient confidentiality, professional ethics, and supervision requirements.</li>
       </ul>
     </section>
 
     <section id="modules">
-      <h2>📚 Learning Modules</h2>
+      <h2>📚 Course Modules</h2>
 
       <div class="grid">
-        <article class="resource-card">
-          <div class="icon">🏥</div>
+
+        <article class="card">
+          <div class="card-icon">🏥</div>
           <h3>Module 1: Hospital Pharmacy Services</h3>
-          <p>Organization, responsibilities, workflow, and the pharmacist's role in hospital care.</p>
+          <p>Hospital pharmacy organization, responsibilities, and workflow.</p>
         </article>
 
-        <article class="resource-card">
-          <div class="icon">📦</div>
+        <article class="card">
+          <div class="card-icon">📦</div>
           <h3>Module 2: Procurement and Inventory</h3>
-          <p>Medicine selection, purchasing processes, stock control, and inventory records.</p>
+          <p>Medicine selection, procurement, stock records, and inventory control.</p>
         </article>
 
-        <article class="resource-card">
-          <div class="icon">🌡️</div>
+        <article class="card">
+          <div class="card-icon">🌡️</div>
           <h3>Module 3: Storage and Distribution</h3>
-          <p>Storage conditions, temperature monitoring, stock rotation, and medicine distribution.</p>
+          <p>Storage conditions, temperature monitoring, stock rotation, and distribution.</p>
         </article>
 
-        <article class="resource-card">
-          <div class="icon">📝</div>
+        <article class="card">
+          <div class="card-icon">💊</div>
           <h3>Module 4: Medication Orders</h3>
-          <p>Prescription review, identifying potential problems, dispensing, and documentation.</p>
+          <p>Prescription screening, dispensing processes, and medication-related problems.</p>
         </article>
 
-        <article class="resource-card">
-          <div class="icon">🛡️</div>
+        <article class="card">
+          <div class="card-icon">🛡️</div>
           <h3>Module 5: Medication Safety</h3>
-          <p>Medication errors, risk reduction, adverse drug reactions, and reporting systems.</p>
+          <p>Medication errors, adverse drug reactions, and risk-reduction strategies.</p>
         </article>
 
-        <article class="resource-card">
-          <div class="icon">🧪</div>
-          <h3>Module 6: Special Medication Handling</h3>
-          <p>Principles for handling high-alert medicines, hazardous medicines, and sterile products where applicable.</p>
+        <article class="card">
+          <div class="card-icon">🧪</div>
+          <h3>Module 6: Special Medicines</h3>
+          <p>Principles for handling high-alert and hazardous medicines and sterile products where applicable.</p>
         </article>
 
-        <article class="resource-card">
-          <div class="icon">🤝</div>
+        <article class="card">
+          <div class="card-icon">🤝</div>
           <h3>Module 7: Clinical Collaboration</h3>
-          <p>Communication, medication information, antimicrobial stewardship, and teamwork.</p>
+          <p>Drug information, communication, teamwork, and antimicrobial stewardship.</p>
         </article>
 
-        <article class="resource-card">
-          <div class="icon">📋</div>
-          <h3>Module 8: Quality and Professional Practice</h3>
-          <p>Standard operating procedures, quality improvement, confidentiality, and professional ethics.</p>
+        <article class="card">
+          <div class="card-icon">📋</div>
+          <h3>Module 8: Quality and Ethics</h3>
+          <p>Documentation, standard procedures, confidentiality, and quality improvement.</p>
         </article>
+
       </div>
 
-      <div class="notice">
-        <p>
-          <strong>Important:</strong> These are general study areas, not a verified
-          official module list. Follow your lecturer's syllabus and hospital
-          clerkship handbook for the required curriculum.
-        </p>
-      </div>
+      <p class="muted" style="margin-top:16px;">
+        These are general study topics, not a verified official module list.
+        Follow your university's prescribed curriculum.
+      </p>
     </section>
 
-    <section id="resources">
-      <h2>🎓 Study Resources</h2>
+    <section id="slides">
+      <h2>📊 Lecture Slides</h2>
+      <p>No lecture slides have been added yet.</p>
+    </section>
+
+    <section id="pdfs">
+      <h2>📄 PDF Materials</h2>
+      <p>No PDF materials have been added yet.</p>
+    </section>
+
+    <section id="videos">
+      <h2>🎥 Video Lessons</h2>
+      <p>No video lessons have been added yet.</p>
+    </section>
+
+    <section id="audio">
+      <h2>🎧 Audio Lessons</h2>
+      <p>No audio lessons have been added yet.</p>
+    </section>
+
+    <section id="notes">
+      <h2>📝 Short Notes</h2>
+      <p>No short notes have been added yet.</p>
+    </section>
+
+    <section id="quizzes">
+      <h2>🧠 Practice Quizzes</h2>
+      <p>No practice quizzes have been added yet.</p>
+    </section>
+
+    <section id="exams">
+      <h2>📝 Exam Preparation</h2>
+      <p>No past examination materials have been added yet.</p>
+    </section>
+
+    <section id="references">
+      <h2>📚 Reference Materials</h2>
+
       <p>
-        Use this section to organize your course materials. Resources will appear
-        here when you add them.
+        Add recommended textbooks, official guidelines, lecture handouts,
+        and other approved references here as they become available.
       </p>
 
-      <div class="grid">
-        <article class="resource-card">
-          <div class="icon">📊</div>
-          <h3>Lecture Slides</h3>
-          <p>No slides added yet.</p>
-        </article>
-
-        <article class="resource-card">
-          <div class="icon">📄</div>
-          <h3>PDF Materials</h3>
-          <p>No PDF materials added yet.</p>
-        </article>
-
-        <article class="resource-card">
-          <div class="icon">🎥</div>
-          <h3>Video Lessons</h3>
-          <p>No videos added yet.</p>
-        </article>
-
-        <article class="resource-card">
-          <div class="icon">🎧</div>
-          <h3>Audio Lessons</h3>
-          <p>No audio lessons added yet.</p>
-        </article>
-
-        <article class="resource-card">
-          <div class="icon">🗒️</div>
-          <h3>Short Notes</h3>
-          <p>No short notes added yet.</p>
-        </article>
-
-        <article class="resource-card">
-          <div class="icon">🧠</div>
-          <h3>Practice Quizzes</h3>
-          <p>No quizzes added yet.</p>
-        </article>
-
-        <article class="resource-card">
-          <div class="icon">📝</div>
-          <h3>Past Exams</h3>
-          <p>No exam materials added yet.</p>
-        </article>
-
-        <article class="resource-card">
-          <div class="icon">📚</div>
-          <h3>Reference Materials</h3>
-          <p>No reference materials added yet.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="practice">
-      <h2>🩺 Clerkship Preparation</h2>
-
-      <h3>Before your hospital placement</h3>
-      <ul>
-        <li>Review the hospital's rules and the clerkship objectives.</li>
-        <li>Revise medication safety, prescription review, and storage principles.</li>
-        <li>Prepare a notebook for supervised learning activities and reflections.</li>
-        <li>Understand confidentiality and the limits of your student responsibilities.</li>
-      </ul>
-
-      <h3 style="margin-top:20px;">During your placement</h3>
-      <ul>
-        <li>Observe hospital pharmacy procedures under appropriate supervision.</li>
-        <li>Ask questions when a procedure or medication-related decision is unclear.</li>
-        <li>Follow infection prevention, safety, and documentation requirements.</li>
-        <li>Never independently change or dispense a patient's medication outside your authorized role.</li>
-      </ul>
-
       <div class="notice">
         <p>
-          <strong>Patient safety first:</strong> This page is an educational aid.
-          Follow your supervising pharmacist, hospital policies, and applicable
-          clinical guidelines during real patient care.
+          <strong>Patient safety:</strong> Use clinical knowledge under
+          appropriate supervision. Follow hospital policies and your
+          supervising pharmacist's instructions during the clerkship.
         </p>
       </div>
     </section>
 
-    <section id="exam">
-      <h2>✅ Self-Study Checklist</h2>
-      <p>Use this checklist to track your preparation:</p>
-
-      <ul>
-        <li>☐ Explain the major functions of a hospital pharmacy.</li>
-        <li>☐ Describe basic procurement and inventory processes.</li>
-        <li>☐ Explain appropriate medicine storage and distribution.</li>
-        <li>☐ Identify potential medication-order problems.</li>
-        <li>☐ Discuss medication errors and patient-safety measures.</li>
-        <li>☐ Explain the importance of documentation and confidentiality.</li>
-        <li>☐ Review the official clerkship assessment requirements.</li>
-      </ul>
-    </section>
   </main>
 
   <footer>
     <p><strong>Gidy Nega | Learn, Create, Share & Grow</strong></p>
-    <p>Hospital Pharmacy Clerkship · Year V, Semester I</p>
+    <p>Hospital Pharmacy Clerkship · Phar5274</p>
     <p><a href="../../../../../index.html">Return to Main Website</a></p>
-    <p class="muted">Educational content for pharmacy students. Follow official course materials and clinical supervision.</p>
+    <p class="muted">Educational resources for pharmacy students.</p>
   </footer>
+
 </body>
 </html>
