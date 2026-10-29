@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pharmaceutical Marketing and Promotion | Gidy Nega</title>
+
+  <meta name="description"
+        content="Study Pharmaceutical Marketing and Promotion with learning modules, slides, PDFs, videos, audio, notes, quizzes, and exams.">
+
+  <style>
+    :root {
+      --bg: #0b0b18;
+      --card: #17172b;
+      --border: #343454;
+      --pink: #ff55c8;
+      --blue: #8187ff;
+      --cyan: #65eee4;
+      --text: #f4f4ff;
+      --muted: #b9bad0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--pink);
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(11, 11, 24, 0.96);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--pink);
+    }
+
+    .back {
+      display: inline-block;
+      padding: 9px 15px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .hero {
+      padding: 65px 0 45px;
+      text-align: center;
+      background:
+        radial-gradient(circle at top left, #29204d, transparent 45%),
+        radial-gradient(circle at bottom right, #142e40, transparent 40%);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 13px;
+      border: 1px solid var(--pink);
+      color: var(--pink);
+      border-radius: 30px;
+      margin-bottom: 18px;
+      font-size: 0.9rem;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .gradient {
+      background: linear-gradient(
+        90deg,
+        var(--pink),
+        var(--blue),
+        var(--cyan)
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto 25px;
+      color: var(--muted);
+    }
+
+    .course-info {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .info-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 16px;
+    }
+
+    section {
+      padding: 45px 0;
+      scroll-margin-top: 20px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      color: var(--cyan);
+    }
+
+    .section-description {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--pink);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--pink), var(--blue));
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      color: #fff;
+      opacity: 0.9;
+    }
+
+    .secondary {
+      background: transparent;
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+    }
+
+    .resource-section {
+      border-top: 1px solid var(--border);
+    }
+
+    .resource-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .resource-box p {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .resource-list {
+      padding-left: 22px;
+      color: var(--muted);
+    }
+
+    .resource-list li {
+      margin: 8px 0;
+    }
+
+    .notice {
+      margin-top: 18px;
+      padding: 15px;
+      border-left: 4px solid var(--pink);
+      background: #19182d;
+      border-radius: 8px;
+      color: var(--muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    footer p {
+      margin: 8px 0;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 45px 0 30px;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .card {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="../../../../../index.html">
+        Gidy Nega
+      </a>
+
+      <a class="back" href="../index.html">
+        ← Back to Semester II
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+
+        <span class="badge">
+          Pharmacy Education • Year IV • Semester II
+        </span>
+
+        <h1>
+          Pharmaceutical <span class="gradient">Marketing and Promotion</span>
+        </h1>
+
+        <p>
+          Welcome to your Pharmaceutical Marketing and Promotion learning
+          center. Explore course materials, presentations, PDF resources,
+          educational videos, audio lessons, concise notes, quizzes, and
+          examination practice.
+        </p>
+
+        <div class="course-info">
+          <div class="info-item">
+            <strong>Course Code:</strong> Phar4214
+          </div>
+
+          <div class="info-item">
+            <strong>Credits:</strong> 3 ECTS
+          </div>
+
+          <div class="info-item">
+            <strong>Level:</strong> Year IV
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+
+        <h2 class="section-title">Welcome, Future Pharmacist! 🎓</h2>
+
+        <p class="section-description">
+          Use this page to organize your learning and prepare for your
+          examinations. Pharmaceutical marketing involves understanding
+          medicines, healthcare markets, customers, ethical promotion,
+          and the responsible communication of medicine-related information.
+        </p>
+
+        <div class="grid">
+
+          <article class="card">
+            <div class="card-icon">📘</div>
+            <h3>Course Modules</h3>
+            <p>Organize the course into topics and learning units.</p>
+            <a class="button secondary" href="#modules">Open Modules →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📊</div>
+            <h3>PowerPoint Slides</h3>
+            <p>Review presentation materials for each topic.</p>
+            <a class="button secondary" href="#slides">Open Slides →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📄</div>
+            <h3>PDF Resources</h3>
+            <p>Access reading materials and downloadable documents.</p>
+            <a class="button secondary" href="#pdfs">Open PDFs →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🎥</div>
+            <h3>Video Lessons</h3>
+            <p>Learn concepts through visual explanations.</p>
+            <a class="button secondary" href="#videos">Watch Videos →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🎧</div>
+            <h3>Audio Lessons</h3>
+            <p>Review lessons using audio learning materials.</p>
+            <a class="button secondary" href="#audio">Listen Now →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📝</div>
+            <h3>Short Notes</h3>
+            <p>Revise important concepts efficiently.</p>
+            <a class="button secondary" href="#notes">Read Notes →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🧠</div>
+            <h3>Practice Quizzes</h3>
+            <p>Test your understanding of course topics.</p>
+            <a class="button secondary" href="#quizzes">Start Practice →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🏆</div>
+            <h3>Exam Preparation</h3>
+            <p>Prepare using practice questions and past exams.</p>
+            <a class="button secondary" href="#exams">Prepare Now →</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-section" id="modules">
+      <div class="container">
+        <h2 class="section-title">📘 Course Modules</h2>
+
+        <p class="section-description">
+          Add the official course outline and learning modules here.
+        </p>
+
+        <div class="resource-box">
+          <p>
+            Recommended organizational topics may include the following.
+            Confirm the exact topics using your official Jimma University
+            course outline.
+          </p>
+
+          <ul class="resource-list">
+            <li>Introduction to pharmaceutical marketing</li>
+            <li>Pharmaceutical markets and stakeholders</li>
+            <li>Market research and customer needs</li>
+            <li>Marketing strategies and planning</li>
+            <li>Medicine promotion and communication</li>
+            <li>Ethical and responsible pharmaceutical promotion</li>
+          </ul>
+
+          <div class="notice">
+            These are suggested organizational topics, not a verified
+            copy of the official Phar4214 syllabus.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-section" id="slides">
+      <div class="container">
+        <h2 class="section-title">📊 PowerPoint Slides</h2>
+
+        <p class="section-description">
+          Store and organize your lecture presentations.
+        </p>
+
+        <div class="resource-box">
+          <p>
+            PowerPoint files will appear here when you add their links.
+          </p>
+
+          <ul class="resource-list">
+            <li>Lecture 1: Add presentation link</li>
+            <li>Lecture 2: Add presentation link</li>
+            <li>Lecture 3: Add presentation link</li>
+          </ul>
+
+          <div class="notice">
+            Replace these placeholders with links to your actual
+            lecture slides.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-section" id="pdfs">
+      <div class="container">
+        <h2 class="section-title">📄 PDF Learning Materials</h2>
+
+        <p class="section-description">
+          Keep lecture handouts, recommended readings, and other
+          authorized learning documents in one place.
+        </p>
+
+        <div class="resource-box">
+          <p>
+            Add your PDF files or links to documents you are permitted
+            to share.
+          </p>
+
+          <ul class="resource-list">
+            <li>Course handout — add PDF link</li>
+            <li>Recommended reading — add PDF link</li>
+            <li>Revision material — add PDF link</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-section" id="videos">
+      <div class="container">
+        <h2 class="section-title">🎥 Video Lessons</h2>
+
+        <p class="section-description">
+          Use videos to reinforce your understanding of difficult concepts.
+        </p>
+
+        <div class="resource-box">
+          <p>
+            Add links to relevant educational videos after reviewing
+            their accuracy and relevance to the course.
+          </p>
+
+          <ul class="resource-list">
+            <li>Video lesson 1 — add video link</li>
+            <li>Video lesson 2 — add video link</li>
+            <li>Video lesson 3 — add video link</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-section" id="audio">
+      <div class="container">
+        <h2 class="section-title">🎧 Audio Lessons</h2>
+
+        <p class="section-description">
+          Review key ideas through recorded explanations and audio summaries.
+        </p>
+
+        <div class="resource-box">
+          <p>
+            Add links to your recorded lessons or audio files here.
+          </p>
+
+          <ul class="resource-list">
+            <li>Audio lesson 1 — add audio link</li>
+            <li>Audio lesson 2 — add audio link</li>
+            <li>Audio lesson 3 — add audio link</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-section" id="notes">
+      <div class="container">
+        <h2 class="section-title">📝 Short Notes and Revision</h2>
+
+        <p class="section-description">
+          Build concise revision notes based on your actual lecture materials.
+        </p>
+
+        <div class="resource-box">
+          <p>
+            Use this section for definitions, key principles, comparisons,
+            examples, and examination-focused summaries.
+          </p>
+
+          <ul class="resource-list">
+            <li>Topic summaries — add notes</li>
+            <li>Important definitions — add notes</li>
+            <li>Revision questions — add notes</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-section" id="quizzes">
+      <div class="container">
+        <h2 class="section-title">🧠 Practice Quizzes</h2>
+
+        <p class="section-description">
+          Test your knowledge and identify topics that need more revision.
+        </p>
+
+        <div class="resource-box">
+          <p>
+            Practice questions and interactive quizzes can be linked here.
+          </p>
+
+          <ul class="resource-list">
+            <li>Topic-by-topic MCQs — add quiz link</li>
+            <li>Case-based questions — add quiz link</li>
+            <li>Mixed revision quiz — add quiz link</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-section" id="exams">
+      <div class="container">
+        <h2 class="section-title">🏆 Examination Preparation</h2>
+
+        <p class="section-description">
+          Practice applying your knowledge and prepare systematically
+          for assessments.
+        </p>
+
+        <div class="resource-box">
+          <p>
+            Add authorized past examination papers, mock exams, and
+            practice questions when available.
+          </p>
+
+          <ul class="resource-list">
+            <li>Mock examination — add exam link</li>
+            <li>Past examination — add exam link</li>
+            <li>Comprehensive revision — add exam link</li>
+          </ul>
+
+          <div class="notice">
+            Always check your answers against reliable course materials.
+            These placeholders are not actual examination papers.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        <strong>Gidy Nega | Learn, Create, Share & Grow</strong>
+      </p>
+
+      <p>
+        Pharmaceutical Marketing and Promotion • Phar4214
+      </p>
+
+      <p>
+        <a href="../../../../../index.html">
+          Return to Gidy Nega's Website
+        </a>
+      </p>
+
+      <p>Keep learning. Keep growing. Build your future. 💙</p>
+    </div>
+  </footer>
+
+</body>
+</html>
