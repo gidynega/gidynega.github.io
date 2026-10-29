@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pharmacy Law and Ethics learning resources for Year IV Pharmacy students.">
+  <title>Pharmacy Law and Ethics | Gidy Nega</title>
+
+  <style>
+    :root {
+      --bg: #0b0b18;
+      --card: #17172b;
+      --border: #343454;
+      --pink: #ff55c8;
+      --blue: #8187ff;
+      --cyan: #65eee4;
+      --text: #f4f4ff;
+      --muted: #b9bad0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      padding: 30px 6%;
+      background: linear-gradient(135deg, #17172b, #252044);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 22px;
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border: 1px solid var(--pink);
+      border-radius: 20px;
+      color: var(--pink);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      margin: 15px 0;
+      font-size: clamp(28px, 5vw, 42px);
+      line-height: 1.25;
+    }
+
+    header p {
+      max-width: 750px;
+      color: var(--muted);
+    }
+
+    .course-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .course-info span {
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--card);
+      font-size: 14px;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: 35px auto;
+    }
+
+    .welcome {
+      padding: 25px;
+      margin-bottom: 35px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    h2 {
+      margin-bottom: 18px;
+      color: var(--cyan);
+    }
+
+    h3 {
+      margin-bottom: 10px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      padding: 22px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--pink);
+    }
+
+    .icon {
+      margin-bottom: 10px;
+      font-size: 30px;
+    }
+
+    .card p,
+    .notice p {
+      color: var(--muted);
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 15px;
+      background: linear-gradient(90deg, var(--pink), var(--blue));
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 9px;
+    }
+
+    .button:hover {
+      opacity: 0.85;
+    }
+
+    .resource-section {
+      margin-bottom: 35px;
+      scroll-margin-top: 20px;
+    }
+
+    .notice {
+      padding: 22px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    footer {
+      padding: 30px 6%;
+      margin-top: 50px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a class="back" href="../index.html">← Back to Year IV Semester I</a>
+
+    <br>
+
+    <span class="badge">PHARMACY EDUCATION</span>
+
+    <h1>Pharmacy Law and Ethics</h1>
+
+    <p>
+      Explore learning resources related to pharmacy legislation,
+      professional responsibilities, ethical decision-making, patient rights,
+      confidentiality, and the legal responsibilities of pharmacy professionals.
+    </p>
+
+    <div class="course-info">
+      <span><strong>Course Code:</strong> Phar4243</span>
+      <span><strong>Year:</strong> IV</span>
+      <span><strong>Semester:</strong> I</span>
+      <span><strong>Credits:</strong> 3 ECTS</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="welcome">
+      <h2>Welcome to Your Learning Space! 🎓</h2>
+      <p>
+        Welcome to Pharmacy Law and Ethics. Use this page to organize your
+        lecture slides, PDF materials, videos, audio lessons, short notes,
+        quizzes, and examination practice.
+      </p>
+    </section>
+
+    <section>
+      <h2>📚 Learning Materials</h2>
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="icon">📖</div>
+          <h3>Course Modules</h3>
+          <p>Explore course topics and learning units.</p>
+          <a class="button" href="#modules">Open Modules →</a>
+        </article>
+
+        <article class="card">
+          <div class="icon">📊</div>
+          <h3>PowerPoint Slides</h3>
+          <p>Access lecture presentations when available.</p>
+          <a class="button" href="#powerpoints">Open Slides →</a>
+        </article>
+
+        <article class="card">
+          <div class="icon">📄</div>
+          <h3>PDF Materials</h3>
+          <p>Find course PDFs and reading materials.</p>
+          <a class="button" href="#pdfs">Open PDFs →</a>
+        </article>
+
+        <article class="card">
+          <div class="icon">🎥</div>
+          <h3>Video Lessons</h3>
+          <p>Watch relevant educational videos.</p>
+          <a class="button" href="#videos">Watch Videos →</a>
+        </article>
+
+        <article class="card">
+          <div class="icon">🎧</div>
+          <h3>Audio Lessons</h3>
+          <p>Listen to available audio explanations.</p>
+          <a class="button" href="#audio">Listen Now →</a>
+        </article>
+
+        <article class="card">
+          <div class="icon">📝</div>
+          <h3>Short Notes</h3>
+          <p>Review concise study notes and summaries.</p>
+          <a class="button" href="#notes">Read Notes →</a>
+        </article>
+
+        <article class="card">
+          <div class="icon">🧠</div>
+          <h3>Practice Quizzes</h3>
+          <p>Test your understanding of the course.</p>
+          <a class="button" href="#quizzes">Take Quiz →</a>
+        </article>
+
+        <article class="card">
+          <div class="icon">🎯</div>
+          <h3>Examinations</h3>
+          <p>Prepare with available practice questions.</p>
+          <a class="button" href="#exams">Practice Exams →</a>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="resource-section" id="modules">
+      <h2>📚 Course Modules</h2>
+      <div class="notice">
+        <p>Course modules will be added when the relevant materials are available.</p>
+      </div>
+    </section>
+
+    <section class="resource-section" id="powerpoints">
+      <h2>📊 PowerPoint Slides</h2>
+      <div class="notice">
+        <p>No PowerPoint slides added yet.</p>
+      </div>
+    </section>
+
+    <section class="resource-section" id="pdfs">
+      <h2>📄 PDF Materials</h2>
+      <div class="notice">
+        <p>No PDF materials added yet.</p>
+      </div>
+    </section>
+
+    <section class="resource-section" id="videos">
+      <h2>🎥 Video Lessons</h2>
+      <div class="notice">
+        <p>No video lessons added yet.</p>
+      </div>
+    </section>
+
+    <section class="resource-section" id="audio">
+      <h2>🎧 Audio Lessons</h2>
+      <div class="notice">
+        <p>No audio lessons added yet.</p>
+      </div>
+    </section>
+
+    <section class="resource-section" id="notes">
+      <h2>📝 Short Notes</h2>
+      <div class="notice">
+        <p>No short notes added yet.</p>
+      </div>
+    </section>
+
+    <section class="resource-section" id="quizzes">
+      <h2>🧠 Practice Quizzes</h2>
+      <div class="notice">
+        <p>Practice quizzes will be added here.</p>
+      </div>
+    </section>
+
+    <section class="resource-section" id="exams">
+      <h2>🎯 Examinations</h2>
+      <div class="notice">
+        <p>Practice examinations will be added here.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© Gidy Nega | Pharmacy Education</p>
+    <p>
+      <a href="../../../../../index.html">Visit My Website</a>
+    </p>
+  </footer>
+
+</body>
+</html>
