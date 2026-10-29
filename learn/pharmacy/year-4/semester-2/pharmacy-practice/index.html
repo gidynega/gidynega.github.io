@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pharmacy Practice | Gidy Nega</title>
+
+  <meta name="description"
+        content="Study Pharmacy Practice with course modules, PowerPoint slides, PDFs, videos, audio lessons, notes, quizzes, and examination practice.">
+
+  <style>
+    :root {
+      --bg: #0b0b18;
+      --card: #17172b;
+      --border: #343454;
+      --pink: #ff55c8;
+      --blue: #8187ff;
+      --cyan: #65eee4;
+      --text: #f4f4ff;
+      --muted: #b9bad0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--pink);
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(11, 11, 24, 0.96);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--pink);
+    }
+
+    .back {
+      display: inline-block;
+      padding: 9px 15px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .hero {
+      padding: 65px 0 45px;
+      text-align: center;
+      background:
+        radial-gradient(circle at top left, #29204d, transparent 45%),
+        radial-gradient(circle at bottom right, #142e40, transparent 40%);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 13px;
+      border: 1px solid var(--pink);
+      color: var(--pink);
+      border-radius: 30px;
+      margin-bottom: 18px;
+      font-size: 0.9rem;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .gradient {
+      background: linear-gradient(
+        90deg,
+        var(--pink),
+        var(--blue),
+        var(--cyan)
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto 25px;
+      color: var(--muted);
+    }
+
+    .course-info {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .info-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 16px;
+    }
+
+    section {
+      padding: 45px 0;
+      scroll-margin-top: 20px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      color: var(--cyan);
+    }
+
+    .section-description {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--pink);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--pink), var(--blue));
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      color: #fff;
+      opacity: 0.9;
+    }
+
+    .secondary {
+      background: transparent;
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+    }
+
+    .resource-section {
+      border-top: 1px solid var(--border);
+    }
+
+    .resource-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .resource-box p {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .resource-list {
+      padding-left: 22px;
+      color: var(--muted);
+    }
+
+    .resource-list li {
+      margin: 8px 0;
+    }
+
+    .notice {
+      margin-top: 18px;
+      padding: 15px;
+      border-left: 4px solid var(--pink);
+      background: #19182d;
+      border-radius: 8px;
+      color: var(--muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    footer p {
+      margin: 8px 0;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 45px 0 30px;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .card {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="../../../../../index.html">
+        Gidy Nega
+      </a>
+
+      <a class="back" href="../index.html">
+        ← Back to Semester II
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+
+        <span class="badge">
+          Pharmacy Education • Year IV • Semester II
+        </span>
+
+        <h1>
+          <span class="gradient">Pharmacy Practice</span>
+        </h1>
+
+        <p>
+          Welcome to your Pharmacy Practice learning center.
+          Explore pharmaceutical care, patient counseling, medication
+          management, professional responsibilities, and other topics
+          covered in your official course materials.
+        </p>
+
+        <div class="course-info">
+          <div class="info-item">
+            <strong>Course Code:</strong> Phar4244
+          </div>
+
+          <div class="info-item">
+            <strong>Credits:</strong> 7 ECTS
+          </div>
+
+          <div class="info-item">
+            <strong>Level:</strong> Year IV
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+
+        <h2 class="section-title">Welcome, Future Pharmacist! 🎓</h2>
+
+        <p class="section-description">
+          Pharmacy Practice focuses on applying pharmaceutical knowledge
+          to patient care. Depending on your course syllabus, learning
+          may involve medication-related problem identification,
+          patient communication, medication safety, pharmaceutical care
+          planning, and monitoring treatment outcomes.
+        </p>
+
+        <div class="grid">
+
+          <article class="card">
+            <div class="card-icon">📘</div>
+            <h3>Course Modules</h3>
+            <p>Organize your lecture topics and learning units.</p>
+            <a class="button secondary" href="#modules">Open Modules →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📊</div>
+            <h3>PowerPoint Slides</h3>
+            <p>Review lecture presentations and important concepts.</p>
+            <a class="button secondary" href="#slides">Open Slides →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📄</div>
+            <h3>PDF Resources</h3>
+            <p>Organize course handouts and reading materials.</p>
+            <a class="button secondary" href="#pdfs">Open PDFs →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🎥</div>
+            <h3>Video Lessons</h3>
+            <p>Learn through demonstrations and explanations.</p>
+            <a class="button secondary" href="#videos">Watch Videos →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🎧</div>
+            <h3>Audio Lessons</h3>
+            <p>Review explanations and recorded summaries.</p>
+            <a class="button secondary" href="#audio">Listen Now →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📝</div>
+            <h3>Short Notes</h3>
+            <p>Revise essential concepts and key definitions.</p>
+            <a class="button secondary" href="#notes">Read Notes →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🧠</div>
+            <h3>Practice Quizzes</h3>
+            <p>Test your understanding with practice questions.</p>
+            <a class="button secondary" href="#quizzes">Start Practice →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🏆</div>
+            <h3>Exam Preparation</h3>
+            <p>Prepare with mock exams and revision questions.</p>
+            <a class="button secondary" href="#exams">Prepare Now →</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-section" id="modules">
+      <div class="container">
+        <h2 class="section-title">📘 Course Modules</h2>
+
+        <p class="section-description">
+          Organize the modules according to your official course outline.
+        </p>
+
+        <div class="resource-box">
+          <p>Possible organizational headings include:</p>
+
+          <ul class="resource-list">
+            <li>Introduction to pharmacy practice</li>
+            <li>Pharmaceutical care and patient assessment</li>
+            <li>Medication-related problems</li>
+            <li>Patient counseling and communication</li>
+            <li>Medication safety and treatment monitoring</li>
+          </ul>
+
+          <div class="notice">
+            These are suggested headings, not a verified copy of the
+            official Jimma University Pharmacy Practice syllabus.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-section" id="slides">
+      <div class="container">
+        <h2 class="section-title">📊 PowerPoint Slides</h2>
+
+        <p class="section-description">
+          Store your lecture presentations in one organized section.
+        </p>
+
+        <div class="resource-box">
+          <p>Add your actual presentation links here.</p>
+
+          <ul class="resource-list">
+            <li>Lecture 1 — Add presentation link</li>
+            <li>Lecture 2 — Add presentation link</li>
+            <li>Lecture 3 — Add presentation link</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-section" id="pdfs">
+      <div class="container">
+        <h2 class="section-title">📄 PDF Learning Materials</h2>
+
+        <p class="section-description">
+          Organize course handouts and recommended readings.
+        </p>
+
+        <div class="resource-box">
+          <p>Add links to your available PDF materials.</p>
+
+          <ul class="resource-list">
+            <li>Course handout — Add PDF link</li>
+            <li>Recommended reading — Add PDF link</li>
+            <li>Revision material — Add PDF link</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-section" id="videos">
+      <div class="container">
+        <h2 class="section-title">🎥 Video Lessons</h2>
+
+        <p class="section-description">
+          Reinforce your learning with relevant educational videos.
+        </p>
+
+        <div class="resource-box">
+          <p>Add links to useful videos or demonstrations.</p>
+
+          <ul class="resource-list">
+            <li>Video lesson 1 — Add video link</li>
+            <li>Video lesson 2 — Add video link</li>
+            <li>Video lesson 3 — Add video link</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-section" id="audio">
+      <div class="container">
+        <h2 class="section-title">🎧 Audio Lessons</h2>
+
+        <p class="section-description">
+          Use audio summaries to reinforce your revision.
+        </p>
+
+        <div class="resource-box">
+          <p>Add links to your recorded audio lessons.</p>
+
+          <ul class="resource-list">
+            <li>Audio lesson 1 — Add audio link</li>
+            <li>Audio lesson 2 — Add audio link</li>
+            <li>Audio lesson 3 — Add audio link</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-section" id="notes">
+      <div class="container">
+        <h2 class="section-title">📝 Short Notes and Revision</h2>
+
+        <p class="section-description">
+          Build clear, concise revision notes from your lecture materials.
+        </p>
+
+        <div class="resource-box">
+          <p>Organize your revision notes by topic.</p>
+
+          <ul class="resource-list">
+            <li>Important definitions — Add notes</li>
+            <li>Pharmaceutical care concepts — Add notes</li>
+            <li>Patient counseling summaries — Add notes</li>
+            <li>Clinical case revision — Add notes</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-section" id="quizzes">
+      <div class="container">
+        <h2 class="section-title">🧠 Practice Quizzes</h2>
+
+        <p class="section-description">
+          Test your knowledge and practice applying course concepts.
+        </p>
+
+        <div class="resource-box">
+          <p>Add interactive quizzes and practice questions here.</p>
+
+          <ul class="resource-list">
+            <li>Topic-based MCQs — Add quiz link</li>
+            <li>Patient case questions — Add quiz link</li>
+            <li>Comprehensive revision quiz — Add quiz link</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-section" id="exams">
+      <div class="container">
+        <h2 class="section-title">🏆 Examination Preparation</h2>
+
+        <p class="section-description">
+          Practice systematically before your assessments.
+        </p>
+
+        <div class="resource-box">
+          <p>Add authorized examination and revision resources here.</p>
+
+          <ul class="resource-list">
+            <li>Mock examination — Add exam link</li>
+            <li>Past examination paper — Add exam link</li>
+            <li>Comprehensive revision — Add exam link</li>
+          </ul>
+
+          <div class="notice">
+            These are placeholders, not actual examination papers.
+            Check clinical information against reliable learning materials.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        <strong>Gidy Nega | Learn, Create, Share & Grow</strong>
+      </p>
+
+      <p>Pharmacy Practice • Phar4244</p>
+
+      <p>
+        <a href="../../../../../index.html">
+          Return to Gidy Nega's Website
+        </a>
+      </p>
+
+      <p>Keep learning. Keep growing. Build your future. 💙</p>
+    </div>
+  </footer>
+
+</body>
+</html>
