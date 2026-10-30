@@ -8,332 +8,254 @@
 
   <style>
     * {
-      margin: 0;
-      padding: 0;
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
+      margin: 0;
+      padding: 20px;
       font-family: Arial, sans-serif;
       background: #0b0b18;
-      color: #f4f4ff;
-      line-height: 1.7;
-    }
-
-    header {
-      padding: 24px 7%;
-      border-bottom: 1px solid #343454;
-    }
-
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .brand {
-      color: #ff55c8;
-      font-weight: bold;
-      font-size: 20px;
-    }
-
-    a {
-      color: #65eee4;
-      text-decoration: none;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 65px 7% 45px;
-      background: radial-gradient(circle, #29234d, #0b0b18);
-    }
-
-    .hero-icon {
-      font-size: 55px;
-      margin-bottom: 10px;
-    }
-
-    .hero h1 {
-      color: #65eee4;
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      color: #b9bad0;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .badge {
-      display: inline-block;
-      margin: 8px 4px;
-      padding: 7px 14px;
-      border-radius: 20px;
-      background: #343454;
-      color: #65eee4;
-      font-size: 13px;
+      color: #ffffff;
     }
 
     .container {
-      width: min(1100px, 90%);
-      margin: auto;
+      max-width: 850px;
+      margin: 30px auto;
     }
 
-    section {
-      padding: 35px 0;
+    header {
+      text-align: center;
+      padding: 30px 15px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #171735, #30205a);
+      border: 1px solid #8187ff;
     }
 
-    .section-title {
+    h1 {
       color: #65eee4;
-      margin-bottom: 18px;
-      font-size: 25px;
+      font-size: 30px;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
+    .intro {
+      color: #d5d5ed;
+      line-height: 1.7;
     }
 
     .card {
-      background: #17172b;
-      border: 1px solid #343454;
-      border-radius: 16px;
+      margin-top: 25px;
       padding: 22px;
-      transition: 0.3s;
+      border-radius: 15px;
+      background: #15152a;
+      border: 1px solid #45456b;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: #ff55c8;
-    }
-
-    .card h3 {
+    .card h2 {
       color: #ff55c8;
-      margin-bottom: 10px;
     }
 
     .card p {
-      color: #b9bad0;
+      color: #d5d5ed;
+      line-height: 1.7;
+    }
+
+    .course {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 12px;
+      background: #20203b;
+      border: 1px solid #45456b;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .course:hover {
+      transform: translateY(-3px);
+      border-color: #65eee4;
+    }
+
+    .course h3 {
+      color: #65eee4;
+      margin-top: 0;
+    }
+
+    .course p {
+      margin-bottom: 8px;
     }
 
     .button {
       display: inline-block;
-      margin-top: 14px;
-      padding: 10px 17px;
+      margin-top: 12px;
+      margin-right: 6px;
+      padding: 12px 18px;
       border-radius: 9px;
-      background: linear-gradient(135deg, #ff55c8, #8187ff);
+      background: #8187ff;
       color: #0b0b18;
       font-weight: bold;
+      text-decoration: none;
     }
 
-    .notice {
-      background: #17172b;
-      border-left: 4px solid #8187ff;
-      padding: 18px;
-      border-radius: 10px;
-      color: #b9bad0;
-    }
-
-    .resource-section {
-      margin-bottom: 25px;
-    }
-
-    .resource-section .card {
-      min-height: 130px;
+    .button:hover {
+      background: #65eee4;
     }
 
     footer {
       text-align: center;
-      padding: 30px 7%;
-      border-top: 1px solid #343454;
-      color: #b9bad0;
       margin-top: 30px;
-    }
-
-    footer a {
-      margin: 0 8px;
-    }
-
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 28px;
-      }
-
-      .topbar {
-        flex-direction: column;
-      }
+      color: #aaaac5;
+      font-size: 14px;
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <div class="topbar">
-    <div class="brand">Gidy Nega | Pharmacy Education</div>
-    <a href="../../../../../index.html">Main Website</a>
-  </div>
-</header>
+  <main class="container">
 
-<section class="hero">
-  <div class="hero-icon">🔬</div>
+    <header>
+      <h1>🔬 Pathology</h1>
 
-  <h1>Pathology</h1>
-
-  <p>
-    Understand diseases, their causes, mechanisms, and effects
-    on the structure and function of the human body.
-  </p>
-
-  <div>
-    <span class="badge">Course Code: Path2054</span>
-    <span class="badge">5 ECTS</span>
-    <span class="badge">Year II</span>
-    <span class="badge">Semester I</span>
-  </div>
-</section>
-
-<main class="container">
-
-  <section>
-    <h2 class="section-title">📖 Course Overview</h2>
-
-    <div class="card">
-      <h3>About This Course</h3>
-
-      <p>
-        Pathology is the study of diseases. It examines the causes
-        of diseases, how they develop, the structural changes they
-        produce in cells and tissues, and their effects on normal
-        body functions.
+      <p class="intro">
+        Pharmacy Education | Gidy Nega<br>
+        Understand diseases, their causes, mechanisms, and effects on the human body.
       </p>
 
       <p>
-        This course provides an important foundation for understanding
-        disease processes and their relevance to pharmacy practice.
+        <strong>Course Code:</strong> Path2054<br>
+        <strong>Credit:</strong> 5 ECTS<br>
+        <strong>Year:</strong> II | <strong>Semester:</strong> I
       </p>
-    </div>
-  </section>
+    </header>
 
-  <section>
-    <h2 class="section-title">🎯 Learning Resources</h2>
+    <section class="card">
+      <h2>📖 Course Overview</h2>
 
-    <div class="notice">
-      Explore the learning materials below. Resources will be added
-      as they become available. Official course modules should be
-      checked against the university's course outline.
-    </div>
-  </section>
+      <p>
+        Pathology is the study of diseases, including their causes,
+        development, structural changes, and effects on normal body
+        functions.
+      </p>
 
-  <section id="modules" class="resource-section">
-    <h2 class="section-title">📚 Course Modules</h2>
+      <p>
+        This course introduces important concepts that help pharmacy
+        students understand disease processes and their relevance to
+        human health and pharmacy practice.
+      </p>
+    </section>
 
-    <div class="grid">
-      <div class="card">
-        <h3>Course Modules</h3>
-        <p>Organized topics and learning materials for Pathology.</p>
-        <a class="button" href="#modules">View Modules</a>
+    <section class="card">
+      <h2>🎯 Learning Resources</h2>
+
+      <p>
+        Explore the learning resources available for Pathology.
+        Materials will be added as they become available.
+      </p>
+
+      <div class="course">
+        <h3>1. Course Modules</h3>
+        <p>Organized course topics and learning modules.</p>
+        <a class="button" href="#modules">Open Modules</a>
       </div>
-    </div>
-  </section>
 
-  <section id="slides" class="resource-section">
-    <h2 class="section-title">📊 Lecture Slides</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>PowerPoint Presentations</h3>
-        <p>Lecture presentations will be organized here.</p>
+      <div class="course">
+        <h3>2. Lecture Slides</h3>
+        <p>PowerPoint presentations for classroom learning.</p>
+        <a class="button" href="#slides">Open Slides</a>
       </div>
-    </div>
-  </section>
 
-  <section id="pdfs" class="resource-section">
-    <h2 class="section-title">📄 PDF Documents</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>PDF Learning Materials</h3>
-        <p>Course documents and reading materials will be added here.</p>
+      <div class="course">
+        <h3>3. PDF Documents</h3>
+        <p>PDF learning materials and reference documents.</p>
+        <a class="button" href="#pdfs">Open PDFs</a>
       </div>
-    </div>
-  </section>
 
-  <section id="videos" class="resource-section">
-    <h2 class="section-title">🎥 Video Lessons</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Video Learning</h3>
-        <p>Helpful video explanations and lessons will be added here.</p>
+      <div class="course">
+        <h3>4. Video Lessons</h3>
+        <p>Video explanations to support understanding of Pathology.</p>
+        <a class="button" href="#videos">Watch Videos</a>
       </div>
-    </div>
-  </section>
 
-  <section id="audio" class="resource-section">
-    <h2 class="section-title">🎧 Audio Lessons</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Audio Learning</h3>
-        <p>Audio explanations and revision materials will be added here.</p>
+      <div class="course">
+        <h3>5. Audio Lessons</h3>
+        <p>Audio explanations and revision materials.</p>
+        <a class="button" href="#audio">Listen Now</a>
       </div>
-    </div>
-  </section>
 
-  <section id="notes" class="resource-section">
-    <h2 class="section-title">📝 Short Notes</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Revision Notes</h3>
-        <p>Clear and easy-to-review Pathology notes will be organized here.</p>
+      <div class="course">
+        <h3>6. Short Notes</h3>
+        <p>Simple, organized notes for quick revision.</p>
+        <a class="button" href="#notes">Read Notes</a>
       </div>
-    </div>
-  </section>
 
-  <section id="quizzes" class="resource-section">
-    <h2 class="section-title">🧠 Practice Quizzes</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Multiple Choice Questions</h3>
-        <p>Practice questions with answers and explanations will be added here.</p>
+      <div class="course">
+        <h3>7. Practice Quizzes</h3>
+        <p>Multiple-choice questions with answers and explanations.</p>
+        <a class="button" href="#quizzes">Start Quiz</a>
       </div>
-    </div>
-  </section>
 
-  <section id="exams" class="resource-section">
-    <h2 class="section-title">🎓 Exam Preparation</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Exam Revision</h3>
-        <p>Exam-focused revision materials and practice exercises will be added here.</p>
+      <div class="course">
+        <h3>8. Exam Preparation</h3>
+        <p>Revision materials and practice exercises for examinations.</p>
+        <a class="button" href="#exams">Prepare for Exams</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-</main>
+    <section class="card" id="modules">
+      <h2>📚 Course Modules</h2>
+      <p>
+        Official Pathology modules will be organized here after
+        checking the university course outline.
+      </p>
+    </section>
 
-<footer>
-  <p>Pathology | Path2054 | Pharmacy Education</p>
-  <p>Created for learning, sharing, and growing together.</p>
+    <section class="card" id="slides">
+      <h2>📊 Lecture Slides</h2>
+      <p>Lecture presentations will be added here.</p>
+    </section>
 
-  <p>
-    <a href="../index.html">Back to Semester I</a> |
-    <a href="../../../../../index.html">Main Website</a>
-  </p>
+    <section class="card" id="pdfs">
+      <h2>📄 PDF Documents</h2>
+      <p>PDF learning materials will be added here.</p>
+    </section>
 
-  <p>© 2026 Gidy Nega</p>
-</footer>
+    <section class="card" id="videos">
+      <h2>🎥 Video Lessons</h2>
+      <p>Video lessons will be added here.</p>
+    </section>
+
+    <section class="card" id="audio">
+      <h2>🎧 Audio Lessons</h2>
+      <p>Audio lessons will be added here.</p>
+    </section>
+
+    <section class="card" id="notes">
+      <h2>📝 Short Notes</h2>
+      <p>Short notes and revision summaries will be added here.</p>
+    </section>
+
+    <section class="card" id="quizzes">
+      <h2>🧠 Practice Quizzes</h2>
+      <p>Interactive quizzes and explanations will be added here.</p>
+    </section>
+
+    <section class="card" id="exams">
+      <h2>🎓 Exam Preparation</h2>
+      <p>Exam-focused practice materials will be added here.</p>
+    </section>
+
+    <a class="button" href="../index.html">
+      ⬅ Back to Semester I
+    </a>
+
+    <a class="button" href="../../../../../index.html">
+      Main Website
+    </a>
+
+    <footer>
+      <p>© 2026 Gidy Nega | Pharmacy Education 💊</p>
+      <p>Created for learning, sharing, and growing together.</p>
+    </footer>
+
+  </main>
 
 </body>
 </html>
