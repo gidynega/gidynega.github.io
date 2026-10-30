@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Community Pharmacy Clerkship learning resources for Pharmacy students.">
+  <title>Community Pharmacy Clerkship | Gidy Nega</title>
+
+  <style>
+    :root {
+      --bg: #0b0b18;
+      --card: #17172b;
+      --border: #343454;
+      --pink: #ff55c8;
+      --blue: #8187ff;
+      --cyan: #65eee4;
+      --text: #f4f4ff;
+      --muted: #b9bad0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--pink);
+    }
+
+    header {
+      padding: 24px 7%;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .brand {
+      color: var(--pink);
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 65px 7% 45px;
+      text-align: center;
+      background: radial-gradient(circle at top, #29234d 0%, var(--bg) 70%);
+    }
+
+    .hero-icon {
+      font-size: 3.5rem;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      color: var(--pink);
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 750px;
+      margin: 0 auto 12px;
+    }
+
+    .badge {
+      display: inline-block;
+      margin: 8px 5px;
+      padding: 7px 14px;
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      background: var(--card);
+      color: var(--cyan);
+      font-size: 0.9rem;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    section {
+      padding: 35px 0;
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      color: var(--cyan);
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--pink);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      color: var(--pink);
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 9px 15px;
+      border-radius: 8px;
+      background: linear-gradient(100deg, var(--pink), var(--blue));
+      color: #101020;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    .button:hover {
+      color: white;
+      opacity: 0.9;
+    }
+
+    .notice {
+      padding: 20px;
+      background: var(--card);
+      border-left: 4px solid var(--blue);
+      border-radius: 10px;
+      color: var(--muted);
+    }
+
+    .resource-section {
+      scroll-margin-top: 20px;
+    }
+
+    .resource-section .card {
+      min-height: 130px;
+    }
+
+    footer {
+      margin-top: 35px;
+      padding: 30px 7%;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+    }
+
+    footer p {
+      margin: 7px 0;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 20px 5%;
+      }
+
+      .hero {
+        padding: 45px 5% 30px;
+      }
+
+      .container {
+        width: 92%;
+      }
+
+      .section-title {
+        font-size: 1.45rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="topbar">
+      <a class="brand" href="../../../../../index.html">
+        Gidy Nega | Learn &amp; Grow
+      </a>
+
+      <a href="../index.html">← Back to Semester II</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-icon">🏪</div>
+
+      <h1>Community Pharmacy Clerkship</h1>
+
+      <p>
+        Develop practical knowledge and skills in community pharmacy
+        practice, including prescription processing, dispensing,
+        patient counseling, medication safety, and pharmaceutical care.
+      </p>
+
+      <span class="badge">Course Code: Phar5284</span>
+      <span class="badge">5 ECTS</span>
+      <span class="badge">Duration: 3 Weeks</span>
+      <span class="badge">Year V · Semester II</span>
+    </section>
+
+    <div class="container">
+
+      <!-- COURSE OVERVIEW -->
+      <section>
+        <h2 class="section-title">📚 Course Overview</h2>
+
+        <div class="notice">
+          Community pharmacy is an important part of the healthcare
+          system that provides access to medicines and pharmaceutical
+          services within the community.
+
+          <br><br>
+
+          During this clerkship, students connect classroom knowledge
+          with supervised pharmacy practice. General learning areas
+          may include prescription processing, dispensing, patient
+          counseling, medication safety, communication with patients,
+          health promotion, and appropriate referral.
+
+          <br><br>
+
+          Follow the official course outline and instructions from
+          your clerkship supervisor for the required learning
+          activities and competencies.
+        </div>
+      </section>
+
+      <!-- LEARNING RESOURCES -->
+      <section>
+        <h2 class="section-title">🗂️ Learning Resources</h2>
+
+        <div class="grid">
+
+          <article class="card">
+            <div class="card-icon">📖</div>
+            <h3>Course Modules</h3>
+            <p>Explore the main learning topics and clerkship activities.</p>
+            <a class="button" href="#modules">Study Modules →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📊</div>
+            <h3>PowerPoint Slides</h3>
+            <p>Review lecture presentations and learning materials.</p>
+            <a class="button" href="#slides">View Slides →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📄</div>
+            <h3>PDF Materials</h3>
+            <p>Access course handouts and reference materials.</p>
+            <a class="button" href="#pdfs">Read PDFs →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🎥</div>
+            <h3>Video Lessons</h3>
+            <p>Learn through demonstrations and educational videos.</p>
+            <a class="button" href="#videos">Watch Videos →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🎧</div>
+            <h3>Audio Lessons</h3>
+            <p>Listen to recorded explanations and audio lessons.</p>
+            <a class="button" href="#audio">Listen Now →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📝</div>
+            <h3>Short Notes</h3>
+            <p>Review concise notes for quick understanding and revision.</p>
+            <a class="button" href="#notes">Read Notes →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🧠</div>
+            <h3>Practice Quizzes</h3>
+            <p>Test your understanding with practice questions.</p>
+            <a class="button" href="#quizzes">Take Quiz →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🏆</div>
+            <h3>Exam Preparation</h3>
+            <p>Prepare for assessments with revision materials.</p>
+            <a class="button" href="#exams">Prepare Now →</a>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- MODULES -->
+      <section id="modules" class="resource-section">
+        <h2 class="section-title">📖 Course Modules</h2>
+
+        <div class="card">
+          <h3>Course Modules</h3>
+          <p>Course modules and official learning objectives will be added here.</p>
+        </div>
+      </section>
+
+      <!-- SLIDES -->
+      <section id="slides" class="resource-section">
+        <h2 class="section-title">📊 PowerPoint Slides</h2>
+
+        <div class="card">
+          <h3>Lecture Presentations</h3>
+          <p>PowerPoint presentations will be added here.</p>
+        </div>
+      </section>
+
+      <!-- PDFS -->
+      <section id="pdfs" class="resource-section">
+        <h2 class="section-title">📄 PDF Materials</h2>
+
+        <div class="card">
+          <h3>PDF Learning Materials</h3>
+          <p>PDF handouts and reference materials will be added here.</p>
+        </div>
+      </section>
+
+      <!-- VIDEOS -->
+      <section id="videos" class="resource-section">
+        <h2 class="section-title">🎥 Video Lessons</h2>
+
+        <div class="card">
+          <h3>Video Lessons</h3>
+          <p>Educational videos will be added here.</p>
+        </div>
+      </section>
+
+      <!-- AUDIO -->
+      <section id="audio" class="resource-section">
+        <h2 class="section-title">🎧 Audio Lessons</h2>
+
+        <div class="card">
+          <h3>Audio Lessons</h3>
+          <p>Audio lessons and recorded explanations will be added here.</p>
+        </div>
+      </section>
+
+      <!-- NOTES -->
+      <section id="notes" class="resource-section">
+        <h2 class="section-title">📝 Short Notes</h2>
+
+        <div class="card">
+          <h3>Short Notes</h3>
+          <p>Concise study notes will be added here.</p>
+        </div>
+      </section>
+
+      <!-- QUIZZES -->
+      <section id="quizzes" class="resource-section">
+        <h2 class="section-title">🧠 Practice Quizzes</h2>
+
+        <div class="card">
+          <h3>Practice Questions</h3>
+          <p>Practice quizzes and answer explanations will be added here.</p>
+        </div>
+      </section>
+
+      <!-- EXAMS -->
+      <section id="exams" class="resource-section">
+        <h2 class="section-title">🏆 Exam Preparation</h2>
+
+        <div class="card">
+          <h3>Exam Preparation</h3>
+          <p>Revision questions and exam preparation materials will be added here.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>Community Pharmacy Clerkship | Phar5284</p>
+
+    <p>Created for learning, sharing, and growing together.</p>
+
+    <p>
+      <a href="../index.html">← Back to Semester II</a>
+      &nbsp; | &nbsp;
+      <a href="../../../../../index.html">Main Website</a>
+    </p>
+
+    <p>© 2026 Gidy Nega</p>
+  </footer>
+
+</body>
+</html>
