@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pathology | Gidy Nega</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0b18;
+      color: #f4f4ff;
+      line-height: 1.7;
+    }
+
+    header {
+      padding: 24px 7%;
+      border-bottom: 1px solid #343454;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .brand {
+      color: #ff55c8;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    a {
+      color: #65eee4;
+      text-decoration: none;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 65px 7% 45px;
+      background: radial-gradient(circle, #29234d, #0b0b18);
+    }
+
+    .hero-icon {
+      font-size: 55px;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      color: #65eee4;
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #b9bad0;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .badge {
+      display: inline-block;
+      margin: 8px 4px;
+      padding: 7px 14px;
+      border-radius: 20px;
+      background: #343454;
+      color: #65eee4;
+      font-size: 13px;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    section {
+      padding: 35px 0;
+    }
+
+    .section-title {
+      color: #65eee4;
+      margin-bottom: 18px;
+      font-size: 25px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: #17172b;
+      border: 1px solid #343454;
+      border-radius: 16px;
+      padding: 22px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #ff55c8;
+    }
+
+    .card h3 {
+      color: #ff55c8;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #b9bad0;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 10px 17px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, #ff55c8, #8187ff);
+      color: #0b0b18;
+      font-weight: bold;
+    }
+
+    .notice {
+      background: #17172b;
+      border-left: 4px solid #8187ff;
+      padding: 18px;
+      border-radius: 10px;
+      color: #b9bad0;
+    }
+
+    .resource-section {
+      margin-bottom: 25px;
+    }
+
+    .resource-section .card {
+      min-height: 130px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 7%;
+      border-top: 1px solid #343454;
+      color: #b9bad0;
+      margin-top: 30px;
+    }
+
+    footer a {
+      margin: 0 8px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .topbar {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="topbar">
+    <div class="brand">Gidy Nega | Pharmacy Education</div>
+    <a href="../../../../../index.html">Main Website</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-icon">🔬</div>
+
+  <h1>Pathology</h1>
+
+  <p>
+    Understand diseases, their causes, mechanisms, and effects
+    on the structure and function of the human body.
+  </p>
+
+  <div>
+    <span class="badge">Course Code: Path2054</span>
+    <span class="badge">5 ECTS</span>
+    <span class="badge">Year II</span>
+    <span class="badge">Semester I</span>
+  </div>
+</section>
+
+<main class="container">
+
+  <section>
+    <h2 class="section-title">📖 Course Overview</h2>
+
+    <div class="card">
+      <h3>About This Course</h3>
+
+      <p>
+        Pathology is the study of diseases. It examines the causes
+        of diseases, how they develop, the structural changes they
+        produce in cells and tissues, and their effects on normal
+        body functions.
+      </p>
+
+      <p>
+        This course provides an important foundation for understanding
+        disease processes and their relevance to pharmacy practice.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">🎯 Learning Resources</h2>
+
+    <div class="notice">
+      Explore the learning materials below. Resources will be added
+      as they become available. Official course modules should be
+      checked against the university's course outline.
+    </div>
+  </section>
+
+  <section id="modules" class="resource-section">
+    <h2 class="section-title">📚 Course Modules</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Course Modules</h3>
+        <p>Organized topics and learning materials for Pathology.</p>
+        <a class="button" href="#modules">View Modules</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="slides" class="resource-section">
+    <h2 class="section-title">📊 Lecture Slides</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>PowerPoint Presentations</h3>
+        <p>Lecture presentations will be organized here.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pdfs" class="resource-section">
+    <h2 class="section-title">📄 PDF Documents</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>PDF Learning Materials</h3>
+        <p>Course documents and reading materials will be added here.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="videos" class="resource-section">
+    <h2 class="section-title">🎥 Video Lessons</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Video Learning</h3>
+        <p>Helpful video explanations and lessons will be added here.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="audio" class="resource-section">
+    <h2 class="section-title">🎧 Audio Lessons</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Audio Learning</h3>
+        <p>Audio explanations and revision materials will be added here.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="notes" class="resource-section">
+    <h2 class="section-title">📝 Short Notes</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Revision Notes</h3>
+        <p>Clear and easy-to-review Pathology notes will be organized here.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="quizzes" class="resource-section">
+    <h2 class="section-title">🧠 Practice Quizzes</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Multiple Choice Questions</h3>
+        <p>Practice questions with answers and explanations will be added here.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="exams" class="resource-section">
+    <h2 class="section-title">🎓 Exam Preparation</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Exam Revision</h3>
+        <p>Exam-focused revision materials and practice exercises will be added here.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Pathology | Path2054 | Pharmacy Education</p>
+  <p>Created for learning, sharing, and growing together.</p>
+
+  <p>
+    <a href="../index.html">Back to Semester I</a> |
+    <a href="../../../../../index.html">Main Website</a>
+  </p>
+
+  <p>© 2026 Gidy Nega</p>
+</footer>
+
+</body>
+</html>
