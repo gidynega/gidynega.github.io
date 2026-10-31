@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organic Chemistry Laboratory | Gidy Nega</title>
+  <meta name="description" content="Study Organic Chemistry Laboratory, including laboratory safety, experimental techniques, organic compound identification, and practical skills for Pharmacy students.">
+
+  <style>
+    :root {
+      --bg: #0b0b18;
+      --card: #17172b;
+      --border: #343454;
+      --pink: #ff55c8;
+      --blue: #8187ff;
+      --cyan: #65eee4;
+      --text: #f4f4ff;
+      --muted: #b9bad0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--pink);
+    }
+
+    header {
+      padding: 24px 7%;
+      border-bottom: 1px solid var(--border);
+      background: rgba(11,11,24,0.96);
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .brand {
+      color: var(--pink);
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .hero {
+      padding: 65px 7% 45px;
+      text-align: center;
+      background: radial-gradient(circle at top,#29234d 0%,var(--bg) 70%);
+    }
+
+    .hero-icon {
+      font-size: 3.5rem;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      color: var(--pink);
+      font-size: clamp(2rem,5vw,3.3rem);
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 750px;
+      margin: 0 auto 12px;
+    }
+
+    .badge {
+      display: inline-block;
+      margin: 8px 5px;
+      padding: 7px 14px;
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      background: var(--card);
+      color: var(--cyan);
+      font-size: .9rem;
+    }
+
+    .container {
+      width: min(1100px,90%);
+      margin: auto;
+    }
+
+    section {
+      padding: 35px 0;
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      color: var(--cyan);
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      transition: transform .25s,border-color .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--pink);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      color: var(--pink);
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 9px 15px;
+      border-radius: 8px;
+      background: linear-gradient(100deg,var(--pink),var(--blue));
+      color: #101020;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    .button:hover {
+      color: white;
+      opacity: .9;
+    }
+
+    .notice {
+      padding: 20px;
+      background: var(--card);
+      border-left: 4px solid var(--blue);
+      border-radius: 10px;
+      color: var(--muted);
+    }
+
+    .resource-section {
+      scroll-margin-top: 20px;
+    }
+
+    .resource-section .card {
+      min-height: 130px;
+    }
+
+    footer {
+      margin-top: 35px;
+      padding: 30px 7%;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+    }
+
+    footer p {
+      margin: 7px 0;
+    }
+
+    @media(max-width:600px) {
+      header {
+        padding: 20px 5%;
+      }
+
+      .hero {
+        padding: 45px 5% 30px;
+      }
+
+      .container {
+        width: 92%;
+      }
+
+      .section-title {
+        font-size: 1.45rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="topbar">
+      <div class="brand">Gidy Nega | Pharmacy Education</div>
+      <span>Learn • Practice • Grow</span>
+    </div>
+
+    <a class="back-link" href="../index.html">
+      ← Back to Semester II
+    </a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-icon">🧪</div>
+
+    <h1>Organic Chemistry Laboratory</h1>
+
+    <p>
+      Develop practical laboratory skills through experiments involving
+      organic compounds, their physical and chemical properties,
+      identification, and reactions. Connect theoretical organic chemistry
+      with practical pharmaceutical applications.
+    </p>
+
+    <span class="badge">Year I</span>
+    <span class="badge">Semester II</span>
+    <span class="badge">2 ECTS</span>
+  </section>
+
+  <main class="container">
+
+    <section>
+      <h2 class="section-title">Course Overview</h2>
+
+      <div class="notice">
+        This laboratory course introduces students to essential practical
+        techniques used in organic chemistry. Students develop skills in
+        laboratory safety, handling chemicals and equipment, carrying out
+        experiments, observing reactions, recording results, and interpreting
+        experimental findings.
+
+        <br><br>
+
+        Practical activities should always be performed under appropriate
+        laboratory supervision and according to institutional safety
+        procedures.
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Learning Resources</h2>
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-icon">📚</div>
+          <h3>Course Modules</h3>
+          <p>Study the practical topics and laboratory experiments covered in this course.</p>
+          <a class="button" href="#modules">Open Modules →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">📊</div>
+          <h3>PowerPoint Slides</h3>
+          <p>Access lecture and laboratory presentation slides.</p>
+          <a class="button" href="#slides">Open Slides →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">📄</div>
+          <h3>PDF Materials</h3>
+          <p>Read laboratory manuals, handouts, and supporting documents.</p>
+          <a class="button" href="#pdf">Open PDFs →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🎥</div>
+          <h3>Video Lessons</h3>
+          <p>Learn laboratory techniques through visual demonstrations.</p>
+          <a class="button" href="#videos">Watch Videos →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🎧</div>
+          <h3>Audio Lessons</h3>
+          <p>Listen to explanations of important laboratory concepts.</p>
+          <a class="button" href="#audio">Listen Now →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">📝</div>
+          <h3>Short Notes</h3>
+          <p>Review concise notes covering essential practical concepts.</p>
+          <a class="button" href="#notes">Read Notes →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">❓</div>
+          <h3>Practice Quizzes</h3>
+          <p>Test your understanding with practice questions and feedback.</p>
+          <a class="button" href="#quizzes">Start Quiz →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🎯</div>
+          <h3>Exam Preparation</h3>
+          <p>Prepare for practical assessments and examinations.</p>
+          <a class="button" href="#exam">Prepare Now →</a>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="modules" class="resource-section">
+      <h2 class="section-title">📚 Course Modules</h2>
+
+      <div class="card">
+        <h3>Organic Chemistry Laboratory Modules</h3>
+        <p>
+          Course modules and experiment details will be added here
+          according to the official course materials.
+        </p>
+      </div>
+    </section>
+
+    <section id="slides" class="resource-section">
+      <h2 class="section-title">📊 PowerPoint Slides</h2>
+
+      <div class="card">
+        <h3>Laboratory Presentation Slides</h3>
+        <p>PowerPoint learning materials will be uploaded here.</p>
+      </div>
+    </section>
+
+    <section id="pdf" class="resource-section">
+      <h2 class="section-title">📄 PDF Materials</h2>
+
+      <div class="card">
+        <h3>Laboratory Manuals and Handouts</h3>
+        <p>PDF course materials and laboratory manuals will be available here.</p>
+      </div>
+    </section>
+
+    <section id="videos" class="resource-section">
+      <h2 class="section-title">🎥 Video Lessons</h2>
+
+      <div class="card">
+        <h3>Practical Demonstrations</h3>
+        <p>Video demonstrations of laboratory techniques will be added here.</p>
+      </div>
+    </section>
+
+    <section id="audio" class="resource-section">
+      <h2 class="section-title">🎧 Audio Lessons</h2>
+
+      <div class="card">
+        <h3>Audio Explanations</h3>
+        <p>Audio lessons explaining important practical concepts will be added here.</p>
+      </div>
+    </section>
+
+    <section id="notes" class="resource-section">
+      <h2 class="section-title">📝 Short Notes</h2>
+
+      <div class="card">
+        <h3>Quick Revision Notes</h3>
+        <p>Short notes and important laboratory points will be added here.</p>
+      </div>
+    </section>
+
+    <section id="quizzes" class="resource-section">
+      <h2 class="section-title">❓ Practice Quizzes</h2>
+
+      <div class="card">
+        <h3>Test Your Knowledge</h3>
+        <p>Interactive quizzes and practice questions will be added here.</p>
+      </div>
+    </section>
+
+    <section id="exam" class="resource-section">
+      <h2 class="section-title">🎯 Exam Preparation</h2>
+
+      <div class="card">
+        <h3>Practical and Final Exam Preparation</h3>
+        <p>Revision materials and examination practice will be added here.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Gidy Nega | Pharmacy Education</p>
+    <p>Learn • Practice • Share • Grow</p>
+  </footer>
+
+</body>
+</html>
