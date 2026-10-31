@@ -1,3 +1,4 @@
+alert("Gidy's website JavaScript is working!");
 // 1. Welcome message
 console.log("Welcome to Gidy Nega's website!");
 
@@ -71,4 +72,3 @@ themeToggle.addEventListener("click", () => {
 });
 
 }
-alert("Gidy's website JavaScript is working!");
