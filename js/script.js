@@ -25,25 +25,49 @@ if (menuButton && navigation) {
 }
 
 // 4. Dark / Light Mode
-console.log("Theme button script is running!");
 const themeToggle = document.getElementById("themeToggle");
 
+// Update button text and accessibility label
+function updateThemeButton() {
+const isLightMode = document.body.classList.contains("light-mode");
+
+themeToggle.textContent = isLightMode
+    ? "🌙 Dark Mode"
+    : "☀️ Light Mode";
+
+themeToggle.setAttribute(
+    "aria-label",
+    isLightMode
+        ? "Switch to dark mode"
+        : "Switch to light mode"
+);
+
+}
+
+// Load the visitor's saved theme
+const savedTheme = localStorage.getItem("gidyTheme");
+
+if (savedTheme === "light") {
+document.body.classList.add("light-mode");
+} else {
+document.body.classList.remove("light-mode");
+}
+
 if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("light-mode");
+updateThemeButton();
 
-        const isLightMode =
-            document.body.classList.contains("light-mode");
+themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
 
-        themeToggle.textContent = isLightMode
-            ? "🌙 Dark Mode"
-            : "☀️ Light Mode";
+    const isLightMode =
+        document.body.classList.contains("light-mode");
 
-        themeToggle.setAttribute(
-            "aria-label",
-            isLightMode
-                ? "Switch to dark mode"
-                : "Switch to light mode"
-        );
-    });
+    localStorage.setItem(
+        "gidyTheme",
+        isLightMode ? "light" : "dark"
+    );
+
+    updateThemeButton();
+});
+
 }
