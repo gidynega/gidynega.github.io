@@ -71,3 +71,4 @@ themeToggle.addEventListener("click", () => {
 });
 
 }
+alert("Gidy's website JavaScript is working!");
