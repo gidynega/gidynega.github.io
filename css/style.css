@@ -919,3 +919,218 @@ html {
         scroll-behavior: auto !important;
     }
 }
+/* =========================================
+   GIDY NEGA — IMPROVED LIGHT MODE
+========================================= */
+
+body.light-mode {
+    --bg: #f4f6ff;
+    --panel: #ffffff;
+    --text: #20213a;
+    --muted: #626780;
+    --pink: #d633a6;
+    --blue: #565bdc;
+    --cyan: #078f91;
+    --line: rgba(45, 48, 90, 0.14);
+
+    background:
+        radial-gradient(circle at 10% 5%, rgba(129,135,255,.12), transparent 30rem),
+        radial-gradient(circle at 95% 35%, rgba(255,85,200,.09), transparent 27rem),
+        var(--bg);
+
+    color: var(--text);
+}
+
+/* Navigation */
+body.light-mode header {
+    background: rgba(255,255,255,.94);
+    border-bottom: 1px solid var(--line);
+}
+
+body.light-mode .navlinks {
+    color: #555b75;
+}
+
+body.light-mode .navlinks a:hover {
+    color: var(--blue);
+}
+
+body.light-mode .menu-button {
+    color: #20213a;
+    background: #ffffff;
+    border-color: var(--line);
+}
+
+body.light-mode .navlinks.open {
+    background: #ffffff;
+}
+
+/* Theme button */
+body.light-mode .theme-toggle {
+    background: #ffffff;
+    color: #33345c;
+    border-color: #7775d8;
+    box-shadow: 0 3px 12px rgba(70,70,140,.10);
+}
+
+body.light-mode .theme-toggle:hover {
+    box-shadow: 0 0 15px rgba(129,135,255,.30);
+}
+
+/* Hero section */
+body.light-mode .eyebrow {
+    color: #555bd2;
+    background: rgba(129,135,255,.09);
+    border-color: rgba(129,135,255,.25);
+}
+
+body.light-mode .gradient {
+    background: linear-gradient(
+        100deg,
+        #d633a6,
+        #565bdc,
+        #078f91
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+body.light-mode .lead {
+    color: #626780;
+}
+
+/* Floating cards */
+body.light-mode .float-card {
+    background: #ffffff;
+    color: #252641;
+    border-color: #dedff0;
+    box-shadow: 0 8px 25px rgba(40,40,90,.12);
+}
+
+/* Main content cards */
+body.light-mode .tile,
+body.light-mode .story {
+    background: rgba(255,255,255,.90);
+    border-color: #e0e2f0;
+    box-shadow: 0 8px 25px rgba(40,40,90,.06);
+}
+
+body.light-mode .tile h3,
+body.light-mode .story h3 {
+    color: #292a48;
+}
+
+body.light-mode .tile p,
+body.light-mode .story p {
+    color: #626780;
+}
+
+/* About section */
+body.light-mode .about-card {
+    background: linear-gradient(145deg, #ffffff, #f0f1ff);
+    border-color: #d9dafa;
+    box-shadow: 0 10px 30px rgba(65,65,130,.09);
+}
+
+body.light-mode .about-heading h2 {
+    color: #292a48;
+}
+
+body.light-mode .about-content h3 {
+    color: #4e59c9;
+}
+
+body.light-mode .about-content p {
+    color: #555b75;
+}
+
+body.light-mode .about-interests span {
+    color: #4549a8;
+    background: #e9eaff;
+    border-color: #d3d5ff;
+}
+
+/* Projects section */
+body.light-mode .section-heading h2 {
+    color: #292a48;
+}
+
+body.light-mode .section-tag {
+    color: #078f91;
+}
+
+body.light-mode .section-description {
+    color: #626780;
+}
+
+/* Keep project photo backgrounds and white text readable */
+body.light-mode .project-card {
+    border-color: #bfc3e8;
+    box-shadow: 0 8px 25px rgba(40,40,90,.12);
+}
+
+body.light-mode .project-card h3 {
+    color: #ffffff;
+}
+
+body.light-mode .project-card > p:not(.project-number) {
+    color: #f0efff;
+}
+
+/* Social media cards */
+body.light-mode .social-link {
+    background: linear-gradient(145deg, #ffffff, #f0f2ff);
+    color: #292a48;
+    border-color: #d9dcef;
+    box-shadow: 0 5px 18px rgba(40,40,90,.06);
+}
+
+body.light-mode .social-link small {
+    color: #626780;
+}
+
+body.light-mode .social-link .icon {
+    background: #ffffff;
+}
+
+/* Buttons */
+body.light-mode .secondary {
+    color: #4148b0;
+    background: rgba(129,135,255,.08);
+    border-color: #d4d6f2;
+}
+
+body.light-mode .btn:hover,
+body.light-mode .project-button:hover {
+    filter: brightness(1.05);
+}
+
+/* Tags */
+body.light-mode .tag {
+    color: #4148b0;
+    border-color: #d4d6f2;
+    background: #f0f0ff;
+}
+
+/* Footer */
+body.light-mode footer {
+    color: #626780;
+    border-color: #dfe1ef;
+}
+
+/* General transitions */
+body,
+header,
+.tile,
+.story,
+.about-card,
+.social-link,
+.float-card,
+.theme-toggle {
+    transition:
+        background-color .3s ease,
+        color .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
