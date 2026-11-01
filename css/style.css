@@ -1134,8 +1134,9 @@ header,
         border-color .3s ease,
         box-shadow .3s ease;
 }
-/* PROJECT TEXT READABILITY IN LIGHT MODE */
-/* Preserve the original project background photos */
+
+/* PROJECT CARD TEXT READABILITY IN LIGHT MODE */
+/* Keep original background photos unchanged */
 
 body.light-mode .project-card {
     border: 1px solid rgba(255, 255, 255, 0.45);
@@ -1144,21 +1145,25 @@ body.light-mode .project-card {
 
 body.light-mode .project-card h3 {
     color: #ffffff;
-    text-shadow: 2px 2px 5px #000000;
+    text-shadow:
+        0 2px 5px #000000,
+        0 0 10px #000000;
 }
 
-body.light-mode .project-card > p:not(.project-number) {
+body.light-mode .project-card p {
     color: #ffffff;
-    text-shadow: 1px 1px 4px #000000;
+    text-shadow:
+        0 2px 5px #000000,
+        0 0 10px #000000;
 }
 
 body.light-mode .project-number {
     color: #65eee4;
-    text-shadow: 1px 1px 4px #000000;
+    text-shadow: 0 2px 5px #000000;
 }
 
 body.light-mode .project-tags span {
     color: #ffffff;
-    background: rgba(20, 15, 45, 0.90);
+    background: rgba(15, 12, 35, 0.95);
     border-color: #a78bfa;
 }
