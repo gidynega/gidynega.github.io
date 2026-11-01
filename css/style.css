@@ -1134,3 +1134,32 @@ header,
         border-color .3s ease,
         box-shadow .3s ease;
 }
+/* FIX PROJECT CARDS IN LIGHT MODE */
+
+body.light-mode .project-card {
+    background: linear-gradient(145deg, #ffffff, #edf0ff);
+    border: 1px solid #d5d8f0;
+    box-shadow: 0 8px 25px rgba(40, 40, 90, 0.08);
+}
+
+body.light-mode .project-card h3 {
+    color: #292a48;
+}
+
+body.light-mode .project-card > p:not(.project-number) {
+    color: #626780;
+}
+
+body.light-mode .project-number {
+    color: #078f91;
+}
+
+body.light-mode .project-tags span {
+    color: #4549a8;
+    background: #e9eaff;
+    border-color: #d3d5ff;
+}
+
+body.light-mode .project-status {
+    color: #078f91;
+}
