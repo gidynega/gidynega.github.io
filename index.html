@@ -440,22 +440,7 @@ fill="none" stroke="currentColor" stroke-width="2"/>
   </div>
 </footer>
 
-<script>
-const menuButton = document.getElementById('menuButton');
-const navlinks = document.getElementById('navlinks');
 
-menuButton.addEventListener('click', () => {
-  navlinks.classList.toggle('open');
-});
-
-navlinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navlinks.classList.remove('open');
-  });
-});
-
-document.getElementById('year').textContent = new Date().getFullYear();
-</script>
 <script src="./js/script.js?v=2"></script>
 </body>
     </html>
