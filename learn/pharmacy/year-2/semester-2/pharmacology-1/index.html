@@ -143,6 +143,7 @@
     .card h3 {
       margin: 10px 0 5px;
       color: var(--cyan);
+      overflow-wrap: anywhere;
     }
 
     .card p {
@@ -150,6 +151,7 @@
       margin-top: 5px;
       color: var(--muted);
       font-size: 14px;
+      overflow-wrap: anywhere;
     }
 
     .button {
@@ -161,19 +163,51 @@
       background: linear-gradient(90deg, var(--pink), var(--blue));
       color: #fff;
       font-weight: bold;
+      transition: 0.25s;
     }
 
     .button:hover {
       opacity: 0.88;
+      transform: translateY(-2px);
+    }
+
+    .resource-actions {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .resource-actions .button {
+      flex: 1;
+      min-width: 95px;
+    }
+
+    .download-button {
+      background: transparent;
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+    }
+
+    .file-type {
+      display: inline-block;
+      color: var(--pink);
+      font-size: 12px;
+      margin-bottom: 8px;
+      font-weight: bold;
     }
 
     .notice {
-      margin-top: 28px;
+      margin-top: 18px;
       padding: 17px;
       border-left: 4px solid var(--pink);
       border-radius: 10px;
       background: #21182e;
       color: var(--muted);
+    }
+
+    .resource-section {
+      scroll-margin-top: 20px;
     }
 
     footer {
@@ -193,8 +227,7 @@
 <body>
 
   <header>
-    <a class="back"
-       href="../index.html">
+    <a class="back" href="../index.html">
       ← Back to Year II Semester II
     </a>
 
@@ -223,9 +256,11 @@
 
       <p>
         Choose a category below to access the relevant learning
-        resources. Materials will be added as they become available.
+        resources. Learn, practice and grow together!
       </p>
     </section>
+
+    <!-- LEARNING MATERIAL CATEGORIES -->
 
     <section>
       <div class="section-title">
@@ -238,174 +273,368 @@
         <article class="card">
           <div class="icon">📘</div>
           <h3>Course Modules</h3>
-          <p>
-            Full course modules, chapters and detailed learning materials.
-          </p>
+          <p>Full course modules, chapters and detailed learning materials.</p>
           <a class="button" href="#modules">Open Modules</a>
         </article>
 
         <article class="card">
           <div class="icon">📊</div>
           <h3>PowerPoint Slides</h3>
-          <p>
-            Lecture presentations for studying and classroom review.
-          </p>
+          <p>Lecture presentations for studying and classroom review.</p>
           <a class="button" href="#powerpoints">Open Slides</a>
         </article>
 
         <article class="card">
           <div class="icon">📄</div>
           <h3>PDF Materials</h3>
-          <p>
-            PDF textbooks, lecture handouts and reference materials.
-          </p>
+          <p>Lecture handouts and reference materials.</p>
           <a class="button" href="#pdfs">Open PDFs</a>
         </article>
 
         <article class="card">
           <div class="icon">🎥</div>
           <h3>Video Lessons</h3>
-          <p>
-            Video explanations to make difficult concepts easier to understand.
-          </p>
+          <p>Video explanations to make difficult concepts easier to understand.</p>
           <a class="button" href="#videos">Watch Videos</a>
         </article>
 
         <article class="card">
           <div class="icon">🎧</div>
           <h3>Audio Lessons</h3>
-          <p>
-            Audio explanations for revision and learning on the go.
-          </p>
+          <p>Audio explanations for revision and learning on the go.</p>
           <a class="button" href="#audio">Listen to Audio</a>
         </article>
 
         <article class="card">
           <div class="icon">📝</div>
           <h3>Short Notes</h3>
-          <p>
-            Concise summaries, key points and easy-to-memorize notes.
-          </p>
+          <p>Concise summaries, key points and revision notes.</p>
           <a class="button" href="#notes">Read Notes</a>
         </article>
 
         <article class="card">
           <div class="icon">🧠</div>
           <h3>Practice Quizzes</h3>
-          <p>
-            Practice questions to test your understanding of each topic.
-          </p>
+          <p>Practice questions to test your understanding.</p>
           <a class="button" href="#quizzes">Take Quizzes</a>
         </article>
 
         <article class="card">
           <div class="icon">🏆</div>
           <h3>Exams & Past Papers</h3>
-          <p>
-            Revision questions, practice examinations and available past papers.
-          </p>
+          <p>Revision questions and practice examinations.</p>
           <a class="button" href="#exams">Prepare for Exams</a>
         </article>
 
       </div>
     </section>
 
-    <section id="modules">
+
+    <!-- MODULES -->
+
+    <section class="resource-section" id="modules">
       <div class="section-title">
         <h2>📘 Course Modules</h2>
         <p>Full modules and chapter-by-chapter learning resources.</p>
       </div>
+
       <div class="notice">
         No modules uploaded yet. Course materials will appear here when added.
       </div>
     </section>
 
-    <section id="powerpoints">
+
+    <!-- POWERPOINTS -->
+
+    <section class="resource-section" id="powerpoints">
       <div class="section-title">
         <h2>📊 PowerPoint Slides</h2>
         <p>Lecture presentations and slide-based explanations.</p>
       </div>
-      <div class="notice">
-        No PowerPoint slides uploaded yet.
+
+      <div class="grid">
+
+        <article class="card">
+          <span class="file-type">POWERPOINT · PPT</span>
+          <h3>Pharmacology of Respiratory Disorders</h3>
+          <p>Lecture presentation.</p>
+          <div class="resource-actions">
+            <a class="button download-button"
+               href="powerpoints/pharmacology%20of%20respiratory%20disorders.ppt"
+               download>Download PPT</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="file-type">POWERPOINT · PPT</span>
+          <h3>Pharmacology of Peptic Ulcer Disease (PUD)</h3>
+          <p>Lecture presentation.</p>
+          <div class="resource-actions">
+            <a class="button download-button"
+               href="powerpoints/Pharmacology%20of%20PUD.ppt"
+               download>Download PPT</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="file-type">POWERPOINT · PPT</span>
+          <h3>Laxatives, Antidiarrheals and Antiemetics</h3>
+          <p>Lecture presentation.</p>
+          <div class="resource-actions">
+            <a class="button download-button"
+               href="powerpoints/laxatives,%20antidiarrhea,%20antiemetics.ppt"
+               download>Download PPT</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="file-type">POWERPOINT · PPTX</span>
+          <h3>Autacoids</h3>
+          <p>Lecture presentation.</p>
+          <div class="resource-actions">
+            <a class="button download-button"
+               href="powerpoints/Autacoids%20(1).pptx"
+               download>Download PPTX</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="file-type">POWERPOINT · PPTX</span>
+          <h3>Nervous System Pharmacology</h3>
+          <p>Lecture presentation.</p>
+          <div class="resource-actions">
+            <a class="button download-button"
+               href="powerpoints/NS%20Pharmacology%20ppt%20%20(1).pptx"
+               download>Download PPTX</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="file-type">POWERPOINT · PPTX</span>
+          <h3>Pharmacology for Pharmacy Students — Year II</h3>
+          <p>Lecture presentation.</p>
+          <div class="resource-actions">
+            <a class="button download-button"
+               href="powerpoints/pharmacology%20%20for%20%20Pharmacy%20students%20year%20II%20(1).pptx"
+               download>Download PPTX</a>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <section id="pdfs">
+
+    <!-- PDF MATERIALS -->
+
+    <section class="resource-section" id="pdfs">
       <div class="section-title">
         <h2>📄 PDF Materials</h2>
         <p>Handouts, reference documents and reading materials.</p>
       </div>
-      <div class="notice">
-        No PDF materials uploaded yet.
+
+      <div class="grid">
+
+        <article class="card">
+          <span class="file-type">PDF HANDOUT</span>
+          <h3>Unit 1 — Introduction to Pharmacology</h3>
+          <p>Foundational concepts and introduction to pharmacology.</p>
+          <div class="resource-actions">
+            <a class="button"
+               href="pdfs/Unit%20-%201%20Introduction%20to%20pharmacology.pdf"
+               target="_blank" rel="noopener">Open PDF</a>
+            <a class="button download-button"
+               href="pdfs/Unit%20-%201%20Introduction%20to%20pharmacology.pdf"
+               download>Download</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="file-type">PDF HANDOUT</span>
+          <h3>Unit 2 — Autonomic Nervous System Pharmacology</h3>
+          <p>Drugs acting on the autonomic nervous system.</p>
+          <div class="resource-actions">
+            <a class="button"
+               href="pdfs/Unit%202%20-%20Autonomic_nervous_system_pharmacology.pdf"
+               target="_blank" rel="noopener">Open PDF</a>
+            <a class="button download-button"
+               href="pdfs/Unit%202%20-%20Autonomic_nervous_system_pharmacology.pdf"
+               download>Download</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="file-type">PDF HANDOUT</span>
+          <h3>Pharmacology of Neurodegenerative Disorders</h3>
+          <p>Pharmacological management of neurodegenerative diseases.</p>
+          <div class="resource-actions">
+            <a class="button"
+               href="pdfs/Pharmacology%20of%20neurodegenerative%20disorders.pdf"
+               target="_blank" rel="noopener">Open PDF</a>
+            <a class="button download-button"
+               href="pdfs/Pharmacology%20of%20neurodegenerative%20disorders.pdf"
+               download>Download</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="file-type">PDF DOCUMENT</span>
+          <h3>Natividad Diabetes Questionnaire — English</h3>
+          <p>Diabetes-related questionnaire document.</p>
+          <div class="resource-actions">
+            <a class="button"
+               href="pdfs/Natividad-Diabetes-Questionnaire-English.pdf"
+               target="_blank" rel="noopener">Open PDF</a>
+            <a class="button download-button"
+               href="pdfs/Natividad-Diabetes-Questionnaire-English.pdf"
+               download>Download</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="file-type">PDF HANDOUT</span>
+          <h3>Epilepsy and Antiepileptic Drugs (AEDs)</h3>
+          <p>Epilepsy management and antiepileptic medications.</p>
+          <div class="resource-actions">
+            <a class="button"
+               href="pdfs/Epilepsy,%20AEDs.pdf"
+               target="_blank" rel="noopener">Open PDF</a>
+            <a class="button download-button"
+               href="pdfs/Epilepsy,%20AEDs.pdf"
+               download>Download</a>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <section id="videos">
+
+    <!-- VIDEOS -->
+
+    <section class="resource-section" id="videos">
       <div class="section-title">
         <h2>🎥 Video Lessons</h2>
         <p>Watch recorded lectures and educational explanations.</p>
       </div>
+
       <div class="notice">
-        No videos added yet.
+        No videos added yet. Video lessons will appear here when uploaded.
       </div>
     </section>
 
-    <section id="audio">
+
+    <!-- AUDIO -->
+
+    <section class="resource-section" id="audio">
       <div class="section-title">
         <h2>🎧 Audio Lessons</h2>
         <p>Listen to recorded explanations and revision lessons.</p>
       </div>
+
       <div class="notice">
         No audio lessons uploaded yet.
       </div>
     </section>
 
-    <section id="notes">
+
+    <!-- SHORT NOTES -->
+
+    <section class="resource-section" id="notes">
       <div class="section-title">
         <h2>📝 Short Notes</h2>
         <p>Quick summaries, important concepts and revision notes.</p>
       </div>
+
       <div class="notice">
-        No short notes added yet.
+        No short notes added yet. Revision notes will be added here.
       </div>
     </section>
 
-    <section id="quizzes">
+
+    <!-- QUIZZES -->
+
+    <section class="resource-section" id="quizzes">
       <div class="section-title">
         <h2>🧠 Practice Quizzes</h2>
         <p>Test your knowledge and identify topics to review.</p>
       </div>
+
       <div class="notice">
-        No quizzes added yet.
+        No quizzes added yet. Interactive Pharmacology I quizzes
+        will be added here.
       </div>
     </section>
 
-    <section id="exams">
+
+    <!-- EXAMS -->
+
+    <section class="resource-section" id="exams">
       <div class="section-title">
         <h2>🏆 Exams & Past Papers</h2>
         <p>Prepare using practice examinations and revision questions.</p>
       </div>
-      <div class="notice">
-        No examination materials added yet.
+
+      <div class="grid">
+
+        <article class="card">
+          <span class="file-type">EXAM MATERIAL · PDF</span>
+          <h3>Pharmacology Questions</h3>
+          <p>Pharmacology practice and revision questions.</p>
+          <div class="resource-actions">
+            <a class="button"
+               href="exams/Pharmacology%20Questions.pdf"
+               target="_blank" rel="noopener">Open PDF</a>
+            <a class="button download-button"
+               href="exams/Pharmacology%20Questions.pdf"
+               download>Download</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="file-type">SOLVED EXAM · PDF</span>
+          <h3>Pharmacology Solved Exam</h3>
+          <p>Previously solved examination material.</p>
+          <div class="resource-actions">
+            <a class="button"
+               href="exams/pharmacology%20solved%20exam.pdf"
+               target="_blank" rel="noopener">Open PDF</a>
+            <a class="button download-button"
+               href="exams/pharmacology%20solved%20exam.pdf"
+               download>Download</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="file-type">EXAM MATERIAL · PDF</span>
+          <h3>Pharmacology Exam — Ms. Banchayehu</h3>
+          <p>Pharmacology examination material.</p>
+          <div class="resource-actions">
+            <a class="button"
+               href="exams/Pharmacology%20exam%20ms%20Banchayehu%20(1).pdf"
+               target="_blank" rel="noopener">Open PDF</a>
+            <a class="button download-button"
+               href="exams/Pharmacology%20exam%20ms%20Banchayehu%20(1).pdf"
+               download>Download</a>
+          </div>
+        </article>
+
       </div>
     </section>
 
+
     <div class="notice">
       <strong>📌 Important:</strong>
-      This page is a learning-material organizer. Resources must be
-      added to the website repository or linked from a suitable
-      file-storage or video service before visitors can access them.
+      This page organizes Pharmacology I learning resources.
+      Additional materials will be added as they become available.
     </div>
 
   </main>
 
   <footer>
-    <p>
-      Created with ❤️ by Gidy Nega
-    </p>
+    <p>Created with ❤️ by Gidy Nega</p>
     <p>
       <a href="../../../../index.html">Visit My Website</a>
     </p>
+    <p>Learn, Create, Share & Grow.</p>
   </footer>
 
 </body>
