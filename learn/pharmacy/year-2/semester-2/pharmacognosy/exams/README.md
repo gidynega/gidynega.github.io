@@ -1,1 +1,0 @@
-# Pharmacognosy Exams Materials
