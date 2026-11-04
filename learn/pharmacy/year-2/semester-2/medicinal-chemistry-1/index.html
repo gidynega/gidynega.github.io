@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,13 +22,9 @@
       --muted: #b9bad0;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -37,9 +34,7 @@
       line-height: 1.6;
     }
 
-    a {
-      text-decoration: none;
-    }
+    a { text-decoration: none; }
 
     header {
       padding: 35px 18px;
@@ -69,9 +64,7 @@
       font-size: clamp(30px, 6vw, 46px);
     }
 
-    h1 span {
-      color: var(--cyan);
-    }
+    h1 span { color: var(--cyan); }
 
     header p {
       max-width: 650px;
@@ -84,32 +77,23 @@
       margin: 30px auto;
     }
 
-    .welcome,
-    .card {
+    .welcome, .card {
       padding: 20px;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 16px;
     }
 
-    .welcome {
-      margin-bottom: 30px;
-    }
+    .welcome { margin-bottom: 30px; }
 
-    .welcome h2,
-    .card h3 {
-      color: var(--cyan);
-    }
+    .welcome h2, .card h3 { color: var(--cyan); }
 
     .section-title {
       margin-top: 35px;
       margin-bottom: 15px;
     }
 
-    .section-title p,
-    .card p {
-      color: var(--muted);
-    }
+    .section-title p, .card p { color: var(--muted); }
 
     .grid {
       display: grid;
@@ -120,8 +104,7 @@
     .card {
       display: flex;
       flex-direction: column;
-      transition: transform 0.25s ease,
-                  border-color 0.25s ease;
+      transition: transform 0.25s ease, border-color 0.25s ease;
     }
 
     .card:hover {
@@ -129,13 +112,9 @@
       border-color: var(--cyan);
     }
 
-    .icon {
-      font-size: 32px;
-    }
+    .icon { font-size: 32px; }
 
-    .card h3 {
-      margin: 10px 0 5px;
-    }
+    .card h3 { margin: 10px 0 5px; }
 
     .card p {
       flex-grow: 1;
@@ -153,6 +132,11 @@
       font-weight: bold;
     }
 
+    .button.secondary {
+      background: #292943;
+      border: 1px solid var(--border);
+    }
+
     .notice {
       margin: 15px 0 25px;
       padding: 17px;
@@ -162,6 +146,8 @@
       color: var(--muted);
     }
 
+    .resource-section { margin-top: 35px; }
+
     footer {
       margin-top: 50px;
       padding: 25px 15px;
@@ -170,163 +156,353 @@
       color: var(--muted);
     }
 
-    footer a {
-      color: var(--cyan);
-    }
+    footer a { color: var(--cyan); }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <a class="back" href="../index.html">
-      ← Back to Year II Semester II
-    </a>
+<header>
+  <a class="back" href="../index.html">
+    ← Back to Year II Semester II
+  </a>
 
-    <br>
+  <br>
 
-    <span class="badge">PHARMACY EDUCATION</span>
+  <span class="badge">PHARMACY EDUCATION</span>
 
-    <h1>Medicinal Chemistry <span>I</span></h1>
+  <h1>Medicinal Chemistry <span>I</span></h1>
+
+  <p>
+    Explore the chemical structures of medicines,
+    structure–activity relationships and the chemical
+    principles behind drug action.
+  </p>
+</header>
+
+<main class="container">
+
+  <section class="welcome">
+    <h2>🧪 Welcome to Medicinal Chemistry I</h2>
 
     <p>
-      Explore the chemical structures of medicines,
-      structure–activity relationships and the chemical
-      principles behind drug action.
+      Use this learning center to organize your lecture materials,
+      review chemical concepts and prepare for examinations.
     </p>
-  </header>
 
-  <main class="container">
-
-    <section class="welcome">
-      <h2>🧪 Welcome to Medicinal Chemistry I</h2>
-
-      <p>
-        Use this learning center to organize your lecture materials,
-        review chemical concepts and prepare for examinations.
-      </p>
-
-      <p>
-        Choose a category below to access its learning resources.
-        Materials will be added as they become available.
-      </p>
-    </section>
-
-    <section>
-      <div class="section-title">
-        <h2>🎓 Learning Materials</h2>
-        <p>All your course resources, organized in one place.</p>
-      </div>
-
-      <div class="grid">
-
-        <article class="card">
-          <div class="icon">📘</div>
-          <h3>Course Modules</h3>
-          <p>Full modules and detailed course materials.</p>
-          <a class="button" href="#modules">Open Modules</a>
-        </article>
-
-        <article class="card">
-          <div class="icon">📊</div>
-          <h3>PowerPoint Slides</h3>
-          <p>Lecture presentations and classroom slides.</p>
-          <a class="button" href="#powerpoints">Open Slides</a>
-        </article>
-
-        <article class="card">
-          <div class="icon">📄</div>
-          <h3>PDF Materials</h3>
-          <p>Lecture handouts and reference documents.</p>
-          <a class="button" href="#pdfs">Open PDFs</a>
-        </article>
-
-        <article class="card">
-          <div class="icon">🎥</div>
-          <h3>Video Lessons</h3>
-          <p>Video explanations of difficult concepts.</p>
-          <a class="button" href="#videos">Watch Videos</a>
-        </article>
-
-        <article class="card">
-          <div class="icon">🎧</div>
-          <h3>Audio Lessons</h3>
-          <p>Audio explanations for revision.</p>
-          <a class="button" href="#audio">Listen to Audio</a>
-        </article>
-
-        <article class="card">
-          <div class="icon">📝</div>
-          <h3>Short Notes</h3>
-          <p>Concise summaries and important revision points.</p>
-          <a class="button" href="#notes">Read Notes</a>
-        </article>
-
-        <article class="card">
-          <div class="icon">🧠</div>
-          <h3>Practice Quizzes</h3>
-          <p>Test your understanding with practice questions.</p>
-          <a class="button" href="#quizzes">Take Quizzes</a>
-        </article>
-
-        <article class="card">
-          <div class="icon">🏆</div>
-          <h3>Exams & Past Papers</h3>
-          <p>Practice examinations and revision questions.</p>
-          <a class="button" href="#exams">Prepare for Exams</a>
-        </article>
-
-      </div>
-    </section>
-
-    <section id="modules">
-      <h2>📘 Course Modules</h2>
-      <div class="notice">No modules added yet.</div>
-    </section>
-
-    <section id="powerpoints">
-      <h2>📊 PowerPoint Slides</h2>
-      <div class="notice">No slides added yet.</div>
-    </section>
-
-    <section id="pdfs">
-      <h2>📄 PDF Materials</h2>
-      <div class="notice">No PDFs added yet.</div>
-    </section>
-
-    <section id="videos">
-      <h2>🎥 Video Lessons</h2>
-      <div class="notice">No videos added yet.</div>
-    </section>
-
-    <section id="audio">
-      <h2>🎧 Audio Lessons</h2>
-      <div class="notice">No audio lessons added yet.</div>
-    </section>
-
-    <section id="notes">
-      <h2>📝 Short Notes</h2>
-      <div class="notice">No short notes added yet.</div>
-    </section>
-
-    <section id="quizzes">
-      <h2>🧠 Practice Quizzes</h2>
-      <div class="notice">No quizzes added yet.</div>
-    </section>
-
-    <section id="exams">
-      <h2>🏆 Exams & Past Papers</h2>
-      <div class="notice">No examination materials added yet.</div>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>Created with ❤️ by Gidy Nega</p>
     <p>
-      <a href="../../../../index.html">Visit My Website</a>
+      Choose a category below to access its learning resources.
     </p>
-  </footer>
+  </section>
+
+  <section>
+    <div class="section-title">
+      <h2>🎓 Learning Materials</h2>
+      <p>All your course resources, organized in one place.</p>
+    </div>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="icon">📘</div>
+        <h3>Course Modules</h3>
+        <p>Full modules and detailed course materials.</p>
+        <a class="button" href="#modules">Open Modules</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📊</div>
+        <h3>PowerPoint Slides</h3>
+        <p>Lecture presentations and classroom slides.</p>
+        <a class="button" href="#powerpoints">Open Slides</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📄</div>
+        <h3>PDF Materials</h3>
+        <p>Lecture handouts and reference documents.</p>
+        <a class="button" href="#pdfs">Open PDFs</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">🎥</div>
+        <h3>Video Lessons</h3>
+        <p>Video explanations of difficult concepts.</p>
+        <a class="button" href="#videos">Watch Videos</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">🎧</div>
+        <h3>Audio Lessons</h3>
+        <p>Audio explanations for revision.</p>
+        <a class="button" href="#audio">Listen to Audio</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📝</div>
+        <h3>Short Notes</h3>
+        <p>Concise summaries and important revision points.</p>
+        <a class="button" href="#notes">Read Notes</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">🧠</div>
+        <h3>Practice Quizzes</h3>
+        <p>Test your understanding with practice questions.</p>
+        <a class="button" href="#quizzes">Take Quizzes</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">🏆</div>
+        <h3>Exams & Past Papers</h3>
+        <p>Practice examinations and revision questions.</p>
+        <a class="button" href="#exams">Prepare for Exams</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- COURSE MODULES -->
+  <section id="modules" class="resource-section">
+    <h2>📘 Course Modules</h2>
+    <div class="notice">No modules added yet.</div>
+  </section>
+
+  <!-- POWERPOINT SLIDES -->
+  <section id="powerpoints" class="resource-section">
+    <h2>📊 PowerPoint Slides</h2>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="icon">📊</div>
+        <h3>Medicinal Chemistry of Sedative-Hypnotics</h3>
+        <p>PowerPoint lecture presentation.</p>
+        <a class="button" href="powerpoints/Medicinal%20chemistry%20of%20Sedative-hypnotics.pptx" download>Download PPTX</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📊</div>
+        <h3>Local Anesthetics</h3>
+        <p>PowerPoint lecture presentation.</p>
+        <a class="button" href="powerpoints/Local%20Anesthetics.pptx" download>Download PPTX</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📊</div>
+        <h3>Medicinal Chemistry of Anesthetics</h3>
+        <p>PowerPoint lecture presentation.</p>
+        <a class="button" href="powerpoints/Medicinal%20chemistry%20of%20Anesthetics1.pptx" download>Download PPTX</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📊</div>
+        <h3>Medicinal Chemistry of Antipsychotic Agents</h3>
+        <p>PowerPoint lecture presentation.</p>
+        <a class="button" href="powerpoints/Medicinal%20chemistry%20of%20Antipsychotic%20agents%20-%20Copy.pptx" download>Download PPTX</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📊</div>
+        <h3>Medicinal Chemistry of Antidepressant Drugs</h3>
+        <p>PowerPoint lecture presentation.</p>
+        <a class="button" href="powerpoints/Medicinal%20chemistry%20of%20Antidepressant%20Drugs.pptx" download>Download PPTX</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📊</div>
+        <h3>Non-Steroidal Drugs</h3>
+        <p>PowerPoint lecture presentation.</p>
+        <a class="button" href="powerpoints/non%20st.pptx" download>Download PPTX</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📊</div>
+        <h3>Non-Steroidal Drugs — Copy</h3>
+        <p>Additional PowerPoint presentation.</p>
+        <a class="button" href="powerpoints/non%20st%20-%20Copy.pptx" download>Download PPTX</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📊</div>
+        <h3>Adrenergic Drugs</h3>
+        <p>PowerPoint lecture presentation.</p>
+        <a class="button" href="powerpoints/adrenergic%20.pptx" download>Download PPTX</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- PDF MATERIALS -->
+  <section id="pdfs" class="resource-section">
+    <h2>📄 PDF Materials</h2>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="icon">📄</div>
+        <h3>NSAIDs Final</h3>
+        <p>PDF lecture material.</p>
+        <a class="button" href="pdfs/NSAIDs%20finall.pdf" target="_blank" rel="noopener">View PDF</a>
+        <a class="button secondary" href="pdfs/NSAIDs%20finall.pdf" download>Download PDF</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📄</div>
+        <h3>Medicinal Presentation</h3>
+        <p>PDF lecture material.</p>
+        <a class="button" href="pdfs/MEDICINAL%20PRESENTATION.pdf" target="_blank" rel="noopener">View PDF</a>
+        <a class="button secondary" href="pdfs/MEDICINAL%20PRESENTATION.pdf" download>Download PDF</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📄</div>
+        <h3>CNS Medicinal Chemistry</h3>
+        <p>PDF lecture material.</p>
+        <a class="button" href="pdfs/CNS%20Medchem.pdf" target="_blank" rel="noopener">View PDF</a>
+        <a class="button secondary" href="pdfs/CNS%20Medchem.pdf" download>Download PDF</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📄</div>
+        <h3>CNS Medicinal Chemistry — Copy</h3>
+        <p>Additional PDF lecture material.</p>
+        <a class="button" href="pdfs/CNS%20Medchem%20-%20Copy.pdf" target="_blank" rel="noopener">View PDF</a>
+        <a class="button secondary" href="pdfs/CNS%20Medchem%20-%20Copy.pdf" download>Download PDF</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📄</div>
+        <h3>NSAID Lecture</h3>
+        <p>PDF lecture material.</p>
+        <a class="button" href="pdfs/nsaid%20lecture.pdf" target="_blank" rel="noopener">View PDF</a>
+        <a class="button secondary" href="pdfs/nsaid%20lecture.pdf" download>Download PDF</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📄</div>
+        <h3>Diuretics, Cardiovascular Agents and Steroidal Drugs</h3>
+        <p>Medicinal chemistry lecture material.</p>
+        <a class="button" href="pdfs/Medicinal_chemistry_of_Diuretics,_Cardiovascular_agents_and_steriodal.pdf" target="_blank" rel="noopener">View PDF</a>
+        <a class="button secondary" href="pdfs/Medicinal_chemistry_of_Diuretics,_Cardiovascular_agents_and_steriodal.pdf" download>Download PDF</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📄</div>
+        <h3>Medicinal Chemistry Assignment</h3>
+        <p>PDF assignment material.</p>
+        <a class="button" href="pdfs/Medicinal%20chemistry%20%20ass.pdf" target="_blank" rel="noopener">View PDF</a>
+        <a class="button secondary" href="pdfs/Medicinal%20chemistry%20%20ass.pdf" download>Download PDF</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📄</div>
+        <h3>Med Chem Assignment</h3>
+        <p>PDF assignment material.</p>
+        <a class="button" href="pdfs/med%20chem%20as.pdf" target="_blank" rel="noopener">View PDF</a>
+        <a class="button secondary" href="pdfs/med%20chem%20as.pdf" download>Download PDF</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📄</div>
+        <h3>ANS Drugs</h3>
+        <p>Medicinal chemistry of autonomic nervous system drugs.</p>
+        <a class="button" href="pdfs/Med%20chem%20ANS%20drugs.pdf" target="_blank" rel="noopener">View PDF</a>
+        <a class="button secondary" href="pdfs/Med%20chem%20ANS%20drugs.pdf" download>Download PDF</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📄</div>
+        <h3>Introduction to Medicinal Chemistry I</h3>
+        <p>Introductory course material.</p>
+        <a class="button" href="pdfs/Introduction%20medicinal%20chemistry%20i%20print%20-%20Copy.pdf" target="_blank" rel="noopener">View PDF</a>
+        <a class="button secondary" href="pdfs/Introduction%20medicinal%20chemistry%20i%20print%20-%20Copy.pdf" download>Download PDF</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📄</div>
+        <h3>Antihistamines</h3>
+        <p>Medicinal chemistry lecture material.</p>
+        <a class="button" href="pdfs/Antihistamine%20new.pdf" target="_blank" rel="noopener">View PDF</a>
+        <a class="button secondary" href="pdfs/Antihistamine%20new.pdf" download>Download PDF</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+  <section id="videos" class="resource-section">
+    <h2>🎥 Video Lessons</h2>
+    <div class="notice">No videos added yet.</div>
+  </section>
+
+  <!-- AUDIO -->
+  <section id="audio" class="resource-section">
+    <h2>🎧 Audio Lessons</h2>
+    <div class="notice">No audio lessons added yet.</div>
+  </section>
+
+  <!-- NOTES -->
+  <section id="notes" class="resource-section">
+    <h2>📝 Short Notes</h2>
+    <div class="notice">No short notes added yet.</div>
+  </section>
+
+  <!-- QUIZZES -->
+  <section id="quizzes" class="resource-section">
+    <h2>🧠 Practice Quizzes</h2>
+    <div class="notice">No quizzes added yet.</div>
+  </section>
+
+  <!-- EXAMS -->
+  <section id="exams" class="resource-section">
+    <h2>🏆 Exams & Past Papers</h2>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="icon">🏆</div>
+        <h3>Q (2)</h3>
+        <p>Examination and revision material.</p>
+        <a class="button" href="exams/Q%20(2).pdf" target="_blank" rel="noopener">View PDF</a>
+        <a class="button secondary" href="exams/Q%20(2).pdf" download>Download PDF</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📄</div>
+        <h3>Patrick Anti-Ulcer Chapter 22</h3>
+        <p>Anti-ulcer reference and study material.</p>
+        <a class="button" href="exams/patrick_anti%20ulcer_ch22.pdf" target="_blank" rel="noopener">View PDF</a>
+        <a class="button secondary" href="exams/patrick_anti%20ulcer_ch22.pdf" download>Download PDF</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">🏆</div>
+        <h3>Medicinal Past Final Exam</h3>
+        <p>Past final examination practice.</p>
+        <a class="button" href="exams/medicinal%20past%20final%20exam%20try.pdf" target="_blank" rel="noopener">View PDF</a>
+        <a class="button secondary" href="exams/medicinal%20past%20final%20exam%20try.pdf" download>Download PDF</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📝</div>
+        <h3>Medicinal Exam Bank</h3>
+        <p>Collection of examination questions.</p>
+        <a class="button" href="exams/medicinal%20exam%20bank.pdf" target="_blank" rel="noopener">View PDF</a>
+        <a class="button secondary" href="exams/medicinal%20exam%20bank.pdf" download>Download PDF</a>
+      </article>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Created with ❤️ by Gidy Nega</p>
+  <p>
+    <a href="../../../../index.html">Visit My Website</a>
+  </p>
+</footer>
 
 </body>
 </html>
