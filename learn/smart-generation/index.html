@@ -1,227 +1,630 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Smart Generation | Gidy Nega</title>
+  <meta name="description"
+        content="Smart Generation Tutor by Gidy Nega. Explore educational resources, lessons, notes, presentations, videos, quizzes and examinations for Grades 9–12.">
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+  <meta name="theme-color" content="#0b0b18">
 
-        body {
-            margin: 0;
-            padding: 25px 16px;
-            background: #0b0b18;
-            color: #f5f3ff;
-            font-family: Arial, sans-serif;
-            line-height: 1.7;
-        }
+  <title>Smart Generation Tutor | Gidy Nega</title>
 
-        .container {
-            max-width: 950px;
-            margin: auto;
-        }
+  <style>
+    :root {
+      --background: #0b0b18;
+      --card: #17172b;
+      --border: #343454;
+      --purple: #a78bfa;
+      --pink: #ff55c8;
+      --blue: #8187ff;
+      --cyan: #65eee4;
+      --text: #f4f4ff;
+      --muted: #b9bad0;
+    }
 
-        .hero {
-            padding: 30px 20px;
-            text-align: center;
-            background: linear-gradient(145deg, #17152e, #24143b);
-            border: 1px solid #514080;
-            border-radius: 20px;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        h1 {
-            color: #c4b5fd;
-            font-size: clamp(28px, 5vw, 42px);
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        h2 {
-            color: #22d3ee;
-        }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
+    }
 
-        .grades {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 18px;
-            margin-top: 25px;
-        }
+    a {
+      text-decoration: none;
+    }
 
-        .grade-card {
-            padding: 22px;
-            background: #151529;
-            border: 1px solid #393568;
-            border-radius: 16px;
-            transition: 0.3s;
-        }
+    header {
+      padding: 35px 18px;
+      text-align: center;
+      background: linear-gradient(135deg, #101025, #24143b);
+      border-bottom: 1px solid var(--border);
+    }
 
-        .grade-card:hover {
-            border-color: #8b5cf6;
-            box-shadow: 0 0 18px #8b5cf644;
-            transform: translateY(-4px);
-        }
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: var(--cyan);
+      font-weight: bold;
+    }
 
-        .grade-card h2 {
-            margin-top: 0;
-        }
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border: 1px solid var(--pink);
+      border-radius: 25px;
+      color: var(--pink);
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
 
-        .grade-card p {
-            color: #b9b9d8;
-        }
+    h1 {
+      margin: 16px 0 8px;
+      font-size: clamp(30px, 6vw, 48px);
+      line-height: 1.2;
+    }
 
-        .button {
-            display: inline-block;
-            padding: 10px 15px;
-            background: linear-gradient(90deg, #7c3aed, #2563eb);
-            border-radius: 9px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    h1 span {
+      color: var(--cyan);
+    }
 
-        .resources {
-            margin-top: 30px;
-            padding: 22px;
-            background: #151529;
-            border: 1px solid #393568;
-            border-radius: 16px;
-        }
+    header p {
+      max-width: 700px;
+      margin: 12px auto;
+      color: var(--muted);
+    }
 
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #67e8f9;
-            text-decoration: none;
-        }
+    .container {
+      width: min(1100px, 92%);
+      margin: 30px auto;
+    }
 
-        footer {
-            margin-top: 40px;
-            text-align: center;
-            color: #b9b9d8;
-        }
+    .welcome,
+    .card,
+    .subject-card {
+      padding: 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
 
-        @media (max-width: 600px) {
-            .grades {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    .welcome {
+      margin-bottom: 30px;
+      background: linear-gradient(145deg, #17152e, #211633);
+    }
+
+    .welcome h2,
+    .card h3,
+    .subject-card h3 {
+      color: var(--cyan);
+    }
+
+    .section-title {
+      margin-top: 38px;
+      margin-bottom: 17px;
+    }
+
+    .section-title p,
+    .card p,
+    .subject-card p {
+      color: var(--muted);
+    }
+
+    .grades {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease,
+                  border-color 0.25s ease;
+    }
+
+    .card:hover,
+    .subject-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--cyan);
+    }
+
+    .card h3 {
+      margin: 10px 0 5px;
+    }
+
+    .card p {
+      flex-grow: 1;
+      font-size: 14px;
+    }
+
+    .icon {
+      font-size: 34px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 15px;
+      text-align: center;
+      border-radius: 9px;
+      background: linear-gradient(90deg, var(--purple), var(--blue));
+      color: white;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      opacity: 0.9;
+    }
+
+    .subjects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 14px;
+    }
+
+    .subject-card {
+      transition: transform 0.25s ease,
+                  border-color 0.25s ease;
+    }
+
+    .subject-card h3 {
+      margin: 5px 0;
+      font-size: 17px;
+    }
+
+    .subject-card p {
+      margin: 5px 0;
+      font-size: 13px;
+    }
+
+    .subject-icon {
+      font-size: 26px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .feature {
+      padding: 18px;
+      background: #151529;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .feature h3 {
+      color: var(--pink);
+      margin-top: 5px;
+    }
+
+    .feature p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .notice {
+      margin-top: 25px;
+      padding: 20px;
+      background: #21182e;
+      border-left: 4px solid var(--pink);
+      border-radius: 10px;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 28px 15px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--cyan);
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        width: 94%;
+      }
+
+      .welcome,
+      .card,
+      .subject-card {
+        padding: 17px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<main class="container">
 
-    <a class="back-link" href="../../index.html">
-        ← Back to my website
+  <header>
+
+    <a class="back" href="../../index.html">
+      ← Back to My Website
     </a>
 
-    <header class="hero">
-        <p>GIDY NEGA'S EDUCATIONAL PLATFORM</p>
+    <br>
 
-        <h1>🎓 Smart Generation Tutorial</h1>
+    <span class="badge">GIDY NEGA'S EDUCATIONAL PLATFORM</span>
 
+    <h1>🎓 Smart Generation <span>Tutor</span></h1>
+
+    <p>
+      Learn smarter, understand difficult topics,
+      explore knowledge, practice regularly and
+      prepare confidently for your examinations.
+    </p>
+
+    <p>
+      <strong>Empowering students in Grades 9–12</strong>
+    </p>
+
+    <a class="button" href="#grades">Explore Learning →</a>
+
+  </header>
+
+  <main class="container">
+
+    <!-- WELCOME -->
+
+    <section class="welcome">
+
+      <h2>❤️ Welcome to Smart Generation Tutor!</h2>
+
+      <p>
+        Education opens the door to knowledge,
+        opportunity and a brighter future.
+      </p>
+
+      <p>
+        Smart Generation Tutor is designed to make
+        learning easier and more accessible by bringing
+        educational resources together in one place.
+      </p>
+
+      <p>
+        Explore your grade, choose your subjects,
+        access learning materials and strengthen
+        your understanding through practice.
+      </p>
+
+    </section>
+
+
+    <!-- GRADES -->
+
+    <section id="grades">
+
+      <div class="section-title">
+        <h2>🎓 Choose Your Grade</h2>
         <p>
-            Learn smarter, understand difficult topics,
-            practice regularly, and prepare confidently
-            for your examinations.
+          Select your grade to explore its subjects
+          and organized learning materials.
         </p>
+      </div>
 
-        <p>
-            For students in Grades 9–12
-        </p>
-    </header>
+      <div class="grades">
+
+        <article class="card">
+          <div class="icon">📘</div>
+          <h3>Grade 9</h3>
+          <p>
+            Build strong academic foundations
+            through organized lessons, notes
+            and practice activities.
+          </p>
+          <a class="button" href="grade-9/index.html">
+            Explore Grade 9 →
+          </a>
+        </article>
+
+        <article class="card">
+          <div class="icon">📗</div>
+          <h3>Grade 10</h3>
+          <p>
+            Strengthen your knowledge and
+            develop confidence across your
+            school subjects.
+          </p>
+          <a class="button" href="grade-10/index.html">
+            Explore Grade 10 →
+          </a>
+        </article>
+
+        <article class="card">
+          <div class="icon">📙</div>
+          <h3>Grade 11</h3>
+          <p>
+            Deepen your understanding through
+            comprehensive resources and
+            regular academic practice.
+          </p>
+          <a class="button" href="grade-11/index.html">
+            Explore Grade 11 →
+          </a>
+        </article>
+
+        <article class="card">
+          <div class="icon">📕</div>
+          <h3>Grade 12</h3>
+          <p>
+            Prepare for major examinations
+            with revision materials, exercises
+            and practice tests.
+          </p>
+          <a class="button" href="grade-12/index.html">
+            Explore Grade 12 →
+          </a>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- SUBJECTS -->
 
     <section>
-        <h2>📚 Choose Your Grade</h2>
 
-        <div class="grades">
+      <div class="section-title">
+        <h2>📚 Explore Our Subjects</h2>
+        <p>
+          A broad collection of subjects to support
+          different areas of academic learning.
+        </p>
+      </div>
 
-            <article class="grade-card">
-                <h2>📘 Grade 9</h2>
+      <div class="subjects">
 
-                <p>
-                    Explore lessons, simplified notes,
-                    presentations, and practice questions.
-                </p>
+        <article class="subject-card">
+          <div class="subject-icon">➗</div>
+          <h3>Mathematics</h3>
+          <p>Numerical skills, equations and problem-solving.</p>
+        </article>
 
-                <a class="button" href="#grade9">
-                    Explore Grade 9 →
-                </a>
-            </article>
+        <article class="subject-card">
+          <div class="subject-icon">⚛️</div>
+          <h3>Physics</h3>
+          <p>Understand matter, energy and natural phenomena.</p>
+        </article>
 
-            <article class="grade-card">
-                <h2>📗 Grade 10</h2>
+        <article class="subject-card">
+          <div class="subject-icon">🧪</div>
+          <h3>Chemistry</h3>
+          <p>Explore substances, reactions and chemical principles.</p>
+        </article>
 
-                <p>
-                    Review school subjects and strengthen
-                    your understanding through practice.
-                </p>
+        <article class="subject-card">
+          <div class="subject-icon">🧬</div>
+          <h3>Biology</h3>
+          <p>Discover living organisms and biological systems.</p>
+        </article>
 
-                <a class="button" href="#grade10">
-                    Explore Grade 10 →
-                </a>
-            </article>
+        <article class="subject-card">
+          <div class="subject-icon">🌍</div>
+          <h3>English</h3>
+          <p>Develop communication, grammar and writing skills.</p>
+        </article>
 
-            <article class="grade-card">
-                <h2>📙 Grade 11</h2>
+        <article class="subject-card">
+          <div class="subject-icon">🔤</div>
+          <h3>Amharic</h3>
+          <p>Strengthen language, reading and writing skills.</p>
+        </article>
 
-                <p>
-                    Study your subjects with organized notes,
-                    learning resources, and revision questions.
-                </p>
+        <article class="subject-card">
+          <div class="subject-icon">🗣️</div>
+          <h3>Afaan Oromoo</h3>
+          <p>Develop language and communication skills.</p>
+        </article>
 
-                <a class="button" href="#grade11">
-                    Explore Grade 11 →
-                </a>
-            </article>
+        <article class="subject-card">
+          <div class="subject-icon">⚖️</div>
+          <h3>Civics</h3>
+          <p>Explore citizenship, rights and responsibilities.</p>
+        </article>
 
-            <article class="grade-card">
-                <h2>📕 Grade 12</h2>
+        <article class="subject-card">
+          <div class="subject-icon">🏛️</div>
+          <h3>History</h3>
+          <p>Learn about historical events and civilizations.</p>
+        </article>
 
-                <p>
-                    Prepare for examinations with revision
-                    materials, exercises, and practice tests.
-                </p>
+        <article class="subject-card">
+          <div class="subject-icon">💻</div>
+          <h3>Information Technology</h3>
+          <p>Explore computers, digital technology and ICT skills.</p>
+        </article>
 
-                <a class="button" href="#grade12">
-                    Explore Grade 12 →
-                </a>
-            </article>
+        <article class="subject-card">
+          <div class="subject-icon">📈</div>
+          <h3>Economics</h3>
+          <p>Understand markets, resources and economic activities.</p>
+        </article>
 
-        </div>
+        <article class="subject-card">
+          <div class="subject-icon">🗺️</div>
+          <h3>Geography</h3>
+          <p>Explore environments, places and human activities.</p>
+        </article>
+
+        <article class="subject-card">
+          <div class="subject-icon">🌱</div>
+          <h3>Agriculture</h3>
+          <p>Discover farming, crops and agricultural practices.</p>
+        </article>
+
+      </div>
+
     </section>
 
-    <section class="resources" id="grade9">
-        <h2>📘 Grade 9 Learning Materials</h2>
-        <p>Notes, lessons, PDFs, videos, and quizzes will be organized here.</p>
-        <p><em>Materials coming soon.</em></p>
+
+    <!-- LEARNING FEATURES -->
+
+    <section>
+
+      <div class="section-title">
+        <h2>🚀 Learning Resources & Features</h2>
+        <p>
+          Different ways to learn, revise and test your knowledge.
+        </p>
+      </div>
+
+      <div class="features">
+
+        <article class="feature">
+          <div class="icon">📘</div>
+          <h3>Learning Modules</h3>
+          <p>
+            Organized course materials and detailed lessons
+            for independent study.
+          </p>
+        </article>
+
+        <article class="feature">
+          <div class="icon">📊</div>
+          <h3>PowerPoint Presentations</h3>
+          <p>
+            Visual presentations that simplify
+            important academic concepts.
+          </p>
+        </article>
+
+        <article class="feature">
+          <div class="icon">📄</div>
+          <h3>PDF Materials</h3>
+          <p>
+            Downloadable handouts, reference materials
+            and learning documents.
+          </p>
+        </article>
+
+        <article class="feature">
+          <div class="icon">🎥</div>
+          <h3>Video Lessons</h3>
+          <p>
+            Visual explanations to help students
+            understand difficult topics.
+          </p>
+        </article>
+
+        <article class="feature">
+          <div class="icon">🎧</div>
+          <h3>Audio Lessons</h3>
+          <p>
+            Listen to educational explanations
+            and revise important concepts.
+          </p>
+        </article>
+
+        <article class="feature">
+          <div class="icon">📝</div>
+          <h3>Short Notes</h3>
+          <p>
+            Concise summaries and important
+            examination revision points.
+          </p>
+        </article>
+
+        <article class="feature">
+          <div class="icon">🧠</div>
+          <h3>Interactive Quizzes</h3>
+          <p>
+            Test your understanding and
+            receive explanations for your answers.
+          </p>
+        </article>
+
+        <article class="feature">
+          <div class="icon">🏆</div>
+          <h3>Examinations</h3>
+          <p>
+            Practice questions and examination
+            preparation materials.
+          </p>
+        </article>
+
+      </div>
+
     </section>
 
-    <section class="resources" id="grade10">
-        <h2>📗 Grade 10 Learning Materials</h2>
-        <p>Notes, lessons, PDFs, videos, and quizzes will be organized here.</p>
-        <p><em>Materials coming soon.</em></p>
+
+    <!-- LANGUAGES -->
+
+    <section class="notice">
+
+      <h2>🌐 Learning Without Language Barriers</h2>
+
+      <p>
+        Our learning vision includes educational
+        explanations and resources in:
+      </p>
+
+      <p>
+        <strong>English • Afaan Oromoo • Amharic</strong>
+      </p>
+
+      <p>
+        Our goal is to make knowledge more accessible
+        and understandable to students.
+      </p>
+
     </section>
 
-    <section class="resources" id="grade11">
-        <h2>📙 Grade 11 Learning Materials</h2>
-        <p>Notes, lessons, PDFs, videos, and quizzes will be organized here.</p>
-        <p><em>Materials coming soon.</em></p>
+
+    <!-- MOTIVATION -->
+
+    <section class="welcome">
+
+      <h2>💡 Our Educational Vision</h2>
+
+      <p>
+        We believe that every student deserves access
+        to understandable educational resources and
+        opportunities to improve their knowledge.
+      </p>
+
+      <p>
+        Learn Together. Share Knowledge.
+        Support One Another. Grow Together.
+      </p>
+
     </section>
 
-    <section class="resources" id="grade12">
-        <h2>📕 Grade 12 Learning Materials</h2>
-        <p>Notes, lessons, PDFs, videos, and quizzes will be organized here.</p>
-        <p><em>Materials coming soon.</em></p>
-    </section>
+  </main>
 
-    <footer>
-        <p>Learn Together • Grow Together • Succeed Together ❤️</p>
-        <p>© Gidy Nega</p>
-    </footer>
 
-</main>
+  <footer>
+
+    <p>
+      Learn Together • Grow Together • Succeed Together ❤️
+    </p>
+
+    <p>Created with ❤️ by Gidy Nega</p>
+
+    <p>
+      <a href="../../index.html">Visit My Website</a>
+    </p>
+
+    <p>© Gidy Nega. All rights reserved.</p>
+
+  </footer>
+
 </body>
 </html>
