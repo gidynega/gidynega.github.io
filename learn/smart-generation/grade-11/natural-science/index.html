@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="Grade 11 Natural Science courses and educational resources by Smart Generation Tutor.">
+<meta name="description" content="Explore Grade 11 Natural Science courses at Smart Generation Tutor by Gidy Nega.">
 
 <title>Grade 11 Natural Science | Smart Generation Tutor</title>
 
@@ -21,6 +21,8 @@ body {
   background: #0b0b18;
   color: #fff;
 }
+
+/* HEADER */
 
 header {
   background: #111126;
@@ -46,17 +48,25 @@ header {
   border: 1px solid #8187ff;
   padding: 10px 16px;
   border-radius: 25px;
+  transition: .3s;
 }
+
+.back:hover {
+  background: #8187ff;
+}
+
+/* HERO */
 
 .hero {
   text-align: center;
-  padding: 55px 20px 35px;
+  padding: 65px 20px 45px;
 }
 
 .hero span {
   color: #65eee4;
   font-weight: bold;
   letter-spacing: 2px;
+  font-size: 13px;
 }
 
 .hero h1 {
@@ -75,21 +85,27 @@ header {
   margin: auto;
 }
 
+/* MAIN CONTAINER */
+
 .container {
   max-width: 1100px;
   margin: auto;
-  padding: 25px 20px 70px;
+  padding: 25px 20px 75px;
 }
 
 .section-title {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
+}
+
+.section-title h2 {
+  font-size: 25px;
 }
 
 .section-title p {
   color: #aaaac3;
   margin-top: 10px;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 /* COURSE GRID */
@@ -97,184 +113,78 @@ header {
 .courses {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-  align-items: start;
+  gap: 20px;
 }
 
-.course {
+/* COURSE CARD */
+
+.course-card {
   background: #15152c;
   border: 1px solid #333355;
   border-radius: 16px;
-  overflow: hidden;
+  padding: 25px;
   transition: .3s;
-  align-self: start;
-}
-
-.course:hover {
-  border-color: #65eee4;
-}
-
-.course > summary {
-  list-style: none;
-  cursor: pointer;
-  padding: 22px;
   display: flex;
-  align-items: center;
-  gap: 15px;
+  flex-direction: column;
 }
 
-.course > summary::-webkit-details-marker {
-  display: none;
+.course-card:hover {
+  transform: translateY(-5px);
+  border-color: #65eee4;
+  box-shadow: 0 10px 30px rgba(101, 238, 228, .08);
 }
 
 .course-icon {
-  font-size: 32px;
+  font-size: 38px;
+  margin-bottom: 17px;
 }
 
-.course-name {
-  flex: 1;
-}
-
-.course-name h3 {
-  font-size: 18px;
-  margin-bottom: 6px;
-  color: #65eee4;
-}
-
-.course-name p {
-  font-size: 12px;
-  color: #aaaac3;
-}
-
-.arrow {
+.course-card h3 {
   color: #65eee4;
   font-size: 20px;
-  transition: .3s;
-}
-
-.course[open] > summary .arrow {
-  transform: rotate(180deg);
-}
-
-/* CONTENT INSIDE EACH COURSE */
-
-.course-content {
-  padding: 18px;
-  border-top: 1px solid #303052;
-}
-
-.course-content h4 {
-  color: #ff83d1;
   margin-bottom: 10px;
-  font-size: 16px;
 }
 
-.course-description {
-  color: #bbb;
-  font-size: 13px;
-  line-height: 1.7;
-  margin-bottom: 16px;
-}
-
-/* MATERIAL CATEGORIES */
-
-.material-category {
-  background: #20203b;
-  border: 1px solid #38385c;
-  border-radius: 11px;
-  margin-top: 10px;
-  overflow: hidden;
-}
-
-.material-category > summary {
-  list-style: none;
-  cursor: pointer;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  color: white;
-  font-size: 13px;
-  font-weight: bold;
-}
-
-.material-category > summary::-webkit-details-marker {
-  display: none;
-}
-
-.material-category > summary::after {
-  content: "+";
-  color: #65eee4;
-  font-size: 21px;
-}
-
-.material-category[open] > summary::after {
-  content: "−";
-}
-
-.material-category[open] {
-  border-color: #65eee4;
-}
-
-/* FILES INSIDE CATEGORIES */
-
-.file-list {
-  padding: 12px;
-  border-top: 1px solid #38385c;
-}
-
-.empty-message {
+.course-card p {
   color: #aaaac3;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.8;
+  margin-bottom: 22px;
+  flex-grow: 1;
 }
 
-.material-link {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #15152c;
-  border: 1px solid #38385c;
-  border-radius: 9px;
-  padding: 13px;
-  margin-top: 8px;
-  color: #65eee4;
+/* OPEN COURSE BUTTON */
+
+.open-course {
+  display: block;
+  text-align: center;
+  padding: 13px 16px;
+  border-radius: 10px;
   text-decoration: none;
-  font-size: 13px;
+  color: #0b0b18;
+  font-weight: bold;
+  font-size: 14px;
+  background: linear-gradient(90deg, #65eee4, #8187ff);
   transition: .3s;
 }
 
-.material-link:hover {
-  background: #29294b;
-  border-color: #65eee4;
+.open-course:hover {
+  transform: scale(1.03);
+  box-shadow: 0 5px 20px rgba(101, 238, 228, .2);
 }
 
-.file-action {
-  margin-left: auto;
-  color: #aaaac3;
-  font-size: 11px;
-  white-space: nowrap;
-}
-
-.notice {
-  margin-top: 30px;
-  text-align: center;
-  background: #15152c;
-  padding: 20px;
-  border-radius: 14px;
-  color: #aaaac3;
-  line-height: 1.8;
-}
+/* FOOTER */
 
 footer {
   text-align: center;
   background: #111126;
-  padding: 25px;
+  padding: 27px 15px;
   color: #9999b5;
   font-size: 13px;
-  line-height: 1.8;
+  line-height: 1.9;
 }
+
+/* MOBILE RESPONSIVENESS */
 
 @media(max-width: 650px) {
   .courses {
@@ -285,14 +195,20 @@ footer {
     padding: 17px 5%;
   }
 
-  .course-content {
-    padding: 14px;
+  .course-card {
+    padding: 22px;
+  }
+
+  .hero {
+    padding-top: 50px;
   }
 }
 </style>
 </head>
 
 <body>
+
+<!-- HEADER -->
 
 <header>
   <a href="../../index.html" class="logo">
@@ -304,355 +220,169 @@ footer {
   </a>
 </header>
 
+<!-- HERO -->
+
 <section class="hero">
+
   <span>GRADE 11 • NATURAL SCIENCE</span>
 
-  <h1>Natural Science Learning Library</h1>
+  <h1>Natural Science Courses</h1>
 
   <p>
-    Explore your subjects, strengthen your scientific knowledge,
-    and access organized learning materials in one place.
+    Welcome to your Grade 11 Natural Science learning library.
+    Select a course to access its lessons, educational resources,
+    notes, presentations and practice materials.
   </p>
+
 </section>
+
+<!-- COURSES -->
 
 <main class="container">
 
   <div class="section-title">
-    <h2>📚 Natural Science Courses</h2>
-    <p>
-      Open a subject to explore its learning materials.
-    </p>
+    <h2>📚 Explore Your Courses</h2>
+    <p>Select any course below to enter its learning library.</p>
   </div>
 
   <div class="courses">
 
     <!-- MATHEMATICS -->
-    <details class="course">
-      <summary>
-        <span class="course-icon">➗</span>
-        <div class="course-name">
-          <h3>Mathematics</h3>
-          <p>Numbers, equations and problem-solving</p>
-        </div>
-        <span class="arrow">⌄</span>
-      </summary>
 
-      <div class="course-content">
-        <h4>📚 Mathematics Learning Materials</h4>
-        <p class="course-description">
-          Develop mathematical reasoning and analytical skills.
-        </p>
-
-        <div class="material-categories" data-subject="Mathematics"></div>
-      </div>
-    </details>
+    <div class="course-card">
+      <div class="course-icon">➗</div>
+      <h3>Mathematics</h3>
+      <p>
+        Develop mathematical reasoning, numerical skills,
+        equations and problem-solving abilities.
+      </p>
+      <a href="mathematics/index.html" class="open-course">
+        Open Course →
+      </a>
+    </div>
 
     <!-- PHYSICS -->
-    <details class="course">
-      <summary>
-        <span class="course-icon">⚡</span>
-        <div class="course-name">
-          <h3>Physics</h3>
-          <p>Energy, motion, forces and matter</p>
-        </div>
-        <span class="arrow">⌄</span>
-      </summary>
 
-      <div class="course-content">
-        <h4>📚 Physics Learning Materials</h4>
-        <p class="course-description">
-          Understand the physical laws governing the universe.
-        </p>
-
-        <div class="material-categories" data-subject="Physics"></div>
-      </div>
-    </details>
+    <div class="course-card">
+      <div class="course-icon">⚡</div>
+      <h3>Physics</h3>
+      <p>
+        Explore energy, motion, forces, matter and the
+        physical laws governing the universe.
+      </p>
+      <a href="physics/index.html" class="open-course">
+        Open Course →
+      </a>
+    </div>
 
     <!-- CHEMISTRY -->
-    <details class="course">
-      <summary>
-        <span class="course-icon">🧪</span>
-        <div class="course-name">
-          <h3>Chemistry</h3>
-          <p>Atoms, molecules and chemical reactions</p>
-        </div>
-        <span class="arrow">⌄</span>
-      </summary>
 
-      <div class="course-content">
-        <h4>📚 Chemistry Learning Materials</h4>
-        <p class="course-description">
-          Explore chemical substances, reactions and their applications.
-        </p>
-
-        <div class="material-categories" data-subject="Chemistry"></div>
-      </div>
-    </details>
+    <div class="course-card">
+      <div class="course-icon">🧪</div>
+      <h3>Chemistry</h3>
+      <p>
+        Understand atoms, molecules, chemical reactions
+        and the properties of substances.
+      </p>
+      <a href="chemistry/index.html" class="open-course">
+        Open Course →
+      </a>
+    </div>
 
     <!-- BIOLOGY -->
-    <details class="course">
-      <summary>
-        <span class="course-icon">🧬</span>
-        <div class="course-name">
-          <h3>Biology</h3>
-          <p>Living organisms and life processes</p>
-        </div>
-        <span class="arrow">⌄</span>
-      </summary>
 
-      <div class="course-content">
-        <h4>📚 Biology Learning Materials</h4>
-        <p class="course-description">
-          Discover cells, genetics, organisms and biological systems.
-        </p>
-
-        <div class="material-categories" data-subject="Biology"></div>
-      </div>
-    </details>
+    <div class="course-card">
+      <div class="course-icon">🧬</div>
+      <h3>Biology</h3>
+      <p>
+        Discover living organisms, cells, genetics,
+        evolution and biological processes.
+      </p>
+      <a href="biology/index.html" class="open-course">
+        Open Course →
+      </a>
+    </div>
 
     <!-- ENGLISH -->
-    <details class="course">
-      <summary>
-        <span class="course-icon">🌐</span>
-        <div class="course-name">
-          <h3>English</h3>
-          <p>Language, grammar and communication</p>
-        </div>
-        <span class="arrow">⌄</span>
-      </summary>
 
-      <div class="course-content">
-        <h4>📚 English Learning Materials</h4>
-        <p class="course-description">
-          Improve reading, writing, speaking and communication skills.
-        </p>
-
-        <div class="material-categories" data-subject="English"></div>
-      </div>
-    </details>
+    <div class="course-card">
+      <div class="course-icon">🌐</div>
+      <h3>English</h3>
+      <p>
+        Improve reading, writing, grammar, speaking
+        and communication skills.
+      </p>
+      <a href="english/index.html" class="open-course">
+        Open Course →
+      </a>
+    </div>
 
     <!-- AMHARIC -->
-    <details class="course">
-      <summary>
-        <span class="course-icon">📖</span>
-        <div class="course-name">
-          <h3>Amharic</h3>
-          <p>Language and literature</p>
-        </div>
-        <span class="arrow">⌄</span>
-      </summary>
 
-      <div class="course-content">
-        <h4>📚 Amharic Learning Materials</h4>
-        <p class="course-description">
-          Develop Amharic language and literature skills.
-        </p>
-
-        <div class="material-categories" data-subject="Amharic"></div>
-      </div>
-    </details>
+    <div class="course-card">
+      <div class="course-icon">📖</div>
+      <h3>Amharic</h3>
+      <p>
+        Develop Amharic language proficiency,
+        literature and communication skills.
+      </p>
+      <a href="amharic/index.html" class="open-course">
+        Open Course →
+      </a>
+    </div>
 
     <!-- AFAAN OROMOO -->
-    <details class="course">
-      <summary>
-        <span class="course-icon">🗣️</span>
-        <div class="course-name">
-          <h3>Afaan Oromoo</h3>
-          <p>Language and literature</p>
-        </div>
-        <span class="arrow">⌄</span>
-      </summary>
 
-      <div class="course-content">
-        <h4>📚 Afaan Oromoo Learning Materials</h4>
-        <p class="course-description">
-          Cultivate Afaan Oromoo language and communication skills.
-        </p>
-
-        <div class="material-categories" data-subject="Afaan Oromoo"></div>
-      </div>
-    </details>
+    <div class="course-card">
+      <div class="course-icon">🗣️</div>
+      <h3>Afaan Oromoo</h3>
+      <p>
+        Strengthen Afaan Oromoo language,
+        literature and communication skills.
+      </p>
+      <a href="afaan-oromoo/index.html" class="open-course">
+        Open Course →
+      </a>
+    </div>
 
     <!-- ICT -->
-    <details class="course">
-      <summary>
-        <span class="course-icon">💻</span>
-        <div class="course-name">
-          <h3>Information Technology (ICT)</h3>
-          <p>Computers and digital technology</p>
-        </div>
-        <span class="arrow">⌄</span>
-      </summary>
 
-      <div class="course-content">
-        <h4>📚 ICT Learning Materials</h4>
-        <p class="course-description">
-          Explore computer systems, information and digital technologies.
-        </p>
-
-        <div class="material-categories" data-subject="Information Technology (ICT)"></div>
-      </div>
-    </details>
+    <div class="course-card">
+      <div class="course-icon">💻</div>
+      <h3>Information Technology (ICT)</h3>
+      <p>
+        Learn about computer systems, digital technology,
+        information and modern computing.
+      </p>
+      <a href="ict/index.html" class="open-course">
+        Open Course →
+      </a>
+    </div>
 
     <!-- AGRICULTURE -->
-    <details class="course">
-      <summary>
-        <span class="course-icon">🌱</span>
-        <div class="course-name">
-          <h3>Agriculture</h3>
-          <p>Farming and agricultural science</p>
-        </div>
-        <span class="arrow">⌄</span>
-      </summary>
 
-      <div class="course-content">
-        <h4>📚 Agriculture Learning Materials</h4>
-        <p class="course-description">
-          Learn about agricultural practices, crops, soil and sustainable production.
-        </p>
+    <div class="course-card">
+      <div class="course-icon">🌱</div>
+      <h3>Agriculture</h3>
+      <p>
+        Explore crops, soil science, farming practices
+        and sustainable agricultural production.
+      </p>
+      <a href="agriculture/index.html" class="open-course">
+        Open Course →
+      </a>
+    </div>
 
-        <div class="material-categories" data-subject="Agriculture"></div>
-      </div>
-    </details>
-
-  </div>
-
-  <div class="notice">
-    💡 <strong>Smart Learning:</strong><br>
-    All learning materials are organized inside their respective
-    subjects. More resources will appear as they are uploaded.
   </div>
 
 </main>
+
+<!-- FOOTER -->
 
 <footer>
   <p>© 2026 Smart Generation Tutor | Created by Gidy Nega</p>
   <p>Learn • Create • Share • Grow 🚀</p>
 </footer>
-
-<script>
-
-/* ==================================
-   SMART GENERATION TUTOR
-   LEARNING MATERIAL SYSTEM
-================================== */
-
-/* MATERIAL CATEGORIES */
-
-const categories = [
-  {
-    id: "pdf",
-    icon: "📄",
-    name: "PDF Materials"
-  },
-  {
-    id: "ppt",
-    icon: "📊",
-    name: "PowerPoint Materials"
-  },
-  {
-    id: "notes",
-    icon: "📝",
-    name: "Short Notes"
-  },
-  {
-    id: "videos",
-    icon: "🎥",
-    name: "Video Lessons"
-  },
-  {
-    id: "questions",
-    icon: "📋",
-    name: "Practice Questions"
-  },
-  {
-    id: "exams",
-    icon: "🎯",
-    name: "National Examination"
-  }
-];
-
-
-/* LEARNING MATERIAL DATABASE */
-
-/*
-When you upload actual files, add their information here.
-
-Example:
-
-"Mathematics": {
-  pdf: [
-    {
-      title: "Chapter 1 - Functions",
-      url: "materials/mathematics/chapter-1.pdf"
-    }
-  ]
-}
-*/
-
-const learningMaterials = {};
-
-
-/* CREATE MATERIAL CATEGORIES
-   INSIDE EACH COURSE
-*/
-
-document.querySelectorAll(".material-categories").forEach(container => {
-
-  const subject = container.dataset.subject;
-
-  container.innerHTML = categories.map(category => {
-
-    const files =
-      learningMaterials[subject]?.[category.id] || [];
-
-    let fileContent = "";
-
-    if (files.length > 0) {
-
-      fileContent = files.map(file => `
-        <a
-          class="material-link"
-          href="${file.url}"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>${category.icon}</span>
-          <strong>${file.title}</strong>
-          <span class="file-action">Open ↗</span>
-        </a>
-      `).join("");
-
-    } else {
-
-      fileContent = `
-        <p class="empty-message">
-          No ${category.name.toLowerCase()} uploaded yet.
-          Learning materials will appear here when available.
-        </p>
-      `;
-
-    }
-
-    return `
-      <details class="material-category">
-
-        <summary>
-          <span>${category.icon} ${category.name}</span>
-        </summary>
-
-        <div class="file-list">
-          ${fileContent}
-        </div>
-
-      </details>
-    `;
-
-  }).join("");
-
-});
-
-</script>
 
 </body>
 </html>
