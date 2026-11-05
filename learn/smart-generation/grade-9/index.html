@@ -327,6 +327,93 @@
         font-size: 22px;
       }
     }
+
+/* INTERACTIVE LEARNING MATERIALS */
+
+.resource-menu {
+  background: transparent;
+  padding: 0;
+  margin-top: 15px;
+  display: grid;
+  gap: 10px;
+}
+
+.resource-category {
+  background: #20203b;
+  border: 1px solid #38385c;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.resource-category:hover {
+  border-color: #65eee4;
+}
+
+.resource-category > summary {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  list-style: none;
+}
+
+.resource-category > summary::-webkit-details-marker {
+  display: none;
+}
+
+.resource-category > summary::after {
+  content: "+";
+  color: #65eee4;
+  font-size: 22px;
+}
+
+.resource-category[open] > summary::after {
+  content: "−";
+}
+
+.resource-files {
+  padding: 5px 15px 15px;
+  border-top: 1px solid #38385c;
+}
+
+.resource-files p {
+  font-size: 13px;
+  color: #aaaac3;
+  line-height: 1.8;
+  margin-top: 10px;
+}
+
+.resource-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  margin-top: 9px;
+  background: #15152c;
+  border: 1px solid #38385c;
+  border-radius: 9px;
+  color: #65eee4;
+  text-decoration: none;
+  font-size: 13px;
+  transition: .3s;
+}
+
+.resource-link:hover {
+  background: #29294b;
+  border-color: #65eee4;
+}
+
+.resource-link span {
+  margin-left: auto;
+  color: #aaaac3;
+}
+
   </style>
 </head>
 
@@ -641,6 +728,71 @@
     }
 
   </script>
+
+/* SMART GENERATION TUTOR
+   INTERACTIVE RESOURCE SYSTEM
+*/
+
+// Resource categories
+const resourceTypes = [
+  { id: "pdf", icon: "📄", name: "PDF Materials" },
+  { id: "ppt", icon: "📊", name: "PowerPoint Materials" },
+  { id: "notes", icon: "📝", name: "Short Notes" },
+  { id: "videos", icon: "🎥", name: "Video Lessons" },
+  { id: "questions", icon: "📋", name: "Practice Questions" },
+  { id: "exams", icon: "🎯", name: "National Examination" }
+];
+
+// Add actual learning files here when uploaded.
+const learningMaterials = {};
+
+// Build interactive resource buttons
+document.querySelectorAll(".course").forEach(course => {
+
+  const material = course.querySelector(".material");
+
+  const subject = course.querySelector(
+    ".course-name h3"
+  )?.textContent.trim();
+
+  if (!material || !subject) return;
+
+  material.classList.add("resource-menu");
+
+  material.innerHTML = resourceTypes.map(type => {
+
+    const files =
+      learningMaterials[subject]?.[type.id] || [];
+
+    const fileContent = files.length
+      ? files.map(file => `
+          <a class="resource-link"
+             href="${file.url}"
+             target="_blank"
+             rel="noopener noreferrer">
+            ${type.icon}
+            ${file.title}
+            <span>Open ↗</span>
+          </a>
+        `).join("")
+      : `<p>No ${type.name.toLowerCase()} uploaded yet. Learning materials will appear here when available.</p>`;
+
+    return `
+      <details class="resource-category">
+        <summary>
+          ${type.icon} ${type.name}
+        </summary>
+
+        <div class="resource-files">
+          ${fileContent}
+        </div>
+      </details>
+    `;
+
+  }).join("");
+
+});
+
 
 </body>
 </html>
