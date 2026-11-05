@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta name="description"
-        content="Smart Generation Tutor by Gidy Nega. Explore educational resources, lessons, notes, presentations, videos, quizzes and examinations for Grades 9–12.">
+        content="Smart Generation Tutor by Gidy Nega. Free Ethiopian curriculum learning resources, textbooks, PDF materials, presentations, video lessons, quizzes and National Examination preparation for Grades 9–12.">
 
   <meta name="theme-color" content="#0b0b18">
 
@@ -27,6 +27,8 @@
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html {
@@ -34,7 +36,6 @@
     }
 
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
       background: var(--background);
       color: var(--text);
@@ -45,16 +46,20 @@
       text-decoration: none;
     }
 
+    /* HEADER */
+
     header {
-      padding: 35px 18px;
+      padding: 45px 18px;
       text-align: center;
-      background: linear-gradient(135deg, #101025, #24143b);
+      background:
+        radial-gradient(circle at top right, #39204e, transparent 45%),
+        linear-gradient(135deg, #101025, #24143b);
       border-bottom: 1px solid var(--border);
     }
 
     .back {
       display: inline-block;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       color: var(--cyan);
       font-weight: bold;
     }
@@ -70,8 +75,8 @@
     }
 
     h1 {
-      margin: 16px 0 8px;
-      font-size: clamp(30px, 6vw, 48px);
+      margin: 18px 0 10px;
+      font-size: clamp(30px, 6vw, 49px);
       line-height: 1.2;
     }
 
@@ -80,135 +85,200 @@
     }
 
     header p {
-      max-width: 700px;
+      max-width: 720px;
       margin: 12px auto;
       color: var(--muted);
     }
 
+    /* BUTTONS */
+
+    .button {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 11px 18px;
+      text-align: center;
+      border-radius: 9px;
+      background: linear-gradient(
+        90deg,
+        var(--purple),
+        var(--blue)
+      );
+      color: white;
+      font-weight: bold;
+      transition: transform 0.25s, opacity 0.25s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--cyan);
+      outline-offset: 4px;
+    }
+
+    /* MAIN CONTAINER */
+
     .container {
       width: min(1100px, 92%);
-      margin: 30px auto;
+      margin: 35px auto;
     }
 
     .welcome,
-    .card,
-    .subject-card {
-      padding: 20px;
+    .card {
+      padding: 22px;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 16px;
     }
 
     .welcome {
-      margin-bottom: 30px;
-      background: linear-gradient(145deg, #17152e, #211633);
+      margin-bottom: 35px;
+      background: linear-gradient(
+        145deg,
+        #17152e,
+        #211633
+      );
     }
 
-    .welcome h2,
-    .card h3,
-    .subject-card h3 {
+    .welcome h2 {
       color: var(--cyan);
+      margin-bottom: 12px;
     }
+
+    .welcome p {
+      color: var(--muted);
+      margin: 9px 0;
+    }
+
+    /* SECTION HEADINGS */
 
     .section-title {
       margin-top: 38px;
-      margin-bottom: 17px;
+      margin-bottom: 20px;
     }
 
-    .section-title p,
-    .card p,
-    .subject-card p {
-      color: var(--muted);
+    .section-title h2 {
+      font-size: 25px;
+      color: var(--cyan);
     }
+
+    .section-title p {
+      color: var(--muted);
+      margin-top: 5px;
+    }
+
+    /* FIVE MAIN DESTINATIONS */
 
     .grades {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
     }
 
     .card {
       display: flex;
       flex-direction: column;
-      transition: transform 0.25s ease,
-                  border-color 0.25s ease;
+      min-height: 245px;
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
-    .card:hover,
-    .subject-card:hover {
-      transform: translateY(-4px);
+    .card:hover {
+      transform: translateY(-5px);
       border-color: var(--cyan);
+      box-shadow: 0 10px 30px #00000035;
     }
 
     .card h3 {
-      margin: 10px 0 5px;
+      color: var(--cyan);
+      margin: 10px 0 7px;
+      font-size: 21px;
     }
 
     .card p {
-      flex-grow: 1;
+      color: var(--muted);
       font-size: 14px;
+      flex-grow: 1;
     }
 
     .icon {
-      font-size: 34px;
+      font-size: 38px;
     }
 
-    .button {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 10px 15px;
-      text-align: center;
-      border-radius: 9px;
-      background: linear-gradient(90deg, var(--purple), var(--blue));
-      color: white;
-      font-weight: bold;
+    /* GRADE CARD ACCENTS */
+
+    .grade-nine {
+      border-top: 3px solid #65a8ff;
     }
 
-    .button:hover {
-      opacity: 0.9;
+    .grade-ten {
+      border-top: 3px solid #65e5a5;
     }
 
-    .subjects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      gap: 14px;
+    .grade-eleven {
+      border-top: 3px solid #ffbd65;
     }
 
-    .subject-card {
-      transition: transform 0.25s ease,
-                  border-color 0.25s ease;
+    .grade-twelve {
+      border-top: 3px solid #b995ff;
     }
 
-    .subject-card h3 {
-      margin: 5px 0;
-      font-size: 17px;
+    /* NATIONAL EXAMINATION */
+
+    .national {
+      grid-column: 1 / -1;
+      min-height: 210px;
+      background: linear-gradient(
+        135deg,
+        #211633,
+        #142c42
+      );
+      border: 1px solid var(--pink);
     }
 
-    .subject-card p {
-      margin: 5px 0;
-      font-size: 13px;
+    .national h3 {
+      color: var(--pink);
     }
 
-    .subject-icon {
-      font-size: 26px;
+    .national .button {
+      background: linear-gradient(
+        90deg,
+        #ff55c8,
+        #8187ff
+      );
     }
+
+    /* LEARNING FEATURES */
 
     .features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(220px, 1fr)
+      );
       gap: 16px;
     }
 
     .feature {
-      padding: 18px;
+      padding: 19px;
       background: #151529;
       border: 1px solid var(--border);
       border-radius: 14px;
+      transition: transform 0.25s;
+    }
+
+    .feature:hover {
+      transform: translateY(-4px);
+      border-color: var(--purple);
     }
 
     .feature h3 {
       color: var(--pink);
-      margin-top: 5px;
+      margin: 8px 0;
     }
 
     .feature p {
@@ -216,42 +286,80 @@
       font-size: 14px;
     }
 
+    /* NOTICE */
+
     .notice {
-      margin-top: 25px;
-      padding: 20px;
+      margin-top: 30px;
+      padding: 22px;
       background: #21182e;
       border-left: 4px solid var(--pink);
       border-radius: 10px;
-      color: var(--muted);
     }
 
+    .notice h2 {
+      color: var(--cyan);
+      margin-bottom: 10px;
+    }
+
+    .notice p {
+      color: var(--muted);
+      margin: 7px 0;
+    }
+
+    /* FOOTER */
+
     footer {
-      margin-top: 50px;
-      padding: 28px 15px;
+      margin-top: 55px;
+      padding: 30px 15px;
       text-align: center;
       border-top: 1px solid var(--border);
       color: var(--muted);
+    }
+
+    footer p {
+      margin: 7px 0;
     }
 
     footer a {
       color: var(--cyan);
     }
 
-    @media (max-width: 500px) {
+    /* MOBILE RESPONSIVENESS */
+
+    @media (max-width: 600px) {
+
       .container {
         width: 94%;
       }
 
-      .welcome,
+      header {
+        padding: 35px 15px;
+      }
+
+      .grades {
+        grid-template-columns: 1fr;
+      }
+
+      .national {
+        grid-column: auto;
+      }
+
       .card,
-      .subject-card {
-        padding: 17px;
+      .welcome {
+        padding: 18px;
+      }
+
+      .section-title h2 {
+        font-size: 22px;
       }
     }
+
   </style>
 </head>
 
 <body>
+
+  <!-- HEADER -->
 
   <header>
 
@@ -261,9 +369,13 @@
 
     <br>
 
-    <span class="badge">GIDY NEGA'S EDUCATIONAL PLATFORM</span>
+    <span class="badge">
+      GIDY NEGA'S EDUCATIONAL PLATFORM
+    </span>
 
-    <h1>🎓 Smart Generation <span>Tutor</span></h1>
+    <h1>
+      🎓 Smart Generation <span>Tutor</span>
+    </h1>
 
     <p>
       Learn smarter, understand difficult topics,
@@ -272,12 +384,17 @@
     </p>
 
     <p>
-      <strong>Empowering students in Grades 9–12</strong>
+      <strong>
+        Empowering Ethiopian Students in Grades 9–12
+      </strong>
     </p>
 
-    <a class="button" href="#grades">Explore Learning →</a>
+    <a class="button" href="#grades">
+      Explore Learning →
+    </a>
 
   </header>
+
 
   <main class="container">
 
@@ -293,181 +410,156 @@
       </p>
 
       <p>
-        Smart Generation Tutor is designed to make
-        learning easier and more accessible by bringing
-        educational resources together in one place.
+        Smart Generation Tutor is a digital educational
+        platform designed to make learning easier,
+        more accessible and more organized for
+        Ethiopian students.
       </p>
 
       <p>
-        Explore your grade, choose your subjects,
-        access learning materials and strengthen
-        your understanding through practice.
+        Select your grade, explore your courses,
+        access educational materials and strengthen
+        your knowledge through regular practice.
+      </p>
+
+      <p>
+        Our mission is to make quality educational
+        resources accessible to everyone.
       </p>
 
     </section>
 
 
-    <!-- GRADES -->
+    <!-- FIVE MAIN DESTINATIONS -->
 
     <section id="grades">
 
       <div class="section-title">
-        <h2>🎓 Choose Your Grade</h2>
+
+        <h2>🎓 Choose Your Learning Destination</h2>
+
         <p>
-          Select your grade to explore its subjects
-          and organized learning materials.
+          Select your grade or prepare for the
+          Ethiopian National Examination.
         </p>
+
       </div>
+
 
       <div class="grades">
 
-        <article class="card">
+        <!-- GRADE 9 -->
+
+        <article class="card grade-nine">
+
           <div class="icon">📘</div>
+
           <h3>Grade 9</h3>
+
           <p>
-            Build strong academic foundations
-            through organized lessons, notes
-            and practice activities.
+            Start your secondary education journey.
+            Explore Grade 9 courses, textbooks,
+            presentations, PDF materials, short notes
+            and practice exercises.
           </p>
-          <a class="button" href="grade-9/index.html">
+
+          <a class="button"
+             href="grade-9/index.html">
             Explore Grade 9 →
           </a>
+
         </article>
 
-        <article class="card">
+
+        <!-- GRADE 10 -->
+
+        <article class="card grade-ten">
+
           <div class="icon">📗</div>
+
           <h3>Grade 10</h3>
+
           <p>
-            Strengthen your knowledge and
-            develop confidence across your
-            school subjects.
+            Strengthen your academic foundation
+            through Grade 10 subjects, organized
+            learning resources and regular practice.
           </p>
-          <a class="button" href="grade-10/index.html">
+
+          <a class="button"
+             href="grade-10/index.html">
             Explore Grade 10 →
           </a>
+
         </article>
 
-        <article class="card">
+
+        <!-- GRADE 11 -->
+
+        <article class="card grade-eleven">
+
           <div class="icon">📙</div>
+
           <h3>Grade 11</h3>
+
           <p>
-            Deepen your understanding through
-            comprehensive resources and
-            regular academic practice.
+            Choose your academic stream:
+            Natural Science or Social Science.
+            Explore specialized courses and
+            educational resources.
           </p>
-          <a class="button" href="grade-11/index.html">
+
+          <a class="button"
+             href="grade-11/index.html">
             Explore Grade 11 →
           </a>
+
         </article>
 
-        <article class="card">
+
+        <!-- GRADE 12 -->
+
+        <article class="card grade-twelve">
+
           <div class="icon">📕</div>
+
           <h3>Grade 12</h3>
+
           <p>
-            Prepare for major examinations
-            with revision materials, exercises
-            and practice tests.
+            Advance your academic knowledge,
+            explore your chosen stream and
+            strengthen your examination preparation.
           </p>
-          <a class="button" href="grade-12/index.html">
+
+          <a class="button"
+             href="grade-12/index.html">
             Explore Grade 12 →
           </a>
+
         </article>
 
-      </div>
 
-    </section>
+        <!-- NATIONAL EXAMINATION -->
 
+        <article class="card national">
 
-    <!-- SUBJECTS -->
+          <div class="icon">🏆</div>
 
-    <section>
+          <h3>
+            National Examination Preparation
+          </h3>
 
-      <div class="section-title">
-        <h2>📚 Explore Our Subjects</h2>
-        <p>
-          A broad collection of subjects to support
-          different areas of academic learning.
-        </p>
-      </div>
+          <p>
+            Prepare confidently for national examinations
+            using previous examination papers, model
+            examinations, mock tests, answer keys,
+            revision notes and subject-based exercises.
+          </p>
 
-      <div class="subjects">
+          <a class="button"
+             href="national-examination/index.html">
+            Explore National Examination →
+          </a>
 
-        <article class="subject-card">
-          <div class="subject-icon">➗</div>
-          <h3>Mathematics</h3>
-          <p>Numerical skills, equations and problem-solving.</p>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">⚛️</div>
-          <h3>Physics</h3>
-          <p>Understand matter, energy and natural phenomena.</p>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">🧪</div>
-          <h3>Chemistry</h3>
-          <p>Explore substances, reactions and chemical principles.</p>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">🧬</div>
-          <h3>Biology</h3>
-          <p>Discover living organisms and biological systems.</p>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">🌍</div>
-          <h3>English</h3>
-          <p>Develop communication, grammar and writing skills.</p>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">🔤</div>
-          <h3>Amharic</h3>
-          <p>Strengthen language, reading and writing skills.</p>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">🗣️</div>
-          <h3>Afaan Oromoo</h3>
-          <p>Develop language and communication skills.</p>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">⚖️</div>
-          <h3>Civics</h3>
-          <p>Explore citizenship, rights and responsibilities.</p>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">🏛️</div>
-          <h3>History</h3>
-          <p>Learn about historical events and civilizations.</p>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">💻</div>
-          <h3>Information Technology</h3>
-          <p>Explore computers, digital technology and ICT skills.</p>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">📈</div>
-          <h3>Economics</h3>
-          <p>Understand markets, resources and economic activities.</p>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">🗺️</div>
-          <h3>Geography</h3>
-          <p>Explore environments, places and human activities.</p>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">🌱</div>
-          <h3>Agriculture</h3>
-          <p>Discover farming, crops and agricultural practices.</p>
         </article>
 
       </div>
@@ -480,84 +572,128 @@
     <section>
 
       <div class="section-title">
-        <h2>🚀 Learning Resources & Features</h2>
+
+        <h2>🚀 Our Learning Resources</h2>
+
         <p>
-          Different ways to learn, revise and test your knowledge.
+          Multiple learning opportunities
+          to support your academic success.
         </p>
+
       </div>
+
 
       <div class="features">
 
         <article class="feature">
+
           <div class="icon">📘</div>
+
           <h3>Learning Modules</h3>
+
           <p>
-            Organized course materials and detailed lessons
-            for independent study.
+            Organized educational materials
+            and comprehensive lessons.
           </p>
+
         </article>
 
+
         <article class="feature">
+
           <div class="icon">📊</div>
+
           <h3>PowerPoint Presentations</h3>
+
           <p>
             Visual presentations that simplify
             important academic concepts.
           </p>
+
         </article>
 
+
         <article class="feature">
+
           <div class="icon">📄</div>
+
           <h3>PDF Materials</h3>
+
           <p>
-            Downloadable handouts, reference materials
-            and learning documents.
+            Read and download available
+            textbooks, handouts and notes.
           </p>
+
         </article>
 
+
         <article class="feature">
+
           <div class="icon">🎥</div>
+
           <h3>Video Lessons</h3>
+
           <p>
-            Visual explanations to help students
-            understand difficult topics.
+            Learn through visual explanations
+            and educational videos.
           </p>
+
         </article>
 
+
         <article class="feature">
+
           <div class="icon">🎧</div>
+
           <h3>Audio Lessons</h3>
+
           <p>
             Listen to educational explanations
             and revise important concepts.
           </p>
+
         </article>
 
+
         <article class="feature">
+
           <div class="icon">📝</div>
+
           <h3>Short Notes</h3>
+
           <p>
             Concise summaries and important
             examination revision points.
           </p>
+
         </article>
 
+
         <article class="feature">
+
           <div class="icon">🧠</div>
+
           <h3>Interactive Quizzes</h3>
+
           <p>
             Test your understanding and
-            receive explanations for your answers.
+            improve your academic knowledge.
           </p>
+
         </article>
 
+
         <article class="feature">
+
           <div class="icon">🏆</div>
-          <h3>Examinations</h3>
+
+          <h3>Practice Examinations</h3>
+
           <p>
-            Practice questions and examination
-            preparation materials.
+            Develop examination confidence
+            through practice questions and tests.
           </p>
+
         </article>
 
       </div>
@@ -572,37 +708,48 @@
       <h2>🌐 Learning Without Language Barriers</h2>
 
       <p>
-        Our learning vision includes educational
-        explanations and resources in:
+        Our educational vision includes making
+        learning resources more accessible through:
       </p>
 
       <p>
-        <strong>English • Afaan Oromoo • Amharic</strong>
+        <strong>
+          English • Afaan Oromoo • Amharic
+        </strong>
       </p>
 
       <p>
-        Our goal is to make knowledge more accessible
-        and understandable to students.
+        We aim to help students understand,
+        learn and grow regardless of language barriers.
       </p>
 
     </section>
 
 
-    <!-- MOTIVATION -->
+    <!-- EDUCATIONAL VISION -->
 
-    <section class="welcome">
+    <section class="welcome"
+             style="margin-top:30px;">
 
       <h2>💡 Our Educational Vision</h2>
 
       <p>
-        We believe that every student deserves access
-        to understandable educational resources and
-        opportunities to improve their knowledge.
+        We believe every student deserves access
+        to understandable educational resources
+        and opportunities to improve their knowledge.
       </p>
 
       <p>
-        Learn Together. Share Knowledge.
-        Support One Another. Grow Together.
+        Our goal is to build a learning community
+        where students can access resources,
+        share knowledge and support one another.
+      </p>
+
+      <p>
+        <strong>
+          Learn Together. Share Knowledge.
+          Support One Another. Grow Together. ❤️
+        </strong>
       </p>
 
     </section>
@@ -610,19 +757,27 @@
   </main>
 
 
+  <!-- FOOTER -->
+
   <footer>
 
     <p>
       Learn Together • Grow Together • Succeed Together ❤️
     </p>
 
-    <p>Created with ❤️ by Gidy Nega</p>
-
     <p>
-      <a href="../../index.html">Visit My Website</a>
+      Created with ❤️ by Gidy Nega
     </p>
 
-    <p>© Gidy Nega. All rights reserved.</p>
+    <p>
+      <a href="../../index.html">
+        Visit My Website
+      </a>
+    </p>
+
+    <p>
+      © 2026 Gidy Nega. All rights reserved.
+    </p>
 
   </footer>
 
