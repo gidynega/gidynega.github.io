@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Grade 11 Physics learning library by Smart Generation Tutor. Access PDF materials, PowerPoint lessons, short notes, videos, practice questions and national examinations.">
+
+  <title>Grade 11 Physics | Smart Generation Tutor</title>
+
+  <style>
+    :root {
+      --bg: #0b0b18;
+      --card: #15152a;
+      --pink: #ff55c8;
+      --purple: #8187ff;
+      --cyan: #65eee4;
+      --white: #ffffff;
+      --muted: #b8b8ca;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      background: #101020;
+      border-bottom: 1px solid #292943;
+    }
+
+    header a {
+      color: var(--cyan);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .logo {
+      font-size: 19px;
+      color: var(--pink);
+    }
+
+    .back {
+      padding: 9px 17px;
+      border: 1px solid var(--purple);
+      border-radius: 25px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 65px 20px 45px;
+    }
+
+    .hero .icon {
+      font-size: 55px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 6vw, 45px);
+      color: var(--cyan);
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 20px auto 70px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--pink);
+      margin-bottom: 25px;
+      font-size: 25px;
+    }
+
+    .materials {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    details {
+      background: var(--card);
+      border: 1px solid #30304b;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    details[open] {
+      border-color: var(--purple);
+    }
+
+    summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 20px;
+      font-size: 17px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      color: var(--cyan);
+      font-size: 23px;
+    }
+
+    details[open] summary::after {
+      content: "−";
+    }
+
+    .content {
+      padding: 0 20px 20px;
+      color: var(--muted);
+    }
+
+    .content p {
+      margin-bottom: 12px;
+    }
+
+    .material-link {
+      display: block;
+      padding: 12px 14px;
+      margin-top: 10px;
+      background: #20203a;
+      border: 1px solid #373757;
+      border-radius: 9px;
+      color: var(--cyan);
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .material-link:hover {
+      background: #303052;
+      border-color: var(--pink);
+      transform: translateX(4px);
+    }
+
+    .empty {
+      padding: 12px;
+      background: #101020;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #9999b0;
+    }
+
+    .note {
+      margin-top: 30px;
+      padding: 18px;
+      text-align: center;
+      background: #15152a;
+      border: 1px solid #30304b;
+      border-radius: 12px;
+      color: var(--muted);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      background: #101020;
+      border-top: 1px solid #292943;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--pink);
+      text-decoration: none;
+    }
+
+    @media (max-width: 650px) {
+      .materials {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding: 17px 5%;
+      }
+
+      .hero {
+        padding-top: 45px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="../../index.html" class="logo">
+      Smart Generation Tutor
+    </a>
+
+    <a href="../index.html" class="back">
+      ← Natural Science
+    </a>
+  </header>
+
+  <section class="hero">
+    <div class="icon">⚡</div>
+
+    <h1>Grade 11 Physics</h1>
+
+    <p>
+      Explore the laws of nature through physics.
+      Learn about energy, motion, forces, matter and
+      the fundamental principles of the physical world.
+    </p>
+  </section>
+
+  <main class="container">
+
+    <h2 class="section-title">Physics Learning Resources</h2>
+
+    <div class="materials">
+
+      <!-- PDF MATERIALS -->
+      <details>
+        <summary>📘 PDF Materials</summary>
+
+        <div class="content">
+          <p>
+            Access Physics textbooks, modules,
+            textbooks and downloadable learning materials.
+          </p>
+
+          <div class="empty">
+            PDF materials will be added here.
+          </div>
+        </div>
+      </details>
+
+      <!-- POWERPOINT MATERIALS -->
+      <details>
+        <summary>📊 PowerPoint Materials</summary>
+
+        <div class="content">
+          <p>
+            Study Physics presentations, lecture slides
+            and visual explanations.
+          </p>
+
+          <div class="empty">
+            PowerPoint materials will be added here.
+          </div>
+        </div>
+      </details>
+
+      <!-- SHORT NOTES -->
+      <details>
+        <summary>📝 Short Notes</summary>
+
+        <div class="content">
+          <p>
+            Review Physics summaries, important formulas,
+            definitions and revision notes.
+          </p>
+
+          <div class="empty">
+            Short notes will be added here.
+          </div>
+        </div>
+      </details>
+
+      <!-- VIDEO LESSONS -->
+      <details>
+        <summary>🎥 Video Lessons</summary>
+
+        <div class="content">
+          <p>
+            Understand Physics through demonstrations,
+            explanations and video tutorials.
+          </p>
+
+          <div class="empty">
+            Video lessons will be added here.
+          </div>
+        </div>
+      </details>
+
+      <!-- PRACTICE QUESTIONS -->
+      <details>
+        <summary>✍️ Practice Questions</summary>
+
+        <div class="content">
+          <p>
+            Test your understanding using exercises,
+            quizzes, assignments and worked problems.
+          </p>
+
+          <div class="empty">
+            Practice questions will be added here.
+          </div>
+        </div>
+      </details>
+
+      <!-- NATIONAL EXAMINATION -->
+      <details>
+        <summary>🏆 National Examination</summary>
+
+        <div class="content">
+          <p>
+            Prepare for examinations using previous
+            Physics examination papers and revision resources.
+          </p>
+
+          <div class="empty">
+            National examination materials will be added here.
+          </div>
+        </div>
+      </details>
+
+    </div>
+
+    <div class="note">
+      💡 <strong>Keep Learning!</strong>
+      <br>
+      Your success begins with curiosity, consistency
+      and continuous practice.
+    </div>
+
+  </main>
+
+  <footer>
+    <p>
+      © 2026 Smart Generation Tutor.
+      Created by <a href="../../index.html">Gidy Nega</a>.
+    </p>
+    <p>Learn • Create • Share • Grow</p>
+  </footer>
+
+</body>
+</html>
