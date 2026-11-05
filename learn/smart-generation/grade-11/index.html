@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Grade 11 Learning Library – Social Science and Natural Science courses, notes, PDFs, videos and educational resources by Smart Generation Tutor.">
+  <title>Grade 11 | Smart Generation Tutor</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0b18;
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 22px 7%;
+      background: #111126;
+      border-bottom: 1px solid #29294b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .logo {
+      color: #65eee4;
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    header a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .back {
+      border: 1px solid #8187ff;
+      padding: 10px 17px;
+      border-radius: 25px;
+      transition: .3s;
+    }
+
+    .back:hover {
+      background: #8187ff;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 65px 20px 35px;
+    }
+
+    .hero .tag {
+      color: #65eee4;
+      font-weight: bold;
+      letter-spacing: 2px;
+      font-size: 13px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 52px);
+      margin: 18px 0;
+      background: linear-gradient(90deg, #65eee4, #8187ff, #ff55c8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      color: #b9b9d0;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .stream-section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px 22px 75px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-title h2 {
+      font-size: 27px;
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: #aaaac3;
+      line-height: 1.7;
+    }
+
+    .streams {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .stream-card {
+      position: relative;
+      display: block;
+      text-decoration: none;
+      color: white;
+      padding: 35px 27px;
+      border-radius: 22px;
+      background: #15152c;
+      border: 1px solid #35355c;
+      transition: .35s;
+      overflow: hidden;
+    }
+
+    .stream-card:hover {
+      transform: translateY(-9px);
+      border-color: #65eee4;
+      box-shadow: 0 12px 35px #0008;
+    }
+
+    .stream-card.natural {
+      background: linear-gradient(145deg, #142c35, #15152c 75%);
+    }
+
+    .stream-card.social {
+      background: linear-gradient(145deg, #30203d, #15152c 75%);
+    }
+
+    .stream-icon {
+      font-size: 48px;
+      margin-bottom: 22px;
+    }
+
+    .stream-card h3 {
+      font-size: 25px;
+      margin-bottom: 14px;
+    }
+
+    .natural h3 {
+      color: #65eee4;
+    }
+
+    .social h3 {
+      color: #ff83d1;
+    }
+
+    .stream-card p {
+      color: #c0c0d3;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .open-btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 25px;
+      background: linear-gradient(90deg, #8187ff, #ff55c8);
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .stream-number {
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      color: #ffffff18;
+      font-size: 65px;
+      font-weight: bold;
+    }
+
+    .note {
+      margin: 35px auto 0;
+      max-width: 750px;
+      text-align: center;
+      padding: 20px;
+      border-radius: 15px;
+      background: #15152c;
+      border: 1px solid #29294b;
+      color: #aaaac3;
+      line-height: 1.8;
+    }
+
+    footer {
+      padding: 25px 15px;
+      text-align: center;
+      background: #111126;
+      border-top: 1px solid #29294b;
+      color: #9999b5;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    @media(max-width: 650px) {
+      .streams {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 45px;
+      }
+
+      header {
+        padding: 18px 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="../index.html" class="logo">
+      🎓 Smart Generation Tutor
+    </a>
+
+    <a href="../index.html" class="back">
+      ← Back to Home
+    </a>
+  </header>
+
+  <section class="hero">
+    <div class="tag">SMART GENERATION TUTOR</div>
+
+    <h1>Grade 11 Learning Library</h1>
+
+    <p>
+      Welcome to Grade 11! Choose your academic stream
+      and explore organized courses, educational materials,
+      learning resources, and opportunities to strengthen
+      your academic performance.
+    </p>
+  </section>
+
+  <section class="stream-section">
+
+    <div class="section-title">
+      <h2>Choose Your Academic Stream</h2>
+      <p>Select your stream to access its courses and learning resources.</p>
+    </div>
+
+    <div class="streams">
+
+      <!-- NATURAL SCIENCE -->
+      <a href="natural-science/index.html"
+         class="stream-card natural">
+
+        <span class="stream-number">01</span>
+
+        <div class="stream-icon">🔬</div>
+
+        <h3>Natural Science</h3>
+
+        <p>
+          Explore scientific knowledge, mathematical concepts,
+          experiments, and discoveries through organized
+          Natural Science courses.
+        </p>
+
+        <span class="open-btn">Explore Natural Science →</span>
+
+      </a>
+
+      <!-- SOCIAL SCIENCE -->
+      <a href="social-science/index.html"
+         class="stream-card social">
+
+        <span class="stream-number">02</span>
+
+        <div class="stream-icon">🌍</div>
+
+        <h3>Social Science</h3>
+
+        <p>
+          Discover society, history, economics, geography,
+          languages, and other subjects through organized
+          Social Science courses.
+        </p>
+
+        <span class="open-btn">Explore Social Science →</span>
+
+      </a>
+
+    </div>
+
+    <div class="note">
+      💡 <strong>Learning Tip:</strong>
+      Select your academic stream to find your subjects.
+      Each subject will have its own organized learning
+      materials, including PDFs, PowerPoint presentations,
+      short notes, videos, and other resources.
+    </div>
+
+  </section>
+
+  <footer>
+    <p>© 2026 Smart Generation Tutor | Created by Gidy Nega</p>
+    <p>Learn • Create • Share • Grow 🚀</p>
+  </footer>
+
+</body>
+</html>
