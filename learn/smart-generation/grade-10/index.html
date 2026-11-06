@@ -5,29 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Explore Grade 10 Ethiopian curriculum subjects, textbooks, PDF materials, presentations, short notes, video lessons and quizzes at Smart Generation Tutor.">
+  <meta name="description" content="Explore all Grade 10 subjects at Smart Generation Tutor. Access textbooks, PDF materials, presentations, short notes, video lessons and interactive quizzes.">
 
   <meta name="theme-color" content="#0b0b18">
 
-  <title>Grade 10 Learning Library | Smart Generation Tutor</title>
+  <title>Grade 10 | Smart Generation Tutor</title>
 
   <style>
-    :root {
-      --background: #0b0b18;
-      --card: #17172b;
-      --border: #343454;
-      --purple: #a78bfa;
-      --pink: #ff55c8;
-      --blue: #8187ff;
-      --cyan: #65eee4;
-      --text: #f4f4ff;
-      --muted: #b9bad0;
-    }
-
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     html {
@@ -35,123 +21,89 @@
     }
 
     body {
+      margin: 0;
+      padding: 20px;
       font-family: Arial, sans-serif;
-      background: var(--background);
-      color: var(--text);
-      line-height: 1.7;
+      background: #0b0b18;
+      color: #ffffff;
     }
 
     a {
       text-decoration: none;
     }
 
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+    }
+
     header {
-      padding: 45px 18px;
       text-align: center;
-      background:
-        radial-gradient(circle at top right, #214b3e, transparent 45%),
-        linear-gradient(135deg, #101025, #16352f);
-      border-bottom: 1px solid var(--border);
+      padding: 35px 18px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #171735, #30205a);
+      border: 1px solid #8187ff;
     }
 
     .back {
       display: inline-block;
-      margin-bottom: 25px;
-      color: var(--cyan);
+      margin-bottom: 20px;
+      color: #65eee4;
       font-weight: bold;
     }
 
     .badge {
       display: inline-block;
       padding: 6px 14px;
-      border: 1px solid var(--cyan);
+      border: 1px solid #ff55c8;
       border-radius: 25px;
-      color: var(--cyan);
+      color: #ff55c8;
       font-size: 12px;
       letter-spacing: 1px;
     }
 
     h1 {
+      color: #65eee4;
+      font-size: clamp(28px, 5vw, 42px);
       margin: 18px 0 10px;
-      font-size: clamp(30px, 6vw, 48px);
-      line-height: 1.2;
     }
 
-    h1 span {
-      color: var(--cyan);
+    .intro {
+      max-width: 750px;
+      margin: auto;
+      color: #d5d5ed;
+      line-height: 1.8;
     }
 
-    header p {
-      max-width: 720px;
-      margin: 12px auto;
-      color: var(--muted);
+    .card {
+      margin-top: 25px;
+      padding: 24px;
+      border-radius: 15px;
+      background: #15152a;
+      border: 1px solid #45456b;
     }
 
-    .button {
-      display: inline-block;
-      margin-top: 14px;
-      padding: 11px 18px;
-      text-align: center;
-      border: none;
-      border-radius: 9px;
-      background: linear-gradient(90deg, var(--purple), var(--blue));
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      transition: transform 0.25s, opacity 0.25s;
+    .card h2 {
+      color: #ff55c8;
+      margin-top: 0;
     }
 
-    .button:hover {
-      transform: translateY(-2px);
-      opacity: 0.9;
-    }
-
-    button:focus-visible,
-    a:focus-visible {
-      outline: 3px solid var(--cyan);
-      outline-offset: 4px;
-    }
-
-    .container {
-      width: min(1100px, 92%);
-      margin: 35px auto;
-    }
-
-    .welcome,
-    .subject-card,
-    .resource-panel {
-      padding: 22px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-    }
-
-    .welcome {
-      margin-bottom: 35px;
-      background: linear-gradient(145deg, #17152e, #16352f);
-    }
-
-    .welcome h2,
-    .section-title h2 {
-      color: var(--cyan);
-    }
-
-    .welcome p {
-      color: var(--muted);
-      margin-top: 9px;
+    .card p {
+      color: #d5d5ed;
+      line-height: 1.8;
     }
 
     .section-title {
-      margin: 38px 0 20px;
+      margin-bottom: 20px;
     }
 
     .section-title h2 {
-      font-size: 25px;
+      color: #65eee4;
+      margin-bottom: 7px;
     }
 
     .section-title p {
-      color: var(--muted);
-      margin-top: 5px;
+      color: #aaaac5;
     }
 
     .subjects {
@@ -160,156 +112,133 @@
       gap: 18px;
     }
 
-    .subject-card {
+    .subject {
       display: flex;
       flex-direction: column;
-      min-height: 205px;
-      transition: 0.25s;
+      padding: 20px;
+      min-height: 215px;
+      border-radius: 13px;
+      background: #20203b;
+      border: 1px solid #45456b;
+      transition: transform 0.3s ease,
+                  border-color 0.3s ease;
     }
 
-    .subject-card:hover {
+    .subject:hover {
       transform: translateY(-5px);
-      border-color: var(--cyan);
-      box-shadow: 0 10px 30px #00000035;
+      border-color: #65eee4;
     }
 
     .subject-icon {
-      font-size: 35px;
-    }
-
-    .subject-card h3 {
-      color: var(--cyan);
-      margin: 9px 0;
-      font-size: 19px;
-    }
-
-    .subject-card p {
-      color: var(--muted);
-      font-size: 14px;
-      flex-grow: 1;
-    }
-
-    .subject-card .button {
-      align-self: flex-start;
-    }
-
-    .resource-panel {
-      display: none;
-      margin-top: 35px;
-      background: linear-gradient(145deg, #17152e, #16352f);
-      border-color: var(--cyan);
-    }
-
-    .resource-panel.active {
-      display: block;
-      animation: appear 0.3s ease;
-    }
-
-    @keyframes appear {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .resource-panel h2 {
-      color: var(--cyan);
+      font-size: 34px;
       margin-bottom: 8px;
     }
 
-    .resource-panel > p {
-      color: var(--muted);
-      margin-bottom: 20px;
+    .subject h3 {
+      color: #65eee4;
+      margin: 5px 0 8px;
+      font-size: 18px;
+    }
+
+    .subject p {
+      color: #d5d5ed;
+      font-size: 13px;
+      line-height: 1.7;
+      flex-grow: 1;
+      margin: 0;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 11px 16px;
+      border-radius: 9px;
+      background: #8187ff;
+      color: #0b0b18;
+      font-weight: bold;
+      text-align: center;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background: #65eee4;
     }
 
     .resources {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 13px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 18px;
     }
 
     .resource {
-      padding: 16px;
-      background: #101025;
-      border: 1px solid var(--border);
+      padding: 17px;
+      background: #20203b;
+      border: 1px solid #45456b;
       border-radius: 12px;
     }
 
     .resource h3 {
-      color: var(--pink);
-      margin-bottom: 5px;
+      color: #65eee4;
+      margin-top: 0;
       font-size: 16px;
     }
 
     .resource p {
-      color: var(--muted);
       font-size: 13px;
-    }
-
-    .status {
-      display: inline-block;
-      margin-top: 9px;
-      padding: 4px 9px;
-      border-radius: 20px;
-      background: #29243b;
-      color: var(--purple);
-      font-size: 11px;
-    }
-
-    .close-button {
-      background: linear-gradient(90deg, #ff55c8, #8187ff);
+      margin-bottom: 0;
     }
 
     .notice {
-      margin-top: 30px;
-      padding: 22px;
+      border-left: 4px solid #ff55c8;
       background: #21182e;
-      border-left: 4px solid var(--pink);
-      border-radius: 10px;
-    }
-
-    .notice h2 {
-      color: var(--cyan);
-      margin-bottom: 8px;
-    }
-
-    .notice p {
-      color: var(--muted);
     }
 
     footer {
-      margin-top: 55px;
-      padding: 30px 15px;
       text-align: center;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-    }
-
-    footer p {
-      margin: 7px 0;
+      margin-top: 35px;
+      color: #aaaac5;
+      font-size: 14px;
     }
 
     footer a {
-      color: var(--cyan);
+      color: #65eee4;
     }
 
-    @media (max-width: 750px) {
+    footer p {
+      line-height: 1.8;
+    }
+
+    a:focus-visible {
+      outline: 3px solid #65eee4;
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 800px) {
       .subjects {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .resources {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 500px) {
+      body {
+        padding: 12px;
+      }
+
       .container {
-        width: 94%;
+        margin: 15px auto;
       }
 
       header {
-        padding: 35px 15px;
+        padding: 28px 15px;
+      }
+
+      .card {
+        padding: 18px;
       }
 
       .subjects,
@@ -317,107 +246,16 @@
         grid-template-columns: 1fr;
       }
 
-      .subject-card,
-      .welcome,
-      .resource-panel {
-        padding: 18px;
-      }
-
-      .section-title h2 {
-        font-size: 22px;
+      .subject {
+        min-height: 190px;
       }
     }
-
-/* INTERACTIVE LEARNING MATERIALS */
-
-.resource-menu {
-  background: transparent;
-  padding: 0;
-  margin-top: 15px;
-  display: grid;
-  gap: 10px;
-}
-
-.resource-category {
-  background: #20203b;
-  border: 1px solid #38385c;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: .3s;
-}
-
-.resource-category:hover {
-  border-color: #65eee4;
-}
-
-.resource-category > summary {
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  color: #fff;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  list-style: none;
-}
-
-.resource-category > summary::-webkit-details-marker {
-  display: none;
-}
-
-.resource-category > summary::after {
-  content: "+";
-  color: #65eee4;
-  font-size: 22px;
-}
-
-.resource-category[open] > summary::after {
-  content: "−";
-}
-
-.resource-files {
-  padding: 5px 15px 15px;
-  border-top: 1px solid #38385c;
-}
-
-.resource-files p {
-  font-size: 13px;
-  color: #aaaac3;
-  line-height: 1.8;
-  margin-top: 10px;
-}
-
-.resource-link {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px;
-  margin-top: 9px;
-  background: #15152c;
-  border: 1px solid #38385c;
-  border-radius: 9px;
-  color: #65eee4;
-  text-decoration: none;
-  font-size: 13px;
-  transition: .3s;
-}
-
-.resource-link:hover {
-  background: #29294b;
-  border-color: #65eee4;
-}
-
-.resource-link span {
-  margin-left: auto;
-  color: #aaaac3;
-}
-
   </style>
 </head>
 
 <body>
+
+<main class="container">
 
   <!-- HEADER -->
 
@@ -433,244 +271,328 @@
       SMART GENERATION TUTOR
     </span>
 
-    <h1>
-      📗 Grade 10 <span>Learning Library</span>
-    </h1>
+    <h1>📚 Grade 10 Learning Library</h1>
 
-    <p>
-      Advance your academic knowledge, strengthen
-      your understanding and prepare yourself
-      for greater educational achievements.
+    <p class="intro">
+      Discover your Grade 10 subjects, explore
+      educational resources, strengthen your
+      understanding and prepare confidently
+      for your academic journey.
     </p>
 
-    <p>
-      <strong>Building Knowledge • Developing Skills • Creating Opportunities</strong>
+    <p class="intro">
+      <strong>
+        Learn Smarter • Grow Stronger • Achieve More
+      </strong>
     </p>
 
     <a class="button" href="#subjects">
-      Explore Grade 10 Subjects →
+      Explore Your Subjects →
     </a>
 
   </header>
 
 
-  <main class="container">
+  <!-- WELCOME -->
 
-    <!-- WELCOME -->
+  <section class="card">
 
-    <section class="welcome">
+    <h2>❤️ Welcome, Grade 10 Students!</h2>
 
-      <h2>❤️ Welcome to Grade 10!</h2>
+    <p>
+      Welcome to your Grade 10 learning environment.
+      Smart Generation Tutor brings your subjects
+      and educational resources together in one
+      organized place.
+    </p>
+
+    <p>
+      Select any subject below to enter its individual
+      learning homepage. Inside each course, you
+      will find organized educational materials,
+      practice exercises and examination resources.
+    </p>
+
+    <p>
+      Learn step by step, practise regularly
+      and build a strong foundation for your future.
+    </p>
+
+  </section>
+
+
+  <!-- SUBJECTS -->
+
+  <section class="card" id="subjects">
+
+    <div class="section-title">
+
+      <h2>📖 Grade 10 Subjects</h2>
 
       <p>
-        Congratulations on reaching Grade 10!
-        This is another important stage in your
-        academic journey.
+        Select a subject to explore its complete
+        learning environment.
       </p>
 
-      <p>
-        Smart Generation Tutor provides an organized
-        learning environment where you can explore
-        your subjects and access different educational
-        resources in one place.
-      </p>
+    </div>
 
-      <p>
-        Choose your subject, review learning materials,
-        practice regularly and develop the knowledge
-        and skills needed for your future.
-      </p>
-
-    </section>
+    <div class="subjects">
 
 
-    <!-- SUBJECTS -->
-
-    <section id="subjects">
-
-      <div class="section-title">
-
-        <h2>📚 Explore Your Subjects</h2>
-
+      <article class="subject">
+        <div class="subject-icon">➗</div>
+        <h3>1. Mathematics</h3>
         <p>
-          Select a subject to open its learning resources.
+          Develop mathematical knowledge,
+          logical thinking and problem-solving skills.
         </p>
-
-      </div>
-
-
-      <div class="subjects">
-
-        <article class="subject-card">
-          <div class="subject-icon">➗</div>
-          <h3>Mathematics</h3>
-          <p>Develop advanced mathematical understanding and problem-solving skills.</p>
-          <button class="button" onclick="openSubject('Mathematics')">Open Subject →</button>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">⚛️</div>
-          <h3>Physics</h3>
-          <p>Explore physical principles, energy, motion and scientific applications.</p>
-          <button class="button" onclick="openSubject('Physics')">Open Subject →</button>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">🧪</div>
-          <h3>Chemistry</h3>
-          <p>Understand chemical concepts, reactions and properties of matter.</p>
-          <button class="button" onclick="openSubject('Chemistry')">Open Subject →</button>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">🧬</div>
-          <h3>Biology</h3>
-          <p>Explore living organisms, biological processes and life sciences.</p>
-          <button class="button" onclick="openSubject('Biology')">Open Subject →</button>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">📖</div>
-          <h3>English</h3>
-          <p>Improve grammar, vocabulary, reading, writing and communication.</p>
-          <button class="button" onclick="openSubject('English')">Open Subject →</button>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">🔤</div>
-          <h3>Amharic</h3>
-          <p>Strengthen language, literature, reading and writing skills.</p>
-          <button class="button" onclick="openSubject('Amharic')">Open Subject →</button>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">🌍</div>
-          <h3>Afaan Oromoo</h3>
-          <p>Develop Afaan Oromoo language and communication abilities.</p>
-          <button class="button" onclick="openSubject('Afaan Oromoo')">Open Subject →</button>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">⚖️</div>
-          <h3>Civics</h3>
-          <p>Understand citizenship, democratic values, rights and responsibilities.</p>
-          <button class="button" onclick="openSubject('Civics')">Open Subject →</button>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">🏛️</div>
-          <h3>History</h3>
-          <p>Discover historical events, societies and human civilization.</p>
-          <button class="button" onclick="openSubject('History')">Open Subject →</button>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">💻</div>
-          <h3>Information Technology (ICT)</h3>
-          <p>Explore computer systems, digital tools and information technology.</p>
-          <button class="button" onclick="openSubject('Information Technology (ICT)')">Open Subject →</button>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">📊</div>
-          <h3>Economics</h3>
-          <p>Study economic systems, resources, production and markets.</p>
-          <button class="button" onclick="openSubject('Economics')">Open Subject →</button>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">🌐</div>
-          <h3>Geography</h3>
-          <p>Understand the Earth, natural environments and human activities.</p>
-          <button class="button" onclick="openSubject('Geography')">Open Subject →</button>
-        </article>
-
-        <article class="subject-card">
-          <div class="subject-icon">🌱</div>
-          <h3>Agriculture</h3>
-          <p>Explore agricultural science, farming practices and natural resources.</p>
-          <button class="button" onclick="openSubject('Agriculture')">Open Subject →</button>
-        </article>
-
-      </div>
-
-    </section>
+        <a class="button" href="mathematics/index.html">
+          Open Course →
+        </a>
+      </article>
 
 
-    <!-- SUBJECT RESOURCE PANEL -->
-
-    <section class="resource-panel" id="resourcePanel">
-
-      <h2 id="selectedSubject">Subject Resources</h2>
-
-      <p>
-        Select a learning resource category below.
-        Materials will appear here as they are uploaded.
-      </p>
-
-      <div class="resources">
-
-        <article class="resource">
-          <h3>📚 Textbooks</h3>
-          <p>Official textbooks and recommended reading materials.</p>
-          <span class="status">Materials coming soon</span>
-        </article>
-
-        <article class="resource">
-          <h3>📄 PDF Materials</h3>
-          <p>Organized PDF learning materials and modules.</p>
-          <span class="status">Materials coming soon</span>
-        </article>
-
-        <article class="resource">
-          <h3>📊 PowerPoint Presentations</h3>
-          <p>Visual presentations that explain important concepts.</p>
-          <span class="status">Materials coming soon</span>
-        </article>
-
-        <article class="resource">
-          <h3>📝 Short Notes</h3>
-          <p>Simple and organized notes for effective revision.</p>
-          <span class="status">Materials coming soon</span>
-        </article>
-
-        <article class="resource">
-          <h3>🎥 Video Lessons</h3>
-          <p>Educational videos explaining different topics.</p>
-          <span class="status">Materials coming soon</span>
-        </article>
-
-        <article class="resource">
-          <h3>🧠 Practice Quizzes</h3>
-          <p>Exercises and questions to assess your understanding.</p>
-          <span class="status">Materials coming soon</span>
-        </article>
-
-      </div>
-
-      <button class="button close-button" onclick="closeSubject()">
-        Close Subject ×
-      </button>
-
-    </section>
+      <article class="subject">
+        <div class="subject-icon">⚛️</div>
+        <h3>2. Physics</h3>
+        <p>
+          Explore matter, energy, motion,
+          forces and physical principles.
+        </p>
+        <a class="button" href="physics/index.html">
+          Open Course →
+        </a>
+      </article>
 
 
-    <!-- NOTICE -->
+      <article class="subject">
+        <div class="subject-icon">🧪</div>
+        <h3>3. Chemistry</h3>
+        <p>
+          Understand matter, chemical substances,
+          reactions and their properties.
+        </p>
+        <a class="button" href="chemistry/index.html">
+          Open Course →
+        </a>
+      </article>
 
-    <section class="notice">
 
-      <h2>💡 Your Success Starts with Consistent Learning!</h2>
+      <article class="subject">
+        <div class="subject-icon">🧬</div>
+        <h3>4. Biology</h3>
+        <p>
+          Discover living organisms, cells,
+          ecosystems and the science of life.
+        </p>
+        <a class="button" href="biology/index.html">
+          Open Course →
+        </a>
+      </article>
 
-      <p>
-        Explore your subjects, practice consistently
-        and keep developing your knowledge.
-        New educational resources will be added
-        progressively.
-      </p>
 
-    </section>
+      <article class="subject">
+        <div class="subject-icon">📖</div>
+        <h3>5. English</h3>
+        <p>
+          Improve grammar, vocabulary,
+          reading, writing and communication.
+        </p>
+        <a class="button" href="english/index.html">
+          Open Course →
+        </a>
+      </article>
 
-  </main>
+
+      <article class="subject">
+        <div class="subject-icon">🔤</div>
+        <h3>6. Amharic</h3>
+        <p>
+          Develop Amharic language,
+          reading, writing and communication skills.
+        </p>
+        <a class="button" href="amharic/index.html">
+          Open Course →
+        </a>
+      </article>
+
+
+      <article class="subject">
+        <div class="subject-icon">🌍</div>
+        <h3>7. Afaan Oromoo</h3>
+        <p>
+          Strengthen Afaan Oromoo language,
+          literature, reading and writing skills.
+        </p>
+        <a class="button" href="afaan-oromoo/index.html">
+          Open Course →
+        </a>
+      </article>
+
+
+      <article class="subject">
+        <div class="subject-icon">⚖️</div>
+        <h3>8. Civics</h3>
+        <p>
+          Learn about citizenship, democracy,
+          human rights and responsibilities.
+        </p>
+        <a class="button" href="civics/index.html">
+          Open Course →
+        </a>
+      </article>
+
+
+      <article class="subject">
+        <div class="subject-icon">🏛️</div>
+        <h3>9. History</h3>
+        <p>
+          Explore historical events,
+          civilizations and human development.
+        </p>
+        <a class="button" href="history/index.html">
+          Open Course →
+        </a>
+      </article>
+
+
+      <article class="subject">
+        <div class="subject-icon">💻</div>
+        <h3>10. Information Technology (ICT)</h3>
+        <p>
+          Discover computers, digital technology,
+          information systems and digital skills.
+        </p>
+        <a class="button" href="ict/index.html">
+          Open Course →
+        </a>
+      </article>
+
+
+      <article class="subject">
+        <div class="subject-icon">📊</div>
+        <h3>11. Economics</h3>
+        <p>
+          Understand resources, production,
+          consumption, markets and economic activities.
+        </p>
+        <a class="button" href="economics/index.html">
+          Open Course →
+        </a>
+      </article>
+
+
+      <article class="subject">
+        <div class="subject-icon">🌐</div>
+        <h3>12. Geography</h3>
+        <p>
+          Study the Earth, environments,
+          populations, resources and places.
+        </p>
+        <a class="button" href="geography/index.html">
+          Open Course →
+        </a>
+      </article>
+
+
+      <article class="subject">
+        <div class="subject-icon">🌱</div>
+        <h3>13. Agriculture</h3>
+        <p>
+          Explore agricultural science,
+          farming systems and natural resources.
+        </p>
+        <a class="button" href="agriculture/index.html">
+          Open Course →
+        </a>
+      </article>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- LEARNING RESOURCES -->
+
+  <section class="card">
+
+    <h2>🎯 Our Learning Resources</h2>
+
+    <p>
+      Every course will have its own organized
+      learning materials, including:
+    </p>
+
+    <div class="resources">
+
+      <article class="resource">
+        <h3>📄 PDF Documents</h3>
+        <p>
+          Textbooks, modules, lecture materials
+          and downloadable documents.
+        </p>
+      </article>
+
+      <article class="resource">
+        <h3>📊 PowerPoint Slides</h3>
+        <p>
+          Visual presentations to understand
+          important topics.
+        </p>
+      </article>
+
+      <article class="resource">
+        <h3>📝 Short Notes</h3>
+        <p>
+          Organized, simple and easy-to-memorize
+          study notes.
+        </p>
+      </article>
+
+      <article class="resource">
+        <h3>🎥 Video Lessons</h3>
+        <p>
+          Educational videos and step-by-step
+          explanations.
+        </p>
+      </article>
+
+      <article class="resource">
+        <h3>🧠 Practice Questions</h3>
+        <p>
+          Interactive questions and exercises
+          with explanations.
+        </p>
+      </article>
+
+      <article class="resource">
+        <h3>🏆 Model Examinations</h3>
+        <p>
+          Examination preparation and
+          assessment activities.
+        </p>
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- NOTICE -->
+
+  <section class="card notice">
+
+    <h2>💡 Keep Learning and Growing!</h2>
+
+    <p>
+      Educational materials will be added
+      progressively to individual subject pages.
+      Keep visiting Smart Generation Tutor
+      to discover new learning opportunities.
+    </p>
+
+  </section>
 
 
   <!-- FOOTER -->
@@ -681,11 +603,13 @@
       Learn Together • Grow Together • Succeed Together ❤️
     </p>
 
-    <p>Created with ❤️ by Gidy Nega</p>
+    <p>
+      Created with ❤️ by Gidy Nega
+    </p>
 
     <p>
       <a href="../index.html">
-        Back to Smart Generation Tutor
+        ← Back to Smart Generation Tutor
       </a>
     </p>
 
@@ -695,109 +619,13 @@
       </a>
     </p>
 
-    <p>© 2026 Gidy Nega. All rights reserved.</p>
+    <p>
+      © 2026 Gidy Nega. All rights reserved.
+    </p>
 
   </footer>
 
-
-  <!-- JAVASCRIPT -->
-
-  <script>
-
-    function openSubject(subjectName) {
-
-      const panel = document.getElementById("resourcePanel");
-
-      document.getElementById("selectedSubject").textContent =
-        "📚 " + subjectName + " Resources";
-
-      panel.classList.add("active");
-
-      panel.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-
-    }
-
-    function closeSubject() {
-
-      document.getElementById("resourcePanel")
-        .classList.remove("active");
-
-      document.getElementById("subjects")
-        .scrollIntoView({
-          behavior: "smooth"
-        });
-
-    }
-
-  </script>
-
-/* SMART GENERATION TUTOR
-   INTERACTIVE RESOURCE SYSTEM
-*/
-
-// Resource categories
-const resourceTypes = [
-  { id: "pdf", icon: "📄", name: "PDF Materials" },
-  { id: "ppt", icon: "📊", name: "PowerPoint Materials" },
-  { id: "notes", icon: "📝", name: "Short Notes" },
-  { id: "videos", icon: "🎥", name: "Video Lessons" },
-  { id: "questions", icon: "📋", name: "Practice Questions" },
-  { id: "exams", icon: "🎯", name: "National Examination" }
-];
-
-// Add actual learning files here when uploaded.
-const learningMaterials = {};
-
-// Build interactive resource buttons
-document.querySelectorAll(".course").forEach(course => {
-
-  const material = course.querySelector(".material");
-
-  const subject = course.querySelector(
-    ".course-name h3"
-  )?.textContent.trim();
-
-  if (!material || !subject) return;
-
-  material.classList.add("resource-menu");
-
-  material.innerHTML = resourceTypes.map(type => {
-
-    const files =
-      learningMaterials[subject]?.[type.id] || [];
-
-    const fileContent = files.length
-      ? files.map(file => `
-          <a class="resource-link"
-             href="${file.url}"
-             target="_blank"
-             rel="noopener noreferrer">
-            ${type.icon}
-            ${file.title}
-            <span>Open ↗</span>
-          </a>
-        `).join("")
-      : `<p>No ${type.name.toLowerCase()} uploaded yet. Learning materials will appear here when available.</p>`;
-
-    return `
-      <details class="resource-category">
-        <summary>
-          ${type.icon} ${type.name}
-        </summary>
-
-        <div class="resource-files">
-          ${fileContent}
-        </div>
-      </details>
-    `;
-
-  }).join("");
-
-});
-
+</main>
 
 </body>
 </html>
