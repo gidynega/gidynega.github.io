@@ -1,0 +1,1015 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Intermediate Trading Education by Gidy Nega. Study technical analysis, chart patterns, indicators, market trends, trading strategies and risk management.">
+
+<meta name="author" content="Gidy Nega">
+
+<title>Intermediate Trading | Gidy Nega</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b0b18;
+    color: #f5f3ff;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 92%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+/* NAVIGATION */
+
+nav {
+    background: #111126;
+    border-bottom: 1px solid #39305e;
+}
+
+.nav-content {
+    min-height: 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    color: #a78bfa;
+    font-weight: bold;
+    font-size: 21px;
+}
+
+.logo span {
+    color: #22d3ee;
+}
+
+.back-link {
+    color: #67e8f9;
+    font-size: 14px;
+}
+
+/* HERO */
+
+.hero {
+    padding: 65px 20px;
+    text-align: center;
+    background:
+        radial-gradient(circle at top, #123c4c, transparent 65%),
+        linear-gradient(135deg, #101025, #111e32);
+    border-bottom: 1px solid #39305e;
+}
+
+.hero-label {
+    display: inline-block;
+    padding: 7px 16px;
+    background: #153444;
+    border: 1px solid #27647a;
+    color: #67e8f9;
+    border-radius: 30px;
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 6vw, 48px);
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    color: #67e8f9;
+}
+
+.hero p {
+    max-width: 720px;
+    margin: auto;
+    color: #c4bfdc;
+}
+
+/* GENERAL */
+
+section {
+    padding: 50px 0;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-heading h2 {
+    color: #67e8f9;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.section-heading p {
+    color: #aaa4c7;
+}
+
+/* COURSE CARDS */
+
+.course-list {
+    display: grid;
+    gap: 22px;
+}
+
+.course-card {
+    background: #151529;
+    border: 1px solid #39305e;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.course-header {
+    padding: 22px;
+    background: #1b1b35;
+}
+
+.course-number {
+    color: #22d3ee;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.course-header h3 {
+    color: #c4b5fd;
+    font-size: 21px;
+    margin: 7px 0;
+}
+
+.course-header p {
+    color: #bbb5d2;
+    font-size: 14px;
+}
+
+.course-content {
+    padding: 22px;
+}
+
+.course-content h4 {
+    color: #67e8f9;
+    margin: 20px 0 8px;
+}
+
+.course-content p,
+.course-content li {
+    color: #c4bfdc;
+    font-size: 14px;
+}
+
+.course-content ul,
+.course-content ol {
+    padding-left: 23px;
+}
+
+.lesson-box {
+    background: #201b3b;
+    padding: 16px;
+    margin: 13px 0;
+    border-left: 3px solid #22d3ee;
+    border-radius: 8px;
+}
+
+.example {
+    background: #152b2b;
+    border-left: 3px solid #22d3ee;
+    padding: 16px;
+    margin: 14px 0;
+    border-radius: 8px;
+}
+
+.quiz {
+    background: #24203e;
+    border: 1px solid #514080;
+    border-radius: 10px;
+    padding: 17px;
+    margin-top: 18px;
+}
+
+.quiz h4 {
+    margin-top: 0;
+}
+
+.quiz label {
+    display: block;
+    color: #d8d4eb;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.quiz input {
+    margin-right: 8px;
+}
+
+.quiz button {
+    background: #0891b2;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 17px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.feedback {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* EXPANDABLE MATERIALS */
+
+details {
+    border-top: 1px solid #39305e;
+}
+
+summary {
+    padding: 16px 22px;
+    color: #67e8f9;
+    font-weight: bold;
+    cursor: pointer;
+    background: #17162e;
+}
+
+summary:hover {
+    background: #252044;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #39305e;
+}
+
+/* STUDY TIPS */
+
+.tips {
+    background: #17162e;
+    border: 1px solid #39305e;
+    border-radius: 14px;
+    padding: 25px;
+}
+
+.tips h3 {
+    color: #67e8f9;
+    margin-bottom: 12px;
+}
+
+.tips li {
+    color: #c4bfdc;
+    margin: 8px 0;
+}
+
+/* DISCLAIMER */
+
+.disclaimer {
+    background: #211b32;
+    border: 1px solid #72502c;
+    border-radius: 12px;
+    padding: 22px;
+    color: #e5d4ad;
+}
+
+.disclaimer h3 {
+    color: #fbbf24;
+    margin-bottom: 10px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #111126;
+    border-top: 1px solid #39305e;
+    padding: 30px 15px;
+    text-align: center;
+    color: #aaa4c7;
+}
+
+footer strong {
+    color: #a78bfa;
+}
+
+footer a {
+    color: #67e8f9;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 600px) {
+    .nav-content {
+        padding: 12px 0;
+    }
+
+    .hero {
+        padding: 50px 12px;
+    }
+
+    section {
+        padding: 35px 0;
+    }
+
+    .course-header,
+    .course-content {
+        padding: 17px;
+    }
+
+    .course-header h3 {
+        font-size: 19px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+<div class="container nav-content">
+
+<a href="../index.html" class="logo">
+GIDY <span>TRADING</span>
+</a>
+
+<a href="../index.html" class="back-link">
+← Trading Homepage
+</a>
+
+</div>
+</nav>
+
+<!-- HERO -->
+
+<header class="hero">
+
+<div class="hero-label">
+📊 LEVEL 02 — INTERMEDIATE
+</div>
+
+<h1>
+Develop Your <span>Trading Skills</span>
+</h1>
+
+<p>
+Welcome to Intermediate Trading.
+Develop your ability to analyze financial markets,
+interpret price movements, understand technical indicators,
+identify chart patterns and evaluate trading strategies.
+</p>
+
+</header>
+
+<main>
+
+<section>
+
+<div class="container">
+
+<div class="section-heading">
+<h2>📚 Intermediate Trading Courses</h2>
+<p>
+Explore each course and study its lessons and materials.
+</p>
+</div>
+
+<div class="course-list">
+
+<!-- COURSE 1 -->
+
+<article class="course-card">
+
+<div class="course-header">
+<span class="course-number">COURSE 01</span>
+<h3>Technical Analysis Fundamentals</h3>
+<p>Learn how to analyze market prices and identify potential trading opportunities.</p>
+</div>
+
+<details>
+<summary>📖 Open Course Materials</summary>
+
+<div class="course-content">
+
+<h4>Lesson 1: What Is Technical Analysis?</h4>
+
+<p>
+Technical analysis is the study of historical price
+movements and trading data to evaluate market behavior
+and identify possible future price scenarios.
+</p>
+
+<h4>Lesson 2: Market Trends</h4>
+
+<ul>
+<li><b>Uptrend:</b> A sequence of higher highs and higher lows.</li>
+<li><b>Downtrend:</b> A sequence of lower highs and lower lows.</li>
+<li><b>Sideways trend:</b> Price moves within a relatively horizontal range.</li>
+</ul>
+
+<h4>Lesson 3: Timeframes</h4>
+
+<p>
+A timeframe represents the duration covered by one
+candlestick or chart bar.
+</p>
+
+<ul>
+<li>1-minute chart</li>
+<li>5-minute chart</li>
+<li>15-minute chart</li>
+<li>1-hour chart</li>
+<li>4-hour chart</li>
+<li>Daily chart</li>
+<li>Weekly chart</li>
+</ul>
+
+<h4>Lesson 4: Multi-Timeframe Analysis</h4>
+
+<p>
+Multi-timeframe analysis means examining the same
+market across different timeframes to understand
+both broader and shorter-term price movements.
+</p>
+
+<div class="example">
+<strong>Practical Example:</strong>
+<p>
+A trader may examine a daily chart to understand
+the broader market direction and a 1-hour chart
+to study shorter-term price behavior.
+</p>
+</div>
+
+<div class="quiz">
+<h4>📝 Knowledge Test</h4>
+<p>1. What characterizes an uptrend?</p>
+
+<label><input type="radio" name="q1" value="a"> Lower highs and lower lows.</label>
+<label><input type="radio" name="q1" value="b"> Higher highs and higher lows.</label>
+<label><input type="radio" name="q1" value="c"> No price movement.</label>
+
+<button onclick="checkAnswer('q1','b','result1')">Check Answer</button>
+<p class="feedback" id="result1"></p>
+</div>
+
+</div>
+</details>
+</article>
+
+<!-- COURSE 2 -->
+
+<article class="course-card">
+
+<div class="course-header">
+<span class="course-number">COURSE 02</span>
+<h3>Support and Resistance</h3>
+<p>Understand important price levels and market reaction zones.</p>
+</div>
+
+<details>
+<summary>📖 Open Course Materials</summary>
+
+<div class="course-content">
+
+<h4>Lesson 1: What Is Support?</h4>
+
+<p>
+Support is a price area where buying interest has
+previously been strong enough to slow or reverse
+a downward price movement.
+</p>
+
+<h4>Lesson 2: What Is Resistance?</h4>
+
+<p>
+Resistance is a price area where selling interest
+has previously been strong enough to slow or reverse
+an upward price movement.
+</p>
+
+<h4>Lesson 3: Identifying Support and Resistance</h4>
+
+<ol>
+<li>Study historical price movements.</li>
+<li>Identify areas where price repeatedly reacted.</li>
+<li>Mark the relevant price zones.</li>
+<li>Observe how price behaves when it returns.</li>
+</ol>
+
+<h4>Lesson 4: Breakouts</h4>
+
+<p>
+A breakout occurs when price moves beyond an
+established support or resistance area.
+A breakout is not automatically genuine; false
+breakouts can occur.
+</p>
+
+<h4>Lesson 5: Role Reversal</h4>
+
+<p>
+A previous resistance area may become support
+after an upward breakout. Similarly, previous
+support may become resistance after a downward
+breakout. This behavior is not guaranteed.
+</p>
+
+<div class="example">
+<strong>Practical Example:</strong>
+<p>
+Suppose an asset repeatedly struggles to move
+above $100. This area may be considered resistance.
+If price moves above it and later returns,
+observe whether buyers defend that area.
+</p>
+</div>
+
+<div class="quiz">
+<h4>📝 Knowledge Test</h4>
+<p>2. What is a resistance zone?</p>
+
+<label><input type="radio" name="q2" value="a"> An area where selling pressure may appear.</label>
+<label><input type="radio" name="q2" value="b"> A guaranteed profit zone.</label>
+<label><input type="radio" name="q2" value="c"> A fixed trading fee.</label>
+
+<button onclick="checkAnswer('q2','a','result2')">Check Answer</button>
+<p class="feedback" id="result2"></p>
+</div>
+
+</div>
+</details>
+</article>
+
+<!-- COURSE 3 -->
+
+<article class="course-card">
+
+<div class="course-header">
+<span class="course-number">COURSE 03</span>
+<h3>Chart Patterns and Price Action</h3>
+<p>Study common chart formations and price behavior.</p>
+</div>
+
+<details>
+<summary>📖 Open Course Materials</summary>
+
+<div class="course-content">
+
+<h4>Lesson 1: What Are Chart Patterns?</h4>
+
+<p>
+Chart patterns are formations created by price
+movements that traders study to understand
+possible market scenarios.
+</p>
+
+<h4>Lesson 2: Head and Shoulders</h4>
+
+<p>
+The head and shoulders pattern consists of three
+peaks: a left shoulder, a higher middle peak called
+the head, and a right shoulder.
+It is commonly studied as a possible bearish
+reversal pattern.
+</p>
+
+<h4>Lesson 3: Double Top and Double Bottom</h4>
+
+<ul>
+<li><b>Double Top:</b> Two similar peaks that may indicate weakening upward momentum.</li>
+<li><b>Double Bottom:</b> Two similar lows that may indicate weakening downward momentum.</li>
+</ul>
+
+<h4>Lesson 4: Triangles</h4>
+
+<ul>
+<li>Ascending triangle.</li>
+<li>Descending triangle.</li>
+<li>Symmetrical triangle.</li>
+</ul>
+
+<h4>Lesson 5: Price Action</h4>
+
+<p>
+Price action is the study of price movement itself,
+including candle formations, market structure,
+swings and reactions around important levels.
+</p>
+
+<div class="example">
+<strong>Practical Example:</strong>
+<p>
+If price forms two similar peaks near a resistance
+zone, a trader may study whether a double-top
+pattern is developing. Confirmation is important;
+the pattern alone does not guarantee a reversal.
+</p>
+</div>
+
+<div class="quiz">
+<h4>📝 Knowledge Test</h4>
+<p>3. Which pattern contains a left shoulder, head and right shoulder?</p>
+
+<label><input type="radio" name="q3" value="a"> Double Bottom.</label>
+<label><input type="radio" name="q3" value="b"> Head and Shoulders.</label>
+<label><input type="radio" name="q3" value="c"> Ascending Triangle.</label>
+
+<button onclick="checkAnswer('q3','b','result3')">Check Answer</button>
+<p class="feedback" id="result3"></p>
+</div>
+
+</div>
+</details>
+</article>
+
+<!-- COURSE 4 -->
+
+<article class="course-card">
+
+<div class="course-header">
+<span class="course-number">COURSE 04</span>
+<h3>Technical Indicators</h3>
+<p>Learn how traders use mathematical indicators to study market data.</p>
+</div>
+
+<details>
+<summary>📖 Open Course Materials</summary>
+
+<div class="course-content">
+
+<h4>Lesson 1: What Are Technical Indicators?</h4>
+
+<p>
+Technical indicators are calculations based on
+price, volume or other market data. They help
+traders examine trends, momentum and volatility.
+</p>
+
+<h4>Lesson 2: Moving Average (MA)</h4>
+
+<p>
+A moving average calculates the average price
+over a selected number of periods.
+It can help smooth price fluctuations and
+highlight trends.
+</p>
+
+<ul>
+<li>Simple Moving Average (SMA).</li>
+<li>Exponential Moving Average (EMA).</li>
+</ul>
+
+<h4>Lesson 3: Relative Strength Index (RSI)</h4>
+
+<p>
+RSI is a momentum indicator that ranges from
+0 to 100.
+</p>
+
+<ul>
+<li>Above 70 is commonly described as overbought.</li>
+<li>Below 30 is commonly described as oversold.</li>
+</ul>
+
+<p>
+These levels are not automatic buy or sell signals.
+Strong trends can remain overbought or oversold.
+</p>
+
+<h4>Lesson 4: Moving Average Convergence Divergence (MACD)</h4>
+
+<p>
+MACD is a momentum and trend-following indicator
+based on exponential moving averages.
+It includes a MACD line, signal line and histogram.
+</p>
+
+<h4>Lesson 5: Bollinger Bands</h4>
+
+<p>
+Bollinger Bands consist of a middle moving average
+and upper and lower bands that change according
+to price volatility.
+</p>
+
+<div class="example">
+<strong>Practical Example:</strong>
+<p>
+A trader may combine a moving average with RSI
+to examine market direction and momentum.
+However, indicators can produce false signals,
+so they should not be treated as guarantees.
+</p>
+</div>
+
+<div class="quiz">
+<h4>📝 Knowledge Test</h4>
+<p>4. What is the commonly used upper RSI threshold?</p>
+
+<label><input type="radio" name="q4" value="a"> 30.</label>
+<label><input type="radio" name="q4" value="b"> 50.</label>
+<label><input type="radio" name="q4" value="c"> 70.</label>
+
+<button onclick="checkAnswer('q4','c','result4')">Check Answer</button>
+<p class="feedback" id="result4"></p>
+</div>
+
+</div>
+</details>
+</article>
+
+<!-- COURSE 5 -->
+
+<article class="course-card">
+
+<div class="course-header">
+<span class="course-number">COURSE 05</span>
+<h3>Intermediate Trading Strategies</h3>
+<p>Understand how traders develop structured approaches to market analysis.</p>
+</div>
+
+<details>
+<summary>📖 Open Course Materials</summary>
+
+<div class="course-content">
+
+<h4>Lesson 1: What Is a Trading Strategy?</h4>
+
+<p>
+A trading strategy is a structured set of rules
+that defines how a trader evaluates opportunities,
+enters positions, manages risk and exits trades.
+</p>
+
+<h4>Lesson 2: Trend-Following Strategy</h4>
+
+<p>
+Trend-following approaches attempt to participate
+in an established market direction.
+</p>
+
+<h4>Lesson 3: Breakout Strategy</h4>
+
+<p>
+Breakout strategies study price movement beyond
+an established support or resistance area.
+Traders may look for additional evidence before
+considering a breakout valid.
+</p>
+
+<h4>Lesson 4: Pullback Strategy</h4>
+
+<p>
+A pullback is a temporary movement against
+the broader trend. Traders study whether price
+may resume its previous direction.
+</p>
+
+<h4>Lesson 5: Trading Plan</h4>
+
+A trading plan should define:
+
+<ul>
+<li>Markets and instruments to study.</li>
+<li>Conditions required before entering a trade.</li>
+<li>Entry and exit rules.</li>
+<li>Risk limits and position sizing.</li>
+<li>Conditions for avoiding a trade.</li>
+</ul>
+
+<div class="example">
+<strong>Practical Example:</strong>
+<p>
+A hypothetical trend-following plan may require
+an upward market structure, a pullback to a
+previously identified support area and additional
+confirmation before considering an entry.
+</p>
+</div>
+
+<div class="quiz">
+<h4>📝 Knowledge Test</h4>
+<p>5. What is a trading plan?</p>
+
+<label><input type="radio" name="q5" value="a"> A structured set of trading rules.</label>
+<label><input type="radio" name="q5" value="b"> A guarantee of profit.</label>
+<label><input type="radio" name="q5" value="c"> A method of avoiding all losses.</label>
+
+<button onclick="checkAnswer('q5','a','result5')">Check Answer</button>
+<p class="feedback" id="result5"></p>
+</div>
+
+</div>
+</details>
+</article>
+
+<!-- COURSE 6 -->
+
+<article class="course-card">
+
+<div class="course-header">
+<span class="course-number">COURSE 06</span>
+<h3>Intermediate Risk Management</h3>
+<p>Develop a deeper understanding of position sizing, risk-to-reward and trading performance.</p>
+</div>
+
+<details>
+<summary>📖 Open Course Materials</summary>
+
+<div class="course-content">
+
+<h4>Lesson 1: Risk Per Trade</h4>
+
+<p>
+Risk per trade is the amount of account equity
+a trader is prepared to lose if a trade reaches
+its planned stop-loss.
+</p>
+
+<h4>Lesson 2: Position Sizing</h4>
+
+<p>
+Position size should account for the distance
+between entry and stop-loss, the monetary value
+of price movements and the planned risk.
+</p>
+
+<div class="example">
+<strong>Calculation Example:</strong>
+
+<p>
+Account balance = $2,000<br>
+Planned risk = 1%<br>
+</p>
+
+<p>
+Risk amount = $2,000 × 0.01
+</p>
+
+<p>
+<strong>Planned risk = $20</strong>
+</p>
+
+<p>
+The actual position size also depends on the
+instrument, stop distance, contract specifications,
+and trading costs.
+</p>
+</div>
+
+<h4>Lesson 3: Risk-to-Reward Ratio</h4>
+
+<p>
+The risk-to-reward ratio compares planned risk
+with potential reward.
+</p>
+
+<p>
+A 1:3 ratio means the planned potential reward
+is three times the planned risk.
+It does not mean the trade will achieve that reward.
+</p>
+
+<h4>Lesson 4: Trading Journal</h4>
+
+<p>
+A trading journal records trading decisions,
+entry and exit prices, reasons for trades,
+results and lessons learned.
+</p>
+
+<h4>Lesson 5: Evaluating Trading Performance</h4>
+
+<ul>
+<li>Win rate.</li>
+<li>Average win and average loss.</li>
+<li>Profit factor.</li>
+<li>Maximum drawdown.</li>
+<li>Consistency of rule-following.</li>
+</ul>
+
+<div class="quiz">
+<h4>📝 Knowledge Test</h4>
+<p>6. What is the planned risk on a $2,000 account at 1% risk?</p>
+
+<label><input type="radio" name="q6" value="a"> $10.</label>
+<label><input type="radio" name="q6" value="b"> $20.</label>
+<label><input type="radio" name="q6" value="c"> $200.</label>
+
+<button onclick="checkAnswer('q6','b','result6')">Check Answer</button>
+<p class="feedback" id="result6"></p>
+</div>
+
+</div>
+</details>
+</article>
+
+</div>
+</div>
+</section>
+
+<!-- STUDY GUIDELINES -->
+
+<section>
+<div class="container">
+
+<div class="tips">
+
+<h3>💡 Intermediate Study Guidelines</h3>
+
+<ul>
+<li>Master basic chart reading before studying complex strategies.</li>
+<li>Practice identifying trends and price zones using historical charts.</li>
+<li>Understand the limitations of technical indicators.</li>
+<li>Keep a trading journal for simulated practice.</li>
+<li>Backtest strategies before considering real-money use.</li>
+<li>Never assume that a chart pattern or indicator guarantees a result.</li>
+</ul>
+
+</div>
+</div>
+</section>
+
+<!-- DISCLAIMER -->
+
+<section>
+<div class="container">
+
+<div class="disclaimer">
+
+<h3>⚠️ Educational Risk Disclaimer</h3>
+
+<p>
+This platform provides educational content only
+and does not offer financial advice or investment
+recommendations. Technical analysis and trading
+strategies cannot guarantee profits. Financial
+markets involve substantial risk, including the
+possibility of losing all invested capital.
+</p>
+
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p><strong>Gidy Nega | Trading Learning</strong></p>
+
+<p>Intermediate Level • Analyze • Practice • Improve</p>
+
+<p>
+<a href="../index.html">← Back to Trading Homepage</a>
+</p>
+
+<p>© 2026 Gidy Nega. All Rights Reserved.</p>
+
+</footer>
+
+<script>
+function checkAnswer(question, correctAnswer, resultId) {
+
+    const selected = document.querySelector(
+        'input[name="' + question + '"]:checked'
+    );
+
+    const result = document.getElementById(resultId);
+
+    if (!selected) {
+        result.textContent = "Please select an answer first.";result.style.color = "#fbbf24";
+        return;
+    }
+
+    if (selected.value === correctAnswer) {
+        result.textContent = "Correct! Excellent work. 🎉";
+        result.style.color = "#86efac";
+    } else {
+        result.textContent = "Incorrect. Review the lesson and try again.";
+        result.style.color = "#f87171";
+    }
+}
+</script>
+
+</body>
+</html>
+
+     
