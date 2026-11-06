@@ -4,445 +4,651 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Grade 12 Natural Science courses, educational notes, PDFs, videos and examination preparation resources by Smart Generation Tutor.">
+
+<meta name="description" content="Explore Grade 12 Natural Science subjects at Smart Generation Tutor. Access textbooks, PDF materials, presentations, notes, video lessons and interactive quizzes.">
+
+<meta name="theme-color" content="#0b0b18">
+
 <title>Grade 12 Natural Science | Smart Generation Tutor</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#0b0b18;color:#fff}
-
-header{
-background:#111126;
-padding:20px 6%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:12px;
-flex-wrap:wrap;
-border-bottom:1px solid #303052
+* {
+    box-sizing: border-box;
 }
 
-.logo{
-color:#65eee4;
-font-weight:bold;
-font-size:19px;
-text-decoration:none
+html {
+    scroll-behavior: smooth;
 }
 
-.back{
-color:white;
-text-decoration:none;
-border:1px solid #8187ff;
-padding:10px 16px;
-border-radius:25px
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #0b0b18;
+    color: #ffffff;
 }
 
-.back:hover{background:#8187ff}
-
-.hero{
-text-align:center;
-padding:55px 20px 35px
+a {
+    text-decoration: none;
 }
 
-.hero span{
-color:#65eee4;
-font-weight:bold;
-letter-spacing:2px
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
 }
 
-.hero h1{
-font-size:clamp(30px,5vw,45px);
-margin:18px 0;
-background:linear-gradient(90deg,#65eee4,#8187ff);
-background-clip:text;
--webkit-background-clip:text;
-color:transparent
+header {
+    text-align: center;
+    padding: 35px 18px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #171735, #30205a);
+    border: 1px solid #8187ff;
 }
 
-.hero p{
-color:#b9b9d0;
-line-height:1.8;
-max-width:650px;
-margin:auto
+.back {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #65eee4;
+    font-weight: bold;
 }
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:25px 20px 70px
+.badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid #ff55c8;
+    border-radius: 25px;
+    color: #ff55c8;
+    font-size: 12px;
+    letter-spacing: 1px;
 }
 
-.section-title{
-text-align:center;
-margin-bottom:30px
+h1 {
+    color: #65eee4;
+    font-size: clamp(28px, 5vw, 42px);
+    margin: 18px 0 10px;
 }
 
-.section-title p{
-color:#aaaac3;
-margin-top:10px;
-line-height:1.6
+.intro {
+    max-width: 750px;
+    margin: auto;
+    color: #d5d5ed;
+    line-height: 1.8;
 }
 
-.courses{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:18px
+.card {
+    margin-top: 25px;
+    padding: 24px;
+    border-radius: 15px;
+    background: #15152a;
+    border: 1px solid #45456b;
 }
 
-.course{
-background:#15152c;
-border:1px solid #333355;
-border-radius:16px;
-overflow:hidden;
-transition:.3s
+.card h2 {
+    color: #ff55c8;
+    margin-top: 0;
 }
 
-.course:hover{border-color:#65eee4}
-
-summary{
-list-style:none;
-cursor:pointer;
-padding:22px;
-display:flex;
-align-items:center;
-gap:15px
+.card p {
+    color: #d5d5ed;
+    line-height: 1.8;
 }
 
-summary::-webkit-details-marker{display:none}
-
-.icon{font-size:32px}
-
-.course-name{flex:1}
-
-.course-name h3{
-font-size:18px;
-margin-bottom:6px;
-color:#65eee4
+.section-title {
+    margin-bottom: 20px;
 }
 
-.course-name p{
-font-size:12px;
-color:#aaaac3
+.section-title h2 {
+    color: #65eee4;
+    margin-bottom: 7px;
 }
 
-.arrow{
-color:#65eee4;
-font-size:20px;
-transition:.3s
+.section-title p {
+    color: #aaaac5;
 }
 
-details[open] .arrow{transform:rotate(180deg)}
-
-.resources{
-padding:0 22px 22px;
-border-top:1px solid #303052
+.subjects {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
 }
 
-.resources h4{
-margin:17px 0 12px;
-color:#ff83d1
+.subject {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    min-height: 215px;
+    border-radius: 13px;
+    background: #20203b;
+    border: 1px solid #45456b;
+    transition: transform 0.3s ease,
+                border-color 0.3s ease;
 }
 
-.resources p{
-font-size:14px;
-color:#bbb;
-line-height:1.7
+.subject:hover {
+    transform: translateY(-5px);
+    border-color: #65eee4;
 }
 
-.material{
-background:#20203b;
-border-radius:10px;
-padding:13px;
-margin-top:10px;
-color:#c5c5da;
-font-size:13px;
-line-height:1.7
+.subject-icon {
+    font-size: 34px;
+    margin-bottom: 8px;
 }
 
-.material strong{color:#65eee4}
-
-.notice{
-margin-top:30px;
-text-align:center;
-background:#15152c;
-padding:20px;
-border-radius:14px;
-color:#aaaac3;
-line-height:1.8
+.subject h3 {
+    color: #65eee4;
+    margin: 5px 0 8px;
+    font-size: 18px;
 }
 
-footer{
-text-align:center;
-background:#111126;
-padding:25px;
-color:#9999b5;
-font-size:13px;
-line-height:1.8
+.subject p {
+    color: #d5d5ed;
+    font-size: 13px;
+    line-height: 1.7;
+    flex-grow: 1;
+    margin: 0;
 }
 
-@media(max-width:650px){
-.courses{grid-template-columns:1fr}
-header{padding:17px 5%}
+.button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 11px 16px;
+    border-radius: 9px;
+    background: #8187ff;
+    color: #0b0b18;
+    font-weight: bold;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+.button:hover {
+    background: #65eee4;
+}
+
+.resources {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 18px;
+}
+
+.resource {
+    padding: 17px;
+    background: #20203b;
+    border: 1px solid #45456b;
+    border-radius: 12px;
+}
+
+.resource h3 {
+    color: #65eee4;
+    margin-top: 0;
+    font-size: 16px;
+}
+
+.resource p {
+    font-size: 13px;
+    margin-bottom: 0;
+}
+
+.notice {
+    border-left: 4px solid #ff55c8;
+    background: #21182e;
+}
+
+footer {
+    text-align: center;
+    margin-top: 35px;
+    color: #aaaac5;
+    font-size: 14px;
+}
+
+footer a {
+    color: #65eee4;
+}
+
+footer p {
+    line-height: 1.8;
+}
+
+a:focus-visible {
+    outline: 3px solid #65eee4;
+    outline-offset: 4px;
+}
+
+@media (max-width: 800px) {
+    .subjects {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .resources {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    body {
+        padding: 12px;
+    }
+
+    .container {
+        margin: 15px auto;
+    }
+
+    header {
+        padding: 28px 15px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .subjects,
+    .resources {
+        grid-template-columns: 1fr;
+    }
+
+    .subject {
+        min-height: 190px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<a href="../../index.html" class="logo">🎓 Smart Generation Tutor</a>
-<a href="../index.html" class="back">← Grade 12</a>
-</header>
-
-<section class="hero">
-<span>GRADE 12 • NATURAL SCIENCE</span>
-<h1>Natural Science Learning Library</h1>
-<p>
-Welcome to your Grade 12 Natural Science learning space.
-Explore your subjects, strengthen your understanding,
-practice examination questions and prepare for higher education.
-</p>
-</section>
-
 <main class="container">
 
+<!-- HEADER -->
+
+<header>
+
+<a class="back" href="../index.html">
+← Back to Grade 12
+</a>
+
+<br>
+
+<span class="badge">
+SMART GENERATION TUTOR
+</span>
+
+<h1>🔬 Grade 12 Natural Science</h1>
+
+<p class="intro">
+Welcome to your Grade 12 Natural Science learning environment.
+Explore advanced scientific subjects, strengthen your
+understanding and prepare confidently for national examinations
+and higher education.
+</p>
+
+<p class="intro">
+<strong>
+Explore Science • Challenge Yourself • Prepare for Excellence
+</strong>
+</p>
+
+<a class="button" href="#subjects">
+Explore Your Subjects →
+</a>
+
+</header>
+
+
+<!-- WELCOME -->
+
+<section class="card">
+
+<h2>❤️ Welcome, Grade 12 Natural Science Students!</h2>
+
+<p>
+Welcome to Smart Generation Tutor, your digital
+learning environment for Grade 12 Natural Science.
+</p>
+
+<p>
+This learning library brings your scientific subjects
+together in one organized place. Explore scientific
+principles, practise challenging problems and develop
+the knowledge required for university education.
+</p>
+
+<p>
+Study consistently, revise important concepts,
+practise examination questions and work towards
+your academic goals.
+</p>
+
+</section>
+
+
+<!-- SUBJECTS -->
+
+<section class="card" id="subjects">
+
 <div class="section-title">
-<h2>📚 Grade 12 Natural Science Courses</h2>
-<p>Select a subject to explore its learning resources.</p>
+
+<h2>📖 Grade 12 Natural Science Subjects</h2>
+
+<p>
+Select a subject to explore its individual learning homepage.
+</p>
+
 </div>
 
-<div class="courses">
+<div class="subjects">
+
 
 <!-- MATHEMATICS -->
-<details class="course">
-<summary>
-<span class="icon">➗</span>
-<div class="course-name">
-<h3>Mathematics</h3>
-<p>Advanced mathematics and problem-solving</p>
-</div>
-<span class="arrow">⌄</span>
-</summary>
-<div class="resources">
-<h4>Mathematics Learning Materials</h4>
-<p>Develop advanced mathematical reasoning and analytical skills.</p>
-<div class="material">
-<strong>Learning Resources</strong><br>
-📄 PDF Notes: Coming soon<br>
-📊 PowerPoint: Coming soon<br>
-📝 Short Notes: Coming soon<br>
-🎥 Videos: Coming soon<br>
-📋 Practice Questions: Coming soon<br>
-🎯 National Examination Preparation: Coming soon
-</div>
-</div>
-</details>
+
+<article class="subject">
+
+<div class="subject-icon">➗</div>
+
+<h3>1. Mathematics</h3>
+
+<p>
+Develop advanced mathematical knowledge,
+functions, calculus, analytical reasoning
+and complex problem-solving skills.
+</p>
+
+<a class="button" href="mathematics/index.html">
+Open Course →
+</a>
+
+</article>
+
 
 <!-- PHYSICS -->
-<details class="course">
-<summary>
-<span class="icon">⚡</span>
-<div class="course-name">
-<h3>Physics</h3>
-<p>Advanced physical principles and applications</p>
-</div>
-<span class="arrow">⌄</span>
-</summary>
-<div class="resources">
-<h4>Physics Learning Materials</h4>
-<p>Explore advanced concepts of motion, energy, electricity, waves and modern physics.</p>
-<div class="material">
-<strong>Learning Resources</strong><br>
-📄 PDF Notes: Coming soon<br>
-📊 PowerPoint: Coming soon<br>
-📝 Short Notes: Coming soon<br>
-🎥 Videos: Coming soon<br>
-📋 Practice Questions: Coming soon<br>
-🎯 National Examination Preparation: Coming soon
-</div>
-</div>
-</details>
+
+<article class="subject">
+
+<div class="subject-icon">⚛️</div>
+
+<h3>2. Physics</h3>
+
+<p>
+Explore advanced physical principles,
+electricity, magnetism, waves, modern physics
+and applications of scientific laws.
+</p>
+
+<a class="button" href="physics/index.html">
+Open Course →
+</a>
+
+</article>
+
 
 <!-- CHEMISTRY -->
-<details class="course">
-<summary>
-<span class="icon">🧪</span>
-<div class="course-name">
-<h3>Chemistry</h3>
-<p>Advanced chemical principles and reactions</p>
-</div>
-<span class="arrow">⌄</span>
-</summary>
-<div class="resources">
-<h4>Chemistry Learning Materials</h4>
-<p>Study chemical reactions, organic chemistry, chemical equilibrium and other important concepts.</p>
-<div class="material">
-<strong>Learning Resources</strong><br>
-📄 PDF Notes: Coming soon<br>
-📊 PowerPoint: Coming soon<br>
-📝 Short Notes: Coming soon<br>
-🎥 Videos: Coming soon<br>
-📋 Practice Questions: Coming soon<br>
-🎯 National Examination Preparation: Coming soon
-</div>
-</div>
-</details>
+
+<article class="subject">
+
+<div class="subject-icon">🧪</div>
+
+<h3>3. Chemistry</h3>
+
+<p>
+Understand chemical reactions,
+organic chemistry, chemical equilibrium,
+electrochemistry and chemical applications.
+</p>
+
+<a class="button" href="chemistry/index.html">
+Open Course →
+</a>
+
+</article>
+
 
 <!-- BIOLOGY -->
-<details class="course">
-<summary>
-<span class="icon">🧬</span>
-<div class="course-name">
-<h3>Biology</h3>
-<p>Advanced biological systems and life sciences</p>
-</div>
-<span class="arrow">⌄</span>
-</summary>
-<div class="resources">
-<h4>Biology Learning Materials</h4>
-<p>Understand genetics, evolution, ecology, physiology and biological processes.</p>
-<div class="material">
-<strong>Learning Resources</strong><br>
-📄 PDF Notes: Coming soon<br>
-📊 PowerPoint: Coming soon<br>
-📝 Short Notes: Coming soon<br>
-🎥 Videos: Coming soon<br>
-📋 Practice Questions: Coming soon<br>
-🎯 National Examination Preparation: Coming soon
-</div>
-</div>
-</details>
 
-<!-- ENGLISH -->
-<details class="course">
-<summary>
-<span class="icon">🌐</span>
-<div class="course-name">
-<h3>English</h3>
-<p>Advanced language and communication skills</p>
-</div>
-<span class="arrow">⌄</span>
-</summary>
-<div class="resources">
-<h4>English Learning Materials</h4>
-<p>Improve academic writing, reading comprehension, grammar and communication.</p>
-<div class="material">
-<strong>Learning Resources</strong><br>
-📄 PDF Notes: Coming soon<br>
-📊 PowerPoint: Coming soon<br>
-📝 Short Notes: Coming soon<br>
-🎥 Videos: Coming soon<br>
-📋 Practice Questions: Coming soon
-</div>
-</div>
-</details>
+<article class="subject">
 
-<!-- AMHARIC -->
-<details class="course">
-<summary>
-<span class="icon">📖</span>
-<div class="course-name">
-<h3>Amharic</h3>
-<p>Language and literature</p>
-</div>
-<span class="arrow">⌄</span>
-</summary>
-<div class="resources">
-<h4>Amharic Learning Materials</h4>
-<p>Strengthen language, grammar, literature and communication skills.</p>
-<div class="material">
-<strong>Learning Resources</strong><br>
-📄 PDF Notes: Coming soon<br>
-📊 PowerPoint: Coming soon<br>
-📝 Short Notes: Coming soon<br>
-🎥 Videos: Coming soon
-</div>
-</div>
-</details>
+<div class="subject-icon">🧬</div>
 
-<!-- AFAAN OROMOO -->
-<details class="course">
-<summary>
-<span class="icon">🗣️</span>
-<div class="course-name">
-<h3>Afaan Oromoo</h3>
-<p>Language and literature</p>
-</div>
-<span class="arrow">⌄</span>
-</summary>
-<div class="resources">
-<h4>Afaan Oromoo Learning Materials</h4>
-<p>Develop advanced Afaan Oromoo language and communication skills.</p>
-<div class="material">
-<strong>Learning Resources</strong><br>
-📄 PDF Notes: Coming soon<br>
-📊 PowerPoint: Coming soon<br>
-📝 Short Notes: Coming soon<br>
-🎥 Videos: Coming soon
-</div>
-</div>
-</details>
+<h3>4. Biology</h3>
+
+<p>
+Study genetics, evolution, ecology,
+biotechnology, biological systems
+and advanced life science concepts.
+</p>
+
+<a class="button" href="biology/index.html">
+Open Course →
+</a>
+
+</article>
+
 
 <!-- ICT -->
-<details class="course">
-<summary>
-<span class="icon">💻</span>
-<div class="course-name">
-<h3>Information Technology (ICT)</h3>
-<p>Computing and digital technology</p>
-</div>
-<span class="arrow">⌄</span>
-</summary>
-<div class="resources">
-<h4>ICT Learning Materials</h4>
-<p>Explore computer systems, digital technologies and information processing.</p>
-<div class="material">
-<strong>Learning Resources</strong><br>
-📄 PDF Notes: Coming soon<br>
-📊 PowerPoint: Coming soon<br>
-📝 Short Notes: Coming soon<br>
-🎥 Videos: Coming soon
-</div>
-</div>
-</details>
+
+<article class="subject">
+
+<div class="subject-icon">💻</div>
+
+<h3>5. Information Technology (ICT)</h3>
+
+<p>
+Explore computer applications,
+digital systems, information technology
+and modern technological developments.
+</p>
+
+<a class="button" href="ict/index.html">
+Open Course →
+</a>
+
+</article>
+
+
+<!-- ENGLISH -->
+
+<article class="subject">
+
+<div class="subject-icon">📖</div>
+
+<h3>6. English</h3>
+
+<p>
+Strengthen academic English,
+grammar, reading, writing,
+vocabulary and communication skills.
+</p>
+
+<a class="button" href="english/index.html">
+Open Course →
+</a>
+
+</article>
+
+
+<!-- AMHARIC -->
+
+<article class="subject">
+
+<div class="subject-icon">🔤</div>
+
+<h3>7. Amharic</h3>
+
+<p>
+Improve Amharic language skills,
+literary understanding, reading,
+writing and communication.
+</p>
+
+<a class="button" href="amharic/index.html">
+Open Course →
+</a>
+
+</article>
+
+
+<!-- AFAAN OROMOO -->
+
+<article class="subject">
+
+<div class="subject-icon">🌍</div>
+
+<h3>8. Afaan Oromoo</h3>
+
+<p>
+Explore Afaan Oromoo literature,
+language development, reading,
+writing and communication.
+</p>
+
+<a class="button" href="afaan-oromoo/index.html">
+Open Course →
+</a>
+
+</article>
+
 
 <!-- AGRICULTURE -->
-<details class="course">
-<summary>
-<span class="icon">🌱</span>
-<div class="course-name">
-<h3>Agriculture</h3>
-<p>Agricultural science and sustainable production</p>
+
+<article class="subject">
+
+<div class="subject-icon">🌱</div>
+
+<h3>9. Agriculture</h3>
+
+<p>
+Understand agricultural science,
+modern farming, crop production
+and sustainable resource management.
+</p>
+
+<a class="button" href="agriculture/index.html">
+Open Course →
+</a>
+
+</article>
+
+
 </div>
-<span class="arrow">⌄</span>
-</summary>
+
+</section>
+
+
+<!-- RESOURCES -->
+
+<section class="card">
+
+<h2>🎯 Our Learning Resources</h2>
+
+<p>
+Each subject provides an organized learning
+environment with educational materials
+and examination preparation resources.
+</p>
+
 <div class="resources">
-<h4>Agriculture Learning Materials</h4>
-<p>Learn about agricultural production, soil management, crops and sustainable farming.</p>
-<div class="material">
-<strong>Learning Resources</strong><br>
-📄 PDF Notes: Coming soon<br>
-📊 PowerPoint: Coming soon<br>
-📝 Short Notes: Coming soon<br>
-🎥 Videos: Coming soon
-</div>
-</div>
-</details>
+
+<article class="resource">
+<h3>📄 PDF Documents</h3>
+<p>
+Textbooks, modules, lecture materials
+and downloadable documents.
+</p>
+</article>
+
+<article class="resource">
+<h3>📊 PowerPoint Slides</h3>
+<p>
+Visual presentations for understanding
+advanced scientific concepts.
+</p>
+</article>
+
+<article class="resource">
+<h3>📝 Short Notes</h3>
+<p>
+Organized, simple and easy-to-memorize
+study notes.
+</p>
+</article>
+
+<article class="resource">
+<h3>🎥 Video Lessons</h3>
+<p>
+Educational videos and step-by-step
+scientific explanations.
+</p>
+</article>
+
+<article class="resource">
+<h3>🧠 Practice Questions</h3>
+<p>
+Interactive exercises and challenging
+questions with explanations.
+</p>
+</article>
+
+<article class="resource">
+<h3>🏆 Model Examinations</h3>
+<p>
+National examination preparation,
+revision and assessment activities.
+</p>
+</article>
 
 </div>
 
-<div class="notice">
-💡 <strong>Prepare for Your Future!</strong><br>
-Access organized learning resources, practice questions
-and examination preparation materials as they become available.
-</div>
+</section>
 
-</main>
+
+<!-- NOTICE -->
+
+<section class="card notice">
+
+<h2>💡 Your Future Starts with Learning!</h2>
+
+<p>
+Educational materials will be added progressively
+to the individual subject pages. Visit regularly
+for new learning resources and opportunities.
+</p>
+
+<p>
+Stay curious, practise consistently
+and prepare yourself for higher education!
+</p>
+
+</section>
+
+
+<!-- FOOTER -->
 
 <footer>
-<p>© 2026 Smart Generation Tutor | Created by Gidy Nega</p>
-<p>Learn • Create • Share • Grow 🚀</p>
+
+<p>
+Learn Together • Grow Together • Succeed Together ❤️
+</p>
+
+<p>
+Created with ❤️ by Gidy Nega
+</p>
+
+<p>
+<a href="../index.html">
+← Back to Grade 12
+</a>
+</p>
+
+<p>
+<a href="../../../index.html">
+Visit My Website
+</a>
+</p>
+
+<p>
+© 2026 Gidy Nega. All rights reserved.
+</p>
+
 </footer>
+
+</main>
 
 </body>
 </html>
