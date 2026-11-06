@@ -2,572 +2,393 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="description" content="Explore Trading Learning by Gidy Nega. Learn trading from beginner to advanced levels through structured courses, lessons, examples, and quizzes.">
-
-<meta name="keywords" content="Trading Learning, Forex Education, Financial Markets, Technical Analysis, Risk Management, Gidy Nega">
-
-<meta name="author" content="Gidy Nega">
-
-<title>Trading Learning | Gidy Nega</title>
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --background: #090b18;
-    --card: #14182b;
-    --card-hover: #1d2340;
-    --purple: #a78bfa;
-    --cyan: #67e8f9;
-    --gold: #fbbf24;
-    --green: #4ade80;
-    --white: #f8fafc;
-    --muted: #a5abc0;
-    --border: rgba(255,255,255,.10);
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--background);
-    color: var(--white);
-    line-height: 1.7;
-}
-
-/* NAVIGATION */
-
-header {
-    width: 100%;
-    padding: 17px 7%;
-    background: rgba(9,11,24,.94);
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(12px);
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.logo {
-    font-size: 21px;
-    font-weight: bold;
-    color: var(--gold);
-    letter-spacing: .5px;
-}
-
-.nav-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 22px;
-}
-
-.nav-links a {
-    color: var(--white);
-    text-decoration: none;
-    font-size: 14px;
-    transition: .3s;
-}
-
-.nav-links a:hover {
-    color: var(--gold);
-}
-
-/* HERO SECTION */
-
-.hero {
-    min-height: 570px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 90px 7%;
-    background:
-        radial-gradient(circle at 15% 20%, rgba(167,139,250,.18), transparent 35%),
-        radial-gradient(circle at 85% 80%, rgba(103,232,249,.13), transparent 35%),
-        linear-gradient(135deg, #11152d, #090b18);
-}
-
-.hero-content {
-    max-width: 850px;
-}
-
-.hero-label {
-    display: inline-block;
-    padding: 8px 18px;
-    border: 1px solid rgba(251,191,36,.4);
-    color: var(--gold);
-    border-radius: 30px;
-    font-size: 13px;
-    margin-bottom: 24px;
-}
-
-.hero h1 {
-    font-size: clamp(35px, 6vw, 65px);
-    line-height: 1.2;
-    margin-bottom: 22px;
-}
-
-.hero h1 span {
-    color: var(--gold);
-}
-
-.hero p {
-    color: var(--muted);
-    font-size: 17px;
-    max-width: 750px;
-    margin: auto;
-}
-
-.hero-button {
-    display: inline-block;
-    margin-top: 32px;
-    padding: 13px 27px;
-    background: var(--gold);
-    color: #15110a;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: .3s;
-}
-
-.hero-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(251,191,36,.2);
-}
-
-/* INTRODUCTION */
-
-.introduction {
-    width: 86%;
-    max-width: 1050px;
-    margin: 65px auto 45px;
-    text-align: center;
-}
-
-.introduction h2 {
-    font-size: 30px;
-    margin-bottom: 15px;
-}
-
-.introduction p {
-    color: var(--muted);
-    max-width: 800px;
-    margin: auto;
-}
-
-/* LEVELS */
-
-.levels-section {
-    width: 86%;
-    max-width: 1150px;
-    margin: 55px auto 80px;
-}
-
-.section-heading {
-    text-align: center;
-    margin-bottom: 35px;
-}
-
-.section-heading h2 {
-    font-size: 32px;
-    margin-bottom: 10px;
-}
-
-.section-heading p {
-    color: var(--muted);
-}
-
-.levels-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-}
-
-.level-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 17px;
-    padding: 30px 23px;
-    text-decoration: none;
-    color: var(--white);
-    display: flex;
-    flex-direction: column;
-    transition: .3s;
-    min-height: 300px;
-}
-
-.level-card:hover {
-    transform: translateY(-8px);
-    background: var(--card-hover);
-    border-color: var(--purple);
-}
-
-.level-number {
-    color: var(--muted);
-    font-size: 13px;
-    letter-spacing: 1px;
-    margin-bottom: 17px;
-}
-
-.level-icon {
-    width: 58px;
-    height: 58px;
-    border-radius: 14px;
-    display: grid;
-    place-items: center;
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-.beginner .level-icon {
-    background: rgba(74,222,128,.13);
-}
-
-.intermediate .level-icon {
-    background: rgba(103,232,249,.13);
-}
-
-.advanced .level-icon {
-    background: rgba(167,139,250,.16);
-}
-
-.level-card h3 {
-    font-size: 22px;
-    margin-bottom: 12px;
-}
-
-.level-card p {
-    color: var(--muted);
-    font-size: 14px;
-    margin-bottom: 20px;
-}
-
-.level-card .explore {
-    margin-top: auto;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.beginner .explore {
-    color: var(--green);
-}
-
-.intermediate .explore {
-    color: var(--cyan);
-}
-
-.advanced .explore {
-    color: var(--purple);
-}
-
-/* LEARNING APPROACH */
-
-.learning-section {
-    background: linear-gradient(135deg, rgba(167,139,250,.09), rgba(103,232,249,.06));
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 60px 7%;
-    text-align: center;
-}
-
-.learning-section h2 {
-    font-size: 29px;
-    margin-bottom: 15px;
-}
-
-.learning-section p {
-    max-width: 800px;
-    color: var(--muted);
-    margin: auto;
-}
-
-/* DISCLAIMER */
-
-.disclaimer {
-    width: 86%;
-    max-width: 1050px;
-    margin: 55px auto;
-    padding: 23px;
-    background: rgba(251,191,36,.07);
-    border: 1px solid rgba(251,191,36,.25);
-    border-radius: 12px;
-}
-
-.disclaimer h3 {
-    color: var(--gold);
-    margin-bottom: 10px;
-}
-
-.disclaimer p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-/* FOOTER */
-
-footer {
-    border-top: 1px solid var(--border);
-    padding: 30px 7%;
-    text-align: center;
-    color: var(--muted);
-    font-size: 14px;
-}
-
-footer a {
-    color: var(--cyan);
-    text-decoration: none;
-}
-
-footer a:hover {
-    color: var(--gold);
-}
-
-/* RESPONSIVE */
-
-@media(max-width: 850px) {
-    .levels-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media(max-width: 600px) {
-    header {
-        padding: 15px 5%;
-    }
-
-    nav {
-        justify-content: center;
-    }
-
-    .nav-links {
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .hero {
-        min-height: 480px;
-        padding: 70px 6%;
-    }
-
-    .hero p {
-        font-size: 15px;
-    }
-
-    .introduction,
-    .levels-section,
-    .disclaimer {
-        width: 90%;
-    }
-
-    .levels-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .level-card {
-        min-height: 260px;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trading Learning | Gidy Nega</title>
+
+    <meta name="description"
+          content="Learn trading step by step with beginner, intermediate, and advanced trading courses, practical lessons, risk management, and trading strategies.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 25px 16px;
+            background: #0b0b18;
+            color: #f5f3ff;
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #67e8f9;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            color: #c4b5fd;
+        }
+
+        .hero {
+            padding: 35px 20px;
+            text-align: center;
+            background: linear-gradient(145deg, #17152e, #24143b);
+            border: 1px solid #514080;
+            border-radius: 20px;
+        }
+
+        .hero h1 {
+            color: #c4b5fd;
+            font-size: clamp(28px, 5vw, 42px);
+        }
+
+        .hero p {
+            color: #d0cce9;
+        }
+
+        h2 {
+            color: #22d3ee;
+        }
+
+        .levels-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .level-card {
+            padding: 22px;
+            background: #151529;
+            border: 1px solid #393568;
+            border-radius: 16px;
+            transition: 0.3s;
+        }
+
+        .level-card:hover {
+            border-color: #8b5cf6;
+            box-shadow: 0 0 18px #8b5cf644;
+            transform: translateY(-4px);
+        }
+
+        .level-card h2 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .level-card p {
+            color: #b9b9d8;
+        }
+
+        .level-label {
+            display: inline-block;
+            padding: 4px 10px;
+            margin-bottom: 10px;
+            background: #29234b;
+            color: #c4b5fd;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        .level-button {
+            display: inline-block;
+            padding: 9px 14px;
+            color: white;
+            background: linear-gradient(90deg, #7c3aed, #2563eb);
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .level-button:hover {
+            opacity: 0.85;
+            transform: scale(1.03);
+        }
+
+        .resource-list {
+            margin-top: 35px;
+            padding: 20px;
+            background: #151529;
+            border: 1px solid #393568;
+            border-radius: 16px;
+        }
+
+        .resource-list li {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #b9b9d8;
+        }
+
+        .theme-toggle {
+            display: block;
+            margin: 0 0 20px auto;
+            padding: 10px 15px;
+            border: 1px solid #8b5cf6;
+            border-radius: 10px;
+            background: #17142d;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* LIGHT MODE */
+
+        body.light-mode {
+            background: #f4f6ff;
+            color: #20213a;
+        }
+
+        body.light-mode .hero {
+            background: linear-gradient(145deg, #ffffff, #edf0ff);
+            border-color: #d5d8f0;
+        }
+
+        body.light-mode .hero h1 {
+            color: #565bdc;
+        }
+
+        body.light-mode .hero p,
+        body.light-mode .level-card p,
+        body.light-mode footer {
+            color: #626780;
+        }
+
+        body.light-mode h2 {
+            color: #078f91;
+        }
+
+        body.light-mode .back-link {
+            color: #565bdc;
+        }
+
+        body.light-mode .level-card,
+        body.light-mode .resource-list {
+            background: #ffffff;
+            border-color: #d5d8f0;
+            box-shadow: 0 5px 18px rgba(40, 40, 90, 0.06);
+        }
+
+        body.light-mode .level-label {
+            background: #ecebff;
+            color: #565bdc;
+        }
+
+        body.light-mode .theme-toggle {
+            background: #ffffff;
+            color: #20213a;
+            border-color: #7775d8;
+        }
+
+        @media (max-width: 600px) {
+            .levels-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
-<header>
-    <nav>
-        <div class="logo">Trading Learning</div>
+<main class="container">
 
-        <div class="nav-links">
-            <a href="../../../index.html">Main Website</a>
-            <a href="#introduction">About</a>
-            <a href="#levels">Learning Levels</a>
-        </div>
-    </nav>
-</header>
+    <a class="back-link" href="../../index.html">
+        ← Back to my website
+    </a>
 
-<!-- HERO -->
-<section class="hero">
-    <div class="hero-content">
+    <button id="themeToggle" class="theme-toggle" type="button">
+        ☀️ Light Mode
+    </button>
 
-        <span class="hero-label">
-            GIDY NEGA'S EDUCATIONAL PROJECT
-        </span>
+    <header class="hero">
 
-        <h1>
-            Learn Trading.<br>
-            Understand Markets.<br>
-            <span>Build Knowledge.</span>
-        </h1>
+        <p>GIDY NEGA'S LEARNING HUB</p>
+
+        <h1>📈 Trading Learning</h1>
 
         <p>
-            Welcome to Trading Learning, an educational platform designed
-            to help learners understand financial markets step by step.
-            Start with the fundamentals, develop your analytical skills,
-            and explore advanced trading concepts through structured
-            learning materials.
+            Start your trading journey, develop practical skills,
+            understand financial markets, and learn how to manage
+            trading risks step by step.
         </p>
 
-        <a href="#levels" class="hero-button">
-            Explore Learning Levels →
-        </a>
+    </header>
 
-    </div>
-</section>
+    <section>
 
-<!-- INTRODUCTION -->
-<section class="introduction" id="introduction">
+        <h2>📚 Explore Trading Courses</h2>
 
-    <h2>Welcome to Trading Learning</h2>
+        <div class="levels-grid">
 
-    <p>
-        Trading Learning is organized into three educational levels.
-        Each level contains separate courses, lessons, practical examples,
-        and knowledge-check quizzes. Learners can progress from basic
-        concepts to more advanced market analysis at their own pace.
-    </p>
+            <!-- BEGINNER -->
 
-</section>
+            <article class="level-card">
 
-<!-- LEARNING LEVELS -->
-<section class="levels-section" id="levels">
+                <span class="level-label">
+                    Level 01 • Beginner
+                </span>
 
-    <div class="section-heading">
-        <h2>Choose Your Learning Level</h2>
-        <p>Select a level to explore its courses and learning materials.</p>
-    </div>
+                <h2>🌱 Beginner Trading</h2>
 
-    <div class="levels-grid">
+                <p>
+                    Start from zero. Understand the fundamentals
+                    of trading, financial markets, charts,
+                    candlesticks, and basic trading concepts.
+                </p>
 
-        <!-- BEGINNER -->
-        <a href="beginner/index.html" class="level-card beginner">
+                <a class="level-button" href="beginner/index.html">
+                    Start Learning →
+                </a>
 
-            <span class="level-number">LEVEL 01</span>
+            </article>
 
-            <div class="level-icon">🌱</div>
+            <!-- INTERMEDIATE -->
 
-            <h3>Beginner</h3>
+            <article class="level-card">
 
-            <p>
-                Start your trading education from the beginning.
-                Understand financial markets, trading terminology,
-                candlesticks, chart basics, and essential risk management.
-            </p>
+                <span class="level-label">
+                    Level 02 • Intermediate
+                </span>
 
-            <span class="explore">
-                Explore Beginner Courses →
-            </span>
+                <h2>📊 Intermediate Trading</h2>
 
-        </a>
+                <p>
+                    Develop your trading knowledge through
+                    technical analysis, indicators, market
+                    structure, strategies, and risk management.
+                </p>
 
-        <!-- INTERMEDIATE -->
-        <a href="intermediate/index.html" class="level-card intermediate">
+                <a class="level-button" href="intermediate/index.html">
+                    Explore Courses →
+                </a>
 
-            <span class="level-number">LEVEL 02</span>
+            </article>
 
-            <div class="level-icon">📊</div>
+            <!-- ADVANCED -->
 
-            <h3>Intermediate</h3>
+            <article class="level-card">
 
-            <p>
-                Develop your analytical knowledge through technical
-                analysis, support and resistance, chart patterns,
-                indicators, trading strategies, and risk management.
-            </p>
+                <span class="level-label">
+                    Level 03 • Advanced
+                </span>
 
-            <span class="explore">
-                Explore Intermediate Courses →
-            </span>
+                <h2>🚀 Advanced Trading</h2>
 
-        </a>
+                <p>
+                    Explore advanced market analysis,
+                    professional trading strategies,
+                    trading psychology, and portfolio management.
+                </p>
 
-        <!-- ADVANCED -->
-        <a href="advanced/index.html" class="level-card advanced">
+                <a class="level-button" href="advanced/index.html">
+                    Master Trading →
+                </a>
 
-            <span class="level-number">LEVEL 03</span>
+            </article>
 
-            <div class="level-icon">🚀</div>
+        </div>
 
-            <h3>Advanced</h3>
+    </section>
 
-            <p>
-                Explore advanced market structure, liquidity concepts,
-                strategy development, backtesting, performance analysis,
-                portfolio risk, and professional trading psychology.
-            </p>
+    <section class="resource-list">
 
-            <span class="explore">
-                Explore Advanced Courses →
-            </span>
+        <h2>📄 Learning Resources</h2>
 
-        </a>
+        <p>
+            Each trading level will contain organized learning
+            materials, including:
+        </p>
 
-    </div>
+        <ul>
+            <li>📘 Detailed trading lessons and explanations</li>
+            <li>📊 Charts and technical analysis examples</li>
+            <li>📥 Downloadable PDF learning materials</li>
+            <li>🎥 Video lessons and demonstrations</li>
+            <li>📝 Practice exercises and quizzes</li>
+            <li>🧠 Trading psychology and risk management</li>
+            <li>💡 Practical examples and case studies</li>
+        </ul>
 
-</section>
+        <p>
+            Learning materials will be added progressively
+            as the platform develops.
+        </p>
 
-<!-- LEARNING APPROACH -->
-<section class="learning-section">
+        <p>
+            <strong>
+                Educational purpose: Learn trading concepts
+                before risking real money. Trading involves
+                financial risk.
+            </strong>
+        </p>
 
-    <h2>Learn Step by Step</h2>
+    </section>
 
-    <p>
-        Build your understanding gradually. Study each lesson,
-        examine practical examples, test your knowledge, and
-        continue developing your financial-market literacy.
-        Consistent learning and critical thinking are essential
-        parts of financial education.
-    </p>
+    <footer>
 
-</section>
+        <p>Learn • Analyze • Practice • Grow 📈</p>
 
-<!-- DISCLAIMER -->
-<section class="disclaimer">
+        <p>© Gidy Nega</p>
 
-    <h3>Important Educational Disclaimer</h3>
+    </footer>
 
-    <p>
-        Trading Learning is an educational project. Its materials
-        are intended to explain trading and financial-market concepts
-        and do not constitute financial, investment, or trading advice.
-        Trading involves substantial risk and may result in the loss
-        of some or all of your capital. No course, strategy, or
-        educational material guarantees profits. Learn the risks
-        carefully before making financial decisions.
-    </p>
+</main>
 
-</section>
+<script>
 
-<!-- FOOTER -->
-<footer>
+const themeToggle = document.getElementById("themeToggle");
 
-    <p>© 2026 Trading Learning | Created by Gidy Nega</p>
+const savedTheme = localStorage.getItem("gidyTheme");
 
-    <p>
-        Learn • Practice • Analyze • Improve
-    </p>
+if (savedTheme === "light") {
+    document.body.classList.add("light-mode");
+}
 
-    <p>
-        <a href="../../../index.html">Visit Gidy Nega's Main Website</a>
-    </p>
+function updateThemeButton() {
 
-</footer>
+    const isLight =
+        document.body.classList.contains("light-mode");
+
+    themeToggle.textContent = isLight
+        ? "🌙 Dark Mode"
+        : "☀️ Light Mode";
+
+}
+
+updateThemeButton();
+
+themeToggle.addEventListener("click", () => {
+
+    document.body.classList.toggle("light-mode");
+
+    const isLight =
+        document.body.classList.contains("light-mode");
+
+    localStorage.setItem(
+        "gidyTheme",
+        isLight ? "light" : "dark"
+    );
+
+    updateThemeButton();
+
+});
+
+</script>
 
 </body>
 </html>
