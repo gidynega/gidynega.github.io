@@ -1,0 +1,718 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Advanced Trading Learning — study advanced technical analysis, trading systems, market structure, backtesting, and professional risk management.">
+<title>Advanced Trading | Trading Learning</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #090b18;
+    --card: #14182b;
+    --card2: #1b2038;
+    --purple: #a78bfa;
+    --gold: #fbbf24;
+    --cyan: #67e8f9;
+    --text: #f4f4f8;
+    --muted: #a5abc0;
+    --border: rgba(255,255,255,.10);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+header {
+    background: rgba(9,11,24,.95);
+    border-bottom: 1px solid var(--border);
+    padding: 17px 7%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: bold;
+    color: var(--gold);
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    margin-left: 17px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.hero {
+    padding: 85px 7% 70px;
+    text-align: center;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(167,139,250,.17), transparent 35%),
+      radial-gradient(circle at 80% 70%, rgba(251,191,36,.12), transparent 35%),
+      linear-gradient(135deg,#10132a,#090b18);
+}
+
+.level {
+    display: inline-block;
+    padding: 7px 17px;
+    border: 1px solid rgba(251,191,36,.45);
+    color: var(--gold);
+    border-radius: 30px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(32px,6vw,55px);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.hero p {
+    color: var(--muted);
+    max-width: 760px;
+    margin: auto;
+    font-size: 16px;
+}
+
+.container {
+    width: 86%;
+    max-width: 1100px;
+    margin: 55px auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.section-title p {
+    color: var(--muted);
+}
+
+.course {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    margin-bottom: 17px;
+    overflow: hidden;
+}
+
+.course summary {
+    cursor: pointer;
+    padding: 20px;
+    font-size: 17px;
+    font-weight: bold;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.course summary::-webkit-details-marker {
+    display: none;
+}
+
+.course summary::after {
+    content: "+";
+    color: var(--gold);
+    font-size: 25px;
+}
+
+.course[open] summary::after {
+    content: "−";
+}
+
+.course summary:hover {
+    background: var(--card2);
+}
+
+.course-content {
+    padding: 5px 22px 25px;
+    border-top: 1px solid var(--border);
+}
+
+.course-content h3 {
+    color: var(--cyan);
+    margin: 20px 0 8px;
+    font-size: 18px;
+}
+
+.course-content p,
+.course-content li {
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.course-content ul,
+.course-content ol {
+    padding-left: 23px;
+}
+
+.example {
+    background: rgba(103,232,249,.07);
+    border-left: 3px solid var(--cyan);
+    padding: 15px;
+    border-radius: 7px;
+    margin: 15px 0;
+}
+
+.warning {
+    background: rgba(251,191,36,.08);
+    border-left: 3px solid var(--gold);
+    padding: 15px;
+    border-radius: 7px;
+    margin: 15px 0;
+}
+
+.quiz {
+    background: var(--card2);
+    padding: 17px;
+    border-radius: 10px;
+    margin-top: 18px;
+}
+
+.quiz p {
+    color: var(--text);
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.quiz label {
+    display: block;
+    color: var(--muted);
+    margin: 9px 0;
+    cursor: pointer;
+}
+
+.quiz input {
+    margin-right: 8px;
+    accent-color: var(--gold);
+}
+
+.quiz button {
+    background: var(--gold);
+    color: #17120a;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.quiz button:hover {
+    opacity: .85;
+}
+
+.feedback {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.study-note {
+    background: linear-gradient(135deg,rgba(167,139,250,.12),rgba(251,191,36,.08));
+    border: 1px solid var(--border);
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 35px;
+}
+
+.study-note h2 {
+    margin-bottom: 12px;
+    color: var(--gold);
+}
+
+.study-note li {
+    color: var(--muted);
+    margin: 8px 0;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 25px;
+    color: var(--cyan);
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: var(--gold);
+}
+
+footer {
+    text-align: center;
+    padding: 30px 7%;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    margin-top: 60px;
+    font-size: 14px;
+}
+
+@media(max-width:650px) {
+    header {
+        padding: 15px 5%;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    nav a {
+        margin: 5px 8px;
+    }
+
+    .hero {
+        padding: 65px 6%;
+    }
+
+    .container {
+        width: 92%;
+    }
+
+    .course summary {
+        font-size: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="logo">Trading Learning</div>
+        <div>
+            <a href="../../../index.html">Home</a>
+            <a href="../index.html">Learning Levels</a>
+            <a href="#courses">Courses</a>
+        </div>
+    </nav>
+</header>
+
+<section class="hero">
+    <span class="level">LEVEL 03 • ADVANCED</span>
+
+    <h1>Master the Art of <span>Advanced Trading</span></h1>
+
+    <p>
+        Develop a deeper understanding of market structure, advanced technical
+        analysis, trading systems, strategy testing, and professional risk
+        management. Learn to analyze markets systematically rather than
+        relying on guesses.
+    </p>
+</section>
+
+<main class="container" id="courses">
+
+    <div class="section-title">
+        <h2>Advanced Trading Courses</h2>
+        <p>Open each course to explore its lessons, examples, and knowledge checks.</p>
+    </div>
+
+    <!-- COURSE 1 -->
+    <details class="course">
+        <summary>01. Advanced Market Structure</summary>
+        <div class="course-content">
+
+            <h3>Learning Objectives</h3>
+            <p>Understand how price movement develops through market structure and how traders analyze changing market conditions.</p>
+
+            <h3>Lessons</h3>
+            <ol>
+                <li>Understanding market structure in greater depth.</li>
+                <li>Higher highs (HH) and higher lows (HL).</li>
+                <li>Lower highs (LH) and lower lows (LL).</li>
+                <li>Break of Structure (BOS).</li>
+                <li>Change of Character (CHoCH).</li>
+                <li>Trend continuation and possible reversals.</li>
+                <li>Multi-timeframe market analysis.</li>
+            </ol>
+
+            <div class="example">
+                <strong>Example:</strong>
+                If price repeatedly creates higher highs and higher lows,
+                the market may be showing an uptrend. A break below an important
+                higher low may indicate that the structure is changing.
+            </div>
+
+            <div class="warning">
+                A break of structure does not guarantee that price will continue
+                in that direction. Always consider context and risk.
+            </div>
+
+            <div class="quiz">
+                <p>Knowledge Check: What does HH mean?</p>
+                <label><input type="radio" name="q1" value="a"> Higher High</label>
+                <label><input type="radio" name="q1" value="b"> Higher Hour</label>
+                <label><input type="radio" name="q1" value="c"> High History</label>
+                <button onclick="checkAnswer('q1','a','f1')">Check Answer</button>
+                <div class="feedback" id="f1"></div>
+            </div>
+        </div>
+    </details>
+
+    <!-- COURSE 2 -->
+    <details class="course">
+        <summary>02. Liquidity and Institutional Trading Concepts</summary>
+        <div class="course-content">
+
+            <h3>Learning Objectives</h3>
+            <p>Study liquidity, order execution, and commonly discussed institutional trading concepts without assuming that chart patterns reveal the actions of specific institutions.</p>
+
+            <h3>Lessons</h3>
+            <ol>
+                <li>What is market liquidity?</li>
+                <li>Buy-side and sell-side liquidity.</li>
+                <li>Equal highs and equal lows.</li>
+                <li>Liquidity pools and stop orders.</li>
+                <li>Liquidity sweeps and false breakouts.</li>
+                <li>Order blocks as a chart-analysis concept.</li>
+                <li>Fair Value Gaps (FVG).</li>
+                <li>Limitations of institutional trading concepts.</li>
+            </ol>
+
+            <div class="example">
+                <strong>Example:</strong>
+                Several similar highs may attract attention because traders
+                sometimes place stop orders above them. Price moving above
+                those highs and then reversing is often described as a
+                liquidity sweep. This interpretation is not proof of who
+                placed or executed the orders.
+            </div>
+
+            <div class="warning">
+                Terms such as order block and Fair Value Gap are analytical
+                concepts, not guaranteed signals or proof of institutional activity.
+            </div>
+
+            <div class="quiz">
+                <p>Knowledge Check: What does liquidity generally describe?</p>
+                <label><input type="radio" name="q2" value="a"> How easily an asset can be bought or sold</label>
+                <label><input type="radio" name="q2" value="b"> The color of a candle</label>
+                <label><input type="radio" name="q2" value="c"> The number of chart indicators</label>
+                <button onclick="checkAnswer('q2','a','f2')">Check Answer</button>
+                <div class="feedback" id="f2"></div>
+            </div>
+        </div>
+    </details>
+
+    <!-- COURSE 3 -->
+    <details class="course">
+        <summary>03. Advanced Technical Analysis and Multi-Timeframe Strategy</summary>
+        <div class="course-content">
+
+            <h3>Learning Objectives</h3>
+            <p>Combine different technical-analysis methods to understand market conditions across multiple timeframes.</p>
+
+            <h3>Lessons</h3>
+            <ol>
+                <li>Top-down market analysis.</li>
+                <li>Combining weekly, daily, and intraday charts.</li>
+                <li>Advanced support and resistance zones.</li>
+                <li>Trendlines and channels.</li>
+                <li>Fibonacci retracement and extension.</li>
+                <li>Volume analysis.</li>
+                <li>Confluence: combining independent evidence.</li>
+                <li>Creating a repeatable analysis process.</li>
+            </ol>
+
+            <div class="example">
+                <strong>Example:</strong>
+                A trader might first study the daily chart to understand the
+                broader trend, then use a four-hour chart to identify important
+                price zones, and finally use a one-hour chart to study a possible
+                entry setup. Each timeframe provides different context.
+            </div>
+
+            <div class="warning">
+                Too many indicators can create confusion. More indicators do
+                not automatically produce better analysis.
+            </div>
+
+            <div class="quiz">
+                <p>Knowledge Check: What is top-down analysis?</p>
+                <label><input type="radio" name="q3" value="a"> Starting with a higher timeframe before studying lower timeframes</label>
+                <label><input type="radio" name="q3" value="b"> Looking only at one-minute charts</label>
+                <label><input type="radio" name="q3" value="c"> Ignoring market trends</label>
+                <button onclick="checkAnswer('q3','a','f3')">Check Answer</button>
+                <div class="feedback" id="f3"></div>
+            </div>
+        </div>
+    </details>
+
+    <!-- COURSE 4 -->
+    <details class="course">
+        <summary>04. Trading Systems and Strategy Development</summary>
+        <div class="course-content">
+
+            <h3>Learning Objectives</h3>
+            <p>Learn how to build a structured trading system with clear rules that can be tested and evaluated.</p>
+
+            <h3>Lessons</h3>
+            <ol>
+                <li>What is a trading system?</li>
+                <li>Defining market conditions.</li>
+                <li>Entry rules and confirmation.</li>
+                <li>Stop-loss and take-profit rules.</li>
+                <li>Position-sizing rules.</li>
+                <li>Trading setups and invalidation conditions.</li>
+                <li>Writing a trading plan.</li>
+                <li>Evaluating consistency and performance.</li>
+            </ol>
+
+            <div class="example">
+                <strong>Example of a system rule:</strong>
+                A hypothetical system may only consider a trade when the
+                broader trend, a predefined price zone, and a specific
+                confirmation condition are all present. It also defines
+                in advance where the idea is invalidated.
+            </div>
+
+            <div class="warning">
+                A trading system should be tested across different market
+                conditions. A few successful examples are not enough to
+                demonstrate reliability.
+            </div>
+
+            <div class="quiz">
+                <p>Knowledge Check: What is an important feature of a trading system?</p>
+                <label><input type="radio" name="q4" value="a"> Clear and testable rules</label>
+                <label><input type="radio" name="q4" value="b"> Random entries</label>
+                <label><input type="radio" name="q4" value="c"> No risk limits</label>
+                <button onclick="checkAnswer('q4','a','f4')">Check Answer</button>
+                <div class="feedback" id="f4"></div>
+            </div>
+        </div>
+    </details>
+
+    <!-- COURSE 5 -->
+    <details class="course">
+        <summary>05. Backtesting, Forward Testing and Performance Analysis</summary>
+        <div class="course-content">
+
+            <h3>Learning Objectives</h3>
+            <p>Understand how to evaluate a trading strategy using historical data and simulated trading before considering real-money use.</p>
+
+            <h3>Lessons</h3>
+            <ol>
+                <li>Introduction to backtesting.</li>
+                <li>Collecting and preparing historical data.</li>
+                <li>Defining test rules before testing.</li>
+                <li>Win rate and average win/loss.</li>
+                <li>Profit factor and expectancy.</li>
+                <li>Maximum drawdown.</li>
+                <li>Forward testing with a demo account.</li>
+                <li>Overfitting and look-ahead bias.</li>
+                <li>Keeping accurate performance records.</li>
+            </ol>
+
+            <div class="example">
+                <strong>Example:</strong>
+                Suppose a strategy has 40 winning trades with an average
+                gain of $30 and 60 losing trades with an average loss of $10.
+
+                <p>Gross profit = 40 × $30 = $1,200</p>
+                <p>Gross loss = 60 × $10 = $600</p>
+                <p>Profit factor = $1,200 ÷ $600 = 2.0</p>
+
+                <p>This simplified example excludes fees, spreads, slippage,
+                and other trading costs.</p>
+            </div>
+
+            <div class="warning">
+                Past performance does not guarantee future results. A strategy
+                can perform differently when market conditions change.
+            </div>
+
+            <div class="quiz">
+                <p>Knowledge Check: What does maximum drawdown measure?</p>
+                <label><input type="radio" name="q5" value="a"> The largest peak-to-trough decline in account value during a period</label>
+                <label><input type="radio" name="q5" value="b"> The number of chart candles</label>
+                <label><input type="radio" name="q5" value="c"> The highest trading volume</label>
+                <button onclick="checkAnswer('q5','a','f5')">Check Answer</button>
+                <div class="feedback" id="f5"></div>
+            </div>
+        </div>
+    </details>
+
+    <!-- COURSE 6 -->
+    <details class="course">
+        <summary>06. Professional Risk Management and Portfolio Protection</summary>
+        <div class="course-content">
+
+            <h3>Learning Objectives</h3>
+            <p>Study advanced methods of controlling risk at the trade, account, and portfolio levels.</p>
+
+            <h3>Lessons</h3>
+            <ol>
+                <li>Risk of ruin and account preservation.</li>
+                <li>Position sizing and percentage risk.</li>
+                <li>Portfolio exposure and correlated positions.</li>
+                <li>Risk-to-reward and expectancy.</li>
+                <li>Maximum daily and weekly loss limits.</li>
+                <li>Leverage and margin risks.</li>
+                <li>Trading during high-volatility events.</li>
+                <li>Building a risk-management policy.</li>
+            </ol>
+
+            <div class="example">
+                <strong>Position-sizing example:</strong>
+                If a hypothetical account is $1,000 and the planned risk
+                is 1%, the maximum planned loss is:
+
+                <p>$1,000 × 0.01 = $10</p>
+
+                <p>This is a risk calculation, not a recommendation to risk
+                1% or to open a trade. Actual losses may exceed planned
+                amounts because of gaps, slippage, and execution conditions.</p>
+            </div>
+
+            <div class="warning">
+                Leverage magnifies both gains and losses. Some products can
+                cause losses greater than the initial amount deposited.
+            </div>
+
+            <div class="quiz">
+                <p>Knowledge Check: What is the main purpose of risk management?</p>
+                <label><input type="radio" name="q6" value="a"> To control potential losses and protect capital</label>
+                <label><input type="radio" name="q6" value="b"> To guarantee profits</label>
+                <label><input type="radio" name="q6" value="c"> To remove all market uncertainty</label>
+                <button onclick="checkAnswer('q6','a','f6')">Check Answer</button>
+                <div class="feedback" id="f6"></div>
+            </div>
+        </div>
+    </details>
+
+    <!-- COURSE 7 -->
+    <details class="course">
+        <summary>07. Advanced Trading Psychology and Decision-Making</summary>
+        <div class="course-content">
+
+            <h3>Learning Objectives</h3>
+            <p>Develop disciplined decision-making and understand the psychological challenges that can affect trading behavior.</p>
+
+            <h3>Lessons</h3>
+            <ol>
+                <li>Emotional control and self-awareness.</li>
+                <li>Fear of missing out (FOMO).</li>
+                <li>Revenge trading.</li>
+                <li>Overtrading and impulsive decisions.</li>
+                <li>Confirmation bias and overconfidence.</li>
+                <li>Following a written trading plan.</li>
+                <li>Reviewing mistakes without emotional judgment.</li>
+                <li>Building consistent routines.</li>
+            </ol>
+
+            <div class="example">
+                <strong>Example:</strong>
+                After experiencing a loss, a trader may feel pressure toimmediately enter another trade to recover the money.
+                Recognizing this emotional reaction and following a
+                predefined trading plan can help prevent impulsive decisions.
+            </div>
+
+            <div class="quiz">
+                <p>Knowledge Check: What is revenge trading?</p>
+                <label><input type="radio" name="q7" value="a"> Taking impulsive trades to recover previous losses</label>
+                <label><input type="radio" name="q7" value="b"> Reviewing a trading journal</label>
+                <label><input type="radio" name="q7" value="c"> Testing a strategy on historical data</label>
+                <button onclick="checkAnswer('q7','a','f7')">Check Answer</button>
+                <div class="feedback" id="f7"></div>
+            </div>
+        </div>
+    </details>
+
+   
+    <section class="study-note">
+        <h2>Advanced Learning Guidelines</h2>
+        <ul>
+            <li>Study one course at a time.</li>
+            <li>Practice chart analysis using historical charts.</li>
+            <li>Use demo or simulated trading for practice.</li>
+            <li>Keep a trading journal and evaluate your decisions.</li>
+            <li>Test strategies before considering real-money trading.</li>
+            <li>Never risk money you cannot afford to lose.</li>
+        </ul>
+
+        <div class="warning">
+            <strong>Educational Disclaimer:</strong>
+            This website provides educational information only. It does not
+            provide financial, investment, or trading advice. Trading
+            financial markets involves substantial risk, including the
+            possible loss of all invested capital. No strategy guarantees
+            profits. Always conduct independent research and understandthe risks before making financial decisions.
+        </div>
+    </section>
+
+    <a class="back-link" href="../index.html">← Back to Trading Learning Levels</a>
+
+</main>
+
+<footer>
+    <p>© 2026 Trading Learning | Created by Gidy Nega</p>
+    <p>Learn • Practice • Analyze • Improve</p>
+</footer>
+
+<script>
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const selected = document.querySelector(
+        'input[name="' + questionName + '"]:checked'
+    );
+
+    const feedback = document.getElementById(feedbackId);
+
+    if (!selected) {
+        feedback.textContent = "Please select an answer first.";
+        feedback.style.color = "#fbbf24";
+        return;
+    }
+    if (selected.value === correctAnswer) {
+        feedback.textContent = "Correct! Excellent understanding.";
+        feedback.style.color = "#4ade80";
+    } else {
+        feedback.textContent = "Not quite. Review the lesson and try again.";
+        feedback.style.color = "#fb7185";
+    }
+}
+</script>
+
+</body>
+</html>
