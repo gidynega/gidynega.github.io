@@ -1,128 +1,227 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Grade 11 Social Science learning resources — History, Geography, Economics, Civics, Mathematics and more.">
+
+<meta name="description" content="Explore Grade 11 Social Science subjects at Smart Generation Tutor. Access textbooks, PDF materials, presentations, notes, video lessons and interactive quizzes.">
+
+<meta name="theme-color" content="#0b0b18">
+
 <title>Grade 11 Social Science | Smart Generation Tutor</title>
 
 <style>
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
+    margin: 0;
+    padding: 20px;
     font-family: Arial, sans-serif;
     background: #0b0b18;
     color: #ffffff;
-    line-height: 1.6;
-    padding: 20px;
+}
+
+a {
+    text-decoration: none;
 }
 
 .container {
-    max-width: 1000px;
-    margin: auto;
+    max-width: 1100px;
+    margin: 30px auto;
 }
 
 header {
     text-align: center;
-    padding: 30px 20px;
-    margin-bottom: 25px;
+    padding: 35px 18px;
+    border-radius: 18px;
     background: linear-gradient(135deg, #171735, #30205a);
     border: 1px solid #8187ff;
-    border-radius: 18px;
 }
 
-header h1 {
-    color: #65eee4;
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-header p {
-    color: #ddddf5;
-}
-
-.section-title {
-    color: #ff55c8;
-    margin: 25px 0 15px;
-    font-size: 22px;
-}
-
-.course-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
-}
-
-.course-card {
-    display: block;
-    text-decoration: none;
-    color: white;
-    background: #15152a;
-    border: 1px solid #45456b;
-    border-radius: 14px;
-    padding: 20px;
-    transition: 0.3s;
-}
-
-.course-card:hover {
-    transform: translateY(-5px);
-    border-color: #65eee4;
-    background: #20203b;
-}
-
-.course-card h2 {
-    color: #ff55c8;
-    font-size: 19px;
-    margin-bottom: 8px;
-}
-
-.course-card p {
-    color: #ccccdf;
-    font-size: 14px;
-}
-
-.notice {
-    margin-top: 25px;
-    padding: 18px;
-    background: #15152a;
-    border-left: 4px solid #65eee4;
-    border-radius: 10px;
-    color: #ddddf5;
-}
-
-.navigation {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 25px;
-}
-
-.nav-button {
+.back {
     display: inline-block;
-    padding: 10px 18px;
-    border-radius: 8px;
-    background: #8187ff;
-    color: #ffffff;
-    text-decoration: none;
+    margin-bottom: 20px;
+    color: #65eee4;
     font-weight: bold;
 }
 
-.nav-button:hover {
-    background: #65eee4;
+.badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid #ff55c8;
+    border-radius: 25px;
+    color: #ff55c8;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+h1 {
+    color: #65eee4;
+    font-size: clamp(28px, 5vw, 42px);
+    margin: 18px 0 10px;
+}
+
+.intro {
+    max-width: 750px;
+    margin: auto;
+    color: #d5d5ed;
+    line-height: 1.8;
+}
+
+.card {
+    margin-top: 25px;
+    padding: 24px;
+    border-radius: 15px;
+    background: #15152a;
+    border: 1px solid #45456b;
+}
+
+.card h2 {
+    color: #ff55c8;
+    margin-top: 0;
+}
+
+.card p {
+    color: #d5d5ed;
+    line-height: 1.8;
+}
+
+.section-title {
+    margin-bottom: 20px;
+}
+
+.section-title h2 {
+    color: #65eee4;
+    margin-bottom: 7px;
+}
+
+.section-title p {
+    color: #aaaac5;
+}
+
+.subjects {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.subject {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    min-height: 215px;
+    border-radius: 13px;
+    background: #20203b;
+    border: 1px solid #45456b;
+    transition: transform 0.3s ease,
+                border-color 0.3s ease;
+}
+
+.subject:hover {
+    transform: translateY(-5px);
+    border-color: #65eee4;
+}
+
+.subject-icon {
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+
+.subject h3 {
+    color: #65eee4;
+    margin: 5px 0 8px;
+    font-size: 18px;
+}
+
+.subject p {
+    color: #d5d5ed;
+    font-size: 13px;
+    line-height: 1.7;
+    flex-grow: 1;
+    margin: 0;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 11px 16px;
+    border-radius: 9px;
+    background: #8187ff;
     color: #0b0b18;
+    font-weight: bold;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+.button:hover {
+    background: #65eee4;
+}
+
+.resources {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 18px;
+}
+
+.resource {
+    padding: 17px;
+    background: #20203b;
+    border: 1px solid #45456b;
+    border-radius: 12px;
+}
+
+.resource h3 {
+    color: #65eee4;
+    margin-top: 0;
+    font-size: 16px;
+}
+
+.resource p {
+    font-size: 13px;
+    margin-bottom: 0;
+}
+
+.notice {
+    border-left: 4px solid #ff55c8;
+    background: #21182e;
 }
 
 footer {
     text-align: center;
     margin-top: 35px;
-    padding: 20px;
-    color: #9999b5;
-    border-top: 1px solid #33334d;
-    font-size: 13px;
+    color: #aaaac5;
+    font-size: 14px;
+}
+
+footer a {
+    color: #65eee4;
+}
+
+footer p {
+    line-height: 1.8;
+}
+
+a:focus-visible {
+    outline: 3px solid #65eee4;
+    outline-offset: 4px;
+}
+
+@media (max-width: 800px) {
+    .subjects {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .resources {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 500px) {
@@ -130,88 +229,465 @@ footer {
         padding: 12px;
     }
 
-    header h1 {
-        font-size: 23px;
+    .container {
+        margin: 15px auto;
+    }
+
+    header {
+        padding: 28px 15px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .subjects,
+    .resources {
+        grid-template-columns: 1fr;
+    }
+
+    .subject {
+        min-height: 190px;
     }
 }
 </style>
 </head>
 
 <body>
-<div class="container">
+
+<main class="container">
+
+<!-- HEADER -->
 
 <header>
-    <h1>Grade 11 Social Science</h1>
-    <p>Smart Generation Tutor</p>
-    <p>Learn • Explore • Practice • Grow</p>
+
+<a class="back" href="../index.html">
+← Back to Grade 11
+</a>
+
+<br>
+
+<span class="badge">
+SMART GENERATION TUTOR
+</span>
+
+<h1>🌍 Grade 11 Social Science</h1>
+
+<p class="intro">
+Welcome to your Grade 11 Social Science learning environment.
+Explore society, history, geography, economics and human
+development through organized educational resources.
+</p>
+
+<p class="intro">
+<strong>
+Understand Society • Develop Knowledge • Shape Your Future
+</strong>
+</p>
+
+<a class="button" href="#subjects">
+Explore Your Subjects →
+</a>
+
 </header>
 
-<h2 class="section-title">Explore Your Courses</h2>
 
-<div class="course-grid">
+<!-- WELCOME -->
 
-    <a class="course-card" href="mathematics/index.html">
-        <h2>Mathematics</h2>
-        <p>Explore mathematical concepts, formulas and problem-solving.</p>
-    </a>
+<section class="card">
 
-    <a class="course-card" href="history/index.html">
-        <h2>History</h2>
-        <p>Explore historical events, civilizations, societies and world history.</p>
-    </a>
+<h2>❤️ Welcome, Grade 11 Social Science Students!</h2>
 
-    <a class="course-card" href="geography/index.html">
-        <h2>Geography</h2>
-        <p>Study physical environments, human geography and global issues.</p>
-    </a>
+<p>
+Welcome to Smart Generation Tutor, your digital
+learning environment for Grade 11 Social Science.
+</p>
 
-    <a class="course-card" href="economics/index.html">
-        <h2>Economics</h2>
-        <p>Understand economic systems, markets, production and development.</p>
-    </a>
+<p>
+Explore human society, historical developments,
+economic activities, geographical environments,
+citizenship and social relationships.
+</p>
 
-    <a class="course-card" href="civics/index.html">
-        <h2>Civics and Ethical Education</h2>
-        <p>Learn citizenship, democracy, human rights and ethical values.</p>
-    </a>
+<p>
+Select your preferred subject below and begin
+developing the knowledge and skills necessary
+for your academic and professional future.
+</p>
 
-    <a class="course-card" href="english/index.html">
-        <h2>English</h2>
-        <p>Improve reading, writing, speaking and communication skills.</p>
-    </a>
+</section>
 
-    <a class="course-card" href="amharic/index.html">
-        <h2>Amharic</h2>
-        <p>Develop language, reading and writing skills.</p>
-    </a>
 
-    <a class="course-card" href="afaan-oromoo/index.html">
-        <h2>Afaan Oromoo</h2>
-        <p>Develop language skills and explore literature.</p>
-    </a>
+<!-- SUBJECTS -->
 
-    <a class="course-card" href="ict/index.html">
-        <h2>ICT</h2>
-        <p>Explore information technology and digital skills.</p>
-    </a>
+<section class="card" id="subjects">
+
+<div class="section-title">
+
+<h2>📖 Grade 11 Social Science Subjects</h2>
+
+<p>
+Select a subject to explore its individual learning homepage.
+</p>
 
 </div>
 
-<div class="notice">
-    <strong>Learning Notice</strong>
-    <p>Select a course to access its learning materials. Available PDFs, presentations, notes, videos and practice activities will be organized inside each course.</p>
+<div class="subjects">
+
+
+<!-- MATHEMATICS -->
+
+<article class="subject">
+
+<div class="subject-icon">➗</div>
+
+<h3>1. Mathematics</h3>
+
+<p>
+Develop mathematical reasoning,
+logical thinking, analytical skills
+and practical problem-solving abilities.
+</p>
+
+<a class="button" href="mathematics/index.html">
+Open Course →
+</a>
+
+</article>
+
+
+<!-- ENGLISH -->
+
+<article class="subject">
+
+<div class="subject-icon">📖</div>
+
+<h3>2. English</h3>
+
+<p>
+Improve grammar, vocabulary,
+reading comprehension, writing
+and communication skills.
+</p>
+
+<a class="button" href="english/index.html">
+Open Course →
+</a>
+
+</article>
+
+
+<!-- AMHARIC -->
+
+<article class="subject">
+
+<div class="subject-icon">🔤</div>
+
+<h3>3. Amharic</h3>
+
+<p>
+Develop Amharic language proficiency,
+literature, reading, writing
+and communication skills.
+</p>
+
+<a class="button" href="amharic/index.html">
+Open Course →
+</a>
+
+</article>
+
+
+<!-- AFAAN OROMOO -->
+
+<article class="subject">
+
+<div class="subject-icon">🌍</div>
+
+<h3>4. Afaan Oromoo</h3>
+
+<p>
+Explore Afaan Oromoo language,
+literature, cultural knowledge,
+reading and writing skills.
+</p>
+
+<a class="button" href="afaan-oromoo/index.html">
+Open Course →
+</a>
+
+</article>
+
+
+<!-- CIVICS -->
+
+<article class="subject">
+
+<div class="subject-icon">⚖️</div>
+
+<h3>5. Civics and Ethical Education</h3>
+
+<p>
+Understand citizenship, democracy,
+human rights, constitutional principles,
+ethics and responsibilities.
+</p>
+
+<a class="button" href="civics/index.html">
+Open Course →
+</a>
+
+</article>
+
+
+<!-- HISTORY -->
+
+<article class="subject">
+
+<div class="subject-icon">🏛️</div>
+
+<h3>6. History</h3>
+
+<p>
+Explore historical events,
+civilizations, societies,
+political developments and human history.
+</p>
+
+<a class="button" href="history/index.html">
+Open Course →
+</a>
+
+</article>
+
+
+<!-- GEOGRAPHY -->
+
+<article class="subject">
+
+<div class="subject-icon">🌐</div>
+
+<h3>7. Geography</h3>
+
+<p>
+Study physical and human geography,
+environmental systems, population,
+resources and global development.
+</p>
+
+<a class="button" href="geography/index.html">
+Open Course →
+</a>
+
+</article>
+
+
+<!-- ECONOMICS -->
+
+<article class="subject">
+
+<div class="subject-icon">📊</div>
+
+<h3>8. Economics</h3>
+
+<p>
+Understand economic systems,
+production, consumption, markets,
+trade and resource allocation.
+</p>
+
+<a class="button" href="economics/index.html">
+Open Course →
+</a>
+
+</article>
+
+
+<!-- BUSINESS -->
+
+<article class="subject">
+
+<div class="subject-icon">💼</div>
+
+<h3>9. Business Studies</h3>
+
+<p>
+Discover business organizations,
+entrepreneurship, management,
+marketing and business activities.
+</p>
+
+<a class="button" href="business-studies/index.html">
+Open Course →
+</a>
+
+</article>
+
+
+<!-- ICT -->
+
+<article class="subject">
+
+<div class="subject-icon">💻</div>
+
+<h3>10. Information Technology (ICT)</h3>
+
+<p>
+Develop digital literacy,
+computer knowledge, information
+processing and technology skills.
+</p>
+
+<a class="button" href="ict/index.html">
+Open Course →
+</a>
+
+</article>
+
+
+<!-- AGRICULTURE -->
+
+<article class="subject">
+
+<div class="subject-icon">🌱</div>
+
+<h3>11. Agriculture</h3>
+
+<p>
+Understand agricultural development,
+farming systems, natural resources
+and agricultural economics.
+</p>
+
+<a class="button" href="agriculture/index.html">
+Open Course →
+</a>
+
+</article>
+
+
 </div>
 
-<div class="navigation">
-    <a class="nav-button" href="../index.html">← Back to Grade 11</a>
-    <a class="nav-button" href="../../index.html">Smart Generation Home</a>
+</section>
+
+
+<!-- RESOURCES -->
+
+<section class="card">
+
+<h2>🎯 Our Learning Resources</h2>
+
+<p>
+Every subject has its own organized learning environment
+with educational materials and learning opportunities.
+</p>
+
+<div class="resources">
+
+<article class="resource">
+<h3>📄 PDF Documents</h3>
+<p>
+Textbooks, modules, lecture materials
+and downloadable documents.
+</p>
+</article>
+
+<article class="resource">
+<h3>📊 PowerPoint Slides</h3>
+<p>
+Visual presentations to understand
+important social science concepts.
+</p>
+</article>
+
+<article class="resource">
+<h3>📝 Short Notes</h3>
+<p>
+Organized, simple and easy-to-memorize
+study notes.
+</p>
+</article>
+
+<article class="resource">
+<h3>🎥 Video Lessons</h3>
+<p>
+Educational videos and step-by-step
+explanations.
+</p>
+</article>
+
+<article class="resource">
+<h3>🧠 Practice Questions</h3>
+<p>
+Interactive questions, exercises
+and explanations.
+</p>
+</article>
+
+<article class="resource">
+<h3>🏆 Model Examinations</h3>
+<p>
+Examination preparation,
+revision and assessment activities.
+</p>
+</article>
+
 </div>
+
+</section>
+
+
+<!-- NOTICE -->
+
+<section class="card notice">
+
+<h2>💡 Keep Learning and Growing!</h2>
+
+<p>
+Educational materials will be added progressively
+to the individual subject pages. Visit regularly
+to discover new resources and learning opportunities.
+</p>
+
+<p>
+Understand the world around you and become
+a responsible contributor to society!
+</p>
+
+</section>
+
+
+<!-- FOOTER -->
 
 <footer>
-    <p>© 2026 Smart Generation Tutor | Gidy Nega</p>
-    <p>Learn Today, Lead Tomorrow.</p>
+
+<p>
+Learn Together • Grow Together • Succeed Together ❤️
+</p>
+
+<p>
+Created with ❤️ by Gidy Nega
+</p>
+
+<p>
+<a href="../index.html">
+← Back to Grade 11
+</a>
+</p>
+
+<p>
+<a href="../../../index.html">
+Visit My Website
+</a>
+</p>
+
+<p>
+© 2026 Gidy Nega. All rights reserved.
+</p>
+
 </footer>
 
-</div>
+</main>
+
 </body>
 </html>
