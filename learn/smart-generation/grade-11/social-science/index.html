@@ -1,127 +1,217 @@
-
-<!DOCTYPE html>
+2<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Grade 11 Social Science courses and educational resources by Smart Generation Tutor.">
+<meta name="description" content="Grade 11 Social Science learning resources — History, Geography, Economics, Civics, Mathematics and more.">
 <title>Grade 11 Social Science | Smart Generation Tutor</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#0b0b18;color:#fff}
-header{background:#111126;padding:20px 6%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:1px solid #303052}
-.logo{color:#ff83d1;font-weight:bold;font-size:19px;text-decoration:none}
-.back{color:white;text-decoration:none;border:1px solid #ff55c8;padding:10px 16px;border-radius:25px}
-.hero{text-align:center;padding:55px 20px 35px}
-.hero span{color:#ff83d1;font-weight:bold;letter-spacing:2px}
-.hero h1{font-size:clamp(30px,5vw,45px);margin:18px 0;background:linear-gradient(90deg,#ff83d1,#8187ff);background-clip:text;-webkit-background-clip:text;color:transparent}
-.hero p{color:#b9b9d0;line-height:1.8;max-width:650px;margin:auto}
-.container{max-width:1100px;margin:auto;padding:25px 20px 70px}
-.section-title{text-align:center;margin-bottom:30px}
-.section-title p{color:#aaaac3;margin-top:10px;line-height:1.6}
-.courses{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.course{background:#15152c;border:1px solid #333355;border-radius:16px;overflow:hidden;transition:.3s}
-.course:hover{border-color:#ff83d1;transform:translateY(-3px)}
-summary{list-style:none;cursor:pointer;padding:22px;display:flex;align-items:center;gap:15px}
-summary::-webkit-details-marker{display:none}
-.icon{font-size:32px}
-.course-name{flex:1}
-.course-name h3{font-size:18px;margin-bottom:6px;color:#ff83d1}
-.course-name p{font-size:12px;color:#aaaac3}
-.arrow{color:#ff83d1;font-size:20px;transition:.3s}
-details[open] .arrow{transform:rotate(180deg)}
-.resources{padding:0 22px 22px;border-top:1px solid #303052}
-.resources h4{margin:17px 0 12px;color:#65eee4}
-.resources p{font-size:14px;color:#bbb;line-height:1.7}
-.material{background:#20203b;border-radius:10px;padding:13px;margin-top:10px;color:#c5c5da;font-size:13px;line-height:1.7}
-.material strong{color:#65eee4}
-.notice{margin-top:30px;text-align:center;background:#15152c;padding:20px;border-radius:14px;color:#aaaac3;line-height:1.8}
-footer{text-align:center;background:#111126;padding:25px;color:#9999b5;font-size:13px;line-height:1.8}
-@media(max-width:650px){.courses{grid-template-columns:1fr}header{padding:17px 5%}}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b0b18;
+    color: #ffffff;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+    padding: 30px 20px;
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, #171735, #30205a);
+    border: 1px solid #8187ff;
+    border-radius: 18px;
+}
+
+header h1 {
+    color: #65eee4;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #ddddf5;
+}
+
+.section-title {
+    color: #ff55c8;
+    margin: 25px 0 15px;
+    font-size: 22px;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.course-card {
+    display: block;
+    text-decoration: none;
+    color: white;
+    background: #15152a;
+    border: 1px solid #45456b;
+    border-radius: 14px;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    border-color: #65eee4;
+    background: #20203b;
+}
+
+.course-card h2 {
+    color: #ff55c8;
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.course-card p {
+    color: #ccccdf;
+    font-size: 14px;
+}
+
+.notice {
+    margin-top: 25px;
+    padding: 18px;
+    background: #15152a;
+    border-left: 4px solid #65eee4;
+    border-radius: 10px;
+    color: #ddddf5;
+}
+
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: #8187ff;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-button:hover {
+    background: #65eee4;
+    color: #0b0b18;
+}
+
+footer {
+    text-align: center;
+    margin-top: 35px;
+    padding: 20px;
+    color: #9999b5;
+    border-top: 1px solid #33334d;
+    font-size: 13px;
+}
+
+@media (max-width: 500px) {
+    body {
+        padding: 12px;
+    }
+
+    header h1 {
+        font-size: 23px;
+    }
+}
 </style>
 </head>
 
 <body>
+<div class="container">
 
 <header>
-<a href="../../index.html" class="logo">🎓 Smart Generation Tutor</a>
-<a href="../index.html" class="back">← Grade 11</a>
+    <h1>Grade 11 Social Science</h1>
+    <p>Smart Generation Tutor</p>
+    <p>Learn • Explore • Practice • Grow</p>
 </header>
 
-<section class="hero">
-<span>GRADE 11 • SOCIAL SCIENCE</span>
-<h1>Social Science Learning Library</h1>
-<p>Explore society, history, geography, economics, languages and other important subjects. Strengthen your knowledge with organized learning resources.</p>
-</section>
+<h2 class="section-title">Explore Your Courses</h2>
 
-<main class="container">
+<div class="course-grid">
 
-<div class="section-title">
-<h2>📚 Social Science Courses</h2>
-<p>Select a subject to explore its educational resources.</p>
-</div>
+    <a class="course-card" href="mathematics/index.html">
+        <h2>Mathematics</h2>
+        <p>Explore mathematical concepts, formulas and problem-solving.</p>
+    </a>
 
-<div class="courses">
+    <a class="course-card" href="history/index.html">
+        <h2>History</h2>
+        <p>Explore historical events, civilizations, societies and world history.</p>
+    </a>
 
-<details class="course">
-<summary><span class="icon">➗</span><div class="course-name"><h3>Mathematics</h3><p>Mathematical reasoning and problem-solving</p></div><span class="arrow">⌄</span></summary>
-<div class="resources"><h4>Mathematics Learning Materials</h4><p>Improve your numerical, analytical and problem-solving abilities.</p><div class="material"><strong>Learning Resources</strong><br>📄 PDF Notes: Coming soon<br>📊 PowerPoint: Coming soon<br>📝 Short Notes: Coming soon<br>🎥 Videos: Coming soon<br>📋 Practice Questions: Coming soon</div></div>
-</details>
+    <a class="course-card" href="geography/index.html">
+        <h2>Geography</h2>
+        <p>Study physical environments, human geography and global issues.</p>
+    </a>
 
-<details class="course">
-<summary><span class="icon">🌐</span><div class="course-name"><h3>English</h3><p>Language, grammar and communication</p></div><span class="arrow">⌄</span></summary>
-<div class="resources"><h4>English Learning Materials</h4><p>Develop your reading, writing, listening and speaking skills.</p><div class="material"><strong>Learning Resources</strong><br>📄 PDF Notes: Coming soon<br>📊 PowerPoint: Coming soon<br>📝 Short Notes: Coming soon<br>🎥 Videos: Coming soon<br>📋 Practice Questions: Coming soon</div></div>
-</details>
+    <a class="course-card" href="economics/index.html">
+        <h2>Economics</h2>
+        <p>Understand economic systems, markets, production and development.</p>
+    </a>
 
-<details class="course">
-<summary><span class="icon">📖</span><div class="course-name"><h3>Amharic</h3><p>Language and literature</p></div><span class="arrow">⌄</span></summary>
-<div class="resources"><h4>Amharic Learning Materials</h4><p>Develop your understanding of Amharic language and literature.</p><div class="material"><strong>Learning Resources</strong><br>📄 PDF Notes: Coming soon<br>📊 PowerPoint: Coming soon<br>📝 Short Notes: Coming soon<br>🎥 Videos: Coming soon</div></div>
-</details>
+    <a class="course-card" href="civics/index.html">
+        <h2>Civics and Ethical Education</h2>
+        <p>Learn citizenship, democracy, human rights and ethical values.</p>
+    </a>
 
-<details class="course">
-<summary><span class="icon">🗣️</span><div class="course-name"><h3>Afaan Oromoo</h3><p>Language and literature</p></div><span class="arrow">⌄</span></summary>
-<div class="resources"><h4>Afaan Oromoo Learning Materials</h4><p>Strengthen your Afaan Oromoo language and communication skills.</p><div class="material"><strong>Learning Resources</strong><br>📄 PDF Notes: Coming soon<br>📊 PowerPoint: Coming soon<br>📝 Short Notes: Coming soon<br>🎥 Videos: Coming soon</div></div>
-</details>
+    <a class="course-card" href="english/index.html">
+        <h2>English</h2>
+        <p>Improve reading, writing, speaking and communication skills.</p>
+    </a>
 
-<details class="course">
-<summary><span class="icon">⚖️</span><div class="course-name"><h3>Civics and Ethical Education</h3><p>Citizenship, rights and responsibilities</p></div><span class="arrow">⌄</span></summary>
-<div class="resources"><h4>Civics Learning Materials</h4><p>Understand citizenship, democracy, human rights, ethics and responsibilities.</p><div class="material"><strong>Learning Resources</strong><br>📄 PDF Notes: Coming soon<br>📊 PowerPoint: Coming soon<br>📝 Short Notes: Coming soon<br>🎥 Videos: Coming soon<br>📋 Practice Questions: Coming soon</div></div>
-</details>
+    <a class="course-card" href="amharic/index.html">
+        <h2>Amharic</h2>
+        <p>Develop language, reading and writing skills.</p>
+    </a>
 
-<details class="course">
-<summary><span class="icon">🏛️</span><div class="course-name"><h3>History</h3><p>Historical events and civilizations</p></div><span class="arrow">⌄</span></summary>
-<div class="resources"><h4>History Learning Materials</h4><p>Explore historical developments, civilizations, cultures and important events.</p><div class="material"><strong>Learning Resources</strong><br>📄 PDF Notes: Coming soon<br>📊 PowerPoint: Coming soon<br>📝 Short Notes: Coming soon<br>🎥 Videos: Coming soon</div></div>
-</details>
+    <a class="course-card" href="afaan-oromoo/index.html">
+        <h2>Afaan Oromoo</h2>
+        <p>Develop language skills and explore literature.</p>
+    </a>
 
-<details class="course">
-<summary><span class="icon">📈</span><div class="course-name"><h3>Economics</h3><p>Markets, resources and economic systems</p></div><span class="arrow">⌄</span></summary>
-<div class="resources"><h4>Economics Learning Materials</h4><p>Understand economic principles, markets, production, consumption and development.</p><div class="material"><strong>Learning Resources</strong><br>📄 PDF Notes: Coming soon<br>📊 PowerPoint: Coming soon<br>📝 Short Notes: Coming soon<br>🎥 Videos: Coming soon<br>📋 Practice Questions: Coming soon</div></div>
-</details>
-
-<details class="course">
-<summary><span class="icon">🌍</span><div class="course-name"><h3>Geography</h3><p>People, places and environments</p></div><span class="arrow">⌄</span></summary>
-<div class="resources"><h4>Geography Learning Materials</h4><p>Study physical geography, human geography, environments and geographical processes.</p><div class="material"><strong>Learning Resources</strong><br>📄 PDF Notes: Coming soon<br>📊 PowerPoint: Coming soon<br>📝 Short Notes: Coming soon<br>🎥 Videos: Coming soon</div></div>
-</details>
-
-<details class="course">
-<summary><span class="icon">💻</span><div class="course-name"><h3>Information Technology (ICT)</h3><p>Computers and digital technology</p></div><span class="arrow">⌄</span></summary>
-<div class="resources"><h4>ICT Learning Materials</h4><p>Discover computer systems, digital communication and information technologies.</p><div class="material"><strong>Learning Resources</strong><br>📄 PDF Notes: Coming soon<br>📊 PowerPoint: Coming soon<br>📝 Short Notes: Coming soon<br>🎥 Videos: Coming soon</div></div>
-</details>
+    <a class="course-card" href="ict/index.html">
+        <h2>ICT</h2>
+        <p>Explore information technology and digital skills.</p>
+    </a>
 
 </div>
 
 <div class="notice">
-💡 <strong>Smart Learning:</strong><br>
-Your educational journey matters! Learning materials will be organized by subject as resources are uploaded.
+    <strong>Learning Notice</strong>
+    <p>Select a course to access its learning materials. Available PDFs, presentations, notes, videos and practice activities will be organized inside each course.</p>
 </div>
 
-</main>
+<div class="navigation">
+    <a class="nav-button" href="../index.html">← Back to Grade 11</a>
+    <a class="nav-button" href="../../index.html">Smart Generation Home</a>
+</div>
 
 <footer>
-<p>© 2026 Smart Generation Tutor | Created by Gidy Nega</p>
-<p>Learn • Create • Share • Grow 🚀</p>
+    <p>© 2026 Smart Generation Tutor | Gidy Nega</p>
+    <p>Learn Today, Lead Tomorrow.</p>
 </footer>
 
+</div>
 </body>
 </html>
