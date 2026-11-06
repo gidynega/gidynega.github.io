@@ -1,0 +1,887 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Beginner Trading Education at Gidy Nega. Learn financial markets, Forex, candlesticks, risk management and trading psychology.">
+
+<meta name="author" content="Gidy Nega">
+
+<title>Beginner Trading | Gidy Nega</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b0b18;
+    color: #f5f3ff;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 92%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+/* NAVIGATION */
+
+nav {
+    background: #111126;
+    border-bottom: 1px solid #39305e;
+}
+
+.nav-content {
+    min-height: 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    color: #a78bfa;
+    font-weight: bold;
+    font-size: 21px;
+}
+
+.logo span {
+    color: #22d3ee;
+}
+
+.back-link {
+    color: #67e8f9;
+    font-size: 14px;
+}
+
+/* HERO */
+
+.hero {
+    padding: 65px 20px;
+    text-align: center;
+    background:
+        radial-gradient(circle at top, #25432f, transparent 65%),
+        linear-gradient(135deg, #101025, #151a2c);
+    border-bottom: 1px solid #39305e;
+}
+
+.hero-label {
+    display: inline-block;
+    padding: 7px 16px;
+    background: #203a2c;
+    border: 1px solid #39744b;
+    color: #86efac;
+    border-radius: 30px;
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 6vw, 48px);
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    color: #86efac;
+}
+
+.hero p {
+    max-width: 720px;
+    margin: auto;
+    color: #c4bfdc;
+}
+
+/* GENERAL */
+
+section {
+    padding: 50px 0;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-heading h2 {
+    color: #86efac;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.section-heading p {
+    color: #aaa4c7;
+}
+
+/* COURSE CARDS */
+
+.course-list {
+    display: grid;
+    gap: 22px;
+}
+
+.course-card {
+    background: #151529;
+    border: 1px solid #39305e;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.course-header {
+    padding: 22px;
+    background: #1b1b35;
+}
+
+.course-number {
+    color: #22d3ee;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.course-header h3 {
+    color: #c4b5fd;
+    font-size: 21px;
+    margin: 7px 0;
+}
+
+.course-header p {
+    color: #bbb5d2;
+    font-size: 14px;
+}
+
+.course-content {
+    padding: 22px;
+}
+
+.course-content h4 {
+    color: #67e8f9;
+    margin: 17px 0 8px;
+}
+
+.course-content p,
+.course-content li {
+    color: #c4bfdc;
+    font-size: 14px;
+}
+
+.course-content ul,
+.course-content ol {
+    padding-left: 23px;
+}
+
+.lesson-box {
+    background: #201b3b;
+    padding: 16px;
+    margin: 13px 0;
+    border-left: 3px solid #8b5cf6;
+    border-radius: 8px;
+}
+
+.example {
+    background: #152b2b;
+    border-left: 3px solid #22d3ee;
+    padding: 16px;
+    margin: 14px 0;
+    border-radius: 8px;
+}
+
+.quiz {
+    background: #24203e;
+    border: 1px solid #514080;
+    border-radius: 10px;
+    padding: 17px;
+    margin-top: 18px;
+}
+
+.quiz h4 {
+    margin-top: 0;
+}
+
+.quiz label {
+    display: block;
+    color: #d8d4eb;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.quiz input {
+    margin-right: 8px;
+}
+
+.quiz button {
+    background: #8b5cf6;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 17px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.feedback {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* COURSE EXPANSION */
+
+details {
+    border-top: 1px solid #39305e;
+}
+
+summary {
+    padding: 16px 22px;
+    color: #67e8f9;
+    font-weight: bold;
+    cursor: pointer;
+    background: #17162e;
+}
+
+summary:hover {
+    background: #252044;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #39305e;
+}
+
+/* STUDY TIPS */
+
+.tips {
+    background: #17162e;
+    border: 1px solid #39305e;
+    border-radius: 14px;
+    padding: 25px;
+}
+
+.tips h3 {
+    color: #86efac;
+    margin-bottom: 12px;
+}
+
+.tips li {
+    color: #c4bfdc;
+    margin: 8px 0;
+}
+
+/* DISCLAIMER */
+
+.disclaimer {
+    background: #211b32;
+    border: 1px solid #72502c;
+    border-radius: 12px;
+    padding: 22px;
+    color: #e5d4ad;
+}
+
+.disclaimer h3 {
+    color: #fbbf24;
+    margin-bottom: 10px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #111126;
+    border-top: 1px solid #39305e;
+    padding: 30px 15px;
+    text-align: center;
+    color: #aaa4c7;
+}
+
+footer strong {
+    color: #a78bfa;
+}
+
+footer a {
+    color: #67e8f9;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 600px) {
+    .nav-content {
+        padding: 12px 0;
+    }
+
+    .hero {
+        padding: 50px 12px;
+    }
+
+    section {
+        padding: 35px 0;
+    }
+
+    .course-header,
+    .course-content {
+        padding: 17px;
+    }
+
+    .course-header h3 {
+        font-size: 19px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+<div class="container nav-content">
+
+<a href="../index.html" class="logo">
+GIDY <span>TRADING</span>
+</a>
+
+<a href="../index.html" class="back-link">
+← Trading Homepage
+</a>
+
+</div>
+</nav>
+
+<!-- HERO -->
+
+<header class="hero">
+
+<div class="hero-label">
+🌱 LEVEL 01 — BEGINNER
+</div>
+
+<h1>
+Welcome to <span>Beginner Trading</span>
+</h1>
+
+<p>
+Build your trading knowledge from the ground up.
+Explore financial markets, Forex fundamentals,
+candlesticks, risk management and trading psychology
+through structured lessons and practical examples.
+</p>
+
+</header>
+
+<main>
+
+<!-- COURSE SECTION -->
+
+<section>
+
+<div class="container">
+
+<div class="section-heading">
+<h2>📚 Beginner Trading Courses</h2>
+<p>
+Select a course to open its lessons and study materials.
+</p>
+</div>
+
+<div class="course-list">
+
+<!-- COURSE 1 -->
+
+<article class="course-card">
+
+<div class="course-header">
+<span class="course-number">COURSE 01</span>
+<h3>Introduction to Trading</h3>
+<p>Understand trading, financial markets and essential terminology.</p>
+</div>
+
+<details>
+<summary>📖 Open Course Materials</summary>
+
+<div class="course-content">
+
+<h4>Lesson 1: What Is Trading?</h4>
+
+<p>
+Trading is the activity of buying and selling financial
+assets with the aim of benefiting from price movements.
+Financial assets include currencies, stocks, commodities
+and other instruments.
+</p>
+
+<h4>Lesson 2: How Trading Works</h4>
+
+<p>
+Trading involves buyers, sellers, financial markets
+and intermediaries such as brokers.
+Prices change as supply and demand change.
+</p>
+
+<h4>Lesson 3: Types of Financial Markets</h4>
+
+<ul>
+<li><b>Forex Market:</b> Exchange of currencies.</li>
+<li><b>Stock Market:</b> Buying and selling company shares.</li>
+<li><b>Commodity Market:</b> Trading commodities such as gold and oil.</li>
+<li><b>Cryptocurrency Market:</b> Trading digital assets.</li>
+</ul>
+
+<h4>Lesson 4: Important Trading Terms</h4>
+
+<ul>
+<li><b>Asset:</b> Something that can be traded.</li>
+<li><b>Broker:</b> A company that provides access to trading markets.</li>
+<li><b>Buy:</b> Opening a position to benefit from a price increase.</li>
+<li><b>Sell:</b> Opening a position to benefit from a price decrease.</li>
+<li><b>Profit:</b> Financial gain from a trade.</li>
+<li><b>Loss:</b> Financial loss from a trade.</li>
+</ul>
+
+<div class="example">
+<strong>Practical Example:</strong>
+<p>
+Suppose an asset is priced at $100.
+You buy one unit and later sell it for $110.
+Your gross profit is $10 before fees and other costs.
+</p>
+</div>
+
+<div class="quiz">
+<h4>📝 Quick Knowledge Test</h4>
+
+<p>1. What is trading?</p>
+
+<label><input type="radio" name="q1" value="a"> Saving money in a bank.</label>
+<label><input type="radio" name="q1" value="b"> Buying and selling financial assets.</label>
+<label><input type="radio" name="q1" value="c"> Printing money.</label>
+
+<button onclick="checkAnswer('q1','b','result1')">Check Answer</button>
+
+<p class="feedback" id="result1"></p>
+</div>
+
+</div>
+</details>
+</article>
+
+<!-- COURSE 2 -->
+
+<article class="course-card">
+
+<div class="course-header">
+<span class="course-number">COURSE 02</span>
+<h3>Financial Markets and Forex Fundamentals</h3>
+<p>Learn about currency pairs, market movements and Forex terminology.</p>
+</div>
+
+<details>
+<summary>📖 Open Course Materials</summary>
+
+<div class="course-content">
+
+<h4>Lesson 1: What Is Forex?</h4>
+
+<p>
+Forex means foreign exchange. It is the global market
+where currencies are exchanged against one another.
+</p>
+
+<h4>Lesson 2: Currency Pairs</h4>
+
+<p>
+Forex currencies are quoted in pairs. For example,
+EUR/USD represents the euro against the US dollar.
+</p>
+
+<ul>
+<li><b>Base currency:</b> The first currency in a pair.</li>
+<li><b>Quote currency:</b> The second currency in a pair.</li>
+<li><b>Major pairs:</b> Commonly traded pairs involving the US dollar.</li>
+<li><b>Cross pairs:</b> Currency pairs that do not include the US dollar.</li>
+</ul>
+
+<h4>Lesson 3: Bid and Ask Prices</h4>
+
+<ul>
+<li><b>Bid:</b> The price at which a buyer can sell to the market.</li>
+<li><b>Ask:</b> The price at which a buyer can purchase from the market.</li>
+<li><b>Spread:</b> The difference between the ask and bid prices.</li>
+</ul>
+
+<h4>Lesson 4: Pips and Lots</h4>
+
+<p>
+A pip is a standard unit used to describe changes
+in exchange rates. A lot is a standardized trading
+volume. Pip values depend on the currency pair,
+position size and account currency.
+</p>
+
+<div class="example">
+<strong>Example:</strong>
+<p>
+If EUR/USD moves from 1.1000 to 1.1010,
+the movement is 10 pips under the conventional
+four-decimal pip quotation.
+</p>
+</div>
+
+<div class="quiz">
+<h4>📝 Quick Knowledge Test</h4>
+
+<p>2. What does Forex mean?</p>
+
+<label><input type="radio" name="q2" value="a"> Foreign Exchange.</label>
+<label><input type="radio" name="q2" value="b"> Financial Export.</label>
+<label><input type="radio" name="q2" value="c"> Foreign Expenses.</label>
+
+<button onclick="checkAnswer('q2','a','result2')">Check Answer</button>
+
+<p class="feedback" id="result2"></p>
+</div>
+
+</div>
+</details>
+</article>
+
+<!-- COURSE 3 -->
+
+<article class="course-card">
+
+<div class="course-header">
+<span class="course-number">COURSE 03</span>
+<h3>Candlesticks and Chart Basics</h3>
+<p>Understand price charts and the information represented by candlesticks.</p>
+</div>
+
+<details>
+<summary>📖 Open Course Materials</summary>
+
+<div class="course-content">
+
+<h4>Lesson 1: What Is a Trading Chart?</h4>
+
+<p>
+A trading chart is a visual representation of an
+asset's price movement over a selected period.
+</p>
+
+<h4>Lesson 2: Types of Charts</h4>
+
+<ul>
+<li>Line Chart</li>
+<li>Bar Chart</li>
+<li>Candlestick Chart</li>
+</ul>
+
+<h4>Lesson 3: Understanding Candlesticks</h4>
+
+<p>
+A candlestick displays four important prices:
+</p>
+
+<ul>
+<li><b>Open:</b> Price at the beginning of the period.</li>
+<li><b>High:</b> Highest price during the period.</li>
+<li><b>Low:</b> Lowest price during the period.</li>
+<li><b>Close:</b> Price at the end of the period.</li>
+</ul>
+
+<h4>Lesson 4: Bullish and Bearish Candles</h4>
+
+<ul>
+<li><b>Bullish candle:</b> Closing price is above opening price.</li>
+<li><b>Bearish candle:</b> Closing price is below opening price.</li>
+</ul>
+
+<h4>Lesson 5: Understanding Wicks and Bodies</h4>
+
+<p>
+The candle body represents the distance between
+opening and closing prices. The upper and lower
+wicks show the highest and lowest prices reached.
+</p>
+
+<div class="example">
+<strong>Practical Example:</strong>
+<p>
+If a candle opens at 100 and closes at 105,
+it is bullish. If it opens at 105 and closes at 100,
+it is bearish.
+</p>
+</div>
+
+<div class="quiz">
+<h4>📝 Quick Knowledge Test</h4>
+
+<p>3. What does the body of a candlestick represent?</p>
+
+<label><input type="radio" name="q3" value="a"> Opening and closing prices.</label>
+<label><input type="radio" name="q3" value="b"> Only the highest price.</label>
+<label><input type="radio" name="q3" value="c"> Only the lowest price.</label>
+
+<button onclick="checkAnswer('q3','a','result3')">Check Answer</button>
+
+<p class="feedback" id="result3"></p>
+</div>
+
+</div>
+</details>
+</article>
+
+<!-- COURSE 4 -->
+
+<article class="course-card">
+
+<div class="course-header">
+<span class="course-number">COURSE 04</span>
+<h3>Risk Management Fundamentals</h3>
+<p>Learn how to understand trading risks and protect your capital.</p>
+</div>
+
+<details>
+<summary>📖 Open Course Materials</summary>
+
+<div class="course-content">
+
+<h4>Lesson 1: What Is Risk Management?</h4>
+
+<p>
+Risk management is the process of identifying,
+measuring and controlling potential financial losses.
+</p>
+
+<h4>Lesson 2: Capital Protection</h4>
+
+<p>
+Protecting capital is an important part of responsible
+trading. A trader should understand how much money
+could be lost before opening a position.
+</p>
+
+<h4>Lesson 3: Stop-Loss Orders</h4>
+
+<p>
+A stop-loss order is designed to close a position
+when the market reaches a specified price.
+Execution can differ from the requested price
+during market gaps or rapid movements.
+</p>
+
+<h4>Lesson 4: Position Sizing</h4>
+
+<p>
+Position sizing means determining how large a
+trading position should be based on the account
+size, acceptable risk and trade setup.
+</p>
+
+<div class="example">
+<strong>Practical Example:</strong>
+<p>
+Suppose a hypothetical trading account has $1,000.
+If a trader chooses to risk 1% on a trade,
+the planned risk is $10.
+</p>
+
+<p>
+Calculation: $1,000 × 0.01 = $10.
+</p>
+</div>
+
+<h4>Lesson 5: Risk-to-Reward Ratio</h4>
+
+<p>
+The risk-to-reward ratio compares the amount
+potentially lost with the amount potentially gained.
+For example, a 1:2 ratio means risking $10
+for a potential gain of $20.
+</p>
+
+<div class="quiz">
+<h4>📝 Quick Knowledge Test</h4>
+
+<p>4. What is the main purpose of risk management?</p>
+
+<label><input type="radio" name="q4" value="a"> Guaranteeing profits.</label>
+<label><input type="radio" name="q4" value="b"> Controlling potential losses.</label>
+<label><input type="radio" name="q4" value="c"> Eliminating all market risks.</label>
+
+<button onclick="checkAnswer('q4','b','result4')">Check Answer</button>
+
+<p class="feedback" id="result4"></p>
+</div>
+
+</div>
+</details>
+</article>
+
+<!-- COURSE 5 -->
+
+<article class="course-card">
+
+<div class="course-header">
+<span class="course-number">COURSE 05</span>
+<h3>Introduction to Trading Psychology</h3>
+<p>Understand emotions, patience, discipline and responsible decision-making.</p>
+</div>
+
+<details>
+<summary>📖 Open Course Materials</summary>
+
+<div class="course-content">
+
+<h4>Lesson 1: What Is Trading Psychology?</h4>
+
+<p>
+Trading psychology refers to the emotions,
+thoughts and behaviors that influence trading
+decisions.
+</p>
+
+<h4>Lesson 2: Common Trading Emotions</h4>
+
+<ul>
+<li><b>Fear:</b> Anxiety about possible losses.</li>
+<li><b>Greed:</b> Excessive desire for profits.</li>
+<li><b>Hope:</b> Expecting a losing trade to recover without a sound plan.</li>
+<li><b>Frustration:</b> Emotional reactions after losses.</li>
+</ul>
+
+<h4>Lesson 3: Discipline and Patience</h4>
+
+<p>
+Discipline means following a well-defined learning
+or trading plan. Patience means waiting for suitable
+conditions rather than making impulsive decisions.
+</p>
+
+<h4>Lesson 4: Avoiding Emotional Trading</h4>
+
+<ul>
+<li>Avoid revenge trading after losses.</li>
+<li>Do not trade simply because of excitement.</li>
+<li>Keep a trading journal.</li>
+<li>Review decisions objectively.</li>
+<li>Never risk money you cannot afford to lose.</li>
+</ul>
+
+<div class="quiz">
+<h4>📝 Quick Knowledge Test</h4>
+
+<p>5. Which behavior demonstrates trading discipline?</p>
+
+<label><input type="radio" name="q5" value="a"> Following a planned strategy.</label>
+<label><input type="radio" name="q5" value="b"> Trading emotionally after every loss.</label>
+<label><input type="radio" name="q5" value="c"> Ignoring risk limits.</label>
+
+<button onclick="checkAnswer('q5','a','result5')">Check Answer</button>
+
+<p class="feedback" id="result5"></p>
+</div>
+
+</div>
+</details>
+</article>
+
+</div>
+</div>
+</section>
+
+<!-- STUDY GUIDANCE -->
+
+<section>
+<div class="container">
+
+<div class="tips">
+
+<h3>💡 Beginner Study Guidelines</h3>
+
+<ul>
+<li>Study each course carefully before moving to the next.</li>
+<li>Write down important trading terminology.</li>
+<li>Practice reading charts using historical data.</li>
+<li>Use a demo account for learning rather than risking real money.</li>
+<li>Complete the quizzes to check your understanding.</li>
+<li>Never rush into live trading.</li>
+</ul>
+
+</div>
+
+</div>
+</section>
+
+<!-- DISCLAIMER -->
+
+<section>
+<div class="container">
+
+<div class="disclaimer">
+
+<h3>⚠️ Important Educational Disclaimer</h3>
+
+<p>
+These materials are provided for educational purposes
+only and are not financial or investment advice.
+Trading involves substantial risk, including the
+possibility of losing all invested capital.
+No lesson or strategy guarantees profits.
+</p>
+
+</div>
+
+</div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p><strong>Gidy Nega | Trading Learning</strong></p>
+
+<p>Beginner Level • Learn • Practice • Grow</p>
+
+<p>
+<a href="../index.html">← Back to Trading Homepage</a>
+</p>
+
+<p>© 2026 Gidy Nega. All Rights Reserved.</p>
+
+</footer>
+
+<script>
+function checkAnswer(question, correctAnswer, resultId) {
+
+    const selected = document.querySelector(
+        'input[name="' + question + '"]:checked'
+    );
+
+    const result = document.getElementById(resultId);
+
+    if (!selected) {
+        result.textContent = "Please select an answer first.";
+        result.style.color = "#fbbf24";
+        return;
+    }
+
+    if (selected.value === correctAnswer) {
+        result.textContent = "Correct! Excellent work. 🎉";
+        result.style.color = "#86efac";
+    } else {
+        result.textContent = "Incorrect. Review the lesson and try again.";
+        result.style.color = "#f87171";
+    }
+}
+</script>
+
+</body>
+</html>
