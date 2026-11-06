@@ -4,385 +4,215 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="description" content="Explore Grade 11 Natural Science courses at Smart Generation Tutor by Gidy Nega.">
-
+<meta name="description" content="Grade 11 Natural Science learning resources — Mathematics, Physics, Chemistry, Biology and more.">
 <title>Grade 11 Natural Science | Smart Generation Tutor</title>
 
 <style>
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #0b0b18;
-  color: #fff;
+    font-family: Arial, sans-serif;
+    background: #0b0b18;
+    color: #ffffff;
+    line-height: 1.6;
+    padding: 20px;
 }
-
-/* HEADER */
-
-header {
-  background: #111126;
-  padding: 20px 6%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  border-bottom: 1px solid #303052;
-}
-
-.logo {
-  color: #65eee4;
-  font-weight: bold;
-  font-size: 19px;
-  text-decoration: none;
-}
-
-.back {
-  color: white;
-  text-decoration: none;
-  border: 1px solid #8187ff;
-  padding: 10px 16px;
-  border-radius: 25px;
-  transition: .3s;
-}
-
-.back:hover {
-  background: #8187ff;
-}
-
-/* HERO */
-
-.hero {
-  text-align: center;
-  padding: 65px 20px 45px;
-}
-
-.hero span {
-  color: #65eee4;
-  font-weight: bold;
-  letter-spacing: 2px;
-  font-size: 13px;
-}
-
-.hero h1 {
-  font-size: clamp(30px, 5vw, 45px);
-  margin: 18px 0;
-  background: linear-gradient(90deg, #65eee4, #8187ff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.hero p {
-  color: #b9b9d0;
-  line-height: 1.8;
-  max-width: 650px;
-  margin: auto;
-}
-
-/* MAIN CONTAINER */
 
 .container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 25px 20px 75px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+    padding: 30px 20px;
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, #171735, #30205a);
+    border: 1px solid #8187ff;
+    border-radius: 18px;
+}
+
+header h1 {
+    color: #65eee4;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #ddddf5;
 }
 
 .section-title {
-  text-align: center;
-  margin-bottom: 35px;
+    color: #ff55c8;
+    margin: 25px 0 15px;
+    font-size: 22px;
 }
 
-.section-title h2 {
-  font-size: 25px;
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
 }
-
-.section-title p {
-  color: #aaaac3;
-  margin-top: 10px;
-  line-height: 1.7;
-}
-
-/* COURSE GRID */
-
-.courses {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-/* COURSE CARD */
 
 .course-card {
-  background: #15152c;
-  border: 1px solid #333355;
-  border-radius: 16px;
-  padding: 25px;
-  transition: .3s;
-  display: flex;
-  flex-direction: column;
+    display: block;
+    text-decoration: none;
+    color: white;
+    background: #15152a;
+    border: 1px solid #45456b;
+    border-radius: 14px;
+    padding: 20px;
+    transition: 0.3s;
 }
 
 .course-card:hover {
-  transform: translateY(-5px);
-  border-color: #65eee4;
-  box-shadow: 0 10px 30px rgba(101, 238, 228, .08);
+    transform: translateY(-5px);
+    border-color: #65eee4;
+    background: #20203b;
 }
 
-.course-icon {
-  font-size: 38px;
-  margin-bottom: 17px;
-}
-
-.course-card h3 {
-  color: #65eee4;
-  font-size: 20px;
-  margin-bottom: 10px;
+.course-card h2 {
+    color: #ff55c8;
+    font-size: 19px;
+    margin-bottom: 8px;
 }
 
 .course-card p {
-  color: #aaaac3;
-  font-size: 13px;
-  line-height: 1.8;
-  margin-bottom: 22px;
-  flex-grow: 1;
+    color: #ccccdf;
+    font-size: 14px;
 }
 
-/* OPEN COURSE BUTTON */
-
-.open-course {
-  display: block;
-  text-align: center;
-  padding: 13px 16px;
-  border-radius: 10px;
-  text-decoration: none;
-  color: #0b0b18;
-  font-weight: bold;
-  font-size: 14px;
-  background: linear-gradient(90deg, #65eee4, #8187ff);
-  transition: .3s;
+.notice {
+    margin-top: 25px;
+    padding: 18px;
+    background: #15152a;
+    border-left: 4px solid #65eee4;
+    border-radius: 10px;
+    color: #ddddf5;
 }
 
-.open-course:hover {
-  transform: scale(1.03);
-  box-shadow: 0 5px 20px rgba(101, 238, 228, .2);
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
 }
 
-/* FOOTER */
+.nav-button {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: #8187ff;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-button:hover {
+    background: #65eee4;
+    color: #0b0b18;
+}
 
 footer {
-  text-align: center;
-  background: #111126;
-  padding: 27px 15px;
-  color: #9999b5;
-  font-size: 13px;
-  line-height: 1.9;
+    text-align: center;
+    margin-top: 35px;
+    padding: 20px;
+    color: #9999b5;
+    border-top: 1px solid #33334d;
+    font-size: 13px;
 }
 
-/* MOBILE RESPONSIVENESS */
+@media (max-width: 500px) {
+    body {
+        padding: 12px;
+    }
 
-@media(max-width: 650px) {
-  .courses {
-    grid-template-columns: 1fr;
-  }
-
-  header {
-    padding: 17px 5%;
-  }
-
-  .course-card {
-    padding: 22px;
-  }
-
-  .hero {
-    padding-top: 50px;
-  }
+    header h1 {
+        font-size: 23px;
+    }
 }
 </style>
 </head>
 
 <body>
-
-<!-- HEADER -->
+<div class="container">
 
 <header>
-  <a href="../../index.html" class="logo">
-    🎓 Smart Generation Tutor
-  </a>
-
-  <a href="../index.html" class="back">
-    ← Grade 11
-  </a>
+    <h1>Grade 11 Natural Science</h1>
+    <p>Smart Generation Tutor</p>
+    <p>Learn • Explore • Practice • Grow</p>
 </header>
 
-<!-- HERO -->
+<h2 class="section-title">Explore Your Courses</h2>
 
-<section class="hero">
+<div class="course-grid">
 
-  <span>GRADE 11 • NATURAL SCIENCE</span>
+    <a class="course-card" href="mathematics/index.html">
+        <h2>Mathematics</h2>
+        <p>Explore mathematical concepts, formulas and problem-solving.</p>
+    </a>
 
-  <h1>Natural Science Courses</h1>
+    <a class="course-card" href="physics/index.html">
+        <h2>Physics</h2>
+        <p>Study physical principles, laws and practical applications.</p>
+    </a>
 
-  <p>
-    Welcome to your Grade 11 Natural Science learning library.
-    Select a course to access its lessons, educational resources,
-    notes, presentations and practice materials.
-  </p>
+    <a class="course-card" href="chemistry/index.html">
+        <h2>Chemistry</h2>
+        <p>Learn about matter, chemical reactions and their applications.</p>
+    </a>
 
-</section>
+    <a class="course-card" href="biology/index.html">
+        <h2>Biology</h2>
+        <p>Discover living organisms, cells and biological systems.</p>
+    </a>
 
-<!-- COURSES -->
+    <a class="course-card" href="english/index.html">
+        <h2>English</h2>
+        <p>Improve reading, writing, speaking and communication skills.</p>
+    </a>
 
-<main class="container">
+    <a class="course-card" href="amharic/index.html">
+        <h2>Amharic</h2>
+        <p>Develop language, reading and writing skills.</p>
+    </a>
 
-  <div class="section-title">
-    <h2>📚 Explore Your Courses</h2>
-    <p>Select any course below to enter its learning library.</p>
-  </div>
+    <a class="course-card" href="afaan-oromoo/index.html">
+        <h2>Afaan Oromoo</h2>
+        <p>Develop language skills and explore literature.</p>
+    </a>
 
-  <div class="courses">
+    <a class="course-card" href="ict/index.html">
+        <h2>ICT</h2>
+        <p>Explore information technology and digital skills.</p>
+    </a>
 
-    <!-- MATHEMATICS -->
+    <a class="course-card" href="agriculture/index.html">
+        <h2>Agriculture</h2>
+        <p>Learn agricultural science and modern farming practices.</p>
+    </a>
 
-    <div class="course-card">
-      <div class="course-icon">➗</div>
-      <h3>Mathematics</h3>
-      <p>
-        Develop mathematical reasoning, numerical skills,
-        equations and problem-solving abilities.
-      </p>
-      <a href="mathematics/index.html" class="open-course">
-        Open Course →
-      </a>
-    </div>
+</div>
 
-    <!-- PHYSICS -->
+<div class="notice">
+    <strong>Learning Notice</strong>
+    <p>Select a course to access its learning materials. Available PDFs, presentations, notes, videos and practice activities will be organized inside each course.</p>
+</div>
 
-    <div class="course-card">
-      <div class="course-icon">⚡</div>
-      <h3>Physics</h3>
-      <p>
-        Explore energy, motion, forces, matter and the
-        physical laws governing the universe.
-      </p>
-      <a href="physics/index.html" class="open-course">
-        Open Course →
-      </a>
-    </div>
-
-    <!-- CHEMISTRY -->
-
-    <div class="course-card">
-      <div class="course-icon">🧪</div>
-      <h3>Chemistry</h3>
-      <p>
-        Understand atoms, molecules, chemical reactions
-        and the properties of substances.
-      </p>
-      <a href="chemistry/index.html" class="open-course">
-        Open Course →
-      </a>
-    </div>
-
-    <!-- BIOLOGY -->
-
-    <div class="course-card">
-      <div class="course-icon">🧬</div>
-      <h3>Biology</h3>
-      <p>
-        Discover living organisms, cells, genetics,
-        evolution and biological processes.
-      </p>
-      <a href="biology/index.html" class="open-course">
-        Open Course →
-      </a>
-    </div>
-
-    <!-- ENGLISH -->
-
-    <div class="course-card">
-      <div class="course-icon">🌐</div>
-      <h3>English</h3>
-      <p>
-        Improve reading, writing, grammar, speaking
-        and communication skills.
-      </p>
-      <a href="english/index.html" class="open-course">
-        Open Course →
-      </a>
-    </div>
-
-    <!-- AMHARIC -->
-
-    <div class="course-card">
-      <div class="course-icon">📖</div>
-      <h3>Amharic</h3>
-      <p>
-        Develop Amharic language proficiency,
-        literature and communication skills.
-      </p>
-      <a href="amharic/index.html" class="open-course">
-        Open Course →
-      </a>
-    </div>
-
-    <!-- AFAAN OROMOO -->
-
-    <div class="course-card">
-      <div class="course-icon">🗣️</div>
-      <h3>Afaan Oromoo</h3>
-      <p>
-        Strengthen Afaan Oromoo language,
-        literature and communication skills.
-      </p>
-      <a href="afaan-oromoo/index.html" class="open-course">
-        Open Course →
-      </a>
-    </div>
-
-    <!-- ICT -->
-
-    <div class="course-card">
-      <div class="course-icon">💻</div>
-      <h3>Information Technology (ICT)</h3>
-      <p>
-        Learn about computer systems, digital technology,
-        information and modern computing.
-      </p>
-      <a href="ict/index.html" class="open-course">
-        Open Course →
-      </a>
-    </div>
-
-    <!-- AGRICULTURE -->
-
-    <div class="course-card">
-      <div class="course-icon">🌱</div>
-      <h3>Agriculture</h3>
-      <p>
-        Explore crops, soil science, farming practices
-        and sustainable agricultural production.
-      </p>
-      <a href="agriculture/index.html" class="open-course">
-        Open Course →
-      </a>
-    </div>
-
-  </div>
-
-</main>
-
-<!-- FOOTER -->
+<div class="navigation">
+    <a class="nav-button" href="../index.html">← Back to Grade 11</a>
+    <a class="nav-button" href="../../index.html">Smart Generation Home</a>
+</div>
 
 <footer>
-  <p>© 2026 Smart Generation Tutor | Created by Gidy Nega</p>
-  <p>Learn • Create • Share • Grow 🚀</p>
+    <p>© 2026 Smart Generation Tutor | Gidy Nega</p>
+    <p>Learn Today, Lead Tomorrow.</p>
 </footer>
 
+</div>
 </body>
 </html>
