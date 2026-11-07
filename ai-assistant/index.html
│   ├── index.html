@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Gidy AI — Your intelligent learning assistant for Pharmacy, Programming, Trading and general education.">
+
+    <title>Gidy AI | Learning Assistant</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="brand">
+                <div class="brand-icon">G</div>
+                <div>
+                    <h2>Gidy AI</h2>
+                    <span>Learning Assistant</span>
+                </div>
+            </div>
+
+            <button class="new-chat" id="newChat">
+                <span>＋</span> New Conversation
+            </button>
+
+            <div class="sidebar-section">
+                <p class="section-label">LEARNING AREAS</p>
+
+                <button class="subject-btn" data-prompt="Act as my Pharmacy tutor. Help me understand Pharmacy topics step by step.">
+                    💊 Pharmacy
+                </button>
+
+                <button class="subject-btn" data-prompt="Act as my programming tutor. Teach me programming from beginner level.">
+                    💻 Programming
+                </button>
+
+                <button class="subject-btn" data-prompt="Act as my Trading tutor. Teach me trading from beginner level.">
+                    📈 Trading
+                </button>
+
+                <button class="subject-btn" data-prompt="Act as my Grade 9 to 12 educational tutor.">
+                    🎓 Smart Generation
+                </button>
+            </div>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html">← Back to Gidy Nega Website</a>
+                <p>Powered by Gidy Nega</p>
+            </div>
+
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main">
+
+            <header class="topbar">
+                <button class="menu-btn" id="menuBtn">☰</button>
+
+                <div class="top-title">
+                    <h3>AI Learning Assistant</h3>
+                    <span><i class="online-dot"></i> Your learning companion</span>
+                </div>
+
+                <button class="clear-btn" id="clearChat">
+                    Clear chat
+                </button>
+            </header>
+
+            <!-- CHAT AREA -->
+            <section class="chat-area" id="chatArea">
+
+                <div class="welcome" id="welcome">
+
+                    <div class="welcome-icon">✦</div>
+
+                    <h1>Welcome to <span>Gidy AI</span></h1>
+
+                    <p>
+                        Your intelligent learning companion.
+                        Ask questions, explore ideas and understand
+                        difficult topics more easily.
+                    </p>
+
+                    <div class="suggestions">
+
+                        <button class="suggestion"
+                        data-prompt="Explain malaria and its pathophysiology in simple English.">
+                            <span>💊</span>
+                            <strong>Pharmacy</strong>
+                            <small>Explain malaria simply</small>
+                        </button>
+
+                        <button class="suggestion"
+                        data-prompt="Teach me Python programming from the beginning with examples.">
+                            <span>💻</span>
+                            <strong>Programming</strong>
+                            <small>Start learning Python</small>
+                        </button>
+
+                        <button class="suggestion"
+                        data-prompt="Explain technical analysis in trading for a beginner.">
+                            <span>📊</span>
+                            <strong>Trading</strong>
+                            <small>Understand technical analysis</small>
+                        </button>
+
+                        <button class="suggestion"
+                        data-prompt="Explain photosynthesis for a Grade 9 student.">
+                            <span>🎓</span>
+                            <strong>School Learning</strong>
+                            <small>Understand photosynthesis</small>
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="messages" id="messages"></div>
+
+            </section>
+
+            <!-- INPUT AREA -->
+            <footer class="input-section">
+
+                <form id="chatForm" class="input-box">
+
+                    <textarea
+                        id="userInput"
+                        placeholder="Ask Gidy AI anything..."
+                        rows="1"
+                        required
+                    ></textarea>
+
+                    <button type="submit" id="sendBtn" aria-label="Send message">
+                        ➤
+                    </button>
+
+                </form>
+
+                <p class="disclaimer">
+                    Gidy AI can make mistakes. Verify important information.
+                    Educational use only.
+                </p>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
