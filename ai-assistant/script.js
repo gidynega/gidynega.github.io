@@ -1,4 +1,3 @@
-
 /* ==============================
    GIDY AI - JAVASCRIPT
    Connected to Cloudflare Workers AI
@@ -24,7 +23,7 @@ const menuBtn = document.getElementById("menuBtn");
 
 let isLoading = false;
 
-// ADD MESSAGE TO CHAT
+// ADD MESSAGE TO CHAT (Updated to use marked.parse for Markdown rendering)
 
 function addMessage(role, content) {
 
@@ -49,7 +48,9 @@ function addMessage(role, content) {
 
     const text = document.createElement("div");
     text.className = "message-text";
-    text.textContent = content;
+    
+    // Convert Markdown (like **bold** or lists) into clean HTML elements
+    text.innerHTML = marked.parse(content);
 
     messageContent.appendChild(name);
     messageContent.appendChild(text);
@@ -143,7 +144,8 @@ async function sendMessage(question) {
             );
         }
 
-        replyElement.textContent = aiReply;
+        // Render AI response properly as HTML via marked.js
+        replyElement.innerHTML = marked.parse(aiReply);
 
         replyElement.classList.remove("typing");
 
