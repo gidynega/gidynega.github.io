@@ -1,12 +1,12 @@
 
 /* ==============================
    GIDY AI - JAVASCRIPT
+   Connected to Cloudflare Workers AI
 ================================ */
 
 // BACKEND CONNECTION
-// We will add your secure backend URL in a later step.
 
-const API_URL = "";
+const API_URL = "https://bold-smoke-695fgidy-ai-backend.gidynega.workers.dev";
 
 // GET HTML ELEMENTS
 
@@ -70,7 +70,9 @@ function scrollToBottom() {
 
     const chatArea = document.getElementById("chatArea");
 
-    chatArea.scrollTop = chatArea.scrollHeight;
+    if (chatArea) {
+        chatArea.scrollTop = chatArea.scrollHeight;
+    }
 }
 
 // SHOW TYPING INDICATOR
@@ -82,7 +84,8 @@ function showTyping() {
         "Gidy AI is thinking..."
     );
 
-    typingMessage.querySelector(".message-text").classList.add("typing");
+    typingMessage.querySelector(".message-text")
+        .classList.add("typing");
 
     return typingMessage;
 }
@@ -105,13 +108,10 @@ async function sendMessage(question) {
 
     const typingMessage = showTyping();
 
-    try {
+    const replyElement =
+        typingMessage.querySelector(".message-text");
 
-        if (!API_URL) {
-            throw new Error(
-                "The AI backend has not been connected yet. We will connect it in the next development step."
-            );
-        }
+    try {
 
         const response = await fetch(API_URL, {
 
@@ -127,27 +127,34 @@ async function sendMessage(question) {
 
         });
 
-        if (!response.ok) {
-            throw new Error("Server error: " + response.status);
-        }
-
         const data = await response.json();
 
-        if (!data.reply) {
-            throw new Error("The AI returned an empty response.");
+        if (!response.ok) {
+            throw new Error(
+                data.error || "Server error: " + response.status
+            );
         }
 
-        typingMessage.querySelector(".message-text").textContent =
-            data.reply;
+        const aiReply = data.reply || data.response;
 
-        typingMessage.querySelector(".message-text").classList.remove("typing");
+        if (!aiReply) {
+            throw new Error(
+                "The AI returned an empty response."
+            );
+        }
+
+        replyElement.textContent = aiReply;
+
+        replyElement.classList.remove("typing");
 
     } catch (error) {
 
-        typingMessage.querySelector(".message-text").textContent =
+        replyElement.textContent =
             "⚠️ " + error.message;
 
-        typingMessage.querySelector(".message-text").classList.remove("typing");
+        replyElement.classList.remove("typing");
+
+        console.error("Gidy AI Error:", error);
 
     } finally {
 
@@ -156,6 +163,7 @@ async function sendMessage(question) {
 
         userInput.focus();
         scrollToBottom();
+
     }
 }
 
@@ -178,6 +186,7 @@ userInput.addEventListener("keydown", function(event) {
         event.preventDefault();
 
         chatForm.requestSubmit();
+
     }
 
 });
@@ -205,7 +214,10 @@ function startNewChat() {
     userInput.focus();
 
     sidebar.classList.remove("open");
+
 }
+
+// NEW CHAT BUTTON
 
 newChat.addEventListener("click", startNewChat);
 
@@ -254,4 +266,3 @@ menuBtn.addEventListener("click", function() {
     sidebar.classList.toggle("open");
 
 });
-
