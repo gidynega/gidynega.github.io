@@ -1,8 +1,9 @@
 
-/* ==============================
+/* =========================================
    GIDY AI - MULTIMODAL JAVASCRIPT
    Text + Image Support
-================================ */
+   Reading-friendly scrolling
+========================================= */
 
 // BACKEND CONNECTION
 const API_URL =
@@ -32,10 +33,14 @@ const attachmentPreview =
 document.getElementById("attachmentPreview");
 
 let selectedImage = null;
+let previewUrl = null;
 let isLoading = false;
 
 
+// =========================================
 // ADD MESSAGE TO CHAT
+// =========================================
+
 function addMessage(role, content, imageUrl = null) {
 
     welcome.style.display = "none";
@@ -89,19 +94,26 @@ function addMessage(role, content, imageUrl = null) {
 
     messages.appendChild(message);
 
-    scrollToBottom();
-
     return message;
 }
 
 
-// SCROLL TO LATEST MESSAGE
+// =========================================
+// READING-FRIENDLY SCROLLING
+// =========================================
+
+// Do not automatically move the reader
+// to the bottom of the conversation.
 
 function scrollToBottom() {
-    // Automatic scrolling disabled.
-    // The user controls scrolling manually.
+    // Intentionally disabled.
 }
+
+
+// =========================================
 // SHOW TYPING INDICATOR
+// =========================================
+
 function showTyping() {
 
     const typingMessage = addMessage(
@@ -116,7 +128,10 @@ function showTyping() {
 }
 
 
+// =========================================
 // IMAGE SELECTION
+// =========================================
+
 attachmentButton.addEventListener("click", function () {
 
     if (!isLoading) {
@@ -126,7 +141,10 @@ attachmentButton.addEventListener("click", function () {
 });
 
 
+// =========================================
 // HANDLE SELECTED IMAGE
+// =========================================
+
 imageInput.addEventListener("change", function () {
 
     const file = this.files[0];
@@ -158,10 +176,18 @@ imageInput.addEventListener("change", function () {
 });
 
 
+// =========================================
 // SHOW IMAGE PREVIEW
+// =========================================
+
 function showImagePreview() {
 
     attachmentPreview.innerHTML = "";
+
+    if (previewUrl) {
+        URL.revokeObjectURL(previewUrl);
+        previewUrl = null;
+    }
 
     if (!selectedImage) return;
 
@@ -174,7 +200,9 @@ function showImagePreview() {
 
     const image = document.createElement("img");
 
-    image.src = URL.createObjectURL(selectedImage);
+    previewUrl = URL.createObjectURL(selectedImage);
+
+    image.src = previewUrl;
     image.style.width = "65px";
     image.style.height = "65px";
     image.style.objectFit = "cover";
@@ -190,6 +218,12 @@ function showImagePreview() {
 
         selectedImage = null;
         imageInput.value = "";
+
+        if (previewUrl) {
+            URL.revokeObjectURL(previewUrl);
+            previewUrl = null;
+        }
+
         attachmentPreview.innerHTML = "";
 
     });
@@ -201,7 +235,10 @@ function showImagePreview() {
 }
 
 
+// =========================================
 // CONVERT IMAGE TO BASE64
+// =========================================
+
 function imageToBase64(file) {
 
     return new Promise((resolve, reject) => {
@@ -227,7 +264,10 @@ function imageToBase64(file) {
 }
 
 
+// =========================================
 // SEND MESSAGE TO AI
+// =========================================
+
 async function sendMessage(question) {
 
     question = question.trim();
@@ -247,6 +287,7 @@ async function sendMessage(question) {
         imageUrl = URL.createObjectURL(imageFile);
     }
 
+    // DISPLAY USER MESSAGE
     addMessage(
         "user",
         question || "Please analyze this image.",
@@ -258,12 +299,20 @@ async function sendMessage(question) {
 
     selectedImage = null;
     imageInput.value = "";
+
+    if (previewUrl) {
+        URL.revokeObjectURL(previewUrl);
+        previewUrl = null;
+    }
+
     attachmentPreview.innerHTML = "";
 
     isLoading = true;
+
     sendBtn.disabled = true;
     attachmentButton.disabled = true;
 
+    // SHOW THINKING MESSAGE
     const typingMessage = showTyping();
 
     const replyElement =
@@ -315,6 +364,7 @@ async function sendMessage(question) {
 
         }
 
+        // DISPLAY AI ANSWER
         replyElement.innerHTML = marked.parse(aiReply);
 
         replyElement.classList.remove("typing");
@@ -339,16 +389,20 @@ async function sendMessage(question) {
             URL.revokeObjectURL(imageUrl);
         }
 
-        userInput.focus();
-
-        scrollToBottom();
+        // IMPORTANT:
+        // No automatic scrolling.
+        // No automatic input focus.
+        // The reader controls the page.
 
     }
 
 }
 
 
+// =========================================
 // SUBMIT CHAT FORM
+// =========================================
+
 chatForm.addEventListener("submit", function (event) {
 
     event.preventDefault();
@@ -358,7 +412,10 @@ chatForm.addEventListener("submit", function (event) {
 });
 
 
+// =========================================
 // ENTER TO SEND MESSAGE
+// =========================================
+
 userInput.addEventListener("keydown", function (event) {
 
     if (event.key === "Enter" && !event.shiftKey) {
@@ -372,7 +429,10 @@ userInput.addEventListener("keydown", function (event) {
 });
 
 
+// =========================================
 // AUTO RESIZE TEXTAREA
+// =========================================
+
 userInput.addEventListener("input", function () {
 
     userInput.style.height = "42px";
@@ -383,7 +443,10 @@ userInput.addEventListener("input", function () {
 });
 
 
+// =========================================
 // NEW CONVERSATION
+// =========================================
+
 function startNewChat() {
 
     messages.innerHTML = "";
@@ -396,20 +459,29 @@ function startNewChat() {
 
     imageInput.value = "";
 
-    attachmentPreview.innerHTML = "";
+    if (previewUrl) {
+        URL.revokeObjectURL(previewUrl);
+        previewUrl = null;
+    }
 
-    userInput.focus();
+    attachmentPreview.innerHTML = "";
 
     sidebar.classList.remove("open");
 
 }
 
 
+// =========================================
 // NEW CHAT BUTTON
+// =========================================
+
 newChat.addEventListener("click", startNewChat);
 
 
+// =========================================
 // CLEAR CONVERSATION
+// =========================================
+
 clearChat.addEventListener("click", function () {
 
     startNewChat();
@@ -417,7 +489,10 @@ clearChat.addEventListener("click", function () {
 });
 
 
+// =========================================
 // SUGGESTED QUESTIONS
+// =========================================
+
 document.querySelectorAll(".suggestion").forEach(button => {
 
     button.addEventListener("click", function () {
@@ -431,7 +506,10 @@ document.querySelectorAll(".suggestion").forEach(button => {
 });
 
 
+// =========================================
 // LEARNING AREA BUTTONS
+// =========================================
+
 document.querySelectorAll(".subject-btn").forEach(button => {
 
     button.addEventListener("click", function () {
@@ -447,7 +525,10 @@ document.querySelectorAll(".subject-btn").forEach(button => {
 });
 
 
+// =========================================
 // MOBILE SIDEBAR
+// =========================================
+
 menuBtn.addEventListener("click", function () {
 
     sidebar.classList.toggle("open");
