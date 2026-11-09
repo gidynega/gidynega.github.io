@@ -97,28 +97,28 @@
                     <div class="suggestions">
 
                         <button class="suggestion"
-                        data-prompt="Explain malaria and its pathophysiology in simple English.">
+                        data-prompt="Explain about introduction of pharmacy education.">
                             <span>💊</span>
                             <strong>Pharmacy</strong>
                             <small>Explain malaria simply</small>
                         </button>
 
                         <button class="suggestion"
-                        data-prompt="Teach me Python programming from the beginning with examples.">
+                        data-prompt="Tell me about python.">
                             <span>💻</span>
                             <strong>Programming</strong>
                             <small>Start learning Python</small>
                         </button>
 
                         <button class="suggestion"
-                        data-prompt="Explain technical analysis in trading for a beginner.">
+                        data-prompt="Explain what trading means.">
                             <span>📊</span>
                             <strong>Trading</strong>
                             <small>Understand technical analysis</small>
                         </button>
 
                         <button class="suggestion"
-                        data-prompt="Explain photosynthesis for a Grade 9 student.">
+                        data-prompt="Help me for national grade 12 entrance exam.">
                             <span>🎓</span>
                             <strong>School Learning</strong>
                             <small>Understand photosynthesis</small>
@@ -132,30 +132,57 @@
 
             </section>
 
-            <!-- INPUT AREA -->
-            <footer class="input-section">
+            
+<!-- INPUT AREA -->
+<footer class="input-section">
 
-                <form id="chatForm" class="input-box">
+    <form id="chatForm" class="input-box">
 
-                    <textarea
-                        id="userInput"
-                        placeholder="Ask Gidy AI anything..."
-                        rows="1"
-                        required
-                    ></textarea>
+        <!-- IMAGE ATTACHMENT BUTTON -->
+        <button
+            type="button"
+            id="attachmentButton"
+            aria-label="Attach image"
+            title="Attach an image">
+            📎
+        </button>
 
-                    <button type="submit" id="sendBtn" aria-label="Send message">
-                        ➤
-                    </button>
+        <!-- HIDDEN IMAGE INPUT -->
+        <input
+            type="file"
+            id="imageInput"
+            accept="image/jpeg,image/png,image/webp"
+            hidden
+        >
 
-                </form>
+        <!-- IMAGE PREVIEW -->
+        <div id="attachmentPreview" class="attachment-preview"></div>
 
-                <p class="disclaimer">
-                    Gidy AI can make mistakes. Verify important information.
-                    Educational use only.
-                </p>
+        <!-- MESSAGE INPUT -->
+        <textarea
+            id="userInput"
+            placeholder="Ask Gidy AI anything..."
+            rows="1"
+            required
+        ></textarea>
 
-            </footer>
+        <!-- SEND BUTTON -->
+        <button
+            type="submit"
+            id="sendBtn"
+            aria-label="Send message">
+            ➤
+        </button>
+
+    </form>
+
+    <p class="disclaimer">
+        Gidy AI can make mistakes. Verify important information.
+        Educational use only.
+    </p>
+
+</footer>
+
 
         </main>
 
