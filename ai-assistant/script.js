@@ -1,14 +1,14 @@
+
 /* ==============================
-   GIDY AI - JAVASCRIPT
-   Connected to Cloudflare Workers AI
+   GIDY AI - MULTIMODAL JAVASCRIPT
+   Text + Image Support
 ================================ */
 
 // BACKEND CONNECTION
+const API_URL =
+"https://bold-smoke-695fgidy-ai-backend.gidynega.workers.dev";
 
-const API_URL = "https://bold-smoke-695fgidy-ai-backend.gidynega.workers.dev";
-
-// GET HTML ELEMENTS
-
+// HTML ELEMENTS
 const chatForm = document.getElementById("chatForm");
 const userInput = document.getElementById("userInput");
 const messages = document.getElementById("messages");
@@ -21,11 +21,22 @@ const clearChat = document.getElementById("clearChat");
 const sidebar = document.getElementById("sidebar");
 const menuBtn = document.getElementById("menuBtn");
 
+// IMAGE ELEMENTS
+const attachmentButton =
+document.getElementById("attachmentButton");
+
+const imageInput =
+document.getElementById("imageInput");
+
+const attachmentPreview =
+document.getElementById("attachmentPreview");
+
+let selectedImage = null;
 let isLoading = false;
 
-// ADD MESSAGE TO CHAT (Updated to use marked.parse for Markdown rendering)
 
-function addMessage(role, content) {
+// ADD MESSAGE TO CHAT
+function addMessage(role, content, imageUrl = null) {
 
     welcome.style.display = "none";
 
@@ -48,11 +59,29 @@ function addMessage(role, content) {
 
     const text = document.createElement("div");
     text.className = "message-text";
-    
-    // Convert Markdown (like **bold** or lists) into clean HTML elements
-    text.innerHTML = marked.parse(content);
+
+    if (content) {
+        text.innerHTML = marked.parse(content);
+    }
 
     messageContent.appendChild(name);
+
+    // DISPLAY IMAGE
+    if (imageUrl) {
+
+        const image = document.createElement("img");
+
+        image.src = imageUrl;
+        image.alt = "Uploaded image";
+
+        image.style.maxWidth = "100%";
+        image.style.maxHeight = "300px";
+        image.style.borderRadius = "12px";
+        image.style.marginBottom = "10px";
+
+        messageContent.appendChild(image);
+    }
+
     messageContent.appendChild(text);
 
     message.appendChild(avatar);
@@ -65,19 +94,20 @@ function addMessage(role, content) {
     return message;
 }
 
-// SCROLL TO LATEST MESSAGE
 
+// SCROLL TO LATEST MESSAGE
 function scrollToBottom() {
 
-    const chatArea = document.getElementById("chatArea");
+    const chatArea =
+    document.getElementById("chatArea");
 
     if (chatArea) {
         chatArea.scrollTop = chatArea.scrollHeight;
     }
 }
 
-// SHOW TYPING INDICATOR
 
+// SHOW TYPING INDICATOR
 function showTyping() {
 
     const typingMessage = addMessage(
@@ -91,28 +121,173 @@ function showTyping() {
     return typingMessage;
 }
 
-// SEND QUESTION TO AI
 
+// IMAGE SELECTION
+attachmentButton.addEventListener("click", function () {
+
+    if (!isLoading) {
+        imageInput.click();
+    }
+
+});
+
+
+// HANDLE SELECTED IMAGE
+imageInput.addEventListener("change", function () {
+
+    const file = this.files[0];
+
+    if (!file) return;
+
+    // CHECK IMAGE TYPE
+    if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
+
+        alert("Please select a JPG, PNG or WEBP image.");
+
+        this.value = "";
+        return;
+    }
+
+    // CHECK IMAGE SIZE (5 MB)
+    if (file.size > 5 * 1024 * 1024) {
+
+        alert("Image size must be less than 5 MB.");
+
+        this.value = "";
+        return;
+    }
+
+    selectedImage = file;
+
+    showImagePreview();
+
+});
+
+
+// SHOW IMAGE PREVIEW
+function showImagePreview() {
+
+    attachmentPreview.innerHTML = "";
+
+    if (!selectedImage) return;
+
+    const container = document.createElement("div");
+
+    container.style.display = "flex";
+    container.style.alignItems = "center";
+    container.style.gap = "10px";
+    container.style.padding = "8px";
+
+    const image = document.createElement("img");
+
+    image.src = URL.createObjectURL(selectedImage);
+    image.style.width = "65px";
+    image.style.height = "65px";
+    image.style.objectFit = "cover";
+    image.style.borderRadius = "8px";
+
+    const removeButton = document.createElement("button");
+
+    removeButton.type = "button";
+    removeButton.textContent = "✕";
+    removeButton.title = "Remove image";
+
+    removeButton.addEventListener("click", function () {
+
+        selectedImage = null;
+        imageInput.value = "";
+        attachmentPreview.innerHTML = "";
+
+    });
+
+    container.appendChild(image);
+    container.appendChild(removeButton);
+
+    attachmentPreview.appendChild(container);
+}
+
+
+// CONVERT IMAGE TO BASE64
+function imageToBase64(file) {
+
+    return new Promise((resolve, reject) => {
+
+        const reader = new FileReader();
+
+        reader.onload = () => {
+
+            const result = reader.result;
+
+            resolve(result.split(",")[1]);
+
+        };
+
+        reader.onerror = () => {
+            reject(new Error("Could not read the image."));
+        };
+
+        reader.readAsDataURL(file);
+
+    });
+
+}
+
+
+// SEND MESSAGE TO AI
 async function sendMessage(question) {
 
     question = question.trim();
 
-    if (!question || isLoading) return;
+    if ((!question && !selectedImage) || isLoading) return;
 
-    addMessage("user", question);
+    if (question.length > 4000) {
+        alert("Your message is too long.");
+        return;
+    }
+
+    const imageFile = selectedImage;
+
+    let imageUrl = null;
+
+    if (imageFile) {
+        imageUrl = URL.createObjectURL(imageFile);
+    }
+
+    addMessage(
+        "user",
+        question || "Please analyze this image.",
+        imageUrl
+    );
 
     userInput.value = "";
     userInput.style.height = "42px";
 
+    selectedImage = null;
+    imageInput.value = "";
+    attachmentPreview.innerHTML = "";
+
     isLoading = true;
     sendBtn.disabled = true;
+    attachmentButton.disabled = true;
 
     const typingMessage = showTyping();
 
     const replyElement =
-        typingMessage.querySelector(".message-text");
+    typingMessage.querySelector(".message-text");
 
     try {
+
+        const payload = {
+            message: question || "Please analyze this image."
+        };
+
+        // ADD IMAGE DATA
+        if (imageFile) {
+
+            payload.image = await imageToBase64(imageFile);
+            payload.imageType = imageFile.type;
+
+        }
 
         const response = await fetch(API_URL, {
 
@@ -122,29 +297,30 @@ async function sendMessage(question) {
                 "Content-Type": "application/json"
             },
 
-            body: JSON.stringify({
-                message: question
-            })
+            body: JSON.stringify(payload)
 
         });
 
         const data = await response.json();
 
         if (!response.ok) {
+
             throw new Error(
                 data.error || "Server error: " + response.status
             );
+
         }
 
-        const aiReply = data.reply || data.response;
+        const aiReply = data.response || data.reply;
 
         if (!aiReply) {
+
             throw new Error(
                 "The AI returned an empty response."
             );
+
         }
 
-        // Render AI response properly as HTML via marked.js
         replyElement.innerHTML = marked.parse(aiReply);
 
         replyElement.classList.remove("typing");
@@ -152,7 +328,7 @@ async function sendMessage(question) {
     } catch (error) {
 
         replyElement.textContent =
-            "⚠️ " + error.message;
+        "⚠️ " + error.message;
 
         replyElement.classList.remove("typing");
 
@@ -161,17 +337,25 @@ async function sendMessage(question) {
     } finally {
 
         isLoading = false;
+
         sendBtn.disabled = false;
+        attachmentButton.disabled = false;
+
+        if (imageUrl) {
+            URL.revokeObjectURL(imageUrl);
+        }
 
         userInput.focus();
+
         scrollToBottom();
 
     }
+
 }
 
-// SUBMIT CHAT FORM
 
-chatForm.addEventListener("submit", function(event) {
+// SUBMIT CHAT FORM
+chatForm.addEventListener("submit", function (event) {
 
     event.preventDefault();
 
@@ -179,9 +363,9 @@ chatForm.addEventListener("submit", function(event) {
 
 });
 
-// ENTER TO SEND MESSAGE
 
-userInput.addEventListener("keydown", function(event) {
+// ENTER TO SEND MESSAGE
+userInput.addEventListener("keydown", function (event) {
 
     if (event.key === "Enter" && !event.shiftKey) {
 
@@ -193,19 +377,19 @@ userInput.addEventListener("keydown", function(event) {
 
 });
 
-// AUTO RESIZE TEXTAREA
 
-userInput.addEventListener("input", function() {
+// AUTO RESIZE TEXTAREA
+userInput.addEventListener("input", function () {
 
     userInput.style.height = "42px";
 
     userInput.style.height =
-        Math.min(userInput.scrollHeight, 140) + "px";
+    Math.min(userInput.scrollHeight, 140) + "px";
 
 });
 
-// NEW CONVERSATION
 
+// NEW CONVERSATION
 function startNewChat() {
 
     messages.innerHTML = "";
@@ -213,29 +397,36 @@ function startNewChat() {
     welcome.style.display = "block";
 
     userInput.value = "";
+
+    selectedImage = null;
+
+    imageInput.value = "";
+
+    attachmentPreview.innerHTML = "";
+
     userInput.focus();
 
     sidebar.classList.remove("open");
 
 }
 
-// NEW CHAT BUTTON
 
+// NEW CHAT BUTTON
 newChat.addEventListener("click", startNewChat);
 
-// CLEAR CONVERSATION
 
-clearChat.addEventListener("click", function() {
+// CLEAR CONVERSATION
+clearChat.addEventListener("click", function () {
 
     startNewChat();
 
 });
 
-// SUGGESTED QUESTIONS
 
+// SUGGESTED QUESTIONS
 document.querySelectorAll(".suggestion").forEach(button => {
 
-    button.addEventListener("click", function() {
+    button.addEventListener("click", function () {
 
         const prompt = this.dataset.prompt;
 
@@ -245,11 +436,11 @@ document.querySelectorAll(".suggestion").forEach(button => {
 
 });
 
-// LEARNING AREA BUTTONS
 
+// LEARNING AREA BUTTONS
 document.querySelectorAll(".subject-btn").forEach(button => {
 
-    button.addEventListener("click", function() {
+    button.addEventListener("click", function () {
 
         const prompt = this.dataset.prompt;
 
@@ -261,9 +452,9 @@ document.querySelectorAll(".subject-btn").forEach(button => {
 
 });
 
-// MOBILE SIDEBAR
 
-menuBtn.addEventListener("click", function() {
+// MOBILE SIDEBAR
+menuBtn.addEventListener("click", function () {
 
     sidebar.classList.toggle("open");
 
