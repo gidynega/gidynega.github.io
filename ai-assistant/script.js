@@ -96,21 +96,11 @@ function addMessage(role, content, imageUrl = null) {
 
 
 // SCROLL TO LATEST MESSAGE
+
 function scrollToBottom() {
-
-    const chatArea =
-    document.getElementById("chatArea");
-
-    if (chatArea) {
-
-        chatArea.scrollTo({
-            top: chatArea.scrollHeight,
-            behavior: "smooth"
-        });
-
-    }
+    // Automatic scrolling disabled.
+    // The user controls scrolling manually.
 }
-
 // SHOW TYPING INDICATOR
 function showTyping() {
 
