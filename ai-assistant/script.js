@@ -102,10 +102,14 @@ function scrollToBottom() {
     document.getElementById("chatArea");
 
     if (chatArea) {
-        chatArea.scrollTop = chatArea.scrollHeight;
+
+        chatArea.scrollTo({
+            top: chatArea.scrollHeight,
+            behavior: "smooth"
+        });
+
     }
 }
-
 
 // SHOW TYPING INDICATOR
 function showTyping() {
