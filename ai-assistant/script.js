@@ -250,7 +250,10 @@ const newChat = $("newChat");
 const clearChat = $("clearChat");
 const sidebar = $("sidebar");
 const menuBtn = $("menuBtn");
-
+// Keep the Send button visible
+if (sendBtn) {
+    sendBtn.hidden = false;
+}
 const attachmentButton = $("attachmentButton");
 const attachmentOptions = $("attachmentOptions");
 const attachmentPreview = $("attachmentPreview");
@@ -268,7 +271,7 @@ const chooseAudio = $("chooseAudio");
 const chooseVideo = $("chooseVideo");
 
 const voiceButton = $("voiceButton");
-const recordingStatus = $("recordingStatus");
+const recordingStatus 55= $("recordingStatus");
 const stopRecordingButton = $("stopRecording");
 const speakReplies = $("speakReplies");
 
