@@ -69,7 +69,51 @@
 
             <button class="clear-btn" id="clearChat">Clear chat</button>
         </header>
+        <!-- GIDY AI USER AUTHENTICATION -->
+        <section class="auth-panel" id="authPanel">
 
+            <div class="auth-heading">
+                <strong>👤 Gidy AI Account</strong>
+                <span id="authStatus">Not signed in</span>
+            </div>
+
+            <div id="authForms">
+
+                <input
+                    type="email"
+                    id="authEmail"
+                    placeholder="Enter your email"
+                    autocomplete="email">
+
+                <input
+                    type="password"
+                    id="authPassword"
+                    placeholder="Enter your password"
+                    autocomplete="current-password">
+
+                <div class="auth-buttons">
+                    <button type="button" id="signUpBtn">
+                        Create Account
+                    </button>
+
+                    <button type="button" id="signInBtn">
+                        Log In
+                    </button>
+                </div>
+
+                <button type="button" id="resetPasswordBtn">
+                    Forgot password?
+                </button>
+
+            </div>
+
+            <button type="button" id="signOutBtn" hidden>
+                Log Out
+            </button>
+
+            <p id="authMessage" aria-live="polite"></p>
+
+        </section>
         <!-- CHAT -->
         <section class="chat-area" id="chatArea">
 
