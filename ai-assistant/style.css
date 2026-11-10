@@ -716,3 +716,176 @@ input:focus-visible {
         font-size: 13px;
     }
 }
+
+/* =====================================================
+   GIDY AI — ACCOUNT DESIGN + MOBILE MENU FIX
+===================================================== */
+
+/* ACCOUNT PANEL */
+
+.auth-panel {
+    width: calc(100% - 40px);
+    max-width: 390px;
+    margin: 14px 20px 0 auto;
+    padding: 16px;
+    background: linear-gradient(145deg, #191930, #111121);
+    border: 1px solid rgba(129, 135, 255, 0.25);
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.22);
+}
+
+.auth-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.auth-heading strong {
+    font-size: 14px;
+    color: white;
+}
+
+#authStatus {
+    font-size: 12px;
+    color: var(--cyan);
+    overflow-wrap: anywhere;
+}
+
+#authForms {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#authForms input {
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    background: #0b0b18;
+    color: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+    font-size: 13px;
+}
+
+#authForms input:focus {
+    border-color: var(--primary);
+}
+
+.auth-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+}
+
+.auth-buttons button {
+    padding: 11px 8px;
+    border: none;
+    border-radius: 9px;
+    background: linear-gradient(135deg, var(--primary), #686eff);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.auth-buttons button:last-child {
+    background: #292943;
+    border: 1px solid var(--border);
+}
+
+#resetPasswordBtn {
+    background: transparent;
+    border: none;
+    color: var(--cyan);
+    font-size: 11px;
+    padding: 5px;
+}
+
+#signOutBtn {
+    background: #292943;
+    color: #ff8293;
+    border: 1px solid rgba(255, 101, 122, 0.25);
+    padding: 9px 14px;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#authMessage {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-top: 9px;
+    overflow-wrap: anywhere;
+}
+
+/* BUTTON INTERACTIONS */
+
+.auth-panel button {
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.auth-panel button:hover {
+    filter: brightness(1.15);
+}
+
+.auth-panel button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* MOBILE SIDEBAR FIX */
+
+@media (max-width: 700px) {
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .menu-btn {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        flex-shrink: 0;
+        background: rgba(129, 135, 255, 0.08);
+        color: white;
+    }
+
+    .menu-btn:active {
+        background: var(--primary);
+    }
+
+    .auth-panel {
+        width: calc(100% - 24px);
+        max-width: 390px;
+        margin: 10px 12px 0 auto;
+        padding: 13px;
+    }
+
+    .auth-heading strong {
+        font-size: 13px;
+    }
+
+    .top-title {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+/* SMALL PHONE FIX */
+
+@media (max-width: 380px) {
+
+    .auth-panel {
+        width: calc(100% - 20px);
+        margin-right: 10px;
+    }
+
+    .auth-buttons button {
+        font-size: 11px;
+    }
+}
