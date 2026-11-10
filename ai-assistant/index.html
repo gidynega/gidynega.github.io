@@ -118,8 +118,43 @@
 
         </section>
 
-        <!-- INPUT -->
+          <!-- INPUT -->
         <footer class="input-section">
+
+            <!-- ATTACHMENT POPUP MENU (Positioned above input box) -->
+            <div
+                class="attachment-options"
+                id="attachmentOptions"
+                hidden>
+
+                <button type="button" id="chooseImage">
+                    🖼️ Image
+                </button>
+
+                <button type="button" id="choosePDF">
+                    📄 PDF
+                </button>
+
+                <button type="button" id="chooseDocument">
+                    📝 Documents
+                </button>
+
+                <button type="button" id="chooseAudio">
+                    🎵 Audio
+                </button>
+
+                <button type="button" id="chooseVideo">
+                    🎬 Video
+                </button>
+
+            </div>
+
+            <!-- ATTACHMENT PREVIEW (Shows selected files above input box) -->
+            <div
+                id="attachmentPreview"
+                class="attachment-preview"
+                aria-live="polite">
+            </div>
 
             <form id="chatForm" class="input-box">
 
@@ -172,14 +207,7 @@
                     multiple
                     hidden>
 
-                <!-- ATTACHMENT PREVIEW -->
-                <div
-                    id="attachmentPreview"
-                    class="attachment-preview"
-                    aria-live="polite">
-                </div>
-
-                <!-- MESSAGE -->
+                <!-- MESSAGE INPUT -->
                 <textarea
                     id="userInput"
                     placeholder="Ask Gidy AI anything..."
@@ -206,48 +234,23 @@
 
             </form>
 
-            <!-- ATTACHMENT MENU -->
-            <div
-                class="attachment-options"
-                id="attachmentOptions"
-                hidden>
+            <!-- FOOTER CONTROLS & DISCLAIMER ROW -->
+            <div class="input-footer-controls">
+                <!-- VOICE STATUS -->
+                <div id="recordingStatus" class="recording-status" hidden>
+                    🔴 Recording voice...
+                    <button type="button" id="stopRecording">
+                        Stop recording
+                    </button>
+                </div>
 
-                <button type="button" id="chooseImage">
-                    🖼️ Image
-                </button>
-
-                <button type="button" id="choosePDF">
-                    📄 PDF
-                </button>
-
-                <button type="button" id="chooseDocument">
-                    📝 Documents
-                </button>
-
-                <button type="button" id="chooseAudio">
-                    🎵 Audio
-                </button>
-
-                <button type="button" id="chooseVideo">
-                    🎬 Video
-                </button>
-
-            </div>
-
-            <!-- VOICE STATUS -->
-            <div id="recordingStatus" class="recording-status" hidden>
-                🔴 Recording voice...
-                <button type="button" id="stopRecording">
-                    Stop recording
-                </button>
-            </div>
-
-            <!-- AI SPEECH -->
-            <div class="voice-controls">
-                <label>
-                    <input type="checkbox" id="speakReplies">
-                    🔊 Speak AI replies
-                </label>
+                <!-- AI SPEECH -->
+                <div class="voice-controls">
+                    <label>
+                        <input type="checkbox" id="speakReplies">
+                        🔊 Speak AI replies
+                    </label>
+                </div>
             </div>
 
             <p class="disclaimer">
@@ -256,6 +259,7 @@
             </p>
 
         </footer>
+
 
     </main>
 </div>
