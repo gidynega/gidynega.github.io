@@ -1281,12 +1281,19 @@ async function prepareAttachments() {
 
 // =====================================================// SEND MESSAGE TO BACKEND
 // =====================================================
+event?.preventDefault();
 
-async function sendMessage(event) {
-    event?.preventDefault();
+// Require login before using Gidy AI
+if (!currentUser) {
+    showAuthMessage(
+        "Please create an account or log in before using Gidy AI.",
+        true
+    );
+    authEmail?.focus();
+    return;
+}
 
-    if (isSending) return;
-
+if (isSending) return;
     const message = userInput.value.trim();
 
     if (!message && attachments.length === 0) {
