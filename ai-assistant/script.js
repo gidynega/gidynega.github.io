@@ -41,6 +41,191 @@ const supabaseClient = window.supabase.createClient(
 
 console.log("Gidy AI Supabase connected.");
 
+// =====================================================
+// GIDY AI — ACCOUNT AUTHENTICATION
+// =====================================================
+
+const authEmail = document.getElementById("authEmail");
+const authPassword = document.getElementById("authPassword");
+
+const signUpBtn = document.getElementById("signUpBtn");
+const signInBtn = document.getElementById("signInBtn");
+const signOutBtn = document.getElementById("signOutBtn");
+const resetPasswordBtn = document.getElementById("resetPasswordBtn");
+
+const authStatus = document.getElementById("authStatus");
+const authMessage = document.getElementById("authMessage");
+const authForms = document.getElementById("authForms");
+
+let currentUser = null;
+
+function showAuthMessage(message, isError = false) {
+    if (!authMessage) return;
+
+    authMessage.textContent = message;
+    authMessage.style.color = isError ? "#ff6b6b" : "#65eee4";
+}
+
+function updateAccountInterface(user) {
+    currentUser = user || null;
+
+    if (authStatus) {
+        authStatus.textContent = user
+            ? "Signed in: " + user.email
+            : "You are not signed in.";
+    }
+
+    if (authForms) {
+        authForms.hidden = !!user;
+    }
+
+    if (signOutBtn) {
+        signOutBtn.hidden = !user;
+    }
+}
+
+// SIGN UP
+signUpBtn?.addEventListener("click", async () => {
+    const email = authEmail?.value.trim();
+    const password = authPassword?.value;
+
+    if (!email || !password) {
+        showAuthMessage("Enter your email and password.", true);
+        return;
+    }
+
+    if (password.length < 8) {
+        showAuthMessage("Password must contain at least 8 characters.", true);
+        return;
+    }
+
+    signUpBtn.disabled = true;
+
+    try {
+        const { data, error } = await supabaseClient.auth.signUp({
+            email,
+            password,
+            options: {
+                emailRedirectTo: window.location.origin
+            }
+        });
+
+        if (error) throw error;
+
+        if (data.session) {
+            updateAccountInterface(data.user);
+            showAuthMessage("Account created successfully!");
+        } else {
+            showAuthMessage(
+                "Account created! Check your email to verify your account."
+            );
+        }
+
+    } catch (error) {
+        showAuthMessage(error.message, true);
+    } finally {
+        signUpBtn.disabled = false;
+    }
+});
+
+// SIGN IN
+signInBtn?.addEventListener("click", async () => {
+    const email = authEmail?.value.trim();
+    const password = authPassword?.value;
+
+    if (!email || !password) {
+        showAuthMessage("Enter your email and password.", true);
+        return;
+    }
+
+    signInBtn.disabled = true;
+
+    try {
+        const { data, error } =
+            await supabaseClient.auth.signInWithPassword({
+                email,
+                password
+            });
+
+        if (error) throw error;
+
+        updateAccountInterface(data.user);
+        showAuthMessage("Welcome to Gidy AI!");
+
+    } catch (error) {
+        showAuthMessage(error.message, true);
+    } finally {
+        signInBtn.disabled = false;
+    }
+});
+
+// PASSWORD RESET
+resetPasswordBtn?.addEventListener("click", async () => {
+    const email = authEmail?.value.trim();
+
+    if (!email) {
+        showAuthMessage("Enter your email address first.", true);
+        return;
+    }
+
+    resetPasswordBtn.disabled = true;
+
+    try {
+        const { error } =
+            await supabaseClient.auth.resetPasswordForEmail(email, {
+                redirectTo: window.location.origin
+            });
+
+        if (error) throw error;
+
+        showAuthMessage("Password reset instructions sent to your email.");
+
+    } catch (error) {
+        showAuthMessage(error.message, true);
+    } finally {
+        resetPasswordBtn.disabled = false;
+    }
+});
+
+// SIGN OUT
+signOutBtn?.addEventListener("click", async () => {
+    signOutBtn.disabled = true;
+
+    try {
+        const { error } = await supabaseClient.auth.signOut();
+
+        if (error) throw error;
+
+        updateAccountInterface(null);
+        showAuthMessage("You have signed out successfully.");
+
+    } catch (error) {
+        showAuthMessage(error.message, true);
+    } finally {
+        signOutBtn.disabled = false;
+    }
+});
+
+// RESTORE LOGIN SESSION AND LISTEN FOR AUTH CHANGES
+async function initializeAuthentication() {
+    const { data, error } = await supabaseClient.auth.getSession();
+
+    if (error) {
+        showAuthMessage(error.message, true);
+        return;
+    }
+
+    updateAccountInterface(data.session?.user || null);
+
+    supabaseClient.auth.onAuthStateChange((event, session) => {
+        updateAccountInterface(session?.user || null);
+    });
+
+    console.log("Gidy AI authentication initialized.");
+}
+
+initializeAuthentication();
+
 
 const STORAGE_KEY = "gidy_ai_current_conversation";
 
@@ -1360,6 +1545,24 @@ async function initializeGidyAI() {
 
         console.log("Gidy AI backend:", health);
 
+    } catch (error) {
+        console.error("Gidy AI backend health check failed:", error);
+    }
+}
+
+initializeGidyAI();
+// =====================================================
+// START APPLICATION
+// =====================================================
+
+async function initializeGidyAI() {
+    console.log("Gidy AI frontend V3.0 initialized.");
+
+    await loadHistory();
+
+    try {
+        const health = await apiRequest("/health");
+        console.log("Gidy AI backend:", health);
     } catch (error) {
         console.error("Gidy AI backend health check failed:", error);
     }
