@@ -1,9 +1,25 @@
 
 /* =====================================================
-   GIDY AI - MULTIMODAL JAVASCRIPT
-   Text + Images + PDF + Documents + Audio + Video
-   Backend: Cloudflare Workers AI + D1
+   GIDY AI - COMPLETE FRONTEND V3.0
+   Compatible with GIDY AI Cloudflare Worker V3
+
+   FEATURES:
+   1. Text conversations
+   2. Image uploads and vision
+   3. PDF text extraction
+   4. Word, Excel and text documents
+   5. PowerPoint text extraction
+   6. Audio transcription
+   7. Video frame analysis
+   8. Conversation history
+   9. Delete and new conversations
+   10. Voice recording
+   11. AI speech replies
 ===================================================== */
+
+// =====================================================
+// BACKEND
+// =====================================================
 
 const API_URL =
     "https://bold-smoke-695fgidy-ai-backend.gidynega.workers.dev";
@@ -11,55 +27,60 @@ const API_URL =
 const STORAGE_KEY = "gidy_ai_current_conversation";
 
 const MAX_FILE_SIZE = 20 * 1024 * 1024;
-const MAX_TOTAL_DOCUMENT_TEXT = 60000;
+const MAX_DOCUMENT_TEXT = 50000;
 const MAX_IMAGES = 8;
 const MAX_VIDEO_FRAMES = 4;
 
-/* =====================================================
-   HTML ELEMENTS
-===================================================== */
+// =====================================================
+// HTML ELEMENTS
+// =====================================================
 
-const chatForm = document.getElementById("chatForm");
-const userInput = document.getElementById("userInput");
-const messages = document.getElementById("messages");
-const welcome = document.getElementById("welcome");
-const sendBtn = document.getElementById("sendBtn");
+const $ = id => document.getElementById(id);
 
-const newChat = document.getElementById("newChat");
-const clearChat = document.getElementById("clearChat");
-const sidebar = document.getElementById("sidebar");
-const menuBtn = document.getElementById("menuBtn");
+const chatForm = $("chatForm");
+const userInput = $("userInput");
+const messages = $("messages");
+const welcome = $("welcome");
+const sendBtn = $("sendBtn");
 
-const attachmentButton =
-    document.getElementById("attachmentButton");
+const newChat = $("newChat");
+const clearChat = $("clearChat");
+const sidebar = $("sidebar");
+const menuBtn = $("menuBtn");
 
-const attachmentOptions =
-    document.getElementById("attachmentOptions");
+const attachmentButton = $("attachmentButton");
+const attachmentOptions = $("attachmentOptions");
+const attachmentPreview = $("attachmentPreview");
 
-const attachmentPreview =
-    document.getElementById("attachmentPreview");
+const imageInput = $("imageInput");
+const pdfInput = $("pdfInput");
+const documentInput = $("documentInput");
+const audioInput = $("audioInput");
+const videoInput = $("videoInput");
 
-const imageInput = document.getElementById("imageInput");
-const pdfInput = document.getElementById("pdfInput");
-const documentInput = document.getElementById("documentInput");
-const audioInput = document.getElementById("audioInput");
-const videoInput = document.getElementById("videoInput");
+const chooseImage = $("chooseImage");
+const choosePDF = $("choosePDF");
+const chooseDocument = $("chooseDocument");
+const chooseAudio = $("chooseAudio");
+const chooseVideo = $("chooseVideo");
 
-const chooseImage = document.getElementById("chooseImage");
-const choosePDF = document.getElementById("choosePDF");
-const chooseDocument = document.getElementById("chooseDocument");
-const chooseAudio = document.getElementById("chooseAudio");
-const chooseVideo = document.getElementById("chooseVideo");
+const voiceButton = $("voiceButton");
+const recordingStatus = $("recordingStatus");
+const stopRecordingButton = $("stopRecording");
+const speakReplies = $("speakReplies");
 
-const voiceButton = document.getElementById("voiceButton");
-const recordingStatus = document.getElementById("recordingStatus");
-const stopRecordingButton = document.getElementById("stopRecording");
+// =====================================================
+// APPLICATION STATE
+// =====================================================
 
-const speakReplies = document.getElementById("speakReplies");
+function createId() {
+    if (crypto.randomUUID) {
+        return crypto.randomUUID();
+    }
 
-/* =====================================================
-   APP STATE
-===================================================== */
+    return "gidy-" + Date.now() + "-" +
+        Math.random().toString(36).slice(2);
+}
 
 let conversationId =
     localStorage.getItem(STORAGE_KEY) || createId();
@@ -68,60 +89,71 @@ let attachments = [];
 let isSending = false;
 let mediaRecorder = null;
 let recordedChunks = [];
-let isRecording = false;
-
-function createId() {
-    if (window.crypto && crypto.randomUUID) {
-        return crypto.randomUUID();
-    }
-
-    return "gidy-" + Date.now() + "-" +
-        Math.random().toString(36).slice(2);
-}
+let currentAudio = null;
 
 localStorage.setItem(STORAGE_KEY, conversationId);
 
-/* =====================================================
-   CHECK REQUIRED ELEMENTS
-===================================================== */
+// =====================================================
+// INITIAL CHECK
+// =====================================================
 
-if (!chatForm || !userInput || !messages) {
-    console.error(
-        "Gidy AI: Required HTML elements are missing. Check index.html."
-    );
+if (!chatForm || !userInput || !messages || !sendBtn) {
+    console.error("Gidy AI: Required HTML elements are missing.");
+    alert("Gidy AI could not find the chat form. Check index.html.");
 }
 
-/* =====================================================
-   LOAD OPTIONAL LIBRARIES
-===================================================== */
+// =====================================================
+// BACKEND REQUEST HELPER
+// =====================================================
+
+async function apiRequest(path, options = {}) {
+    const response = await fetch(API_URL + path, {
+        ...options,
+        headers: {
+            ...(options.headers || {})
+        }
+    });
+
+    const contentType =
+        response.headers.get("content-type") || "";
+
+    if (!response.ok) {
+        let errorMessage = "Server error: " + response.status;
+
+        if (contentType.includes("application/json")) {
+            const data = await response.json();
+            errorMessage = data.error || errorMessage;
+        } else {
+            const text = await response.text();
+            if (text) errorMessage = text.slice(0, 300);
+        }
+
+        throw new Error(errorMessage);
+    }
+
+    if (contentType.includes("application/json")) {
+        return response.json();
+    }
+
+    return response;
+}
+
+// =====================================================
+// OPTIONAL LIBRARY LOADER
+// =====================================================
 
 function loadScript(url) {
     return new Promise((resolve, reject) => {
-        const existing = [...document.scripts].find(
-            script => script.src === url
-        );
-
-        if (existing) {
-            if (existing.dataset.loaded === "true") {
-                resolve();
-                return;
-            }
-
-            existing.addEventListener("load", resolve, { once: true });
-            existing.addEventListener("error", reject, { once: true });
-            return;
-        }
-
         const script = document.createElement("script");
+
         script.src = url;
         script.async = true;
 
-        script.onload = () => {
-            script.dataset.loaded = "true";
-            resolve();
-        };
+        script.onload = resolve;
+        script.onerror = () => reject(
+            new Error("Could not load library: " + url)
+        );
 
-        script.onerror = reject;
         document.head.appendChild(script);
     });
 }
@@ -155,33 +187,44 @@ async function ensureLibrary(name) {
             return !!window.JSZip;
         }
     } catch (error) {
-        console.error("Library loading failed:", name, error);
+        console.error(error);
         return false;
     }
 
     return false;
 }
 
-/* =====================================================
-   MESSAGE DISPLAY
-===================================================== */
+// =====================================================
+// MESSAGE DISPLAY
+// =====================================================
 
 function renderMessageText(content) {
+    const value = String(content || "");
+
     if (window.marked && window.DOMPurify) {
-        const html = marked.parse(String(content || ""));
-        return DOMPurify.sanitize(html);
+        return DOMPurify.sanitize(marked.parse(value));
     }
 
-    const safe = document.createElement("div");
-    safe.textContent = String(content || "");
-    return safe.innerHTML.replace(/\n/g, "<br>");
+    const element = document.createElement("div");
+    element.textContent = value;
+
+    return element.innerHTML.replace(/\n/g, "<br>");
+}
+
+function scrollToBottom() {
+    const area = $("chatArea");
+
+    if (area) {
+        area.scrollTop = area.scrollHeight;
+    }
 }
 
 function addMessage(role, content, imageUrl = null) {
     const message = document.createElement("div");
 
     message.className =
-        "message " + (role === "user" ? "user-message" : "ai-message");
+        "message " +
+        (role === "user" ? "user-message" : "ai-message");
 
     const avatar = document.createElement("div");
     avatar.className = "avatar";
@@ -203,9 +246,11 @@ function addMessage(role, content, imageUrl = null) {
 
     if (imageUrl) {
         const image = document.createElement("img");
+
         image.src = imageUrl;
         image.alt = "Attached image";
         image.loading = "lazy";
+
         text.appendChild(image);
     }
 
@@ -214,58 +259,168 @@ function addMessage(role, content, imageUrl = null) {
 
     messages.appendChild(message);
 
-    if (welcome) {
-        welcome.style.display = "none";
-    }
+    if (welcome) welcome.style.display = "none";
 
     scrollToBottom();
 
     return message;
 }
 
-function scrollToBottom() {
-    const chatArea = document.getElementById("chatArea");
-
-    if (chatArea) {
-        chatArea.scrollTop = chatArea.scrollHeight;
-    }
-}
-
 function showTyping() {
+    removeTyping();
+
     const typing = document.createElement("div");
 
     typing.className = "message typing-message";
     typing.id = "typingIndicator";
 
-    typing.innerHTML = `
-        <div class="avatar">🤖</div>
-        <div class="message-content">
-            <div class="message-name">Gidy AI</div>
-            <div class="typing">Thinking...</div>
-        </div>
-    `;
+    const avatar = document.createElement("div");
+    avatar.className = "avatar";
+    avatar.textContent = "🤖";
+
+    const content = document.createElement("div");
+    content.className = "message-content";
+
+    const name = document.createElement("div");
+    name.className = "message-name";
+    name.textContent = "Gidy AI";
+
+    const text = document.createElement("div");
+    text.className = "typing";
+    text.textContent = "Thinking...";
+
+    content.append(name, text);
+    typing.append(avatar, content);
 
     messages.appendChild(typing);
     scrollToBottom();
 }
 
 function removeTyping() {
-    document.getElementById("typingIndicator")?.remove();
+    $("typingIndicator")?.remove();
 }
 
-/* =====================================================
-   ATTACHMENT MENU
-===================================================== */
+function showError(error) {
+    addMessage(
+        "assistant",
+        "⚠️ **Sorry, something went wrong.**\n\n" +
+        String(error.message || error) +
+        "\n\nPlease try again."
+    );
+}
+
+// =====================================================
+// CONVERSATION HISTORY
+// =====================================================
+
+async function loadHistory() {
+    try {
+        const data = await apiRequest(
+            "/history?conversationId=" +
+            encodeURIComponent(conversationId)
+        );
+
+        messages.innerHTML = "";
+
+        if (!data.success || !data.messages ||
+            data.messages.length === 0) {
+            if (welcome) welcome.style.display = "flex";
+            return;
+        }
+
+        if (welcome) welcome.style.display = "none";
+
+        data.messages.forEach(item => {
+            addMessage(item.role, item.content);
+        });
+
+    } catch (error) {
+        console.error("History loading failed:", error);
+    }
+}
+
+// =====================================================
+// NEW AND CLEAR CONVERSATION
+// =====================================================
+
+function startNewConversation() {
+    conversationId = createId();
+
+    localStorage.setItem(STORAGE_KEY, conversationId);
+
+    messages.innerHTML = "";
+
+    if (welcome) welcome.style.display = "flex";
+
+    clearAttachments();
+
+    if (userInput) userInput.value = "";
+
+    window.speechSynthesis?.cancel();
+
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio = null;
+    }
+
+    scrollToBottom();
+}
+
+newChat?.addEventListener("click", startNewConversation);
+
+clearChat?.addEventListener("click", async () => {
+    if (!confirm("Delete this conversation and its saved history?")) {
+        return;
+    }
+
+    try {
+        await apiRequest(
+            "/conversation?conversationId=" +
+            encodeURIComponent(conversationId),
+            { method: "DELETE" }
+        );
+
+        startNewConversation();
+
+    } catch (error) {
+        alert("Could not delete conversation: " + error.message);
+    }
+});
+
+// =====================================================
+// SIDEBAR
+// =====================================================
+
+menuBtn?.addEventListener("click", () => {
+    sidebar?.classList.toggle("active");
+});
+
+// =====================================================
+// SUBJECT SUGGESTIONS
+// =====================================================
+
+document.querySelectorAll("[data-prompt]").forEach(button => {
+    button.addEventListener("click", () => {
+        const prompt = button.dataset.prompt || "";
+
+        userInput.value = prompt;
+        userInput.focus();
+
+        if (sidebar) sidebar.classList.remove("active");
+    });
+});
+
+// =====================================================
+// ATTACHMENT MENU
+// =====================================================
 
 function toggleAttachmentMenu() {
     if (!attachmentOptions) return;
 
-    const isHidden =
-        attachmentOptions.hidden ||
-        getComputedStyle(attachmentOptions).display === "none";
+    const open = attachmentOptions.hidden;
 
-    attachmentOptions.hidden = !isHidden;
-    attachmentOptions.style.display = isHidden ? "flex" : "none";
+    attachmentOptions.hidden = !open;
+    attachmentOptions.style.display = open ? "flex" : "none";
 }
 
 attachmentButton?.addEventListener("click", event => {
@@ -274,10 +429,7 @@ attachmentButton?.addEventListener("click", event => {
 });
 
 function openFilePicker(input) {
-    if (!input) {
-        alert("This attachment option is missing from index.html.");
-        return;
-    }
+    if (!input) return;
 
     if (attachmentOptions) {
         attachmentOptions.hidden = true;
@@ -287,21 +439,37 @@ function openFilePicker(input) {
     input.click();
 }
 
-chooseImage?.addEventListener("click", () => openFilePicker(imageInput));
-choosePDF?.addEventListener("click", () => openFilePicker(pdfInput));
-chooseDocument?.addEventListener("click", () => openFilePicker(documentInput));
-chooseAudio?.addEventListener("click", () => openFilePicker(audioInput));
-chooseVideo?.addEventListener("click", () => openFilePicker(videoInput));
+chooseImage?.addEventListener("click", () =>
+    openFilePicker(imageInput)
+);
 
-/* =====================================================
-   FILE HELPERS
-===================================================== */
+choosePDF?.addEventListener("click", () =>
+    openFilePicker(pdfInput)
+);
+
+chooseDocument?.addEventListener("click", () =>
+    openFilePicker(documentInput)
+);
+
+chooseAudio?.addEventListener("click", () =>
+    openFilePicker(audioInput)
+);
+
+chooseVideo?.addEventListener("click", () =>
+    openFilePicker(videoInput)
+);
+
+// =====================================================
+// FILE HELPERS
+// =====================================================
 
 function formatBytes(bytes) {
     if (bytes < 1024) return bytes + " B";
+
     if (bytes < 1024 * 1024) {
         return (bytes / 1024).toFixed(1) + " KB";
     }
+
     return (bytes / (1024 * 1024)).toFixed(1) + " MB";
 }
 
@@ -309,8 +477,11 @@ function readFileAsText(file) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
 
-        reader.onload = () => resolve(String(reader.result || ""));
-        reader.onerror = () => reject(new Error("Could not read file."));
+        reader.onload = () =>
+            resolve(String(reader.result || ""));
+
+        reader.onerror = () =>
+            reject(new Error("Could not read " + file.name));
 
         reader.readAsText(file);
     });
@@ -321,15 +492,30 @@ function readFileAsArrayBuffer(file) {
         const reader = new FileReader();
 
         reader.onload = () => resolve(reader.result);
-        reader.onerror = () => reject(new Error("Could not read file."));
+
+        reader.onerror = () =>
+            reject(new Error("Could not read " + file.name));
 
         reader.readAsArrayBuffer(file);
     });
 }
 
-/* =====================================================
-   ATTACHMENT PREVIEW
-===================================================== */
+function readFileAsDataURL(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+
+        reader.onload = () => resolve(reader.result);
+
+        reader.onerror = () =>
+            reject(new Error("Could not read " + file.name));
+
+        reader.readAsDataURL(file);
+    });
+}
+
+// =====================================================
+// ATTACHMENT MANAGEMENT
+// =====================================================
 
 function renderAttachmentPreview() {
     if (!attachmentPreview) return;
@@ -342,40 +528,36 @@ function renderAttachmentPreview() {
 
         const icon = document.createElement("span");
         icon.className = "attachment-file-icon";
-        icon.textContent = item.icon || "📎";
+        icon.textContent = item.icon;
 
         const info = document.createElement("div");
         info.style.minWidth = "0";
 
-        const fileName = document.createElement("div");
-        fileName.className = "attachment-file-name";
-        fileName.textContent = item.name;
+        const name = document.createElement("div");
+        name.className = "attachment-file-name";
+        name.textContent = item.name;
 
-        const fileSize = document.createElement("small");
-        fileSize.textContent = item.size
-            ? formatBytes(item.size)
-            : "Ready";
+        const size = document.createElement("small");
+        size.textContent = formatBytes(item.size);
 
-        fileSize.style.color = "var(--muted)";
+        info.append(name, size);
 
-        info.appendChild(fileName);
-        info.appendChild(fileSize);
-
-        card.appendChild(icon);
-        card.appendChild(info);
+        card.append(icon, info);
 
         if (item.previewURL && item.type === "image") {
             const image = document.createElement("img");
+
             image.src = item.previewURL;
             image.alt = item.name;
+
             card.insertBefore(image, icon);
         }
 
         const remove = document.createElement("button");
+
         remove.type = "button";
         remove.className = "remove-attachment";
         remove.textContent = "×";
-        remove.setAttribute("aria-label", "Remove " + item.name);
 
         remove.addEventListener("click", () => {
             removeAttachment(index);
@@ -405,6 +587,7 @@ function clearAttachments() {
     });
 
     attachments = [];
+
     renderAttachmentPreview();
 
     [
@@ -418,165 +601,121 @@ function clearAttachments() {
     });
 }
 
-/* =====================================================
-   FILE VALIDATION AND ADDING
-===================================================== */
+// =====================================================
+// ADD FILES
+// =====================================================
 
 function addFiles(fileList, type) {
-    const files = Array.from(fileList || []);
-
-    for (const file of files) {
+    for (const file of Array.from(fileList || [])) {
         if (file.size > MAX_FILE_SIZE) {
-            alert(
-                file.name + " is too large. Maximum file size is 20 MB."
-            );
+            alert(file.name + " exceeds the 20 MB limit.");
             continue;
         }
 
-        const duplicate = attachments.some(
-            item => item.name === file.name &&
-                item.size === file.size &&
-                item.type === type
+        const duplicate = attachments.some(item =>
+            item.name === file.name &&
+            item.size === file.size &&
+            item.type === type
         );
 
         if (duplicate) continue;
 
         if (type === "image") {
-            const allowed = [
-                "image/jpeg",
-                "image/png",
-                "image/webp",
-                "image/gif"
-            ];
+            if (!file.type.startsWith("image/")) continue;
 
-            if (!allowed.includes(file.type)) {
-                alert("Unsupported image format: " + file.name);
-                continue;
-            }
-
-            if (attachments.filter(a => a.type === "image").length >= MAX_IMAGES) {
-                alert("You can attach up to 8 images.");
+            if (attachments.filter(a =>
+                a.type === "image"
+            ).length >= MAX_IMAGES) {
+                alert("Maximum 8 images allowed.");
                 continue;
             }
         }
 
-        if (type === "pdf" && file.type !== "application/pdf") {
+        if (type === "pdf" &&
+            file.type !== "application/pdf") {
             alert("Please select a PDF file.");
             continue;
         }
 
-        if (type === "audio" &&
-            !file.type.startsWith("audio/") &&
-            !/\.(mp3|wav|m4a|ogg|webm|mp4|mpeg|mpga)$/i.test(file.name)) {
-            alert("Please select a supported audio file.");
-            continue;
-        }
+        const icons = {
+            image: "🖼️",
+            pdf: "📕",
+            document: "📄",
+            audio: "🎵",
+            video: "🎬"
+        };
 
-        if (type === "video" &&
-            !file.type.startsWith("video/") &&
-            !/\.(mp4|webm|mov|m4v)$/i.test(file.name)) {
-            alert("Please select a supported video file.");
-            continue;
-        }
-
-        const item = {
+        attachments.push({
             file,
             name: file.name,
             size: file.size,
             type,
-            icon: {
-                image: "🖼️",
-                pdf: "📕",
-                document: "📄",
-                audio: "🎵",
-                video: "🎬"
-            }[type],
-            previewURL: null
-        };
-
-        if (type === "image" || type === "video" || type === "audio") {
-            item.previewURL = URL.createObjectURL(file);
-        }
-
-        attachments.push(item);
+            icon: icons[type],
+            previewURL: (
+                type === "image" ||
+                type === "video" ||
+                type === "audio"
+            ) ? URL.createObjectURL(file) : null
+        });
     }
 
     renderAttachmentPreview();
 }
 
-imageInput?.addEventListener("change", event => {
-    addFiles(event.target.files, "image");
-    event.target.value = "";
+imageInput?.addEventListener("change", e => {
+    addFiles(e.target.files, "image");
+    e.target.value = "";
 });
 
-pdfInput?.addEventListener("change", event => {
-    addFiles(event.target.files, "pdf");
-    event.target.value = "";
+pdfInput?.addEventListener("change", e => {
+    addFiles(e.target.files, "pdf");
+    e.target.value = "";
 });
 
-documentInput?.addEventListener("change", event => {
-    addFiles(event.target.files, "document");
-    event.target.value = "";
+documentInput?.addEventListener("change", e => {
+    addFiles(e.target.files, "document");
+    e.target.value = "";
 });
 
-audioInput?.addEventListener("change", event => {
-    addFiles(event.target.files, "audio");
-    event.target.value = "";
+audioInput?.addEventListener("change", e => {
+    addFiles(e.target.files, "audio");
+    e.target.value = "";
 });
 
-videoInput?.addEventListener("change", event => {
-    addFiles(event.target.files, "video");
-    event.target.value = "";
+videoInput?.addEventListener("change", e => {
+    addFiles(e.target.files, "video");
+    e.target.value = "";
 });
 
-/* =====================================================
-   IMAGE PROCESSING
-===================================================== */
+// =====================================================
+// IMAGE PROCESSING
+// =====================================================
 
 async function loadImage(file) {
-    return new Promise((resolve, reject) => {
-        const url = URL.createObjectURL(file);
+    const url = URL.createObjectURL(file);
+
+    try {
         const image = new Image();
 
-        image.onload = () => {
-            URL.revokeObjectURL(url);
-            resolve(image);
-        };
+        await new Promise((resolve, reject) => {
+            image.onload = resolve;
+            image.onerror = reject;
+            image.src = url;
+        });
 
-        image.onerror = () => {
-            URL.revokeObjectURL(url);
-            reject(new Error("Could not open image: " + file.name));
-        };
+        return image;
 
-        image.src = url;
-    });
-}
-
-function drawScaledImage(context, image, x, y, width, height) {
-    const ratio = Math.min(
-        width / image.width,
-        height / image.height
-    );
-
-    const w = image.width * ratio;
-    const h = image.height * ratio;
-
-    context.drawImage(
-        image,
-        x + (width - w) / 2,
-        y + (height - h) / 2,
-        w,
-        h
-    );
+    } finally {
+        URL.revokeObjectURL(url);
+    }
 }
 
 async function makeImageContactSheet(imageFiles, videoFrames = []) {
     const sources = [];
 
     for (const file of imageFiles) {
-        const image = await loadImage(file);
         sources.push({
-            image,
+            image: await loadImage(file),
             label: file.name
         });
     }
@@ -590,31 +729,13 @@ async function makeImageContactSheet(imageFiles, videoFrames = []) {
 
     if (!sources.length) return null;
 
-    if (sources.length === 1) {
-        const canvas = document.createElement("canvas");
-        const image = sources[0].image;
-
-        const scale = Math.min(
-            1,
-            1600 / image.width,
-            1600 / image.height
-        );
-
-        canvas.width = Math.max(1, Math.round(image.width * scale));
-        canvas.height = Math.max(1, Math.round(image.height * scale));
-
-        const context = canvas.getContext("2d");
-        context.drawImage(image, 0, 0, canvas.width, canvas.height);
-
-        return canvas.toDataURL("image/jpeg", 0.82);
-    }
-
-    const columns = 2;
-    const cellWidth = 600;
-    const cellHeight = 430;
+    const columns = sources.length === 1 ? 1 : 2;
+    const cellWidth = sources.length === 1 ? 1400 : 600;
+    const cellHeight = sources.length === 1 ? 1000 : 430;
     const rows = Math.ceil(sources.length / columns);
 
     const canvas = document.createElement("canvas");
+
     canvas.width = columns * cellWidth;
     canvas.height = rows * cellHeight;
 
@@ -627,39 +748,44 @@ async function makeImageContactSheet(imageFiles, videoFrames = []) {
         const x = (index % columns) * cellWidth;
         const y = Math.floor(index / columns) * cellHeight;
 
-        context.fillStyle = "#eeeeee";
-        context.fillRect(x, y, cellWidth, cellHeight);
+        const image = source.image;
 
-        drawScaledImage(
-            context,
-            source.image,
-            x + 10,
-            y + 35,
-            cellWidth - 20,
-            cellHeight - 45
+        const scale = Math.min(
+            (cellWidth - 20) / image.width,
+            (cellHeight - 50) / image.height
+        );
+
+        const width = image.width * scale;
+        const height = image.height * scale;
+
+        context.drawImage(
+            image,
+            x + (cellWidth - width) / 2,
+            y + 40,
+            width,
+            height
         );
 
         context.fillStyle = "#111111";
         context.font = "18px Arial";
+
         context.fillText(
-            source.label.slice(0, 55),
-            x + 12,
+            source.label.slice(0, 60),
+            x + 10,
             y + 25
         );
     });
 
-    return canvas.toDataURL("image/jpeg", 0.82);
+    return canvas.toDataURL("image/jpeg", 0.78);
 }
 
-/* =====================================================
-   PDF TEXT EXTRACTION
-===================================================== */
+// =====================================================
+// PDF EXTRACTION
+// =====================================================
 
 async function extractPDF(file) {
     if (!window.pdfjsLib) {
-        throw new Error(
-            "PDF reader is not loaded. Check the PDF.js script in index.html."
-        );
+        throw new Error("PDF.js is unavailable.");
     }
 
     const buffer = await readFileAsArrayBuffer(file);
@@ -670,42 +796,35 @@ async function extractPDF(file) {
 
     let output = "";
 
-    for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
-        const page = await pdf.getPage(pageNumber);
-        const content = await page.getTextContent();
+    for (let page = 1; page <= pdf.numPages; page++) {
+        const currentPage = await pdf.getPage(page);
+        const content = await currentPage.getTextContent();
 
-        const pageText = content.items
+        output += "\n\n--- Page " + page + " ---\n";
+
+        output += content.items
             .map(item => item.str)
             .join(" ");
 
-        output += "\n\n--- Page " + pageNumber + " ---\n";
-        output += pageText;
-
-        if (output.length > MAX_TOTAL_DOCUMENT_TEXT) {
-            output = output.slice(0, MAX_TOTAL_DOCUMENT_TEXT);
-            output += "\n\n[Document text truncated due to length.]";
-            break;
-        }
+        if (output.length >= MAX_DOCUMENT_TEXT) break;
     }
 
     if (!output.trim()) {
         throw new Error(
-            "No selectable text found in this PDF. It may be a scanned document."
+            "This PDF contains no selectable text. Scanned PDFs need OCR."
         );
     }
 
-    return output;
+    return output.slice(0, MAX_DOCUMENT_TEXT);
 }
 
-/* =====================================================
-   WORD DOCUMENT EXTRACTION
-===================================================== */
+// =====================================================
+// WORD DOCUMENT EXTRACTION
+// =====================================================
 
 async function extractDOCX(file) {
-    const loaded = await ensureLibrary("mammoth");
-
-    if (!loaded) {
-        throw new Error("Could not load the DOCX document reader.");
+    if (!await ensureLibrary("mammoth")) {
+        throw new Error("Could not load the Word document reader.");
     }
 
     const buffer = await readFileAsArrayBuffer(file);
@@ -717,6 +836,515 @@ async function extractDOCX(file) {
     return result.value || "";
 }
 
-/* =====================================================
-   EXCEL EXTRACTION
-===================================================== * 
+// =====================================================
+// EXCEL EXTRACTION
+// =====================================================
+
+async function extractExcel(file) {
+    if (!await ensureLibrary("xlsx")) {
+        throw new Error("Could not load Excel reader.");
+    }
+
+    const buffer = await readFileAsArrayBuffer(file);
+
+    const workbook = XLSX.read(buffer, {
+        type: "array"
+    });
+
+    let output = "";
+
+    workbook.SheetNames.forEach(name => {
+        const sheet = workbook.Sheets[name];
+
+        output += "\n\n--- Sheet: " + name + " ---\n";
+
+        output += XLSX.utils.sheet_to_csv(sheet);
+    });
+
+    return output.slice(0, MAX_DOCUMENT_TEXT);
+}
+
+// =====================================================// POWERPOINT EXTRACTION
+// =====================================================
+
+async function extractPPTX(file) {
+    if (!await ensureLibrary("jszip")) {
+        throw new Error("Could not load PowerPoint reader.");
+    }
+
+    const zip = await JSZip.loadAsync(
+        await readFileAsArrayBuffer(file)
+    );
+
+    const slideFiles = Object.keys(zip.files)
+        .filter(name =>
+            /^ppt\/slides\/slide\d+\.xml$/.test(name)
+        )
+        .sort((a, b) => {
+            const na = Number(a.match(/slide(\d+)/)[1]);
+            const nb = Number(b.match(/slide(\d+)/)[1]);
+            return na - nb;
+        });
+
+    let output = "";
+
+    for (const name of slideFiles) {
+        const xml = await zip.files[name].async("text");
+
+        const document = new DOMParser().parseFromString(
+            xml,
+            "application/xml"
+        );
+
+        const texts = Array.from(
+            document.getElementsByTagName("a:t")
+        ).map(element => element.textContent);
+
+        output += "\n\n--- " + name + " ---\n";
+        output += texts.join(" ");
+    }
+
+    return output.slice(0, MAX_DOCUMENT_TEXT);
+}
+
+// =====================================================// VIDEO FRAME EXTRACTION
+// =====================================================
+
+async function extractVideoFrames(file) {
+    const url = URL.createObjectURL(file);
+
+    try {
+        const video = document.createElement("video");
+
+        video.src = url;
+        video.muted = true;
+        video.playsInline = true;
+        video.preload = "metadata";
+
+        await new Promise((resolve, reject) => {
+            video.onloadedmetadata = resolve;
+            video.onerror = reject;
+        });
+
+        const duration = video.duration;
+
+        if (!Number.isFinite(duration) || duration <= 0) {
+            throw new Error("Could not read video duration.");
+        }
+
+        const canvas = document.createElement("canvas");
+
+        canvas.width = 640;
+        canvas.height = 360;
+
+        const context = canvas.getContext("2d");
+        const frames = [];
+
+        const count = Math.min(
+            MAX_VIDEO_FRAMES,
+            Math.max(1, Math.ceil(duration / 10))
+        );
+
+        for (let i = 0; i < count; i++) {
+            const time = duration * (i + 1) / (count + 1);
+
+            video.currentTime = time;
+
+            await new Promise((resolve, reject) => {
+                video.onseeked = resolve;
+                video.onerror = reject;
+            });
+
+            context.drawImage(
+                video,
+                0,
+                0,
+                canvas.width,
+                canvas.height
+            );
+
+            const image = new Image();
+
+            image.src = canvas.toDataURL("image/jpeg", 0.75);
+
+            await new Promise((resolve, reject) => {
+                image.onload = resolve;
+                image.onerror = reject;
+            });
+
+            frames.push(image);
+        }
+
+        video.removeAttribute("src");
+        video.load();
+
+        return frames;
+
+    } finally {
+        URL.revokeObjectURL(url);
+    }
+}
+
+// =====================================================// AUDIO TRANSCRIPTION
+// =====================================================
+
+async function transcribeAudio(file) {
+    const formData = new FormData();
+
+    formData.append("audio", file);
+
+    const response = await apiRequest("/transcribe", {
+        method: "POST",
+        body: formData
+    });
+
+    if (!response.success) {
+        throw new Error(response.error || "Transcription failed.");
+    }
+
+    return response.text || "";
+}
+
+// =====================================================
+// PREPARE ATTACHMENTS FOR AI
+// =====================================================
+
+async function prepareAttachments() {
+    let extraText = "";
+    let imageFiles = [];
+    let videoFrames = [];
+
+    for (const item of attachments) {
+        const file = item.file;
+
+        if (item.type === "image") {
+            imageFiles.push(file);
+            continue;
+        }
+
+        if (item.type === "pdf") {
+            extraText += "\n\n[PDF: " + item.name + "]\n";
+            extraText += await extractPDF(file);
+            continue;
+        }
+
+        if (item.type === "document") {
+            const ext = item.name.split(".").pop().toLowerCase();
+
+            extraText += "\n\n[Document: " + item.name + "]\n";
+
+            if (["docx"].includes(ext)) {
+                extraText += await extractDOCX(file);
+            } else if (["xlsx", "xls"].includes(ext)) {
+                extraText += await extractExcel(file);
+            } else if (ext === "pptx") {
+                extraText += await extractPPTX(file);
+            } else if (["txt", "csv", "json", "md", "rtf"].includes(ext)) {
+                extraText += await readFileAsText(file);
+            } else {
+                throw new Error(
+                    "Unsupported document format: " + ext
+                );
+            }
+
+            continue;
+        }
+
+        if (item.type === "audio") {
+            extraText += "\n\n[Audio transcription: " +
+                item.name + "]\n";
+
+            extraText += await transcribeAudio(file);
+            continue;
+        }
+
+        if (item.type === "video") {
+            videoFrames.push(
+                ...await extractVideoFrames(file)
+            );
+        }
+    }
+
+    const image = await makeImageContactSheet(
+        imageFiles,
+        videoFrames
+    );
+
+    return {
+        extraText: extraText.slice(0, MAX_DOCUMENT_TEXT),
+        image
+    };
+}
+
+// =====================================================// SEND MESSAGE TO BACKEND
+// =====================================================
+
+async function sendMessage(event) {
+    event?.preventDefault();
+
+    if (isSending) return;
+
+    const message = userInput.value.trim();
+
+    if (!message && attachments.length === 0) {
+        return;
+    }
+
+    isSending = true;
+
+    sendBtn.disabled = true;
+    sendBtn.textContent = "…";
+
+    let userImage = null;
+
+    try {
+        showTyping();
+
+        const prepared = await prepareAttachments();
+
+        userImage = prepared.image;
+
+        const finalMessage =
+            message +
+            (prepared.extraText
+                ? "\n\nAttached document content:\n" +
+                  prepared.extraText
+                : "");
+
+        addMessage(
+            "user",
+            finalMessage || "Please analyze my uploaded image.",
+            userImage
+        );
+
+        userInput.value = "";
+
+        clearAttachments();
+
+        const payload = {
+            message: finalMessage,
+            conversationId,
+            image: userImage
+        };
+
+        const data = await apiRequest("/chat", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        });
+
+        removeTyping();
+
+        if (!data.success) {
+            throw new Error(data.error || "AI request failed.");
+        }
+
+        const answer = data.reply || data.response;
+
+        if (!answer) {
+            throw new Error("The AI returned an empty response.");
+        }
+
+        addMessage("assistant", answer);
+
+        if (speakReplies?.checked) {
+            speakText(answer).catch(console.error);
+        }
+
+    } catch (error) {
+        removeTyping();
+
+        console.error("Gidy AI send error:", error);
+
+        showError(error);
+
+    } finally {
+        removeTyping();
+
+        isSending = false;
+
+        sendBtn.disabled = false;
+        sendBtn.textContent = "➤";
+
+        userInput.focus();
+    }
+}
+
+// =====================================================// FORM SUBMISSION
+// =====================================================
+
+chatForm?.addEventListener("submit", sendMessage);
+
+// ENTER TO SEND, SHIFT + ENTER FOR NEW LINE
+userInput?.addEventListener("keydown", event => {
+    if (
+        event.key === "Enter" &&
+        !event.shiftKey &&
+        !event.isComposing
+    ) {
+        event.preventDefault();
+
+        if (!isSending) {
+            chatForm.requestSubmit();
+        }
+    }
+});
+
+// =====================================================
+// AI TEXT TO SPEECH
+// =====================================================
+
+async function speakText(text) {
+    if (!text) return;
+
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio = null;
+    }
+
+    const response = await apiRequest("/speak", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            text: text.slice(0, 5000)
+        })
+    });
+
+    const blob = await response.blob();
+
+    if (!blob.size) {
+        throw new Error("The voice service returned empty audio.");
+    }
+
+    const url = URL.createObjectURL(blob);
+
+    currentAudio = new Audio(url);
+
+    currentAudio.onended = () => {
+        URL.revokeObjectURL(url);
+        currentAudio = null;
+    };
+
+    await currentAudio.play();
+}
+
+// =====================================================// VOICE RECORDING
+// =====================================================
+
+async function startRecording() {
+    if (!navigator.mediaDevices?.getUserMedia ||
+        !window.MediaRecorder) {
+        alert("Voice recording is not supported in this browser.");
+        return;
+    }
+
+    try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+            audio: true
+        });
+
+        recordedChunks = [];
+
+        mediaRecorder = new MediaRecorder(stream);
+
+        mediaRecorder.ondataavailable = event => {
+            if (event.data.size > 0) {
+                recordedChunks.push(event.data);
+            }
+        };
+
+        mediaRecorder.onstop = async () => {
+            const blob = new Blob(recordedChunks, {
+                type: mediaRecorder.mimeType || "audio/webm"
+            });
+
+            stream.getTracks().forEach(track => track.stop());
+
+            if (blob.size > MAX_FILE_SIZE) {
+                alert("Recording exceeds 20 MB.");
+                return;
+            }
+
+            try {
+                const file = new File(
+                    [blob],
+                    "gidy-voice-recording.webm",
+                    { type: blob.type }
+                );
+
+                const transcription = await transcribeAudio(file);
+
+                if (transcription.trim()) {
+                    userInput.value =
+                        (userInput.value.trim() + " " +
+                        transcription).trim();
+
+                    userInput.focus();
+                } else {
+                    alert("No speech was detected.");
+                }
+
+            } catch (error) {
+                alert("Transcription failed: " + error.message);
+            }
+        };
+
+        mediaRecorder.start();
+
+        isRecording = true;
+
+        if (recordingStatus) recordingStatus.hidden = false;
+
+        if (voiceButton) voiceButton.textContent = "⏹️";
+
+    } catch (error) {
+        alert("Microphone access failed: " + error.message);
+    }
+}
+
+function stopRecording() {
+    if (mediaRecorder && isRecording) {
+        mediaRecorder.stop();
+
+        isRecording = false;
+
+        if (recordingStatus) recordingStatus.hidden = true;
+
+        if (voiceButton) voiceButton.textContent = "🎤";
+    }
+}
+
+voiceButton?.addEventListener("click", () => {
+    if (isRecording) {
+        stopRecording();
+    } else {
+        startRecording();
+    }
+});
+
+stopRecordingButton?.addEventListener("click", stopRecording);
+
+// =====================================================// START APPLICATION
+// =====================================================
+
+async function initializeGidyAI() {
+    console.log("Gidy AI frontend V3.0 initialized.");
+
+    await loadHistory();
+
+    // Check backend health separately.
+    try {
+        const health = await apiRequest("/health");
+
+        console.log("Gidy AI backend:", health);
+
+    } catch (error) {
+        console.error("Gidy AI backend health check failed:", error);
+    }
+}
+
+initializeGidyAI();
