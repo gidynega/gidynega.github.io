@@ -24,6 +24,24 @@
 const API_URL =
     "https://bold-smoke-695fgidy-ai-backend.gidynega.workers.dev";
 
+// ==========================================
+// SUPABASE AUTHENTICATION CONFIGURATION
+// ==========================================
+
+const SUPABASE_URL =
+    "https://gdeekbojxavbrplxwwjd.supabase.co";
+
+const SUPABASE_ANON_KEY =
+    "sb_publishable_RNZ44Wp5_AKFk37YGH7poQ_WbYRkaJY";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+);
+
+console.log("Gidy AI Supabase connected.");
+
+
 const STORAGE_KEY = "gidy_ai_current_conversation";
 
 const MAX_FILE_SIZE = 20 * 1024 * 1024;
