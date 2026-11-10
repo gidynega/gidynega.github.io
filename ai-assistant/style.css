@@ -397,7 +397,8 @@ button {
 /* INPUT SECTION */
 
 .input-section {
-    padding: 15px 25px 20px;
+    position: relative;
+    padding: 12px 20px 16px;
     width: 100%;
     max-width: 850px;
     margin: auto;
@@ -405,18 +406,18 @@ button {
 
 .input-box {
     display: flex;
-    align-items: flex-end;
-    gap: 10px;
-    padding: 10px 12px;
-    border-radius: 16px;
-    border: 1px solid rgba(129,135,255,0.35);
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 24px;
+    border: 1px solid rgba(129, 135, 255, 0.25);
     background: var(--surface);
-    transition: 0.3s;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .input-box:focus-within {
     border-color: var(--primary);
-    box-shadow: 0 0 20px rgba(129,135,255,0.12);
+    box-shadow: 0 0 16px rgba(129, 135, 255, 0.15);
 }
 
 .input-box textarea {
@@ -425,11 +426,12 @@ button {
     background: transparent;
     border: none;
     outline: none;
-    color: white;
-    padding: 9px;
-    min-height: 42px;
-    max-height: 140px;
+    color: var(--text);
+    padding: 6px 4px;
+    min-height: 24px;
+    max-height: 120px;
     font-size: 14px;
+    line-height: 1.4;
     min-width: 0;
 }
 
@@ -437,203 +439,135 @@ button {
     color: #8585a0;
 }
 
-.input-box button {
-    width: 42px;
-    height: 42px;
-    border: none;
-    border-radius: 11px;
-    background: linear-gradient(135deg, var(--primary), var(--pink));
-    color: white;
-    font-size: 21px;
-    flex-shrink: 0;
-}
+/* INPUT ACTION BUTTONS */
 
-.input-box button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-/* ATTACHMENT BUTTON */
-
+.input-box button,
 #attachmentButton,
-.attachment-button {
-    background: var(--surface-light);
-    border: 1px solid var(--border);
-    color: var(--cyan);
-    border-radius: 11px;
-    width: 42px;
-    height: 42px;
-    flex-shrink: 0;
-    font-size: 21px;
+#voiceButton,
+#sendBtn {
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 50%;
     display: grid;
     place-items: center;
-    transition: 0.2s;
+    flex-shrink: 0;
+    font-size: 17px;
+    transition: background 0.2s ease, transform 0.15s ease;
 }
 
-#attachmentButton:hover,
-.attachment-button:hover {
-    background: rgba(101,238,228,0.12);
-    border-color: var(--cyan);
+#attachmentButton {
+    background: transparent;
+    border: none;
+    color: var(--cyan);
 }
 
-/* ATTACHMENT OPTIONS MENU */
+#attachmentButton:hover {
+    background: rgba(101, 238, 228, 0.12);
+}
+
+#voiceButton {
+    background: transparent;
+    border: none;
+    color: var(--muted);
+}
+
+#voiceButton:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text);
+}
+
+#sendBtn {
+    background: linear-gradient(135deg, var(--primary), var(--pink));
+    color: white;
+}
+
+#sendBtn:hover {
+    transform: scale(1.05);
+}
+
+#sendBtn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* FLOATING ATTACHMENT POPUP MENU */
 
 #attachmentOptions,
 .attachment-options {
+    position: absolute;
+    bottom: 95px;
+    left: 20px;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    gap: 8px;
-    padding: 12px;
-    margin-bottom: 10px;
+    gap: 6px;
+    padding: 8px;
     border: 1px solid var(--border);
-    border-radius: 13px;
-    background: var(--surface);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    border-radius: 14px;
+    background: var(--surface-light);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    z-index: 50;
+    backdrop-filter: blur(8px);
+    animation: popupFade 0.2s ease-out;
+}
+
+@keyframes popupFade {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 #attachmentOptions button,
 .attachment-options button {
-    background: var(--surface-light);
+    background: var(--surface);
     color: var(--text);
     border: 1px solid var(--border);
-    padding: 10px 13px;
-    border-radius: 9px;
+    padding: 7px 12px;
+    border-radius: 10px;
     font-size: 12px;
-    transition: 0.2s;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background 0.2s, border-color 0.2s;
 }
 
 #attachmentOptions button:hover,
 .attachment-options button:hover {
-    border-color: var(--primary);
-    background: rgba(129,135,255,0.15);
+    border-color: var(--cyan);
+    background: rgba(101, 238, 228, 0.1);
 }
 
-/* HIDDEN FILE INPUTS */
+/* INPUT FOOTER CONTROLS & DISCLAIMER */
 
-#imageInput,
-#pdfInput,
-#documentInput,
-#audioInput,
-#videoInput {
-    display: none;
-}
-
-/* ATTACHMENT PREVIEW AREA */
-
-#attachmentPreview,
-.attachment-preview {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.attachment-preview-item,
-.preview-item,
-.attachment-card {
-    position: relative;
+.input-footer-controls {
     display: flex;
     align-items: center;
-    gap: 10px;
-    max-width: 100%;
-    min-width: 130px;
-    padding: 10px;
-    border-radius: 12px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--text);
-    font-size: 12px;
-    overflow: hidden;
+    justify-content: space-between;
+    margin-top: 8px;
+    padding: 0 6px;
 }
 
-#attachmentPreview img,
-.attachment-preview img,
-.preview-image {
-    width: 75px;
-    height: 75px;
-    object-fit: cover;
-    border-radius: 9px;
-    border: 1px solid var(--border);
-}
-
-.attachment-file-icon {
-    font-size: 25px;
-    flex-shrink: 0;
-}
-
-.attachment-file-name {
-    max-width: 180px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    color: var(--text);
-}
-
-.remove-attachment,
-.remove-file,
-.attachment-remove {
-    background: rgba(255,101,122,0.15);
-    color: var(--danger);
-    border: 1px solid rgba(255,101,122,0.3);
-    border-radius: 8px;
-    padding: 6px 9px;
-    font-size: 12px;
-    flex-shrink: 0;
-}
-
-/* RECORDING STATUS */
-
-#recordingStatus,
-.recording-status {
-    color: var(--danger);
-    font-size: 12px;
-    padding: 8px 3px;
-    animation: recordingPulse 1.2s infinite;
-}
-
-@keyframes recordingPulse {
-    50% {
-        opacity: 0.45;
-    }
-}
-
-#stopRecording,
-.stop-recording {
-    background: rgba(255,101,122,0.15);
-    color: var(--danger);
-    border: 1px solid rgba(255,101,122,0.35);
-    padding: 9px 13px;
-    border-radius: 9px;
-    font-size: 12px;
-}
-
-/* VOICE BUTTON */
-
-#voiceButton {
-    background: var(--surface-light);
-    border: 1px solid var(--border);
-    color: var(--cyan);
-}
-
-#voiceButton:hover {
-    border-color: var(--cyan);
-}
-
-/* SPEAK REPLIES */
-
-.speak-replies,
-#speakReplies {
-    accent-color: var(--primary);
-    cursor: pointer;
+.voice-controls {
+    font-size: 11px;
+    color: var(--muted);
 }
 
 .disclaimer {
     color: var(--muted);
     font-size: 10px;
     text-align: center;
-    margin-top: 13px;
-    line-height: 1.6;
+    margin-top: 6px;
+    line-height: 1.4;
 }
+
 
 /* AUDIO AND VIDEO PREVIEWS */
 
