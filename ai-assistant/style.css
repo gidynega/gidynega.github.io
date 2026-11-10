@@ -1,13 +1,8 @@
 
-/* ==============================
-   GIDY AI - MAIN STYLESHEET
-================================ */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* =========================================
+   GIDY AI - RESPONSIVE MULTIMODAL STYLESHEET
+   Text + Images + PDF + Documents + Audio + Video
+========================================= */
 
 :root {
     --background: #0b0b18;
@@ -20,6 +15,22 @@
     --text: #f4f4ff;
     --muted: #9999b5;
     --border: rgba(255,255,255,0.09);
+    --danger: #ff657a;
+    --success: #39dc9b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -29,7 +40,9 @@ body {
     min-height: 100vh;
 }
 
-button, textarea {
+button,
+textarea,
+input {
     font: inherit;
 }
 
@@ -158,8 +171,8 @@ button {
 }
 
 .topbar {
-    height: 75px;
-    padding: 0 30px;
+    min-height: 75px;
+    padding: 12px 30px;
     border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
@@ -180,7 +193,7 @@ button {
     display: inline-block;
     width: 7px;
     height: 7px;
-    background: #39dc9b;
+    background: var(--success);
     border-radius: 50%;
     margin-right: 5px;
 }
@@ -196,6 +209,7 @@ button {
 
 .clear-btn:hover {
     color: white;
+    border-color: var(--primary);
 }
 
 .menu-btn {
@@ -240,6 +254,7 @@ button {
 .welcome h1 span {
     background: linear-gradient(90deg, var(--primary), var(--pink), var(--cyan));
     -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
 }
 
@@ -348,6 +363,28 @@ button {
     overflow-wrap: anywhere;
 }
 
+.message-text img {
+    max-width: 100%;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+.message-text pre {
+    overflow-x: auto;
+    background: #101020;
+    padding: 14px;
+    border-radius: 10px;
+    margin: 12px 0;
+}
+
+.message-text code {
+    overflow-wrap: anywhere;
+}
+
+.message-text a {
+    color: var(--cyan);
+}
+
 .user-message .avatar {
     background: linear-gradient(135deg, var(--primary), var(--pink));
 }
@@ -357,7 +394,7 @@ button {
     font-size: 12px;
 }
 
-/* INPUT */
+/* INPUT SECTION */
 
 .input-section {
     padding: 15px 25px 20px;
@@ -393,6 +430,7 @@ button {
     min-height: 42px;
     max-height: 140px;
     font-size: 14px;
+    min-width: 0;
 }
 
 .input-box textarea::placeholder {
@@ -415,14 +453,230 @@ button {
     cursor: not-allowed;
 }
 
+/* ATTACHMENT BUTTON */
+
+#attachmentButton,
+.attachment-button {
+    background: var(--surface-light);
+    border: 1px solid var(--border);
+    color: var(--cyan);
+    border-radius: 11px;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    font-size: 21px;
+    display: grid;
+    place-items: center;
+    transition: 0.2s;
+}
+
+#attachmentButton:hover,
+.attachment-button:hover {
+    background: rgba(101,238,228,0.12);
+    border-color: var(--cyan);
+}
+
+/* ATTACHMENT OPTIONS MENU */
+
+#attachmentOptions,
+.attachment-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: var(--surface);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+#attachmentOptions button,
+.attachment-options button {
+    background: var(--surface-light);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 10px 13px;
+    border-radius: 9px;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+#attachmentOptions button:hover,
+.attachment-options button:hover {
+    border-color: var(--primary);
+    background: rgba(129,135,255,0.15);
+}
+
+/* HIDDEN FILE INPUTS */
+
+#imageInput,
+#pdfInput,
+#documentInput,
+#audioInput,
+#videoInput {
+    display: none;
+}
+
+/* ATTACHMENT PREVIEW AREA */
+
+#attachmentPreview,
+.attachment-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.attachment-preview-item,
+.preview-item,
+.attachment-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 100%;
+    min-width: 130px;
+    padding: 10px;
+    border-radius: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 12px;
+    overflow: hidden;
+}
+
+#attachmentPreview img,
+.attachment-preview img,
+.preview-image {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 9px;
+    border: 1px solid var(--border);
+}
+
+.attachment-file-icon {
+    font-size: 25px;
+    flex-shrink: 0;
+}
+
+.attachment-file-name {
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--text);
+}
+
+.remove-attachment,
+.remove-file,
+.attachment-remove {
+    background: rgba(255,101,122,0.15);
+    color: var(--danger);
+    border: 1px solid rgba(255,101,122,0.3);
+    border-radius: 8px;
+    padding: 6px 9px;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+/* RECORDING STATUS */
+
+#recordingStatus,
+.recording-status {
+    color: var(--danger);
+    font-size: 12px;
+    padding: 8px 3px;
+    animation: recordingPulse 1.2s infinite;
+}
+
+@keyframes recordingPulse {
+    50% {
+        opacity: 0.45;
+    }
+}
+
+#stopRecording,
+.stop-recording {
+    background: rgba(255,101,122,0.15);
+    color: var(--danger);
+    border: 1px solid rgba(255,101,122,0.35);
+    padding: 9px 13px;
+    border-radius: 9px;
+    font-size: 12px;
+}
+
+/* VOICE BUTTON */
+
+#voiceButton {
+    background: var(--surface-light);
+    border: 1px solid var(--border);
+    color: var(--cyan);
+}
+
+#voiceButton:hover {
+    border-color: var(--cyan);
+}
+
+/* SPEAK REPLIES */
+
+.speak-replies,
+#speakReplies {
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
 .disclaimer {
     color: var(--muted);
     font-size: 10px;
     text-align: center;
     margin-top: 13px;
+    line-height: 1.6;
 }
 
-/* MOBILE RESPONSIVENESS */
+/* AUDIO AND VIDEO PREVIEWS */
+
+#attachmentPreview audio,
+#attachmentPreview video,
+.attachment-preview audio,
+.attachment-preview video {
+    max-width: 100%;
+    width: 240px;
+    border-radius: 10px;
+}
+
+/* LOADING / ERROR STATES */
+
+.error-message {
+    color: var(--danger);
+}
+
+.success-message {
+    color: var(--success);
+}
+
+button:focus-visible,
+textarea:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+}
+
+/* SCROLLBARS */
+
+.chat-area::-webkit-scrollbar,
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-area::-webkit-scrollbar-thumb,
+.sidebar::-webkit-scrollbar-thumb {
+    background: #383854;
+    border-radius: 10px;
+}
+
+/* TABLET AND MOBILE */
 
 @media(max-width: 700px) {
 
@@ -431,8 +685,10 @@ button {
         top: 0;
         left: -280px;
         height: 100%;
-        z-index: 10;
-        transition: 0.3s;
+        min-height: 100vh;
+        z-index: 100;
+        transition: left 0.3s ease;
+        box-shadow: 10px 0 30px rgba(0,0,0,0.3);
     }
 
     .sidebar.open {
@@ -444,7 +700,7 @@ button {
     }
 
     .topbar {
-        padding: 0 14px;
+        padding: 12px 14px;
     }
 
     .chat-area {
@@ -470,10 +726,50 @@ button {
     .clear-btn {
         padding: 8px;
     }
+
+    .message {
+        gap: 9px;
+    }
+
+    .avatar {
+        width: 32px;
+        height: 32px;
+    }
+
+    #attachmentOptions,
+    .attachment-options {
+        gap: 6px;
+    }
+
+    #attachmentOptions button,
+    .attachment-options button {
+        padding: 9px 10px;
+        font-size: 11px;
+    }
 }
 
 @media(max-width: 380px) {
+
     .suggestions {
         grid-template-columns: 1fr;
+    }
+
+    .input-box {
+        gap: 6px;
+        padding: 8px;
+    }
+
+    .input-box button,
+    #attachmentButton {
+        width: 38px;
+        height: 38px;
+    }
+
+    .input-box textarea {
+        font-size: 13px;
+    }
+
+    .top-title h3 {
+        font-size: 13px;
     }
 }
