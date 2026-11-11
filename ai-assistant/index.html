@@ -162,119 +162,89 @@
 
         </section>
 
-                 <!-- INPUT -->
-        <footer class="input-section">
+<!-- INPUT SECTION -->
+<footer class="input-section">
 
-            <!-- GEMINI-STYLE BOTTOM SHEET ATTACHMENT MENU -->
-            <div class="attachment-sheet" id="attachmentOptions" hidden>
-                <div class="sheet-handle"></div>
-                <div class="sheet-options">
-                    <button type="button" id="chooseImage">
-                        <span class="sheet-icon">🖼️</span>
-                        <span>Photos</span>
-                    </button>
-                    <button type="button" id="chooseCamera" class="camera-opt">
-                        <span class="sheet-icon">📷</span>
-                        <span>Camera</span>
-                    </button>
-                    <button type="button" id="choosePDF">
-                        <span class="sheet-icon">📄</span>
-                        <span>Files</span>
-                    </button>
-                    <button type="button" id="chooseAudio">
-                        <span class="sheet-icon">🎵</span>
-                        <span>Audio</span>
-                    </button>
-                    <button type="button" id="chooseVideo">
-                        <span class="sheet-icon">🎬</span>
-                        <span>Video</span>
-                    </button>
-                </div>
-            </div>
+    <!-- GEMINI-STYLE BOTTOM SHEET ATTACHMENT MENU -->
+    <div class="attachment-sheet" id="attachmentOptions" hidden>
+        <div class="sheet-handle"></div>
+        <div class="sheet-options">
+            <button type="button" id="chooseImage">
+                <span class="sheet-icon">🖼️</span>
+                <span>Photos</span>
+            </button>
+            <button type="button" id="chooseCamera" class="camera-opt">
+                <span class="sheet-icon">📷</span>
+                <span>Camera</span>
+            </button>
+            <button type="button" id="choosePDF">
+                <span class="sheet-icon">📄</span>
+                <span>Files</span>
+            </button>
+            <button type="button" id="chooseAudio">
+                <span class="sheet-icon">🎵</span>
+                <span>Audio</span>
+            </button>
+            <button type="button" id="chooseVideo">
+                <span class="sheet-icon">🎬</span>
+                <span>Video</span>
+            </button>
+        </div>
+    </div>
 
-            <!-- ATTACHMENT PREVIEW -->
-            <div
-                id="attachmentPreview"
-                class="attachment-preview"
-                aria-live="polite">
-            </div>
+    <!-- ATTACHMENT PREVIEW -->
+    <div id="attachmentPreview" class="attachment-preview" aria-live="polite"></div>
 
-            <form id="chatForm" class="input-box">
+    <!-- MAIN CHAT INPUT BAR -->
+    <form id="chatForm" class="input-box">
 
-                <!-- PLUS ATTACHMENT BUTTON -->
-                <button
-                    type="button"
-                    id="attachmentButton"
-                    aria-label="Add attachment"
-                    title="Add attachment">
-                    ＋
-                </button>
+        <!-- ATTACHMENT BUTTON -->
+        <button type="button" id="attachmentButton" aria-label="Add attachment" title="Add attachment">
+            ＋
+        </button>
 
-                <!-- FILE INPUTS (Hidden) -->
-                <input type="file" id="imageInput" accept="image/jpeg,image/png,image/webp,image/gif" multiple hidden>
-                <input type="file" id="pdfInput" accept=".pdf,application/pdf" multiple hidden>
-                <input type="file" id="documentInput" accept=".doc,.docx,.txt,.rtf,.csv,.json,.md,.ppt,.pptx,.xls,.xlsx" multiple hidden>
-                <input type="file" id="audioInput" accept="audio/*" multiple hidden>
-                <input type="file" id="videoInput" accept="video/*" multiple hidden>
+        <!-- FILE INPUTS (Hidden) -->
+        <input type="file" id="imageInput" accept="image/jpeg,image/png,image/webp,image/gif" multiple hidden>
+        <input type="file" id="pdfInput" accept=".pdf,application/pdf" multiple hidden>
+        <input type="file" id="documentInput" accept=".doc,.docx,.txt,.rtf,.csv,.json,.md,.ppt,.pptx,.xls,.xlsx" multiple hidden>
+        <input type="file" id="audioInput" accept="audio/*" multiple hidden>
+        <input type="file" id="videoInput" accept="video/*" multiple hidden>
 
-                <!-- MESSAGE TEXTAREA -->
-                <textarea
-                    id="userInput"
-                    placeholder="Ask Gidy AI..."
-                    rows="1"
-                    required>
-                </textarea>
+        <!-- TEXTAREA -->
+        <textarea id="userInput" placeholder="Ask Gidy AI..." rows="1"></textarea>
 
-                <!-- VOICE RECORDING BUTTON -->
-                <button
-                    type="button"
-                    id="voiceButton"
-                    aria-label="Record voice"
-                    title="Record voice">
-                    🎤
-                </button>
+        <!-- VOICE / MICROPHONE BUTTON -->
+        <button type="button" id="voiceButton" aria-label="Record voice" title="Record voice">
+            🎤
+        </button>
 
-                <!-- GEMINI-STYLE WAVEFORM / TOOLS BUTTON -->
-                <button
-                    type="button"
-                    id="toolsButton"
-                    aria-label="AI Tools"
-                    title="AI Tools">
-                    📊
-                </button>
+        <!-- SEND BUTTON (Unhidden by default as standard submit icon) -->
+        <button type="submit" id="sendBtn" aria-label="Send message" title="Send message">
+            ➤
+        </button>
 
-                <!-- SEND BUTTON (Hidden when empty or transforms, or standard submit) -->
-                <button
-                    type="submit"
-                    id="sendBtn"
-                    aria-label="Send message"
-                    hidden>
-                    ➤
-                </button>
+    </form>
 
-            </form>
+    <!-- FOOTER CONTROLS & DISCLAIMER -->
+    <div class="input-footer-controls">
+        <div id="recordingStatus" class="recording-status" hidden>
+            🔴 Recording voice...
+            <button type="button" id="stopRecording">Stop recording</button>
+        </div>
 
-            <!-- FOOTER CONTROLS -->
-            <div class="input-footer-controls">
-                <div id="recordingStatus" class="recording-status" hidden>
-                    🔴 Recording voice...
-                    <button type="button" id="stopRecording">Stop recording</button>
-                </div>
+        <div class="voice-controls">
+            <label for="speakReplies">
+                <input type="checkbox" id="speakReplies">
+                <span>🔊 Speak AI replies</span>
+            </label>
+        </div>
+    </div>
 
-                <div class="voice-controls">
-                    <label>
-                        <input type="checkbox" id="speakReplies">
-                        🔊 Speak AI replies
-                    </label>
-                </div>
-            </div>
+    <p class="disclaimer">
+        Gidy AI can make mistakes. Verify important information. Educational use only.
+    </p>
 
-            <p class="disclaimer">
-                Gidy AI can make mistakes. Verify important information.
-                Educational use only.
-            </p>
-
-        </footer>
+</footer>
 
 
 
