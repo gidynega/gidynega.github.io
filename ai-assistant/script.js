@@ -1,236 +1,33 @@
 /* =====================================================
-   GIDY AI - COMPLETE FRONTEND V3.0
-   Compatible with GIDY AI Cloudflare Worker V3
+   GIDY AI - FRONTEND SCRIPT V3.5
+   Features:
+   - User Profile Top-Right Dropdown
+   - Conversation History inside Sidebar Menu
+   - Working "+ New Conversation" Button
+   - Real-Time AI Streaming Response Simulation
 ===================================================== */
 
-// =====================================================
-// BACKEND
-// =====================================================
-
 const API_URL = "https://bold-smoke-695fgidy-ai-backend.gidynega.workers.dev";
-
-// ==========================================
-// SUPABASE AUTHENTICATION CONFIGURATION
-// ==========================================
-
 const SUPABASE_URL = "https://gdeekbojxavbrplxwwjd.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_RNZ44Wp5_AKFk37YGH7poQ_WbYRkaJY";
 
-const supabaseClient = window.supabase ? window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_ANON_KEY
-) : null;
+const supabaseClient = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
 
-console.log("Gidy AI Supabase connected.");
-
-// =====================================================
-// GIDY AI — ACCOUNT AUTHENTICATION
-// =====================================================
-
-const authEmail = document.getElementById("authEmail");
-const authPassword = document.getElementById("authPassword");
-
-const signUpBtn = document.getElementById("signUpBtn");
-const signInBtn = document.getElementById("signInBtn");
-const signOutBtn = document.getElementById("signOutBtn");
-const resetPasswordBtn = document.getElementById("resetPasswordBtn");
-
-const authStatus = document.getElementById("authStatus");
-const authMessage = document.getElementById("authMessage");
-const authForms = document.getElementById("authForms");
-
-let currentUser = null;
-
-function showAuthMessage(message, isError = false) {
-    if (!authMessage) return;
-    authMessage.textContent = message;
-    authMessage.style.color = isError ? "#ff6b6b" : "#65eee4";
-}
-
-function updateAccountInterface(user) {
-    currentUser = user || null;
-
-    if (authStatus) {
-        authStatus.textContent = user
-            ? "Signed in: " + user.email
-            : "You are not signed in.";
-    }
-
-    if (authForms) {
-        authForms.hidden = !!user;
-    }
-
-    if (signOutBtn) {
-        signOutBtn.hidden = !user;
-    }
-}
-
-// SIGN UP
-signUpBtn?.addEventListener("click", async () => {
-    if (!supabaseClient) {
-        showAuthMessage("Supabase client not loaded.", true);
-        return;
-    }
-
-    const email = authEmail?.value.trim();
-    const password = authPassword?.value;
-
-    if (!email || !password) {
-        showAuthMessage("Enter your email and password.", true);
-        return;
-    }
-
-    if (password.length < 8) {
-        showAuthMessage("Password must contain at least 8 characters.", true);
-        return;
-    }
-
-    signUpBtn.disabled = true;
-
-    try {
-        const { data, error } = await supabaseClient.auth.signUp({
-            email,
-            password,
-            options: {
-                emailRedirectTo: window.location.origin
-            }
-        });
-
-        if (error) throw error;
-
-        if (data.session) {
-            updateAccountInterface(data.user);
-            showAuthMessage("Account created successfully!");
-        } else {
-            showAuthMessage("Account created! Check your email to verify your account.");
-        }
-
-    } catch (error) {
-        showAuthMessage(error.message, true);
-    } finally {
-        signUpBtn.disabled = false;
-    }
-});
-
-// SIGN IN
-signInBtn?.addEventListener("click", async () => {
-    if (!supabaseClient) {
-        showAuthMessage("Supabase client not loaded.", true);
-        return;
-    }
-
-    const email = authEmail?.value.trim();
-    const password = authPassword?.value;
-
-    if (!email || !password) {
-        showAuthMessage("Enter your email and password.", true);
-        return;
-    }
-
-    signInBtn.disabled = true;
-
-    try {
-        const { data, error } = await supabaseClient.auth.signInWithPassword({
-            email,
-            password
-        });
-
-        if (error) throw error;
-
-        updateAccountInterface(data.user);
-        showAuthMessage("Welcome to Gidy AI!");
-
-    } catch (error) {
-        showAuthMessage(error.message, true);
-    } finally {
-        signInBtn.disabled = false;
-    }
-});
-
-// PASSWORD RESET
-resetPasswordBtn?.addEventListener("click", async () => {
-    if (!supabaseClient) return;
-
-    const email = authEmail?.value.trim();
-
-    if (!email) {
-        showAuthMessage("Enter your email address first.", true);
-        return;
-    }
-
-    resetPasswordBtn.disabled = true;
-
-    try {
-        const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
-            redirectTo: window.location.origin
-        });
-
-        if (error) throw error;
-
-        showAuthMessage("Password reset instructions sent to your email.");
-
-    } catch (error) {
-        showAuthMessage(error.message, true);
-    } finally {
-        resetPasswordBtn.disabled = false;
-    }
-});
-
-// SIGN OUT
-signOutBtn?.addEventListener("click", async () => {
-    if (!supabaseClient) return;
-
-    signOutBtn.disabled = true;
-
-    try {
-        const { error } = await supabaseClient.auth.signOut();
-        if (error) throw error;
-
-        updateAccountInterface(null);
-        showAuthMessage("You have signed out successfully.");
-
-    } catch (error) {
-        showAuthMessage(error.message, true);
-    } finally {
-        signOutBtn.disabled = false;
-    }
-});
-
-// RESTORE LOGIN SESSION AND LISTEN FOR AUTH CHANGES
-async function initializeAuthentication() {
-    if (!supabaseClient) return;
-
-    const { data, error } = await supabaseClient.auth.getSession();
-
-    if (error) {
-        showAuthMessage(error.message, true);
-        return;
-    }
-
-    updateAccountInterface(data.session?.user || null);
-
-    supabaseClient.auth.onAuthStateChange((event, session) => {
-        updateAccountInterface(session?.user || null);
-    });
-
-    console.log("Gidy AI authentication initialized.");
-}
-
-initializeAuthentication();
-
-// =====================================================
-// APP CONSTANTS & STATE
-// =====================================================
-
-const STORAGE_KEY = "gidy_ai_current_conversation";
-
-const MAX_FILE_SIZE = 20 * 1024 * 1024;
-const MAX_DOCUMENT_TEXT = 50000;
-const MAX_IMAGES = 8;
-const MAX_VIDEO_FRAMES = 4;
-
-// HTML ELEMENTS
+// DOM ELEMENTS
 const $ = id => document.getElementById(id);
+
+const profileMenuBtn = $("profileMenuBtn");
+const authDropdown = $("authDropdown");
+const authEmail = $("authEmail");
+const authPassword = $("authPassword");
+const signUpBtn = $("signUpBtn");
+const signInBtn = $("signInBtn");
+const signOutBtn = $("signOutBtn");
+const resetPasswordBtn = $("resetPasswordBtn");
+const authStatus = $("authStatus");
+const authMessage = $("authMessage");
+const authForms = $("authForms");
+const userAvatarChar = $("userAvatarChar");
 
 const chatForm = $("chatForm");
 const userInput = $("userInput");
@@ -240,161 +37,212 @@ const sendBtn = $("sendBtn");
 
 const newChat = $("newChat");
 const clearChat = $("clearChat");
+const historyList = $("historyList");
 const sidebar = $("sidebar");
 const menuBtn = $("menuBtn");
-
-if (sendBtn) {
-    sendBtn.hidden = false;
-}
 
 const attachmentButton = $("attachmentButton");
 const attachmentOptions = $("attachmentOptions");
 const attachmentPreview = $("attachmentPreview");
 
-const imageInput = $("imageInput");
-const pdfInput = $("pdfInput");
-const documentInput = $("documentInput");
-const audioInput = $("audioInput");
-const videoInput = $("videoInput");
-
-const chooseImage = $("chooseImage");
-const choosePDF = $("choosePDF");
-const chooseDocument = $("chooseDocument");
-const chooseAudio = $("chooseAudio");
-const chooseVideo = $("chooseVideo");
-
-const voiceButton = $("voiceButton");
-const recordingStatus = $("recordingStatus"); // Fixed typo here
-const stopRecordingButton = $("stopRecording");
-const speakReplies = $("speakReplies");
-
-// APPLICATION STATE
-function createId() {
-    if (crypto.randomUUID) {
-        return crypto.randomUUID();
-    }
-    return "gidy-" + Date.now() + "-" + Math.random().toString(36).slice(2);
-}
-
-let conversationId = localStorage.getItem(STORAGE_KEY) || createId();
-
+let currentUser = null;
+let conversationId = localStorage.getItem("gidy_ai_current_conversation") || createId();
 let attachments = [];
 let isSending = false;
-let isRecording = false;
-let mediaRecorder = null;
-let recordedChunks = [];
-let currentAudio = null;
 
-localStorage.setItem(STORAGE_KEY, conversationId);
-
-if (!chatForm || !userInput || !messages || !sendBtn) {
-    console.error("Gidy AI: Required HTML elements are missing.");
+function createId() {
+    return "gidy-" + Date.now() + "-" + Math.random().toString(36).slice(2, 9);
 }
 
 // =====================================================
-// BACKEND REQUEST HELPER
+// TOP-RIGHT AUTHENTICATION DROPDOWN & MENU
 // =====================================================
+profileMenuBtn?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (authDropdown) authDropdown.hidden = !authDropdown.hidden;
+});
 
-async function apiRequest(path, options = {}) {
-    const response = await fetch(API_URL + path, {
-        ...options,
-        headers: {
-            ...(options.headers || {})
-        }
-    });
+document.addEventListener("click", (e) => {
+    if (authDropdown && !authDropdown.contains(e.target) && e.target !== profileMenuBtn) {
+        authDropdown.hidden = true;
+    }
+});
 
-    const contentType = response.headers.get("content-type") || "";
+function showAuthMessage(msg, isError = false) {
+    if (!authMessage) return;
+    authMessage.textContent = msg;
+    authMessage.style.color = isError ? "#ff6b6b" : "#65eee4";
+}
 
-    if (!response.ok) {
-        let errorMessage = "Server error: " + response.status;
+function updateAccountInterface(user) {
+    currentUser = user || null;
 
-        if (contentType.includes("application/json")) {
-            const data = await response.json();
-            errorMessage = data.error || errorMessage;
-        } else {
-            const text = await response.text();
-            if (text) errorMessage = text.slice(0, 300);
-        }
-
-        throw new Error(errorMessage);
+    if (authStatus) {
+        authStatus.textContent = user ? "Signed in: " + user.email : "Not signed in";
     }
 
-    if (contentType.includes("application/json")) {
-        return response.json();
+    if (userAvatarChar) {
+        userAvatarChar.textContent = user ? user.email.charAt(0).toUpperCase() : "👤";
     }
 
-    return response;
+    if (authForms) authForms.hidden = !!user;
+    if (signOutBtn) signOutBtn.hidden = !user;
 }
 
-// =====================================================
-// OPTIONAL LIBRARY LOADER
-// =====================================================
+signUpBtn?.addEventListener("click", async () => {
+    if (!supabaseClient) return showAuthMessage("Supabase not loaded.", true);
+    const email = authEmail?.value.trim();
+    const password = authPassword?.value;
+    if (!email || !password) return showAuthMessage("Enter email & password.", true);
 
-function loadScript(url) {
-    return new Promise((resolve, reject) => {
-        const script = document.createElement("script");
-        script.src = url;
-        script.async = true;
-        script.onload = resolve;
-        script.onerror = () => reject(new Error("Could not load library: " + url));
-        document.head.appendChild(script);
-    });
-}
-
-async function ensureLibrary(name) {
     try {
-        if (name === "mammoth") {
-            if (!window.mammoth) {
-                await loadScript("https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.9.0/mammoth.browser.min.js");
-            }
-            return !!window.mammoth;
-        }
-
-        if (name === "xlsx") {
-            if (!window.XLSX) {
-                await loadScript("https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js");
-            }
-            return !!window.XLSX;
-        }
-
-        if (name === "jszip") {
-            if (!window.JSZip) {
-                await loadScript("https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js");
-            }
-            return !!window.JSZip;
-        }
-    } catch (error) {
-        console.error(error);
-        return false;
+        const { data, error } = await supabaseClient.auth.signUp({ email, password });
+        if (error) throw error;
+        updateAccountInterface(data.user);
+        showAuthMessage("Account created successfully!");
+    } catch (err) {
+        showAuthMessage(err.message, true);
     }
+});
 
-    return false;
+signInBtn?.addEventListener("click", async () => {
+    if (!supabaseClient) return showAuthMessage("Supabase not loaded.", true);
+    const email = authEmail?.value.trim();
+    const password = authPassword?.value;
+    if (!email || !password) return showAuthMessage("Enter email & password.", true);
+
+    try {
+        const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+        if (error) throw error;
+        updateAccountInterface(data.user);
+        showAuthMessage("Welcome back!");
+    } catch (err) {
+        showAuthMessage(err.message, true);
+    }
+});
+
+signOutBtn?.addEventListener("click", async () => {
+    if (!supabaseClient) return;
+    await supabaseClient.auth.signOut();
+    updateAccountInterface(null);
+    showAuthMessage("Signed out successfully.");
+});
+
+async function initializeAuthentication() {
+    if (!supabaseClient) return;
+    const { data } = await supabaseClient.auth.getSession();
+    updateAccountInterface(data.session?.user || null);
+    supabaseClient.auth.onAuthStateChange((_, session) => {
+        updateAccountInterface(session?.user || null);
+    });
+}
+initializeAuthentication();
+
+// =====================================================
+// CONVERSATION HISTORY (SIDEBAR)
+// =====================================================
+function getStoredHistory() {
+    return JSON.parse(localStorage.getItem("gidy_ai_sessions") || "[]");
 }
 
-// =====================================================
-// MESSAGE DISPLAY & UI
-// =====================================================
+function saveConversationToHistory(id, title) {
+    let sessions = getStoredHistory();
+    const existingIndex = sessions.findIndex(s => s.id === id);
 
+    if (existingIndex > -1) {
+        sessions[existingIndex].title = title || sessions[existingIndex].title;
+    } else {
+        sessions.unshift({ id, title: title || "New Chat", timestamp: Date.now() });
+    }
+    localStorage.setItem("gidy_ai_sessions", JSON.stringify(sessions));
+    renderSidebarHistory();
+}
+
+function renderSidebarHistory() {
+    if (!historyList) return;
+    historyList.innerHTML = "";
+    const sessions = getStoredHistory();
+
+    if (sessions.length === 0) {
+        historyList.innerHTML = `<p style="font-size:11px; color:var(--muted); padding:4px 8px;">No chat history</p>`;
+        return;
+    }
+
+    sessions.forEach(session => {
+        const item = document.createElement("button");
+        item.className = "history-item " + (session.id === conversationId ? "active" : "");
+        
+        const titleSpan = document.createElement("span");
+        titleSpan.className = "history-title";
+        titleSpan.textContent = session.title;
+
+        const delBtn = document.createElement("button");
+        delBtn.className = "history-delete";
+        delBtn.innerHTML = "×";
+        delBtn.onclick = (e) => {
+            e.stopPropagation();
+            deleteConversationSession(session.id);
+        };
+
+        item.appendChild(titleSpan);
+        item.appendChild(delBtn);
+
+        item.onclick = () => loadConversationSession(session.id);
+        historyList.appendChild(item);
+    });
+}
+
+function deleteConversationSession(id) {
+    let sessions = getStoredHistory().filter(s => s.id !== id);
+    localStorage.setItem("gidy_ai_sessions", JSON.stringify(sessions));
+    if (conversationId === id) {
+        startNewConversation();
+    } else {
+        renderSidebarHistory();
+    }
+}
+
+function loadConversationSession(id) {
+    conversationId = id;
+    localStorage.setItem("gidy_ai_current_conversation", conversationId);
+    renderSidebarHistory();
+    loadHistory();
+}
+
+// NEW CONVERSATION BUTTON
+function startNewConversation() {
+    conversationId = createId();
+    localStorage.setItem("gidy_ai_current_conversation", conversationId);
+    messages.innerHTML = "";
+    if (welcome) welcome.style.display = "block";
+    if (userInput) userInput.value = "";
+    renderSidebarHistory();
+}
+
+newChat?.addEventListener("click", startNewConversation);
+clearChat?.addEventListener("click", () => {
+    if (confirm("Clear current conversation?")) startNewConversation();
+});
+
+menuBtn?.addEventListener("click", () => sidebar?.classList.toggle("open"));
+
+// =====================================================
+// CHAT RENDERING & STREAMING RESPONSE
+// =====================================================
 function renderMessageText(content) {
     const value = String(content || "");
-
     if (window.marked && window.DOMPurify) {
         return DOMPurify.sanitize(marked.parse(value));
     }
-
-    const element = document.createElement("div");
-    element.textContent = value;
-    return element.innerHTML.replace(/\n/g, "<br>");
+    return value.replace(/\n/g, "<br>");
 }
 
 function scrollToBottom() {
     const area = $("chatArea");
-    if (area) {
-        area.scrollTop = area.scrollHeight;
-    }
+    if (area) area.scrollTop = area.scrollHeight;
 }
 
-function addMessage(role, content, imageUrl = null) {
+function addMessage(role, content) {
     const message = document.createElement("div");
     message.className = "message " + (role === "user" ? "user-message" : "ai-message");
 
@@ -415,751 +263,106 @@ function addMessage(role, content, imageUrl = null) {
 
     contentBox.appendChild(name);
     contentBox.appendChild(text);
-
-    if (imageUrl) {
-        const image = document.createElement("img");
-        image.src = imageUrl;
-        image.alt = "Attached image";
-        image.loading = "lazy";
-        text.appendChild(image);
-    }
-
     message.appendChild(avatar);
     message.appendChild(contentBox);
 
     messages.appendChild(message);
-
     if (welcome) welcome.style.display = "none";
-
     scrollToBottom();
-    return message;
+
+    return text; // Return text container element for dynamic updates
 }
 
-function showTyping() {
-    removeTyping();
+// STREAMING TEXT SIMULATION (WORD-BY-WORD CHUNK ANIMATION)
+async function streamTextResponse(fullText) {
+    const textElement = addMessage("assistant", "");
+    textElement.classList.add("streaming-cursor");
 
-    const typing = document.createElement("div");
-    typing.className = "message typing-message";
-    typing.id = "typingIndicator";
+    const words = fullText.split(" ");
+    let displayed = "";
 
-    const avatar = document.createElement("div");
-    avatar.className = "avatar";
-    avatar.textContent = "🤖";
+    for (let i = 0; i < words.length; i++) {
+        displayed += (i === 0 ? "" : " ") + words[i];
+        textElement.innerHTML = renderMessageText(displayed);
+        scrollToBottom();
+        await new Promise(res => setTimeout(res, 35)); // Fast streaming pace
+    }
 
-    const content = document.createElement("div");
-    content.className = "message-content";
-
-    const name = document.createElement("div");
-    name.className = "message-name";
-    name.textContent = "Gidy AI";
-
-    const text = document.createElement("div");
-    text.className = "typing";
-    text.textContent = "Thinking...";
-
-    content.append(name, text);
-    typing.append(avatar, content);
-
-    messages.appendChild(typing);
-    scrollToBottom();
-}
-
-function removeTyping() {
-    $("typingIndicator")?.remove();
-}
-
-function showError(error) {
-    addMessage(
-        "assistant",
-        "⚠️ **Sorry, something went wrong.**\n\n" +
-        String(error.message || error) +
-        "\n\nPlease try again."
-    );
+    textElement.classList.remove("streaming-cursor");
 }
 
 // =====================================================
-// CONVERSATION HISTORY & SIDEBAR
+// API REQUEST & SEND MESSAGE
 // =====================================================
+async function apiRequest(path, options = {}) {
+    const response = await fetch(API_URL + path, options);
+    if (!response.ok) throw new Error("Server error: " + response.status);
+    return response.json();
+}
 
 async function loadHistory() {
     try {
         const data = await apiRequest("/history?conversationId=" + encodeURIComponent(conversationId));
-
         messages.innerHTML = "";
-
-        if (!data.success || !data.messages || data.messages.length === 0) {
-            if (welcome) welcome.style.display = "flex";
+        if (!data.success || !data.messages?.length) {
+            if (welcome) welcome.style.display = "block";
             return;
         }
-
         if (welcome) welcome.style.display = "none";
-
-        data.messages.forEach(item => {
-            addMessage(item.role, item.content);
-        });
-
-    } catch (error) {
-        console.error("History loading failed:", error);
+        data.messages.forEach(item => addMessage(item.role, item.content));
+    } catch (err) {
+        console.warn("No active history found:", err);
     }
 }
 
-function startNewConversation() {
-    conversationId = createId();
-    localStorage.setItem(STORAGE_KEY, conversationId);
-    messages.innerHTML = "";
-
-    if (welcome) welcome.style.display = "flex";
-    clearAttachments();
-
-    if (userInput) userInput.value = "";
-
-    window.speechSynthesis?.cancel();
-
-    if (currentAudio) {
-        currentAudio.pause();
-        currentAudio = null;
-    }
-
-    scrollToBottom();
-}
-
-newChat?.addEventListener("click", startNewConversation);
-
-clearChat?.addEventListener("click", async () => {
-    if (!confirm("Delete this conversation and its saved history?")) return;
-
-    try {
-        await apiRequest("/conversation?conversationId=" + encodeURIComponent(conversationId), {
-            method: "DELETE"
-        });
-        startNewConversation();
-    } catch (error) {
-        alert("Could not delete conversation: " + error.message);
-    }
-});
-
-// SIDEBAR TOGGLE FIX (Works for active/open class)
-menuBtn?.addEventListener("click", () => {
-    if (sidebar) {
-        sidebar.classList.toggle("open");
-        sidebar.classList.toggle("active");
-    }
-});
-
-// SUBJECT SUGGESTIONS
-document.querySelectorAll("[data-prompt]").forEach(button => {
-    button.addEventListener("click", () => {
-        const prompt = button.dataset.prompt || "";
-        userInput.value = prompt;
-        userInput.focus();
-        if (sidebar) {
-            sidebar.classList.remove("open");
-            sidebar.classList.remove("active");
-        }
-    });
-});
-
-// =====================================================
-// ATTACHMENT MENU & MANAGEMENT
-// =====================================================
-
-function toggleAttachmentMenu() {
-    if (!attachmentOptions) return;
-    const open = attachmentOptions.hidden;
-    attachmentOptions.hidden = !open;
-    attachmentOptions.style.display = open ? "flex" : "none";
-}
-
-attachmentButton?.addEventListener("click", event => {
-    event.preventDefault();
-    toggleAttachmentMenu();
-});
-
-function openFilePicker(input) {
-    if (!input) return;
-    if (attachmentOptions) {
-        attachmentOptions.hidden = true;
-        attachmentOptions.style.display = "none";
-    }
-    input.click();
-}
-
-chooseImage?.addEventListener("click", () => openFilePicker(imageInput));
-choosePDF?.addEventListener("click", () => openFilePicker(pdfInput));
-chooseDocument?.addEventListener("click", () => openFilePicker(documentInput));
-chooseAudio?.addEventListener("click", () => openFilePicker(audioInput));
-chooseVideo?.addEventListener("click", () => openFilePicker(videoInput));
-
-function formatBytes(bytes) {
-    if (bytes < 1024) return bytes + " B";
-    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
-    return (bytes / (1024 * 1024)).toFixed(1) + " MB";
-}
-
-function readFileAsText(file) {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(String(reader.result || ""));
-        reader.onerror = () => reject(new Error("Could not read " + file.name));
-        reader.readAsText(file);
-    });
-}
-
-function readFileAsArrayBuffer(file) {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = () => reject(new Error("Could not read " + file.name));
-        reader.readAsArrayBuffer(file);
-    });
-}
-
-function renderAttachmentPreview() {
-    if (!attachmentPreview) return;
-    attachmentPreview.innerHTML = "";
-
-    attachments.forEach((item, index) => {
-        const card = document.createElement("div");
-        card.className = "attachment-preview-item";
-
-        const icon = document.createElement("span");
-        icon.className = "attachment-file-icon";
-        icon.textContent = item.icon;
-
-        const info = document.createElement("div");
-        info.style.minWidth = "0";
-
-        const name = document.createElement("div");
-        name.className = "attachment-file-name";
-        name.textContent = item.name;
-
-        const size = document.createElement("small");
-        size.textContent = formatBytes(item.size);
-
-        info.append(name, size);
-        card.append(icon, info);
-
-        if (item.previewURL && item.type === "image") {
-            const image = document.createElement("img");
-            image.src = item.previewURL;
-            image.alt = item.name;
-            card.insertBefore(image, icon);
-        }
-
-        const remove = document.createElement("button");
-        remove.type = "button";
-        remove.className = "remove-attachment";
-        remove.textContent = "×";
-        remove.addEventListener("click", () => removeAttachment(index));
-
-        card.appendChild(remove);
-        attachmentPreview.appendChild(card);
-    });
-}
-
-// REMOVE ATTACHMENT FUNCTION FIX
-function removeAttachment(index) {
-    const item = attachments[index];
-    if (item?.previewURL) {
-        URL.revokeObjectURL(item.previewURL);
-    }
-    attachments.splice(index, 1);
-    renderAttachmentPreview();
-}
-
-function clearAttachments() {
-    attachments.forEach(item => {
-        if (item.previewURL) {
-            URL.revokeObjectURL(item.previewURL);
-        }
-    });
-
-    attachments = [];
-    renderAttachmentPreview();
-
-    [imageInput, pdfInput, documentInput, audioInput, videoInput].forEach(input => {
-        if (input) input.value = "";
-    });
-}
-
-function addFiles(fileList, type) {
-    for (const file of Array.from(fileList || [])) {
-        if (file.size > MAX_FILE_SIZE) {
-            alert(file.name + " exceeds the 20 MB limit.");
-            continue;
-        }
-
-        const duplicate = attachments.some(item =>
-            item.name === file.name && item.size === file.size && item.type === type
-        );
-        if (duplicate) continue;
-
-        if (type === "image") {
-            if (!file.type.startsWith("image/")) continue;
-            if (attachments.filter(a => a.type === "image").length >= MAX_IMAGES) {
-                alert("Maximum 8 images allowed.");
-                continue;
-            }
-        }
-
-        if (type === "pdf" && file.type !== "application/pdf") {
-            alert("Please select a PDF file.");
-            continue;
-        }
-
-        const icons = {
-            image: "🖼️",
-            pdf: "📕",
-            document: "📄",
-            audio: "🎵",
-            video: "🎬"
-        };
-
-        attachments.push({
-            file,
-            name: file.name,
-            size: file.size,
-            type,
-            icon: icons[type],
-            previewURL: (type === "image" || type === "video" || type === "audio")
-                ? URL.createObjectURL(file)
-                : null
-        });
-    }
-
-    renderAttachmentPreview();
-}
-
-imageInput?.addEventListener("change", e => { addFiles(e.target.files, "image"); e.target.value = ""; });
-pdfInput?.addEventListener("change", e => { addFiles(e.target.files, "pdf"); e.target.value = ""; });
-documentInput?.addEventListener("change", e => { addFiles(e.target.files, "document"); e.target.value = ""; });
-audioInput?.addEventListener("change", e => { addFiles(e.target.files, "audio"); e.target.value = ""; });
-videoInput?.addEventListener("change", e => { addFiles(e.target.files, "video"); e.target.value = ""; });
-// =====================================================
-// FILE & MEDIA EXTRACTION HELPERS
-// =====================================================
-
-async function loadImage(file) {
-    const url = URL.createObjectURL(file);
-    try {
-        const image = new Image();
-        await new Promise((resolve, reject) => {
-            image.onload = resolve;
-            image.onerror = reject;
-            image.src = url;
-        });
-        return image;
-    } finally {
-        URL.revokeObjectURL(url);
-    }
-}
-
-async function makeImageContactSheet(imageFiles, videoFrames = []) {
-    const sources = [];
-    for (const file of imageFiles) {
-        sources.push({ image: await loadImage(file), label: file.name });
-    }
-
-    videoFrames.forEach((frame, index) => {
-        sources.push({ image: frame, label: "Video frame " + (index + 1) });
-    });
-
-    if (!sources.length) return null;
-
-    const columns = sources.length === 1 ? 1 : 2;
-    const cellWidth = sources.length === 1 ? 1400 : 600;
-    const cellHeight = sources.length === 1 ? 1000 : 430;
-    const rows = Math.ceil(sources.length / columns);
-
-    const canvas = document.createElement("canvas");
-    canvas.width = columns * cellWidth;
-    canvas.height = rows * cellHeight;
-
-    const context = canvas.getContext("2d");
-    context.fillStyle = "#ffffff";
-    context.fillRect(0, 0, canvas.width, canvas.height);
-
-    sources.forEach((source, index) => {
-        const x = (index % columns) * cellWidth;
-        const y = Math.floor(index / columns) * cellHeight;
-        const image = source.image;
-
-        const scale = Math.min(
-            (cellWidth - 20) / image.width,
-            (cellHeight - 50) / image.height
-        );
-        const width = image.width * scale;
-        const height = image.height * scale;
-
-        context.drawImage(image, x + (cellWidth - width) / 2, y + 40, width, height);
-        context.fillStyle = "#111111";
-        context.font = "18px Arial";
-        context.fillText(source.label.slice(0, 60), x + 10, y + 25);
-    });
-
-    return canvas.toDataURL("image/jpeg", 0.78);
-}
-
-async function extractPDF(file) {
-    if (!window.pdfjsLib) throw new Error("PDF.js is unavailable.");
-
-    const buffer = await readFileAsArrayBuffer(file);
-    const pdf = await pdfjsLib.getDocument({ data: new Uint8Array(buffer) }).promise;
-
-    let output = "";
-    for (let page = 1; page <= pdf.numPages; page++) {
-        const currentPage = await pdf.getPage(page);
-        const content = await currentPage.getTextContent();
-        output += "\n\n--- Page " + page + " ---\n";
-        output += content.items.map(item => item.str).join(" ");
-        if (output.length >= MAX_DOCUMENT_TEXT) break;
-    }
-
-    if (!output.trim()) {
-        throw new Error("This PDF contains no selectable text.");
-    }
-    return output.slice(0, MAX_DOCUMENT_TEXT);
-}
-
-async function extractDOCX(file) {
-    if (!await ensureLibrary("mammoth")) throw new Error("Could not load Word reader.");
-    const buffer = await readFileAsArrayBuffer(file);
-    const result = await mammoth.extractRawText({ arrayBuffer: buffer });
-    return result.value || "";
-}
-
-async function extractExcel(file) {
-    if (!await ensureLibrary("xlsx")) throw new Error("Could not load Excel reader.");
-    const buffer = await readFileAsArrayBuffer(file);
-    const workbook = XLSX.read(buffer, { type: "array" });
-    let output = "";
-    workbook.SheetNames.forEach(name => {
-        const sheet = workbook.Sheets[name];
-        output += "\n\n--- Sheet: " + name + " ---\n" + XLSX.utils.sheet_to_csv(sheet);
-    });
-    return output.slice(0, MAX_DOCUMENT_TEXT);
-}
-
-async function extractPPTX(file) {
-    if (!await ensureLibrary("jszip")) throw new Error("Could not load PowerPoint reader.");
-    const zip = await JSZip.loadAsync(await readFileAsArrayBuffer(file));
-    const slideFiles = Object.keys(zip.files)
-        .filter(name => /^ppt\/slides\/slide\d+\.xml$/.test(name))
-        .sort((a, b) => Number(a.match(/slide(\d+)/)[1]) - Number(b.match(/slide(\d+)/)[1]));
-
-    let output = "";
-    for (const name of slideFiles) {
-        const xml = await zip.files[name].async("text");
-        const doc = new DOMParser().parseFromString(xml, "application/xml");
-        const texts = Array.from(doc.getElementsByTagName("a:t")).map(el => el.textContent);
-        output += "\n\n--- " + name + " ---\n" + texts.join(" ");
-    }
-    return output.slice(0, MAX_DOCUMENT_TEXT);
-}
-
-async function extractVideoFrames(file) {
-    const url = URL.createObjectURL(file);
-    try {
-        const video = document.createElement("video");
-        video.src = url;
-        video.muted = true;
-        video.playsInline = true;
-        video.preload = "metadata";
-
-        await new Promise((resolve, reject) => {
-            video.onloadedmetadata = resolve;
-            video.onerror = reject;
-        });
-
-        const duration = video.duration;
-        if (!Number.isFinite(duration) || duration <= 0) throw new Error("Invalid video duration.");
-
-        const canvas = document.createElement("canvas");
-        canvas.width = 640;
-        canvas.height = 360;
-        const context = canvas.getContext("2d");
-        const frames = [];
-
-        const count = Math.min(MAX_VIDEO_FRAMES, Math.max(1, Math.ceil(duration / 10)));
-
-        for (let i = 0; i < count; i++) {
-            video.currentTime = duration * (i + 1) / (count + 1);
-            await new Promise((resolve, reject) => {
-                video.onseeked = resolve;
-                video.onerror = reject;
-            });
-            context.drawImage(video, 0, 0, canvas.width, canvas.height);
-            const image = new Image();
-            image.src = canvas.toDataURL("image/jpeg", 0.75);
-            await new Promise((resolve, reject) => {
-                image.onload = resolve;
-                image.onerror = reject;
-            });
-            frames.push(image);
-        }
-
-        video.removeAttribute("src");
-        video.load();
-        return frames;
-    } finally {
-        URL.revokeObjectURL(url);
-    }
-}
-async function transcribeAudio(file) {
-    const formData = new FormData();
-    formData.append("audio", file);
-    const response = await apiRequest("/transcribe", { method: "POST", body: formData });
-    if (!response.success) throw new Error(response.error || "Transcription failed.");
-    return response.text || "";
-}
-
-async function prepareAttachments() {
-    let extraText = "";
-    let imageFiles = [];
-    let videoFrames = [];
-
-    for (const item of attachments) {
-        const file = item.file;
-
-        if (item.type === "image") {
-            imageFiles.push(file);
-            continue;
-        }
-
-        if (item.type === "pdf") {
-            extraText += "\n\n[PDF: " + item.name + "]\n" + await extractPDF(file);
-            continue;
-        }
-
-        if (item.type === "document") {
-            const ext = item.name.split(".").pop().toLowerCase();
-            extraText += "\n\n[Document: " + item.name + "]\n";
-            if (ext === "docx") extraText += await extractDOCX(file);
-            else if (["xlsx", "xls"].includes(ext)) extraText += await extractExcel(file);
-            else if (ext === "pptx") extraText += await extractPPTX(file);
-            else if (["txt", "csv", "json", "md", "rtf"].includes(ext)) extraText += await readFileAsText(file);
-            else throw new Error("Unsupported document format: " + ext);
-            continue;
-        }
-
-        if (item.type === "audio") {
-            extraText += "\n\n[Audio transcription: " + item.name + "]\n" + await transcribeAudio(file);
-            continue;
-        }
-
-        if (item.type === "video") {
-            videoFrames.push(...await extractVideoFrames(file));
-        }
-    }
-
-    const image = await makeImageContactSheet(imageFiles, videoFrames);
-
-    return {
-        extraText: extraText.slice(0, MAX_DOCUMENT_TEXT),
-        image
-    };
-}
-
-// =====================================================
-// SEND MESSAGE TO BACKEND FIX
-// =====================================================
-
-async function sendMessage(event) {
-    if (event) event.preventDefault();
-
-    // Require account login before sending messages
-    if (!currentUser) {
-        showAuthMessage("Please create an account or log in before using Gidy AI.", true);
-        authEmail?.focus();
-        return;
-    }
-
-    if (isSending) return;
-
-    const message = userInput.value.trim();
-
-    if (!message && attachments.length === 0) return;
+async function sendMessage(e) {
+    if (e) e.preventDefault();
+    if (!currentUser) return alert("Please log in first via the top-right profile icon.");
+
+    const text = userInput.value.trim();
+    if (!text && attachments.length === 0) return;
 
     isSending = true;
     sendBtn.disabled = true;
-    sendBtn.textContent = "…";
 
-    let userImage = null;
+    addMessage("user", text);
+    userInput.value = "";
+
+    // Update conversation sidebar title using first message
+    const sessions = getStoredHistory();
+    if (!sessions.some(s => s.id === conversationId)) {
+        saveConversationToHistory(conversationId, text.slice(0, 24) + "...");
+    }
 
     try {
-        showTyping();
-        const prepared = await prepareAttachments();
-        userImage = prepared.image;
-
-        const finalMessage = message + (prepared.extraText ? "\n\nAttached document content:\n" + prepared.extraText : "");
-
-        addMessage("user", finalMessage || "Please analyze my uploaded image.", userImage);
-
-        userInput.value = "";
-        clearAttachments();
-
-        const payload = {
-            message: finalMessage,
-            conversationId,
-            image: userImage
-        };
-
+        const payload = { message: text, conversationId };
         const data = await apiRequest("/chat", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)
         });
 
-        removeTyping();
-
-        if (!data.success) throw new Error(data.error || "AI request failed.");
-
-        const answer = data.reply || data.response;
-        if (!answer) throw new Error("The AI returned an empty response.");
-
-        addMessage("assistant", answer);
-
-        if (speakReplies?.checked) {
-            speakText(answer).catch(console.error);
+        if (data.reply) {
+            await streamTextResponse(data.reply);
+        } else {
+            addMessage("assistant", "No response received.");
         }
-
-    } catch (error) {
-        removeTyping();
-        console.error("Gidy AI send error:", error);
-        showError(error);
-
+    } catch (err) {
+        addMessage("assistant", "⚠️ Error: " + err.message);
     } finally {
-        removeTyping();
         isSending = false;
         sendBtn.disabled = false;
-        sendBtn.textContent = "➤";
-        userInput.focus();
     }
 }
 
-// FORM SUBMISSION BINDING
 chatForm?.addEventListener("submit", sendMessage);
-
-userInput?.addEventListener("keydown", event => {
-    if (event.key === "Enter" && !event.shiftKey && !event.isComposing) {
-        event.preventDefault();
-        if (!isSending) chatForm.requestSubmit();
+userInput?.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
     }
 });
 
-// =====================================================
-// VOICE SPEECH & RECORDING
-// =====================================================
-
-async function speakText(text) {
-    if (!text) return;
-
-    if (currentAudio) {
-        currentAudio.pause();
-        currentAudio = null;
-    }
-
-    const response = await apiRequest("/speak", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: text.slice(0, 5000) })
-    });
-
-    const blob = await response.blob();
-    if (!blob.size) throw new Error("Voice service returned empty audio.");
-
-    const url = URL.createObjectURL(blob);
-    currentAudio = new Audio(url);
-
-    currentAudio.onended = () => {
-        URL.revokeObjectURL(url);
-        currentAudio = null;
-    };
-
-    await currentAudio.play();
-}
-
-async function startRecording() {
-    if (!navigator.mediaDevices?.getUserMedia || !window.MediaRecorder) {
-        alert("Voice recording is not supported in this browser.");
-        return;
-    }
-
-    try {
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        recordedChunks = [];
-        mediaRecorder = new MediaRecorder(stream);
-
-        mediaRecorder.ondataavailable = event => {
-            if (event.data.size > 0) recordedChunks.push(event.data);
-        };
-
-        mediaRecorder.onstop = async () => {
-            const blob = new Blob(recordedChunks, { type: mediaRecorder.mimeType || "audio/webm" });
-            stream.getTracks().forEach(track => track.stop());
-
-            if (blob.size > MAX_FILE_SIZE) {
-                alert("Recording exceeds 20 MB.");
-                return;
-            }
-
-            try {
-                const file = new File([blob], "gidy-voice-recording.webm", { type: blob.type });
-                const transcription = await transcribeAudio(file);
-
-                if (transcription.trim()) {
-                    userInput.value = (userInput.value.trim() + " " + transcription).trim();
-                    userInput.focus();
-                } else {
-                    alert("No speech detected.");
-                }
-
-            } catch (error) {
-                alert("Transcription failed: " + error.message);
-            }
-        };
-
-        mediaRecorder.start();
-        isRecording = true;
-
-        if (recordingStatus) recordingStatus.hidden = false;
-        if (voiceButton) voiceButton.textContent = "⏹️";
-
-    } catch (error) {
-        alert("Microphone access failed: " + error.message);
-    }
-}
-
-function stopRecording() {
-    if (mediaRecorder && isRecording) {
-        mediaRecorder.stop();
-        isRecording = false;
-        if (recordingStatus) recordingStatus.hidden = true;
-        if (voiceButton) voiceButton.textContent = "🎤";
-    }
-}
-
-voiceButton?.addEventListener("click", () => {
-    if (isRecording) stopRecording();
-    else startRecording();
-});
-
-stopRecordingButton?.addEventListener("click", stopRecording);
-// =====================================================
-// INITIALIZE APPLICATION
-// =====================================================
-
-async function initializeGidyAI() {
-    console.log("Gidy AI frontend V3.0 initialized.");
-    await loadHistory();
-
-    try {
-        const health = await apiRequest("/health");
-        console.log("Gidy AI backend:", health);
-    } catch (error) {
-        console.error("Gidy AI backend health check failed:", error);
-    }
-}
-
-initializeGidyAI();
-       
+// INITIALIZATION
+renderSidebarHistory();
+loadHistory();
