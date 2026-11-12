@@ -366,3 +366,127 @@ userInput?.addEventListener("keydown", (e) => {
 // INITIALIZATION
 renderSidebarHistory();
 loadHistory();
+// =====================================================
+// 1. FIX: "+ NEW CONVERSATION" & MOBILE SIDEBAR NAVIGATION
+// =====================================================
+function closeSidebar() {
+    sidebar?.classList.remove("open");
+}
+
+function startNewConversation() {
+    conversationId = createId();
+    localStorage.setItem("gidy_ai_current_conversation", conversationId);
+    messages.innerHTML = "";
+    attachments = [];
+    if (attachmentPreview) attachmentPreview.innerHTML = "";
+    if (welcome) welcome.style.display = "block";
+    if (userInput) {
+        userInput.value = "";
+        userInput.focus();
+    }
+    renderSidebarHistory();
+    closeSidebar(); // Moves user back to the fresh conversation page on mobile
+}
+
+// Close sidebar when tapping outside of it on mobile
+document.addEventListener("click", (e) => {
+    if (
+        sidebar?.classList.contains("open") &&
+        !sidebar.contains(e.target) &&
+        e.target !== menuBtn
+    ) {
+        closeSidebar();
+    }
+});
+
+// Close sidebar when selecting a saved conversation or learning area prompt
+document.querySelectorAll(".subject-btn, .suggestion").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const prompt = btn.getAttribute("data-prompt");
+        if (prompt && userInput) {
+            userInput.value = prompt;
+            userInput.focus();
+        }
+        closeSidebar();
+    });
+});
+
+// Also close sidebar inside loadConversationSession:
+// Add `closeSidebar();` at the end of your existing loadConversationSession(id) function.
+
+
+// =====================================================
+// 2. FIX: "+" ATTACHMENT BUTTON & FILE PICKERS
+// =====================================================
+const imageInput = $("imageInput");
+const pdfInput = $("pdfInput");
+const documentInput = $("documentInput");
+const audioInput = $("audioInput");
+const videoInput = $("videoInput");
+
+attachmentButton?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (attachmentOptions) {
+        attachmentOptions.hidden = !attachmentOptions.hidden;
+    }
+});
+
+// Close attachment sheet when clicking outside
+document.addEventListener("click", (e) => {
+    if (
+        attachmentOptions &&
+        !attachmentOptions.hidden &&
+        !attachmentOptions.contains(e.target) &&
+        e.target !== attachmentButton
+    ) {
+        attachmentOptions.hidden = true;
+    }
+});
+
+// Wire up attachment sheet buttons to hidden file inputs
+$("chooseImage")?.addEventListener("click", () => {
+    attachmentOptions.hidden = true;
+    imageInput?.click();
+});
+
+$("chooseCamera")?.addEventListener("click", () => {
+    attachmentOptions.hidden = true;
+    if (imageInput) {
+        imageInput.setAttribute("capture", "environment");
+        imageInput.click();
+    }
+});
+
+$("choosePDF")?.addEventListener("click", () => {
+    attachmentOptions.hidden = true;
+    pdfInput?.click();
+});
+
+$("chooseAudio")?.addEventListener("click", () => {
+    attachmentOptions.hidden = true;
+    audioInput?.click();
+});
+
+$("chooseVideo")?.addEventListener("click", () => {
+    attachmentOptions.hidden = true;
+    videoInput?.click();
+});
+
+// Handle selected files and show preview chips
+function handleFileSelection(inputEl) {
+    inputEl?.addEventListener("change", () => {
+        const files = Array.from(inputEl.files || []);
+        files.forEach(file => {
+            attachments.push(file);
+            if (attachmentPreview) {
+                const chip = document.createElement("span");
+                chip.className = "attachment-chip";
+                chip.textContent = `📎 ${file.name}`;
+                attachmentPreview.appendChild(chip);
+            }
+        });
+        inputEl.value = "";
+    });
+}
+
+[imageInput, pdfInput, documentInput, audioInput, videoInput].forEach(handleFileSelection);
