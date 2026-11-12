@@ -219,12 +219,37 @@ function startNewConversation() {
     renderSidebarHistory();
 }
 
-newChat?.addEventListener("click", startNewConversation);
-clearChat?.addEventListener("click", () => {
-    if (confirm("Clear current conversation?")) startNewConversation();
+
+// SIDEBAR NAVIGATION
+function closeSidebar() {
+    sidebar?.classList.remove("open");
+}
+
+function openSidebar() {
+    sidebar?.classList.add("open");
+}
+
+newChat?.addEventListener("click", () => {
+    startNewConversation();
+    closeSidebar();
 });
 
-menuBtn?.addEventListener("click", () => sidebar?.classList.toggle("open"));
+clearChat?.addEventListener("click", () => {
+    if (confirm("Clear current conversation?")) {
+        startNewConversation();
+    }
+});
+
+menuBtn?.addEventListener("click", () => {
+    if (sidebar?.classList.contains("open")) {
+        closeSidebar();
+    } else {
+        openSidebar();
+    }
+});
+
+// Sidebar close button
+$("sidebarCloseBtn")?.addEventListener("click", closeSidebar);
 
 // =====================================================
 // CHAT RENDERING & STREAMING RESPONSE
