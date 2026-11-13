@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="description" content="Beginner Trading Education at Gidy Nega. Learn financial markets, Forex, candlesticks, risk management and trading psychology.">
-
 <meta name="author" content="Gidy Nega">
 
 <title>Beginner Trading | Gidy Nega</title>
@@ -247,6 +246,21 @@ summary {
     font-weight: bold;
     cursor: pointer;
     background: #17162e;
+    list-style: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::after {
+    content: "＋";
+    float: right;
+    font-size: 18px;
+}
+
+details[open] summary::after {
+    content: "−";
 }
 
 summary:hover {
@@ -255,6 +269,90 @@ summary:hover {
 
 details[open] summary {
     border-bottom: 1px solid #39305e;
+}
+
+/* INTERACTIVE LESSON NAVIGATION */
+
+.lesson-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.lesson-button {
+    padding: 11px 15px;
+    background: #24203e;
+    border: 1px solid #514080;
+    border-radius: 9px;
+    color: #c4b5fd;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.lesson-button:hover,
+.lesson-button.active {
+    background: linear-gradient(90deg, #7c3aed, #2563eb);
+    color: white;
+    border-color: #8b5cf6;
+}
+
+.lesson-panel {
+    background: #17162e;
+    border: 1px solid #39305e;
+    border-radius: 12px;
+    padding: 22px;
+    margin-top: 15px;
+    scroll-margin-top: 20px;
+}
+
+.lesson-panel[hidden] {
+    display: none;
+}
+
+.lesson-progress {
+    color: #22d3ee;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.lesson-controls {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+    padding-top: 18px;
+    border-top: 1px solid #39305e;
+}
+
+.lesson-controls button,
+.back-to-courses {
+    padding: 11px 16px;
+    background: #7c3aed;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.lesson-controls button:hover,
+.back-to-courses:hover {
+    opacity: 0.85;
+}
+
+.lesson-controls button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.back-to-courses {
+    background: #252044;
+    border: 1px solid #514080;
+    margin-bottom: 8px;
 }
 
 /* STUDY TIPS */
@@ -316,6 +414,14 @@ footer a {
         padding: 12px 0;
     }
 
+    .logo {
+        font-size: 17px;
+    }
+
+    .back-link {
+        font-size: 12px;
+    }
+
     .hero {
         padding: 50px 12px;
     }
@@ -331,6 +437,18 @@ footer a {
 
     .course-header h3 {
         font-size: 19px;
+    }
+
+    .lesson-panel {
+        padding: 16px;
+    }
+
+    .lesson-button {
+        flex: 1 1 40%;
+    }
+
+    .lesson-controls button {
+        flex: 1;
     }
 }
 </style>
@@ -380,7 +498,6 @@ through structured lessons and practical examples.
 <!-- COURSE SECTION -->
 
 <section>
-
 <div class="container">
 
 <div class="section-heading">
@@ -455,15 +572,13 @@ Your gross profit is $10 before fees and other costs.
 
 <div class="quiz">
 <h4>📝 Quick Knowledge Test</h4>
-
 <p>1. What is trading?</p>
 
 <label><input type="radio" name="q1" value="a"> Saving money in a bank.</label>
 <label><input type="radio" name="q1" value="b"> Buying and selling financial assets.</label>
 <label><input type="radio" name="q1" value="c"> Printing money.</label>
 
-<button onclick="checkAnswer('q1','b','result1')">Check Answer</button>
-
+<button type="button" onclick="checkAnswer('q1','b','result1')">Check Answer</button>
 <p class="feedback" id="result1"></p>
 </div>
 
@@ -535,15 +650,13 @@ four-decimal pip quotation.
 
 <div class="quiz">
 <h4>📝 Quick Knowledge Test</h4>
-
 <p>2. What does Forex mean?</p>
 
 <label><input type="radio" name="q2" value="a"> Foreign Exchange.</label>
 <label><input type="radio" name="q2" value="b"> Financial Export.</label>
 <label><input type="radio" name="q2" value="c"> Foreign Expenses.</label>
 
-<button onclick="checkAnswer('q2','a','result2')">Check Answer</button>
-
+<button type="button" onclick="checkAnswer('q2','a','result2')">Check Answer</button>
 <p class="feedback" id="result2"></p>
 </div>
 
@@ -620,15 +733,13 @@ it is bearish.
 
 <div class="quiz">
 <h4>📝 Quick Knowledge Test</h4>
-
 <p>3. What does the body of a candlestick represent?</p>
 
 <label><input type="radio" name="q3" value="a"> Opening and closing prices.</label>
 <label><input type="radio" name="q3" value="b"> Only the highest price.</label>
 <label><input type="radio" name="q3" value="c"> Only the lowest price.</label>
 
-<button onclick="checkAnswer('q3','a','result3')">Check Answer</button>
-
+<button type="button" onclick="checkAnswer('q3','a','result3')">Check Answer</button>
 <p class="feedback" id="result3"></p>
 </div>
 
@@ -690,10 +801,7 @@ Suppose a hypothetical trading account has $1,000.
 If a trader chooses to risk 1% on a trade,
 the planned risk is $10.
 </p>
-
-<p>
-Calculation: $1,000 × 0.01 = $10.
-</p>
+<p>Calculation: $1,000 × 0.01 = $10.</p>
 </div>
 
 <h4>Lesson 5: Risk-to-Reward Ratio</h4>
@@ -707,15 +815,13 @@ for a potential gain of $20.
 
 <div class="quiz">
 <h4>📝 Quick Knowledge Test</h4>
-
 <p>4. What is the main purpose of risk management?</p>
 
 <label><input type="radio" name="q4" value="a"> Guaranteeing profits.</label>
 <label><input type="radio" name="q4" value="b"> Controlling potential losses.</label>
 <label><input type="radio" name="q4" value="c"> Eliminating all market risks.</label>
 
-<button onclick="checkAnswer('q4','b','result4')">Check Answer</button>
-
+<button type="button" onclick="checkAnswer('q4','b','result4')">Check Answer</button>
 <p class="feedback" id="result4"></p>
 </div>
 
@@ -775,15 +881,13 @@ conditions rather than making impulsive decisions.
 
 <div class="quiz">
 <h4>📝 Quick Knowledge Test</h4>
-
 <p>5. Which behavior demonstrates trading discipline?</p>
 
 <label><input type="radio" name="q5" value="a"> Following a planned strategy.</label>
 <label><input type="radio" name="q5" value="b"> Trading emotionally after every loss.</label>
 <label><input type="radio" name="q5" value="c"> Ignoring risk limits.</label>
 
-<button onclick="checkAnswer('q5','a','result5')">Check Answer</button>
-
+<button type="button" onclick="checkAnswer('q5','a','result5')">Check Answer</button>
 <p class="feedback" id="result5"></p>
 </div>
 
@@ -814,7 +918,6 @@ conditions rather than making impulsive decisions.
 </ul>
 
 </div>
-
 </div>
 </section>
 
@@ -836,7 +939,6 @@ No lesson or strategy guarantees profits.
 </p>
 
 </div>
-
 </div>
 </section>
 
@@ -847,7 +949,6 @@ No lesson or strategy guarantees profits.
 <footer>
 
 <p><strong>Gidy Nega | Trading Learning</strong></p>
-
 <p>Beginner Level • Learn • Practice • Grow</p>
 
 <p>
@@ -858,7 +959,193 @@ No lesson or strategy guarantees profits.
 
 </footer>
 
+<!-- JAVASCRIPT -->
+
 <script>
+
+// ==========================================
+// GIDY TRADING - INTERACTIVE LESSON SYSTEM
+// ==========================================
+
+document.querySelectorAll(".course-card").forEach((course) => {
+
+    const details = course.querySelector("details");
+    const content = course.querySelector(".course-content");
+
+    let initialized = false;
+
+    details.addEventListener("toggle", () => {
+
+        if (!details.open || initialized) return;
+
+        const lessons = [];
+        let currentLesson = null;
+
+        // ORGANIZE CONTENT INTO LESSONS
+
+             Array.from(content.childNodes).forEach((node) => {
+
+            if (
+                node.nodeType === Node.ELEMENT_NODE &&
+                node.tagName === "H4" &&
+                /^Lesson\s+\d+/i.test(node.textContent.trim())
+            ) {
+
+                currentLesson = {
+                    title: node.textContent.trim(),
+                    nodes: [node]
+                };
+
+                lessons.push(currentLesson);
+
+            } else if (currentLesson) {
+
+                currentLesson.nodes.push(node);
+
+            }
+
+        });
+
+        if (lessons.length === 0) return;
+
+        initialized = true;
+
+        // CLEAR ORIGINAL COURSE CONTENT
+
+        content.innerHTML = "";
+
+        // BACK TO COURSES BUTTON
+
+        const backButton = document.createElement("button");
+
+        backButton.className = "back-to-courses";
+        backButton.textContent = "← Back to Courses";
+
+        backButton.addEventListener("click", () => {
+            details.open = false;
+        });
+
+        content.appendChild(backButton);
+
+        // LESSON BUTTON NAVIGATION
+
+        const navigation = document.createElement("div");
+
+        navigation.className = "lesson-navigation";
+
+        content.appendChild(navigation);
+
+        const panels = [];
+        const buttons = [];
+
+        // CREATE LESSONS
+
+        lessons.forEach((lesson, index) => {
+
+            const button = document.createElement("button");
+
+            button.className = "lesson-button";
+            button.textContent = `Lesson ${index + 1}`;
+
+            navigation.appendChild(button);
+            buttons.push(button);
+
+            const panel = document.createElement("div");
+
+            panel.className = "lesson-panel";
+            panel.hidden = true;
+
+            const progress = document.createElement("p");
+
+            progress.className = "lesson-progress";
+
+            progress.textContent =
+                `LESSON ${index + 1} OF ${lessons.length}`;
+
+            panel.appendChild(progress);
+
+            // ADD ORIGINAL LESSON CONTENT
+
+            lesson.nodes.forEach((node) => {
+                panel.appendChild(node);
+            });
+
+            // NAVIGATION CONTROLS
+
+            const controls = document.createElement("div");
+
+            controls.className = "lesson-controls";
+
+            const previous = document.createElement("button");
+
+            previous.textContent = "← Previous Lesson";
+            previous.disabled = index === 0;
+
+            previous.addEventListener("click", () => {
+                showLesson(index - 1);
+            });
+
+            const next = document.createElement("button");
+
+            next.textContent =
+                index === lessons.length - 1
+                    ? "Finish Course ✓"
+                    : "Next Lesson →";
+
+            next.addEventListener("click", () => {
+
+                if (index < lessons.length - 1) {
+                    showLesson(index + 1);
+                } else {
+                    details.open = false;
+                }
+
+            });
+controls.append(previous, next);
+
+            panel.appendChild(controls);
+            content.appendChild(panel);
+
+            panels.push(panel);
+
+            button.addEventListener("click", () => {
+                showLesson(index);
+            });
+
+        });
+
+        // DISPLAY SELECTED LESSON
+
+        function showLesson(index) {
+
+            if (index < 0 || index >= lessons.length) return;
+
+            panels.forEach((panel, i) => {
+                panel.hidden = i !== index;
+            });
+
+            buttons.forEach((button, i) => {
+                button.classList.toggle("active", i === index);
+            });
+
+            panels[index].scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }
+
+        showLesson(0);
+
+    });
+
+});
+
+
+// ==========================================
+// QUIZ ANSWER CHECKER
+// ==========================================
+
 function checkAnswer(question, correctAnswer, resultId) {
 
     const selected = document.querySelector(
@@ -868,20 +1155,31 @@ function checkAnswer(question, correctAnswer, resultId) {
     const result = document.getElementById(resultId);
 
     if (!selected) {
+
         result.textContent = "Please select an answer first.";
         result.style.color = "#fbbf24";
+
         return;
     }
 
     if (selected.value === correctAnswer) {
+
         result.textContent = "Correct! Excellent work. 🎉";
         result.style.color = "#86efac";
+
     } else {
-        result.textContent = "Incorrect. Review the lesson and try again.";
+
+        result.textContent =
+            "Incorrect. Review the lesson and try again.";
+
         result.style.color = "#f87171";
+
     }
+
 }
+
 </script>
 
 </body>
 </html>
+
