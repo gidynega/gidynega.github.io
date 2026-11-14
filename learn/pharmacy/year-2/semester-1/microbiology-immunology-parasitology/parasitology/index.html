@@ -1,0 +1,633 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Parasitology learning resources for Pharmacy students at Jimma University.">
+<title>Parasitology | Pharmacy Education - Gidy Nega</title>
+
+<style>
+:root {
+  --bg:#0b0b18;
+  --card:#17172b;
+  --border:#343454;
+  --pink:#ff55c8;
+  --blue:#8187ff;
+  --cyan:#65eee4;
+  --text:#f4f4ff;
+  --muted:#b9bad0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+a{text-decoration:none;color:var(--cyan)}
+header{
+  padding:20px 7%;
+  background:#101020;
+  border-bottom:1px solid var(--border);
+}
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.brand{color:var(--pink);font-weight:bold;font-size:1.15rem}
+.hero{
+  text-align:center;
+  padding:65px 6% 45px;
+  background:radial-gradient(circle at top,#29234d,var(--bg) 75%);
+}
+.hero-icon{font-size:4rem}
+.hero h1{
+  color:var(--pink);
+  font-size:clamp(2.2rem,5vw,3.3rem);
+  margin:10px 0;
+}
+.hero p{max-width:700px;color:var(--muted);margin:auto}
+.badge{
+  display:inline-block;
+  margin:15px 4px 0;
+  padding:6px 14px;
+  border-radius:25px;
+  border:1px solid var(--border);
+  background:var(--card);
+  color:var(--cyan);
+  font-size:.85rem;
+}
+.container{width:min(950px,92%);margin:auto}
+section{padding:30px 0}
+.section-title{color:var(--cyan);font-size:1.55rem;margin-bottom:18px}
+.intro{
+  padding:22px;
+  background:var(--card);
+  border-left:4px solid var(--blue);
+  border-radius:12px;
+  color:var(--muted);
+}
+.learning-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:13px;
+}
+.learning-card{
+  display:block;
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:17px;
+  border-radius:12px;
+  color:var(--text);
+  transition:.25s;
+}
+.learning-card:hover{border-color:var(--pink);transform:translateY(-4px)}
+.learning-card span{display:block;font-size:1.7rem}
+.learning-card strong{color:var(--pink)}
+.learning-card small{color:var(--muted)}
+.material{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:13px;
+  margin-bottom:15px;
+  overflow:hidden;
+}
+.material summary{
+  cursor:pointer;
+  padding:19px;
+  font-weight:bold;
+  color:var(--pink);
+  list-style:none;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+.material summary::-webkit-details-marker{display:none}
+.material summary::after{content:"+";color:var(--cyan);font-size:1.4rem}
+.material[open] summary::after{content:"−"}
+.material summary:hover{background:#202039}
+.material-content{padding:20px;border-top:1px solid var(--border)}
+.material-content h3{color:var(--cyan);margin:15px 0 8px}
+.material-content p,.material-content li{color:var(--muted)}
+.material-content ul,.material-content ol{padding-left:23px;margin:10px 0}
+.lesson{padding:15px;background:#202039;border-radius:10px;margin:12px 0}
+.lesson h4{color:var(--pink);margin-bottom:7px}
+.notice{
+  padding:14px;
+  border-left:3px solid var(--blue);
+  background:#202039;
+  border-radius:8px;
+  margin:12px 0;
+  color:var(--muted);
+}
+.status{color:var(--cyan);font-size:.85rem}
+.quiz-question{background:#202039;padding:16px;border-radius:10px;margin:15px 0}
+.quiz-question label{display:block;padding:7px;cursor:pointer;color:var(--muted)}
+.quiz-question input{margin-right:8px;accent-color:var(--pink)}
+.quiz-button{
+  padding:11px 20px;
+  background:linear-gradient(100deg,var(--pink),var(--blue));
+  border:none;border-radius:8px;
+  color:#101020;font-weight:bold;cursor:pointer;
+}
+#quiz-result{color:var(--cyan);margin-top:15px;font-weight:bold}
+footer{
+  border-top:1px solid var(--border);
+  padding:30px 5%;
+  text-align:center;
+  color:var(--muted);
+  margin-top:35px;
+}
+footer p{margin:8px 0}
+@media(max-width:600px){
+  header{padding:18px 5%}
+  .hero{padding:45px 5%}
+  .section-title{font-size:1.3rem}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="topbar">
+<a class="brand" href="../../../../../index.html">Gidy Nega | Pharmacy Education</a>
+<a href="index.html">← Back to Courses</a>
+</div>
+</header>
+
+<main>
+
+<section class="hero">
+<div class="hero-icon">🪱</div>
+<h1>Parasitology</h1>
+<p>
+Study medically important parasites, their structures,
+life cycles, transmission, diagnosis, prevention and
+treatment of parasitic infections.
+</p>
+<span class="badge">Year II</span>
+<span class="badge">First Semester</span>
+<span class="badge">Pharmacy Education</span>
+</section>
+
+<div class="container">
+
+<section>
+<h2 class="section-title">📚 Course Introduction</h2>
+<div class="intro">
+Parasitology is the study of organisms that live in or
+on another organism (the host) and obtain benefits
+at the host's expense.
+
+For pharmacy students, it provides knowledge about
+parasites, parasitic diseases, diagnosis, prevention
+and antiparasitic medicines.
+
+<br><br>
+<strong>Learning goal:</strong> Understand important
+human parasites and their medical significance.
+</div>
+</section>
+
+<section>
+<h2 class="section-title">🗂️ Learning Center</h2>
+<p style="color:var(--muted);margin-bottom:18px">
+Select a category to open its learning materials.
+</p>
+
+<div class="learning-grid">
+
+<a class="learning-card" href="#modules">
+<span>📖</span><strong>Course Modules</strong>
+<small>Explore lessons and topics</small>
+</a>
+
+<a class="learning-card" href="#slides">
+<span>📊</span><strong>PowerPoint Slides</strong>
+<small>Lecture presentations</small>
+</a>
+
+<a class="learning-card" href="#pdfs">
+<span>📄</span><strong>PDF Materials</strong>
+<small>Course reading materials</small>
+</a>
+
+<a class="learning-card" href="#videos">
+<span>🎥</span><strong>Video Lessons</strong>
+<small>Watch educational videos</small>
+</a>
+
+<a class="learning-card" href="#audio">
+<span>🎧</span><strong>Audio Lessons</strong>
+<small>Listen and learn</small>
+</a>
+
+<a class="learning-card" href="#notes">
+<span>📝</span><strong>Short Notes</strong>
+<small>Review important concepts</small>
+</a>
+
+<a class="learning-card" href="#quizzes">
+<span>🧠</span><strong>Practice Quizzes</strong>
+<small>Test your knowledge</small>
+</a>
+
+<a class="learning-card" href="#exams">
+<span>🏆</span><strong>Exam Preparation</strong>
+<small>Prepare for examinations</small>
+</a>
+
+</div>
+</section>
+
+<!-- COURSE MODULES -->
+
+<section id="modules">
+<h2 class="section-title">📖 Course Modules</h2>
+
+<details class="material">
+<summary>Module 1: Introduction to Parasitology</summary>
+<div class="material-content">
+<h3>Learning objectives</h3>
+<ul>
+<li>Define parasitology.</li>
+<li>Explain host-parasite relationships.</li>
+<li>Differentiate types of hosts.</li>
+<li>Describe modes of parasite transmission.</li>
+</ul>
+<div class="lesson">
+<h4>Important terms</h4>
+<ul>
+<li>Parasite: An organism living in or on a host.</li>
+<li>Host: An organism that harbors a parasite.</li>
+<li>Definitive host: Host in which sexual reproduction or the adult stage occurs.</li>
+<li>Intermediate host: Host in which larval development or asexual multiplication occurs.</li>
+<li>Vector: An organism that transmits an infectious agent.</li>
+</ul>
+</div>
+</div>
+</details>
+
+<details class="material">
+<summary>Module 2: Protozoa</summary>
+<div class="material-content">
+<h3>Topics</h3>
+<ul>
+<li>General characteristics of protozoa</li>
+<li>Protozoan classification</li>
+<li>Entamoeba histolytica</li>
+<li>Giardia duodenalis</li>
+<li>Trichomonas vaginalis</li>
+<li>Leishmania species</li>
+<li>Trypanosoma species</li>
+<li>Plasmodium species</li>
+<li>Toxoplasma gondii</li>
+</ul>
+<div class="lesson">
+<h4>Important concept: Protozoa</h4>
+<p>Protozoa are eukaryotic, generally unicellular organisms.
+Some species are responsible for important human diseases.</p>
+</div>
+</div>
+</details>
+
+<details class="material">
+<summary>Module 3: Helminths</summary>
+<div class="material-content">
+<h3>Topics</h3>
+<ul>
+<li>General characteristics of helminths</li>
+<li>Nematodes (roundworms)</li>
+<li>Cestodes (tapeworms)</li>
+<li>Trematodes (flukes)</li>
+<li>Ascaris lumbricoides</li>
+<li>Hookworms</li>
+<li>Enterobius vermicularis</li>
+<li>Taenia species</li>
+<li>Schistosoma species</li>
+</ul>
+<div class="lesson">
+<h4>Classification</h4>
+<ul>
+<li>Nematodes: Cylindrical, unsegmented worms.</li>
+<li>Cestodes: Flat, segmented tapeworms.</li>
+<li>Trematodes: Flat, usually leaf-shaped flukes.</li>
+</ul>
+</div>
+</div>
+</details>
+
+<details class="material">
+<summary>Module 4: Medical Entomology</summary>
+<div class="material-content">
+<h3>Topics</h3>
+<ul>
+<li>Arthropods of medical importance</li>
+<li>Mosquitoes</li>
+<li>Flies</li>
+<li>Ticks</li>
+<li>Mites</li>
+<li>Lice and fleas</li>
+<li>Arthropod-borne diseases</li>
+</ul>
+</div>
+</details>
+
+<details class="material">
+<summary>Module 5: Parasite Life Cycles and Transmission</summary>
+<div class="material-content">
+<h3>Topics</h3>
+<ul>
+<li>Direct and indirect life cycles</li>
+<li>Infective stages</li>
+<li>Diagnostic stages</li>
+<li>Food and water transmission</li>
+<li>Vector transmission</li>
+<li>Skin penetration</li>
+</ul>
+</div>
+</details>
+
+<details class="material">
+<summary>Module 6: Laboratory Diagnosis</summary>
+<div class="material-content">
+<h3>Topics</h3>
+<ul>
+<li>Stool examination</li>
+<li>Blood film examination</li>
+<li>Urine examination</li>
+<li>Concentration techniques</li>
+<li>Microscopy</li>
+<li>Serological methods</li>
+<li>Molecular diagnosis</li>
+</ul>
+</div>
+</details>
+
+<details class="material">
+<summary>Module 7: Prevention and Treatment</summary>
+<div class="material-content">
+<h3>Topics</h3>
+<ul>
+<li>Antiparasitic medicines</li>
+<li>Antiprotozoal medicines</li>
+<li>Anthelmintic medicines</li>
+<li>Vector control</li>
+<li>Sanitation and hygiene</li>
+<li>Prevention of parasitic infections</li>
+</ul>
+</div>
+</details>
+
+<div class="notice">
+These are introductory proposed study units, not a
+verified official Jimma University course outline.
+We will adjust them using your lecture materials.
+</div>
+</section>
+
+<!-- SLIDES -->
+
+<section id="slides">
+<h2 class="section-title">📊 PowerPoint Slides</h2>
+<details class="material">
+<summary>Lecture Presentations</summary>
+<div class="material-content">
+<p>Store your official Parasitology lecture slides here.</p>
+<p class="status">No PowerPoint files uploaded yet.</p>
+</div>
+</details>
+</section>
+
+<!-- PDF -->
+
+<section id="pdfs">
+<h2 class="section-title">📄 PDF Materials</h2>
+<details class="material">
+<summary>Course Handouts and Reading Materials</summary>
+<div class="material-content">
+<ul>
+<li>Parasitology lecture handouts</li>
+<li>Laboratory manuals</li>
+<li>Parasite identification guides</li>
+<li>Revision documents</li>
+</ul>
+<p class="status">No PDF files uploaded yet.</p>
+</div>
+</details>
+</section>
+
+<!-- VIDEOS -->
+
+<section id="videos">
+<h2 class="section-title">🎥 Video Lessons</h2>
+<details class="material">
+<summary>Parasitology Video Library</summary>
+<div class="material-content">
+<ul>
+<li>Introduction to medical parasitology</li>
+<li>Protozoan parasites</li>
+<li>Helminth identification</li>
+<li>Malaria life cycle</li>
+<li>Laboratory diagnosis of parasites</li>
+</ul>
+<p class="status">Video links will be added here.</p>
+</div>
+</details>
+</section>
+
+<!-- AUDIO -->
+
+<section id="audio">
+<h2 class="section-title">🎧 Audio Lessons</h2>
+<details class="material">
+<summary>Parasitology Audio Library</summary>
+<div class="material-content">
+<p>Recorded lectures and audio explanations will be organized here.</p>
+<p class="status">No audio files uploaded yet.</p>
+</div>
+</details>
+</section>
+
+<!-- NOTES -->
+
+<section id="notes">
+<h2 class="section-title">📝 Short Notes</h2>
+<details class="material">
+<summary>Important Parasitology Revision Notes</summary>
+<div class="material-content">
+
+<div class="lesson">
+<h4>Protozoa</h4>
+<p>Protozoa are unicellular eukaryotic organisms.
+Some are free-living, while others are parasitic.</p>
+</div>
+
+<div class="lesson">
+<h4>Helminths</h4>
+<p>Helminths are parasitic worms, commonly classified
+into nematodes, cestodes and trematodes.</p>
+</div>
+
+<div class="lesson">
+<h4>Malaria</h4>
+<p>Malaria is caused by Plasmodium species and is
+transmitted through the bite of infected female
+Anopheles mosquitoes.</p>
+</div>
+
+<div class="lesson">
+<h4>Infective Stage</h4>
+<p>The infective stage is the developmental form of
+a parasite capable of establishing infection in a host.</p>
+</div>
+
+</div>
+</details>
+</section>
+
+<!-- QUIZZES -->
+
+<section id="quizzes">
+<h2 class="section-title">🧠 Practice Quizzes</h2>
+
+<details class="material">
+<summary>Parasitology MCQ Practice – Quiz 1</summary>
+<div class="material-content">
+
+<form id="para-quiz">
+
+<div class="quiz-question">
+<p><strong>1. Parasitology is the study of:</strong></p>
+<label><input type="radio" name="q1" value="a"> Human anatomy</label>
+<label><input type="radio" name="q1" value="b"> Parasites and their relationships with hosts</label>
+<label><input type="radio" name="q1" value="c"> Pharmacokinetics only</label>
+<label><input type="radio" name="q1" value="d"> Plant physiology</label>
+</div>
+
+<div class="quiz-question">
+<p><strong>2. Which group includes roundworms?</strong></p>
+<label><input type="radio" name="q2" value="a"> Cestodes</label>
+<label><input type="radio" name="q2" value="b"> Trematodes</label>
+<label><input type="radio" name="q2" value="c"> Nematodes</label>
+<label><input type="radio" name="q2" value="d"> Protozoa</label>
+</div>
+
+<div class="quiz-question">
+<p><strong>3. Malaria is caused by:</strong></p>
+<label><input type="radio" name="q3" value="a"> Giardia</label>
+<label><input type="radio" name="q3" value="b"> Plasmodium</label>
+<label><input type="radio" name="q3" value="c"> Taenia</label>
+<label><input type="radio" name="q3" value="d"> Ascaris</label>
+</div>
+
+<div class="quiz-question">
+<p><strong>4. Which mosquito transmits malaria?</strong></p>
+<label><input type="radio" name="q4" value="a"> Aedes</label>
+<label><input type="radio" name="q4" value="b"> Culex</label>
+<label><input type="radio" name="q4" value="c"> Female Anopheles</label>
+<label><input type="radio" name="q4" value="d"> Sand fly</label>
+</div>
+
+<div class="quiz-question">
+<p><strong>5. Which of the following is a tapeworm?</strong></p>
+<label><input type="radio" name="q5" value="a"> Taenia</label>
+<label><input type="radio" name="q5" value="b"> Ascaris</label>
+<label><input type="radio" name="q5" value="c"> Giardia</label>
+<label><input type="radio" name="q5" value="d"> Plasmodium</label>
+</div>
+
+<button type="submit" class="quiz-button">Submit Answers</button>
+<div id="quiz-result"></div>
+
+</form>
+</div>
+</details>
+</section>
+
+<!-- EXAMS -->
+
+<section id="exams">
+<h2 class="section-title">🏆 Exam Preparation</h2>
+<details class="material">
+<summary>Parasitology Examination Preparation</summary>
+<div class="material-content">
+<h3>Revision resources</h3>
+<ul>
+<li>Parasite classification questions</li>
+<li>Life cycle diagrams</li>
+<li>Infective and diagnostic stages</li>
+<li>Clinical case-based questions</li>
+<li>Laboratory identification practice</li>
+<li>Past examination questions</li>
+</ul>
+<p class="status">Examination materials will be added when available.</p>
+</div>
+</details>
+</section>
+
+</div>
+</main>
+
+<footer>
+<p>🪱 Parasitology | Pharmacy Education</p>
+<p>Learn, Create, Share & Grow.</p>
+<p>
+<a href="index.html">Back to Year II Courses</a>
+|
+<a href="../../../../../index.html">Main Website</a>
+</p>
+<p>© 2026 Gidy Nega</p>
+</footer>
+
+<script>
+document.getElementById("para-quiz").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const answers = {
+    q1:"b",
+    q2:"c",
+    q3:"b",
+    q4:"c",
+    q5:"a"
+  };
+
+  let score = 0;
+  let unanswered = 0;
+
+  for (let question in answers) {
+    const selected = document.querySelector(
+      'input[name="' + question + '"]:checked'
+    );
+
+    if (!selected) {
+      unanswered++;
+    } else if (selected.value === answers[question]) {
+      score++;
+    }
+  }
+
+  const result = document.getElementById("quiz-result");
+
+  if (unanswered > 0) {
+    result.textContent = "Please answer all questions before submitting.";
+    return;
+  }
+
+  result.innerHTML =
+    "Your score: " + score + "/5<br>" +
+    (score >= 4 ? "Excellent work! 🎉" :
+    score >= 3 ? "Good effort! Keep studying. 👍" :
+    "Keep practicing. You can improve! 💪");
+});
+</script>
+
+</body>
+</html>
