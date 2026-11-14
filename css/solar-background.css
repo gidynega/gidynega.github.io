@@ -1,0 +1,92 @@
+
+/* =====================================================
+   GIDY NEGA — GOLDEN SOLAR 3D BACKGROUND
+   Version 1.0
+===================================================== */
+
+html {
+    background: #08070b;
+}
+
+body {
+    background: transparent !important;
+    isolation: isolate;
+    position: relative;
+}
+
+/* Fixed animation background */
+#solar-background {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #241407 0%,
+            #100b09 40%,
+            #08070b 100%
+        );
+}
+
+#solar-background canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Dark overlay to keep text readable */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 15%,
+            rgba(5, 5, 12, 0.35) 65%,
+            rgba(5, 5, 12, 0.75) 100%
+        );
+}
+
+/* Keep the existing website above the animation */
+header,
+main,
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* Avoid solid backgrounds hiding the animation */
+header {
+    background-color: transparent;
+}
+
+/* Improve glass-like appearance of cards */
+.tile,
+.story,
+.about-card,
+.project-card,
+.social-link {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    #solar-background {
+        opacity: 0.65;
+    }
+}
+
+/* Mobile optimization */
+@media (max-width: 600px) {
+    #solar-background {
+        opacity: 0.85;
+    }
+}
