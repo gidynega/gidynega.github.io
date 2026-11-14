@@ -1,0 +1,987 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Immunology learning resources for Pharmacy students at Jimma University.">
+
+<title>Immunology | Pharmacy Education - Gidy Nega</title>
+
+<style>
+:root {
+  --bg:#0b0b18;
+  --card:#17172b;
+  --border:#343454;
+  --pink:#ff55c8;
+  --blue:#8187ff;
+  --cyan:#65eee4;
+  --text:#f4f4ff;
+  --muted:#b9bad0;
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html { scroll-behavior:smooth; }
+
+body {
+  font-family:Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+
+a {
+  text-decoration:none;
+  color:var(--cyan);
+}
+
+header {
+  padding:20px 7%;
+  background:#101020;
+  border-bottom:1px solid var(--border);
+}
+
+.topbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.brand {
+  color:var(--pink);
+  font-weight:bold;
+  font-size:1.15rem;
+}
+
+.hero {
+  text-align:center;
+  padding:65px 6% 45px;
+  background:radial-gradient(circle at top,#164b52,var(--bg) 75%);
+}
+
+.hero-icon { font-size:4rem; }
+
+.hero h1 {
+  color:var(--pink);
+  font-size:clamp(2.2rem,5vw,3.3rem);
+  margin:10px 0;
+}
+
+.hero p {
+  max-width:700px;
+  color:var(--muted);
+  margin:auto;
+}
+
+.badge {
+  display:inline-block;
+  margin:15px 4px 0;
+  padding:6px 14px;
+  border-radius:25px;
+  border:1px solid var(--border);
+  background:var(--card);
+  color:var(--cyan);
+  font-size:.85rem;
+}
+
+.container {
+  width:min(950px,92%);
+  margin:auto;
+}
+
+section { padding:30px 0; }
+
+.section-title {
+  color:var(--cyan);
+  font-size:1.55rem;
+  margin-bottom:18px;
+}
+
+.intro {
+  padding:22px;
+  background:var(--card);
+  border-left:4px solid var(--blue);
+  border-radius:12px;
+  color:var(--muted);
+}
+
+.learning-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:13px;
+}
+
+.learning-card {
+  display:block;
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:17px;
+  border-radius:12px;
+  color:var(--text);
+  transition:.25s;
+}
+
+.learning-card:hover {
+  border-color:var(--pink);
+  transform:translateY(-4px);
+}
+
+.learning-card span {
+  display:block;
+  font-size:1.7rem;
+}
+
+.learning-card strong { color:var(--pink); }
+.learning-card small { color:var(--muted); }
+
+.material {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:13px;
+  margin-bottom:15px;
+  overflow:hidden;
+}
+
+.material summary {
+  cursor:pointer;
+  padding:19px;
+  font-weight:bold;
+  color:var(--pink);
+  list-style:none;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.material summary::-webkit-details-marker { display:none; }
+
+.material summary::after {
+  content:"+";
+  color:var(--cyan);
+  font-size:1.4rem;
+}
+
+.material[open] summary::after { content:"−"; }
+
+.material summary:hover { background:#202039; }
+
+.material-content {
+  padding:20px;
+  border-top:1px solid var(--border);
+}
+
+.material-content h3 {
+  color:var(--cyan);
+  margin:15px 0 8px;
+}
+
+.material-content p,
+.material-content li {
+  color:var(--muted);
+}
+
+.material-content ul,
+.material-content ol {
+  padding-left:23px;
+  margin:10px 0;
+}
+
+.lesson {
+  padding:15px;
+  background:#202039;
+  border-radius:10px;
+  margin:12px 0;
+}
+
+.lesson h4 {
+  color:var(--pink);
+  margin-bottom:7px;
+}
+
+.notice {
+  padding:14px;
+  border-left:3px solid var(--blue);
+  background:#202039;
+  border-radius:8px;
+  margin:12px 0;
+  color:var(--muted);
+}
+
+.status {
+  color:var(--cyan);
+  font-size:.85rem;
+}
+
+.quiz-question {
+  background:#202039;
+  padding:16px;
+  border-radius:10px;
+  margin:15px 0;
+}
+
+.quiz-question label {
+  display:block;
+  padding:7px;
+  cursor:pointer;
+  color:var(--muted);
+}
+
+.quiz-question input {
+  margin-right:8px;
+  accent-color:var(--pink);
+}
+
+.quiz-button {
+  padding:11px 20px;
+  background:linear-gradient(100deg,var(--pink),var(--blue));
+  border:none;
+  border-radius:8px;
+  color:#101020;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+#quiz-result {
+  color:var(--cyan);
+  margin-top:15px;
+  font-weight:bold;
+}
+
+footer {
+  border-top:1px solid var(--border);
+  padding:30px 5%;
+  text-align:center;
+  color:var(--muted);
+  margin-top:35px;
+}
+
+footer p { margin:8px 0; }
+
+@media(max-width:600px) {
+  header { padding:18px 5%; }
+  .hero { padding:45px 5%; }
+  .section-title { font-size:1.3rem; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="topbar">
+<a class="brand" href="../../../../../index.html">
+Gidy Nega | Pharmacy Education
+</a>
+
+<a href="index.html">← Back to Courses</a>
+</div>
+</header>
+
+<main>
+
+<section class="hero">
+
+<div class="hero-icon">🧬</div>
+
+<h1>Immunology</h1>
+
+<p>
+Discover how the human immune system protects the body
+against infections, recognizes foreign substances and
+maintains immune balance.
+</p>
+
+<span class="badge">Year II</span>
+<span class="badge">First Semester</span>
+<span class="badge">Pharmacy Education</span>
+
+</section>
+
+<div class="container">
+
+<section>
+<h2 class="section-title">📚 Course Introduction</h2>
+
+<div class="intro">
+Immunology is the scientific study of the immune system
+and its responses to foreign substances, microorganisms
+and other threats.
+
+<br><br>
+
+It explores innate and adaptive immunity, immune cells,
+antibodies, antigens, hypersensitivity, autoimmunity
+and immunological disorders.
+
+<br><br>
+
+For pharmacy students, immunology is important for
+understanding vaccines, immunological medicines,
+allergies, immune disorders and therapeutic approaches.
+
+<br><br>
+
+<strong>Learning goal:</strong> Understand the mechanisms
+of immune protection and their clinical importance.
+</div>
+</section>
+
+<section>
+<h2 class="section-title">🗂️ Learning Center</h2>
+
+<p style="color:var(--muted);margin-bottom:18px">
+Select a category to access its learning materials.
+</p>
+
+<div class="learning-grid">
+
+<a class="learning-card" href="#modules">
+<span>📖</span>
+<strong>Course Modules</strong>
+<small>Explore lessons and topics</small>
+</a>
+
+<a class="learning-card" href="#slides">
+<span>📊</span>
+<strong>PowerPoint Slides</strong>
+<small>Lecture presentations</small>
+</a>
+
+<a class="learning-card" href="#pdfs">
+<span>📄</span>
+<strong>PDF Materials</strong>
+<small>Reading materials</small>
+</a>
+
+<a class="learning-card" href="#videos">
+<span>🎥</span>
+<strong>Video Lessons</strong>
+<small>Watch and understand</small>
+</a>
+
+<a class="learning-card" href="#audio">
+<span>🎧</span>
+<strong>Audio Lessons</strong>
+<small>Listen and learn</small>
+</a>
+
+<a class="learning-card" href="#notes">
+<span>📝</span>
+<strong>Short Notes</strong>
+<small>Quick revision</small>
+</a>
+
+<a class="learning-card" href="#quizzes">
+<span>🧠</span>
+<strong>Practice Quizzes</strong>
+<small>Test your knowledge</small>
+</a>
+
+<a class="learning-card" href="#exams">
+<span>🏆</span>
+<strong>Exam Preparation</strong>
+<small>Prepare for examinations</small>
+</a>
+
+</div>
+</section>
+
+<!-- MODULES -->
+
+<section id="modules">
+
+<h2 class="section-title">📖 Course Modules</h2>
+
+<details class="material">
+<summary>Module 1: Introduction to Immunology</summary>
+
+<div class="material-content">
+
+<h3>Learning objectives</h3>
+
+<ul>
+<li>Define immunology.</li>
+<li>Explain the importance of the immune system.</li>
+<li>Describe the major components of immunity.</li>
+<li>Differentiate innate and adaptive immunity.</li>
+</ul>
+
+<div class="lesson">
+<h4>What is Immunology?</h4>
+
+<p>
+Immunology is the study of the body's defense system
+against foreign substances and disease-causing agents.
+</p>
+</div>
+
+</div>
+</details>
+
+<details class="material">
+<summary>Module 2: Cells and Organs of the Immune System</summary>
+
+<div class="material-content">
+
+<h3>Topics</h3>
+
+<ul>
+<li>Bone marrow</li>
+<li>Thymus</li>
+<li>Lymph nodes</li>
+<li>Spleen</li>
+<li>Lymphocytes</li>
+<li>Neutrophils</li>
+<li>Macrophages</li>
+<li>Dendritic cells</li>
+<li>Natural killer cells</li>
+</ul>
+
+<div class="lesson">
+<h4>Important concept</h4>
+<p>
+The bone marrow and thymus are primary lymphoid organs.
+The lymph nodes and spleen are secondary lymphoid organs.
+</p>
+</div>
+
+</div>
+</details>
+
+<details class="material">
+<summary>Module 3: Innate Immunity</summary>
+
+<div class="material-content">
+
+<h3>Topics</h3>
+
+<ul>
+<li>Physical barriers</li>
+<li>Chemical barriers</li>
+<li>Phagocytosis</li>
+<li>Inflammation</li>
+<li>Complement system</li>
+<li>Natural killer cells</li>
+<li>Pattern recognition receptors</li>
+</ul>
+
+<div class="lesson">
+<h4>Innate Immunity</h4>
+
+<p>
+Innate immunity is the body's rapid, non-specific
+first line of defense against invading pathogens.
+</p>
+
+</div>
+
+</div>
+</details>
+
+<details class="material">
+<summary>Module 4: Adaptive Immunity</summary>
+
+<div class="material-content">
+
+<h3>Topics</h3>
+
+<ul>
+<li>Characteristics of adaptive immunity</li>
+<li>Humoral immunity</li>
+<li>Cell-mediated immunity</li>
+<li>B lymphocytes</li>
+<li>T lymphocytes</li>
+<li>Immunological memory</li>
+</ul>
+
+<div class="lesson">
+<h4>Two major types</h4>
+
+<ul>
+<li>Humoral immunity: Mainly mediated by antibodies produced by B cells.</li>
+<li>Cell-mediated immunity: Mainly mediated by T lymphocytes.</li>
+</ul>
+
+</div>
+
+</div>
+</details>
+
+<details class="material">
+<summary>Module 5: Antigens and Antibodies</summary>
+
+<div class="material-content">
+
+<h3>Topics</h3>
+
+<ul>
+<li>Definition of antigens</li>
+<li>Immunogenicity</li>
+<li>Antibody structure</li>
+<li>Immunoglobulin classes</li>
+<li>Antigen-antibody reactions</li>
+<li>Monoclonal antibodies</li>
+</ul>
+
+<div class="lesson">
+<h4>Five major immunoglobulin classes</h4>
+
+<ul>
+<li>IgG</li>
+<li>IgM</li>
+<li>IgA</li>
+<li>IgE</li>
+<li>IgD</li>
+</ul>
+
+</div>
+
+</div>
+</details>
+
+<details class="material">
+<summary>Module 6: Major Histocompatibility Complex</summary>
+
+<div class="material-content">
+
+<h3>Topics</h3>
+
+<ul>
+<li>Introduction to MHC</li>
+<li>MHC class I</li>
+<li>MHC class II</li>
+<li>Antigen processing</li>
+<li>Antigen presentation</li>
+<li>Relationship between MHC and T cells</li>
+</ul>
+
+</div>
+</details>
+
+<details class="material">
+<summary>Module 7: Hypersensitivity Reactions</summary>
+
+<div class="material-content">
+
+<h3>Topics</h3>
+
+<ul>
+<li>Type I hypersensitivity</li>
+<li>Type II hypersensitivity</li>
+<li>Type III hypersensitivity</li>
+<li>Type IV hypersensitivity</li>
+<li>Allergic reactions</li>
+<li>Clinical examples</li>
+</ul>
+
+<div class="lesson">
+<h4>Remember the four types</h4>
+
+<ul>
+<li>Type I: Immediate, commonly IgE-mediated.</li>
+<li>Type II: Antibody-mediated.</li>
+<li>Type III: Immune-complex mediated.</li>
+<li>Type IV: T-cell-mediated, delayed.</li>
+</ul>
+
+</div>
+
+</div>
+</details>
+
+<details class="material">
+<summary>Module 8: Autoimmunity and Immunodeficiency</summary>
+
+<div class="material-content">
+
+<h3>Topics</h3>
+
+<ul>
+<li>Immune tolerance</li>
+<li>Autoimmune diseases</li>
+<li>Primary immunodeficiency</li>
+<li>Secondary immunodeficiency</li>
+<li>HIV and immune dysfunction</li>
+<li>Immunological diagnosis</li>
+</ul>
+
+</div>
+</details>
+
+<details class="material">
+<summary>Module 9: Vaccines and Immunization</summary>
+
+<div class="material-content">
+
+<h3>Topics</h3>
+
+<ul>
+<li>Active immunity</li>
+<li>Passive immunity</li>
+<li>Live attenuated vaccines</li>
+<li>Inactivated vaccines</li>
+<li>Subunit vaccines</li>
+<li>Conjugate vaccines</li>
+<li>Vaccine-induced immune responses</li>
+</ul>
+
+</div>
+</details>
+
+<details class="material">
+<summary>Module 10: Immunological Laboratory Techniques</summary>
+
+<div class="material-content">
+
+<h3>Topics</h3>
+
+<ul>
+<li>ELISA</li>
+<li>Agglutination tests</li>
+<li>Precipitation reactions</li>
+<li>Immunofluorescence</li>
+<li>Western blotting</li>
+<li>Flow cytometry</li>
+</ul>
+
+</div>
+</details>
+
+<div class="notice">
+These are proposed introductory study units, not a
+verified official Jimma University course outline.
+We will align them with your actual course syllabus.
+</div>
+
+</section>
+
+<!-- SLIDES -->
+
+<section id="slides">
+
+<h2 class="section-title">📊 PowerPoint Slides</h2>
+
+<details class="material">
+<summary>Immunology Lecture Presentations</summary>
+
+<div class="material-content">
+
+<p>
+Organize your official Immunology lecture presentations here.
+</p>
+
+<p class="status">No PowerPoint files uploaded yet.</p>
+
+</div>
+</details>
+
+</section>
+
+<!-- PDF -->
+
+<section id="pdfs">
+
+<h2 class="section-title">📄 PDF Materials</h2>
+
+<details class="material">
+<summary>Immunology PDF Library</summary>
+
+<div class="material-content">
+
+<ul>
+<li>Immunology lecture handouts</li>
+<li>Antibody structure diagrams</li>
+<li>Immune system reference materials</li>
+<li>Vaccine and immunization notes</li>
+<li>Revision documents</li>
+</ul>
+
+<p class="status">No PDF files uploaded yet.</p>
+
+</div>
+</details>
+
+</section>
+
+<!-- VIDEOS -->
+
+<section id="videos">
+
+<h2 class="section-title">🎥 Video Lessons</h2>
+
+<details class="material">
+<summary>Immunology Video Library</summary>
+
+<div class="material-content">
+
+<ul>
+<li>Introduction to the immune system</li>
+<li>Innate and adaptive immunity</li>
+<li>Antibody structure</li>
+<li>Antigen presentation</li>
+<li>Hypersensitivity reactions</li>
+<li>Vaccines and immunization</li>
+</ul>
+
+<p class="status">Video links will be added here.</p>
+
+</div>
+</details>
+
+</section>
+
+<!-- AUDIO -->
+
+<section id="audio">
+
+<h2 class="section-title">🎧 Audio Lessons</h2>
+
+<details class="material">
+<summary>Immunology Audio Library</summary>
+
+<div class="material-content">
+
+<p>
+Recorded lectures, audio explanations and revision
+discussions will be organized here.
+</p>
+
+<p class="status">No audio files uploaded yet.</p>
+
+</div>
+</details>
+
+</section>
+
+<!-- NOTES -->
+
+<section id="notes">
+
+<h2 class="section-title">📝 Short Notes</h2>
+
+<details class="material">
+<summary>Important Immunology Revision Notes</summary>
+
+<div class="material-content">
+
+<div class="lesson">
+<h4>Innate Immunity</h4>
+<p>
+Innate immunity provides immediate, non-specific
+protection through barriers, phagocytes and other
+defense mechanisms.
+</p>
+</div>
+
+<div class="lesson">
+<h4>Adaptive Immunity</h4>
+<p>
+Adaptive immunity is antigen-specific and develops
+immunological memory. It includes humoral and
+cell-mediated responses.
+</p>
+</div>
+
+<div class="lesson">
+<h4>Antibodies</h4>
+<p>
+Antibodies are immunoglobulin proteins produced
+by plasma cells in response to antigens.
+</p>
+</div>
+
+<div class="lesson">
+<h4>Immunological Memory</h4>
+<p>
+Memory B cells and T cells help the immune system
+respond more rapidly and effectively upon subsequent
+exposure to the same antigen.
+</p>
+</div>
+
+</div>
+</details>
+
+</section>
+
+<!-- QUIZZES -->
+
+<section id="quizzes">
+
+<h2 class="section-title">🧠 Practice Quizzes</h2>
+
+<details class="material">
+<summary>Immunology MCQ Practice – Quiz 1</summary>
+
+<div class="material-content">
+
+<form id="immune-quiz">
+
+<div class="quiz-question">
+<p><strong>1. Immunology is the study of:</strong></p>
+
+<label><input type="radio" name="q1" value="a"> Digestive system</label>
+<label><input type="radio" name="q1" value="b"> Immune system</label>
+<label><input type="radio" name="q1" value="c"> Skeletal system</label>
+<label><input type="radio" name="q1" value="d"> Respiratory system</label>
+</div>
+
+<div class="quiz-question">
+<p><strong>2. Which is a primary lymphoid organ?</strong></p>
+
+<label><input type="radio" name="q2" value="a"> Spleen</label>
+<label><input type="radio" name="q2" value="b"> Lymph node</label>
+<label><input type="radio" name="q2" value="c"> Thymus</label>
+<label><input type="radio" name="q2" value="d"> Tonsil</label>
+</div>
+
+<div class="quiz-question">
+<p><strong>3. Which immunoglobulin is most abundant in serum?</strong></p>
+
+<label><input type="radio" name="q3" value="a"> IgE</label>
+<label><input type="radio" name="q3" value="b"> IgM</label>
+<label><input type="radio" name="q3" value="c"> IgG</label>
+<label><input type="radio" name="q3" value="d"> IgD</label>
+</div>
+
+<div class="quiz-question">
+<p><strong>4. Which cells produce antibodies?</strong></p>
+
+<label><input type="radio" name="q4" value="a"> Plasma cells</label>
+<label><input type="radio" name="q4" value="b"> Neutrophils</label>
+<label><input type="radio" name="q4" value="c"> Red blood cells</label>
+<label><input type="radio" name="q4" value="d"> Platelets</label>
+</div>
+
+<div class="quiz-question">
+<p><strong>5. Which hypersensitivity type is commonly IgE-mediated?</strong></p>
+
+<label><input type="radio" name="q5" value="a"> Type I</label>
+<label><input type="radio" name="q5" value="b"> Type II</label>
+<label><input type="radio" name="q5" value="c"> Type III</label>
+<label><input type="radio" name="q5" value="d"> Type IV</label>
+</div>
+
+<button type="submit" class="quiz-button">
+Submit Answers
+</button>
+
+<div id="quiz-result"></div>
+
+</form>
+
+</div>
+</details>
+
+</section>
+
+<!-- EXAMS -->
+
+<section id="exams">
+
+<h2 class="section-title">🏆 Exam Preparation</h2>
+
+<details class="material">
+<summary>Immunology Examination Preparation</summary>
+
+<div class="material-content">
+
+<h3>Revision resources</h3>
+
+<ul>
+<li>Immune system diagrams</li>
+<li>Innate and adaptive immunity comparisons</li>
+<li>Antibody classification questions</li>
+<li>Hypersensitivity case studies</li>
+<li>Vaccine-related questions</li>
+<li>Past examination questions</li>
+</ul>
+
+<p class="status">
+Examination materials will be added when available.
+</p>
+
+</div>
+</details>
+
+</section>
+
+</div>
+</main>
+
+<footer>
+
+<p>🧬 Immunology | Pharmacy Education</p>
+
+<p>Learn, Create, Share & Grow.</p>
+
+<p>
+<a href="index.html">Back to Year II Courses</a>
+|
+<a href="../../../../../index.html">Main Website</a>
+</p>
+
+<p>© 2026 Gidy Nega</p>
+
+</footer>
+
+<script>
+
+document.getElementById("immune-quiz").addEventListener("submit", function(e) {
+
+e.preventDefault();
+
+const answers = {
+q1:"b",
+q2:"c",
+q3:"c",
+q4:"a",
+q5:"a"
+};
+
+let score = 0;
+let unanswered = 0;
+
+for(let question in answers) {
+
+const selected = document.querySelector(
+'input[name="' + question + '"]:checked'
+);
+
+if(!selected) {
+unanswered++;
+} else if(selected.value === answers[question]) {
+score++;
+}
+
+}
+
+const result = document.getElementById("quiz-result");
+
+if(unanswered > 0) {
+result.textContent =
+"Please answer all questions before submitting.";
+return;
+}
+
+result.innerHTML =
+"Your score: " + score + "/5<br>" +
+(score >= 4 ? "Excellent work! 🎉" :
+score >= 3 ? "Good effort! Keep studying. 👍" :
+"Keep practicing. You can improve! 💪");
+
+});
+
+</script>
+
+</body>
+</html>
