@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,244 +7,605 @@
 
   <title>Medicinal Chemistry II | Gidy Nega</title>
 
+  <meta name="description"
+        content="Study Medicinal Chemistry II with lecture PDFs, modules, PowerPoint slides, videos, audio, short notes, quizzes and examinations at Gidy Nega Pharmacy Education.">
+
+  <meta name="author" content="Gidy Nega">
+
   <style>
+    :root {
+      --background: #0b0b18;
+      --card: #17172b;
+      --border: #343454;
+      --pink: #ff55c8;
+      --blue: #8187ff;
+      --cyan: #65eee4;
+      --text: #f4f4ff;
+      --muted: #b9bad0;
+    }
+
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #0b0b18;
-      color: #f5f5ff;
+      background: var(--background);
+      color: var(--text);
       line-height: 1.6;
     }
 
+    a {
+      text-decoration: none;
+    }
+
     header {
-      padding: 35px 20px;
+      padding: 35px 18px;
       text-align: center;
-      background: linear-gradient(135deg, #20203b, #17172b);
-      border-bottom: 2px solid #8187ff;
-    }
-
-    header h1 {
-      color: #65eee4;
-    }
-
-    header p {
-      color: #d5d5ee;
-    }
-
-    .container {
-      width: 92%;
-      max-width: 1000px;
-      margin: 25px auto;
+      background:
+        radial-gradient(circle at top left, #30204d, transparent 55%),
+        linear-gradient(135deg, #101025, #1d1640);
+      border-bottom: 1px solid var(--border);
     }
 
     .back {
       display: inline-block;
       margin-bottom: 20px;
-      color: #65eee4;
-      text-decoration: none;
+      color: var(--cyan);
+      font-weight: bold;
     }
 
-    .back:hover {
-      color: #ff55c8;
+    .badge {
+      display: inline-block;
+      padding: 6px 13px;
+      border: 1px solid var(--pink);
+      border-radius: 25px;
+      color: var(--pink);
+      font-size: 13px;
     }
 
-    .card {
-      background: #20203b;
-      border: 1px solid #45456b;
-      border-radius: 14px;
-      padding: 20px;
-      margin-bottom: 20px;
+    h1 {
+      margin: 16px 0 8px;
+      font-size: clamp(30px, 6vw, 46px);
+      line-height: 1.2;
     }
 
-    .card h2 {
-      color: #ff55c8;
+    h1 span {
+      color: var(--cyan);
+    }
+
+    header p {
+      max-width: 650px;
+      margin: 12px auto;
+      color: var(--muted);
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 30px auto;
+    }
+
+    .welcome {
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--card);
+      margin-bottom: 30px;
+    }
+
+    .welcome h2 {
+      margin-top: 0;
+      color: var(--cyan);
+    }
+
+    .section-title {
+      margin-top: 35px;
+      margin-bottom: 15px;
+    }
+
+    .section-title h2 {
+      margin-bottom: 5px;
+    }
+
+    .section-title p {
+      color: var(--muted);
       margin-top: 0;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
+      gap: 18px;
     }
 
-    .resource {
-      background: #17172b;
-      border: 1px solid #45456b;
-      border-radius: 12px;
-      padding: 18px;
-      transition: transform 0.3s ease, border-color 0.3s ease;
+    .card {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      transition: transform 0.25s ease,
+                  border-color 0.25s ease;
+      min-width: 0;
     }
 
-    .resource:hover {
-      transform: translateY(-3px);
-      border-color: #65eee4;
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--cyan);
     }
 
-    .resource h3 {
-      color: #65eee4;
-      margin-top: 0;
+    .icon {
+      font-size: 32px;
+    }
+
+    .card h3 {
+      margin: 10px 0 5px;
+      color: var(--cyan);
+      overflow-wrap: anywhere;
+    }
+
+    .card p {
+      flex-grow: 1;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 14px;
+      overflow-wrap: anywhere;
     }
 
     .button {
       display: inline-block;
-      background: #8187ff;
-      color: white;
-      padding: 10px 16px;
-      margin-top: 8px;
-      border-radius: 8px;
-      text-decoration: none;
+      margin-top: 12px;
+      padding: 10px 14px;
+      text-align: center;
+      border-radius: 9px;
+      background: linear-gradient(90deg, var(--pink), var(--blue));
+      color: #fff;
       font-weight: bold;
+      transition: 0.25s;
+      cursor: pointer;
     }
 
     .button:hover {
-      background: #ff55c8;
+      opacity: 0.88;
+      transform: translateY(-2px);
+    }
+
+    .resource-actions {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .resource-actions .button {
+      flex: 1;
+      min-width: 95px;
+    }
+
+    .download-button {
+      background: transparent;
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+    }
+
+    .file-type {
+      display: inline-block;
+      color: var(--pink);
+      font-size: 12px;
+      margin-bottom: 8px;
+      font-weight: bold;
     }
 
     .notice {
-      color: #c9c9df;
-      font-size: 14px;
+      margin-top: 18px;
+      padding: 17px;
+      border-left: 4px solid var(--pink);
+      border-radius: 10px;
+      background: #21182e;
+      color: var(--muted);
+    }
+
+    .resource-section {
+      scroll-margin-top: 20px;
     }
 
     footer {
+      margin-top: 50px;
+      padding: 25px 15px;
       text-align: center;
-      padding: 25px;
-      border-top: 1px solid #45456b;
-      margin-top: 40px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
     }
 
     footer a {
-      color: #65eee4;
-      text-decoration: none;
+      color: var(--cyan);
+    }
+
+    @media(max-width: 500px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- HEADER -->
+
   <header>
-    <h1>💊 Medicinal Chemistry II</h1>
-    <p>Course Code: Phar3141 | 5 ECTS</p>
-    <p>Pharmacy Education — Year III, Semester I</p>
-  </header>
-
-  <main class="container">
-
     <a class="back" href="../index.html">
       ← Back to Year III Semester I
     </a>
 
-    <section class="card">
-      <h2>Welcome to Medicinal Chemistry II</h2>
+    <br>
+
+    <span class="badge">PHARMACY EDUCATION</span>
+
+    <h1>Medicinal Chemistry <span>II</span></h1>
+
+    <p>
+      Explore the chemical properties, structures,
+      mechanisms and therapeutic applications of drugs.
+    </p>
+
+    <p>Course Code: Phar3141 | 5 ECTS</p>
+  </header>
+
+
+  <main class="container">
+
+    <!-- WELCOME -->
+
+    <section class="welcome">
+      <h2>💊 Welcome to Medicinal Chemistry II</h2>
 
       <p>
-        Welcome to your Medicinal Chemistry II learning page!
-        Use this page to organize your course materials, review chemical
-        structures and drug-related concepts, and prepare for assessments.
+        Welcome to your Medicinal Chemistry II learning center!
+        This page is your dedicated place for studying drug
+        structures, chemical properties, structure-activity
+        relationships and medicinal applications.
       </p>
 
-      <p class="notice">
-        Add verified course materials to the relevant sections below.
+      <p>
+        Explore the learning materials, understand drug chemistry,
+        practice questions and prepare for your examinations.
+        Learn, practice and grow together!
       </p>
     </section>
 
-    <section class="card">
-      <h2>Course Learning Resources</h2>
+
+    <!-- LEARNING MATERIAL CATEGORIES -->
+
+    <section>
+
+      <div class="section-title">
+        <h2>🎓 Learning Materials</h2>
+        <p>Everything for this course, organized in one place.</p>
+      </div>
 
       <div class="grid">
 
-        <article class="resource" id="modules">
-          <h3>📚 Modules</h3>
-          <p>Course modules and learning topics.</p>
-          <p class="notice">No modules added yet.</p>
+        <article class="card">
+          <div class="icon">📘</div>
+          <h3>Course Modules</h3>
+          <p>Course modules, chapters and detailed learning materials.</p>
+          <a class="button" href="#modules">Open Modules</a>
         </article>
 
-        <article class="resource" id="powerpoints">
-          <h3>📊 PowerPoint Slides</h3>
-          <p>Lecture presentations for study and revision.</p>
-          <p class="notice">No PowerPoint files added yet.</p>
+        <article class="card">
+          <div class="icon">📊</div>
+          <h3>PowerPoint Slides</h3>
+          <p>Lecture presentations and classroom study slides.</p>
+          <a class="button" href="#powerpoints">Open Slides</a>
         </article>
 
-        
-<article class="resource" id="pdfs">
-  <h3>📄 PDF Materials</h3>
-  <p>Medicinal Chemistry II lecture notes and study materials.</p>
-
-  <a class="button" href="pdfs/AntisepticsandDisinfectants-8-17.pdf" target="_blank" rel="noopener">01. Antiseptics and Disinfectants</a>
-  <br>
-
-  <a class="button" href="pdfs/cellmembrane%20%281%29.pdf" target="_blank" rel="noopener">02. Cell Membrane</a>
-  <br>
-
-  <a class="button" href="pdfs/cephalosporins.pdf" target="_blank" rel="noopener">03. Cephalosporins</a>
-  <br>
-
-  <a class="button" href="pdfs/penicillin.pdf" target="_blank" rel="noopener">04. Penicillins</a>
-  <br>
-
-  <a class="button" href="pdfs/Anti-flu%20agents.pdf" target="_blank" rel="noopener">05. Anti-influenza Drugs</a>
-  <br>
-
-  <a class="button" href="pdfs/viral.pdf" target="_blank" rel="noopener">06. Antiviral Drugs</a>
-  <br>
-
-  <a class="button" href="pdfs/Antimalarial%20drugs.pdf" target="_blank" rel="noopener">07. Antimalarial Drugs</a>
-  <br>
-
-  <a class="button" href="pdfs/H2-Blockers.pdf" target="_blank" rel="noopener">08. H2-Blockers</a>
-  <br>
-
-  <a class="button" href="pdfs/Antidiabetic%20agent.pdf" target="_blank" rel="noopener">09. Antidiabetic Agents</a>
-  <br>
-
-  <a class="button" href="pdfs/Antidiabetic%20agents%20final.pdf" target="_blank" rel="noopener">10. Antidiabetic Agents - Final</a>
-</article>
-
-
-        <article class="resource" id="videos">
-          <h3>🎥 Video Lessons</h3>
-          <p>Educational videos and topic explanations.</p>
-          <p class="notice">No videos added yet.</p>
+        <article class="card">
+          <div class="icon">📄</div>
+          <h3>PDF Materials</h3>
+          <p>Access all 10 uploaded Medicinal Chemistry II PDFs.</p>
+          <a class="button" href="#pdfs">Open PDFs</a>
         </article>
 
-        <article class="resource" id="audio">
-          <h3>🎧 Audio Lessons</h3>
-          <p>Audio explanations for revision.</p>
-          <p class="notice">No audio lessons added yet.</p>
+        <article class="card">
+          <div class="icon">🎥</div>
+          <h3>Video Lessons</h3>
+          <p>Watch explanations of difficult medicinal chemistry topics.</p>
+          <a class="button" href="#videos">Watch Videos</a>
         </article>
 
-        <article class="resource" id="notes">
-          <h3>📝 Short Notes</h3>
-          <p>Concise notes for quick revision.</p>
-          <p class="notice">No short notes added yet.</p>
+        <article class="card">
+          <div class="icon">🎧</div>
+          <h3>Audio Lessons</h3>
+          <p>Listen to educational explanations and revision lessons.</p>
+          <a class="button" href="#audio">Listen to Audio</a>
         </article>
 
-        <article class="resource" id="quizzes">
-          <h3>🧠 Interactive Quizzes</h3>
-          <p>Practice questions and explanations.</p>
-          <p class="notice">No quizzes added yet.</p>
+        <article class="card">
+          <div class="icon">📝</div>
+          <h3>Short Notes</h3>
+          <p>Quick summaries, key concepts and revision notes.</p>
+          <a class="button" href="#notes">Read Notes</a>
         </article>
 
-        <article class="resource" id="exams">
-          <h3>🎯 Exams and Past Papers</h3>
-          <p>Examination practice and revision materials.</p>
-          <p class="notice">No exam materials added yet.</p>
+        <article class="card">
+          <div class="icon">🧠</div>
+          <h3>Practice Quizzes</h3>
+          <p>Test your understanding with interactive questions.</p>
+          <a class="button" href="#quizzes">Take Quizzes</a>
+        </article>
+
+        <article class="card">
+          <div class="icon">🏆</div>
+          <h3>Exams & Past Papers</h3>
+          <p>Prepare using examination questions and revision materials.</p>
+          <a class="button" href="#exams">Prepare for Exams</a>
         </article>
 
       </div>
     </section>
 
-    <a class="back" href="../../../../index.html">
-      ← Visit My Website
-    </a>
+
+    <!-- MODULES -->
+
+    <section class="resource-section" id="modules">
+
+      <div class="section-title">
+        <h2>📘 Course Modules</h2>
+        <p>Full modules and chapter-by-chapter resources.</p>
+      </div>
+
+      <div class="notice">
+        No course modules uploaded yet. New modules will appear here.
+      </div>
+
+    </section>
+
+
+    <!-- POWERPOINTS -->
+
+    <section class="resource-section" id="powerpoints">
+
+      <div class="section-title">
+        <h2>📊 PowerPoint Slides</h2>
+        <p>Lecture presentations and slide-based explanations.</p>
+      </div>
+
+      <div class="notice">
+        No PowerPoint presentations uploaded yet.
+        Presentations will be added here when available.
+      </div>
+
+    </section>
+
+
+    <!-- PDF MATERIALS -->
+
+    <section class="resource-section" id="pdfs">
+
+      <div class="section-title">
+        <h2>📄 PDF Materials</h2>
+        <p>Medicinal Chemistry II lecture notes and reading materials.</p>
+      </div>
+
+      <div class="grid">
+
+        <article class="card">
+          <span class="file-type">PDF HANDOUT · 01</span>
+          <h3>Antiseptics and Disinfectants</h3>
+          <p>Study antiseptic and disinfectant agents.</p>
+          <div class="resource-actions">
+            <a class="button" href="pdfs/AntisepticsandDisinfectants-8-17.pdf" target="_blank" rel="noopener">Open PDF</a>
+            <a class="button download-button" href="pdfs/AntisepticsandDisinfectants-8-17.pdf" download>Download</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="file-type">PDF HANDOUT · 02</span>
+          <h3>Cell Membrane</h3>
+          <p>Review cell membrane structure and related concepts.</p>
+          <div class="resource-actions">
+            <a class="button" href="pdfs/cellmembrane%20%281%29.pdf" target="_blank" rel="noopener">Open PDF</a>
+            <a class="button download-button" href="pdfs/cellmembrane%20%281%29.pdf" download>Download</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="file-type">PDF HANDOUT · 03</span>
+          <h3>Cephalosporins</h3>
+          <p>Study the cephalosporin class of antibacterial drugs.</p>
+          <div class="resource-actions">
+            <a class="button" href="pdfs/cephalosporins.pdf" target="_blank" rel="noopener">Open PDF</a>
+            <a class="button download-button" href="pdfs/cephalosporins.pdf" download>Download</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="file-type">PDF HANDOUT · 04</span>
+          <h3>Penicillins</h3>
+          <p>Explore penicillin structures and antibacterial properties.</p>
+          <div class="resource-actions">
+            <a class="button" href="pdfs/penicillin.pdf" target="_blank" rel="noopener">Open PDF</a>
+            <a class="button download-button" href="pdfs/penicillin.pdf" download>Download</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="file-type">PDF HANDOUT · 05</span>
+          <h3>Anti-influenza Drugs</h3>
+          <p>Study drugs used against influenza virus infections.</p>
+          <div class="resource-actions">
+            <a class="button" href="pdfs/Anti-flu%20agents.pdf" target="_blank" rel="noopener">Open PDF</a>
+            <a class="button download-button" href="pdfs/Anti-flu%20agents.pdf" download>Download</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="file-type">PDF HANDOUT · 06</span>
+          <h3>Antiviral Drugs</h3>
+          <p>Review antiviral drug classes and their applications.</p>
+          <div class="resource-actions">
+            <a class="button" href="pdfs/viral.pdf" target="_blank" rel="noopener">Open PDF</a>
+            <a class="button download-button" href="pdfs/viral.pdf" download>Download</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="file-type">PDF HANDOUT · 07</span>
+          <h3>Antimalarial Drugs</h3>
+          <p>Study the chemistry of antimalarial drug agents.</p>
+          <div class="resource-actions">
+            <a class="button" href="pdfs/Antimalarial%20drugs.pdf" target="_blank" rel="noopener">Open PDF</a>
+            <a class="button download-button" href="pdfs/Antimalarial%20drugs.pdf" download>Download</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="file-type">PDF HANDOUT · 08</span>
+          <h3>H2-Blockers</h3>
+          <p>Explore histamine H2-receptor blocking agents.</p>
+          <div class="resource-actions">
+            <a class="button" href="pdfs/H2-Blockers.pdf" target="_blank" rel="noopener">Open PDF</a>
+            <a class="button download-button" href="pdfs/H2-Blockers.pdf" download>Download</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="file-type">PDF HANDOUT · 09</span>
+          <h3>Antidiabetic Agents</h3>
+          <p>Study chemical classes of antidiabetic drugs.</p>
+          <div class="resource-actions">
+            <a class="button" href="pdfs/Antidiabetic%20agent.pdf" target="_blank" rel="noopener">Open PDF</a>
+            <a class="button download-button" href="pdfs/Antidiabetic%20agent.pdf" download>Download</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="file-type">PDF HANDOUT · 10</span>
+          <h3>Antidiabetic Agents — Final</h3>
+          <p>Additional antidiabetic drug lecture material.</p>
+          <div class="resource-actions">
+            <a class="button" href="pdfs/Antidiabetic%20agents%20final.pdf" target="_blank" rel="noopener">Open PDF</a>
+            <a class="button download-button" href="pdfs/Antidiabetic%20agents%20final.pdf" download>Download</a>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- VIDEOS -->
+
+    <section class="resource-section" id="videos">
+
+      <div class="section-title">
+        <h2>🎥 Video Lessons</h2>
+        <p>Watch recorded lectures and educational explanations.</p>
+      </div>
+
+      <div class="notice">
+        No videos uploaded yet. Video lessons will appear here when added.
+      </div>
+
+    </section>
+
+
+    <!-- AUDIO -->
+
+    <section class="resource-section" id="audio">
+
+      <div class="section-title">
+        <h2>🎧 Audio Lessons</h2>
+        <p>Listen to recorded explanations and revision lessons.</p>
+      </div>
+
+      <div class="notice">
+        No audio lessons uploaded yet.
+      </div>
+
+    </section>
+
+
+    <!-- SHORT NOTES -->
+
+    <section class="resource-section" id="notes">
+
+      <div class="section-title">
+        <h2>📝 Short Notes</h2>
+        <p>Quick summaries and important medicinal chemistry concepts.</p>
+      </div>
+
+      <div class="notice">
+        No short notes added yet. Revision materials will be added here.
+      </div>
+
+    </section>
+
+
+    <!-- QUIZZES -->
+
+    <section class="resource-section" id="quizzes">
+
+      <div class="section-title">
+        <h2>🧠 Practice Quizzes</h2>
+        <p>Test your knowledge of Medicinal Chemistry II.</p>
+      </div>
+
+      <div class="notice">
+        No interactive quizzes added yet.
+        Practice questions will be available here.
+      </div>
+
+    </section>
+
+
+    <!-- EXAMS -->
+
+    <section class="resource-section" id="exams">
+
+      <div class="section-title">
+        <h2>🏆 Exams & Past Papers</h2>
+        <p>Prepare using practice examinations and revision questions.</p>
+      </div>
+
+      <div class="notice">
+        No examination materials uploaded yet.
+      </div>
+
+    </section>
+
+
+    <!-- IMPORTANT NOTICE -->
+
+    <div class="notice">
+      <strong>📌 Important:</strong>
+      This page is dedicated to Medicinal Chemistry II.
+      Additional lecture materials, presentations, quizzes
+      and examination resources will be added as they become available.
+    </div>
 
   </main>
 
+
+  <!-- FOOTER -->
+
   <footer>
-    <p>© 2026 Gidy Nega | Learn, Create, Share & Grow</p>
+
+    <p>Created with ❤️ by Gidy Nega</p>
+
+    <p>
+      <a href="../../../../index.html">Visit My Website</a>
+    </p>
+
+    <p>Learn, Create, Share & Grow.</p>
+
   </footer>
 
 </body>
