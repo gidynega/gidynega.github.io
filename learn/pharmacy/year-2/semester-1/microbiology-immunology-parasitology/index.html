@@ -1,450 +1,360 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Microbiology, Immunology and Parasitology learning resources for Pharmacy students at Jimma University.">
-  <title>Microbiology, Immunology and Parasitology | Gidy Nega</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root {
-      --bg: #0b0b18;
-      --card: #17172b;
-      --border: #343454;
-      --pink: #ff55c8;
-      --blue: #8187ff;
-      --cyan: #65eee4;
-      --text: #f4f4ff;
-      --muted: #b9bad0;
-    }
+<meta name="description" content="Study Microbiology, Parasitology and Immunology at Jimma University Pharmacy Education.">
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<title>Year II Semester I | Pharmacy Education - Gidy Nega</title>
 
-    html {
-      scroll-behavior: smooth;
-    }
+<style>
+:root {
+  --bg: #0b0b18;
+  --card: #17172b;
+  --border: #343454;
+  --pink: #ff55c8;
+  --blue: #8187ff;
+  --cyan: #65eee4;
+  --text: #f4f4ff;
+  --muted: #b9bad0;
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    a {
-      color: var(--cyan);
-      text-decoration: none;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
 
-    a:hover {
-      color: var(--pink);
-    }
+a {
+  text-decoration: none;
+}
 
-    header {
-      padding: 24px 7%;
-      border-bottom: 1px solid var(--border);
-      background: rgba(11, 11, 24, 0.96);
-    }
+header {
+  padding: 22px 7%;
+  border-bottom: 1px solid var(--border);
+  background: #101020;
+}
 
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
 
-    .brand {
-      color: var(--pink);
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
+.brand {
+  color: var(--pink);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
 
-    .back-link {
-      display: inline-block;
-      margin-top: 20px;
-    }
+.back {
+  color: var(--cyan);
+}
 
-    .hero {
-      padding: 65px 7% 45px;
-      text-align: center;
-      background: radial-gradient(
-        circle at top,
-        #29234d 0%,
-        var(--bg) 70%
-      );
-    }
+.hero {
+  text-align: center;
+  padding: 65px 6% 40px;
+  background: radial-gradient(circle at top, #29234d, var(--bg) 75%);
+}
 
-    .hero-icon {
-      font-size: 3.5rem;
-      margin-bottom: 12px;
-    }
+.hero-icon {
+  font-size: 3.5rem;
+}
 
-    .hero h1 {
-      color: var(--pink);
-      font-size: clamp(2rem, 5vw, 3.3rem);
-      line-height: 1.2;
-      margin-bottom: 18px;
-    }
+.hero h1 {
+  color: var(--pink);
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin: 12px 0;
+}
 
-    .hero p {
-      color: var(--muted);
-      max-width: 750px;
-      margin: 0 auto 12px;
-    }
+.hero p {
+  color: var(--muted);
+  max-width: 650px;
+  margin: auto;
+}
 
-    .badge {
-      display: inline-block;
-      margin: 8px 5px;
-      padding: 7px 14px;
-      border: 1px solid var(--border);
-      border-radius: 25px;
-      background: var(--card);
-      color: var(--cyan);
-      font-size: 0.9rem;
-    }
+.badge {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 7px 16px;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  color: var(--cyan);
+  background: var(--card);
+}
 
-    .container {
-      width: min(1100px, 90%);
-      margin: auto;
-    }
+.container {
+  width: min(1000px, 90%);
+  margin: auto;
+}
 
-    section {
-      padding: 35px 0;
-    }
+.courses {
+  padding: 40px 0 65px;
+}
 
-    .section-title {
-      font-size: 1.7rem;
-      color: var(--cyan);
-      margin-bottom: 20px;
-    }
+.section-title {
+  color: var(--cyan);
+  font-size: 1.6rem;
+  margin-bottom: 22px;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-    }
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 22px;
+}
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 22px;
-      transition: transform 0.25s, border-color 0.25s;
-    }
+.course-card {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  overflow: hidden;
+  transition: 0.3s;
+}
 
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: var(--pink);
-    }
+.course-card:hover {
+  transform: translateY(-7px);
+  border-color: var(--pink);
+  box-shadow: 0 10px 30px #ff55c822;
+}
 
-    .card-icon {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
+.course-image {
+  height: 155px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4.5rem;
+  background: linear-gradient(135deg, #29234d, #17172b);
+}
 
-    .card h3 {
-      color: var(--pink);
-      margin-bottom: 8px;
-    }
+.microbiology {
+  background: linear-gradient(135deg, #243b55, #141e30);
+}
 
-    .card p {
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
+.parasitology {
+  background: linear-gradient(135deg, #3b234d, #17172b);
+}
 
-    .button {
-      display: inline-block;
-      padding: 9px 15px;
-      border-radius: 8px;
-      background: linear-gradient(100deg, var(--pink), var(--blue));
-      color: #101020;
-      font-weight: bold;
-      margin-top: 8px;
-    }
+.immunology {
+  background: linear-gradient(135deg, #164b52, #17172b);
+}
 
-    .button:hover {
-      color: white;
-      opacity: 0.9;
-    }
+.course-content {
+  padding: 23px;
+}
 
-    .notice {
-      padding: 20px;
-      background: var(--card);
-      border-left: 4px solid var(--blue);
-      border-radius: 10px;
-      color: var(--muted);
-    }
+.course-content h2 {
+  color: var(--pink);
+  font-size: 1.35rem;
+  margin-bottom: 9px;
+}
 
-    .resource-section {
-      scroll-margin-top: 20px;
-    }
+.course-content p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  min-height: 75px;
+}
 
-    .resource-section .card {
-      min-height: 130px;
-    }
+.open-button {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 17px;
+  border-radius: 8px;
+  background: linear-gradient(100deg, var(--pink), var(--blue));
+  color: #101020;
+  font-weight: bold;
+}
 
-    footer {
-      margin-top: 35px;
-      padding: 30px 7%;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      color: var(--muted);
-    }
+.notice {
+  background: var(--card);
+  border-left: 4px solid var(--cyan);
+  padding: 20px;
+  border-radius: 10px;
+  color: var(--muted);
+  margin-bottom: 35px;
+}
 
-    footer p {
-      margin: 7px 0;
-    }
+footer {
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 30px 5%;
+  color: var(--muted);
+}
 
-    @media (max-width: 600px) {
-      header {
-        padding: 20px 5%;
-      }
+footer a {
+  color: var(--cyan);
+}
 
-      .hero {
-        padding: 45px 5% 30px;
-      }
+@media(max-width:600px) {
+  header {
+    padding: 18px 5%;
+  }
 
-      .container {
-        width: 92%;
-      }
+  .hero {
+    padding: 45px 5% 35px;
+  }
 
-      .section-title {
-        font-size: 1.45rem;
-      }
-    }
-  </style>
+  .container {
+    width: 92%;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="topbar">
-      <a class="brand" href="../../../../../index.html">
-        Gidy Nega | Learn & Grow
-      </a>
-      <a href="../index.html">← Back to Semester I</a>
-    </div>
-  </header>
+<header>
+  <div class="topbar">
+    <a class="brand" href="../../../../../index.html">
+      Gidy Nega | Pharmacy Education
+    </a>
 
-  <main>
-    <section class="hero">
-      <div class="hero-icon">🦠</div>
+    <a class="back" href="../index.html">
+      ← Back to Semester I
+    </a>
+  </div>
+</header>
 
-      <h1>Microbiology, Immunology and Parasitology</h1>
+<main>
 
-      <p>
-        Explore microorganisms, the body's immune defense
-        mechanisms, and parasites that affect human health.
-      </p>
+<section class="hero">
+  <div class="hero-icon">🎓</div>
 
-      <span class="badge">Course Code: Mbio2053</span>
-      <span class="badge">7 ECTS</span>
-      <span class="badge">Year II · Semester I</span>
-    </section>
+  <h1>Year II – First Semester</h1>
 
-    <div class="container">
+  <p>
+    Welcome to your Pharmacy learning environment.
+    Select one of the three courses below to access
+    its lessons, lecture materials, notes and quizzes.
+  </p>
 
-      <section>
-        <h2 class="section-title">📚 Course Overview</h2>
+  <span class="badge">Jimma University · Pharmacy</span>
+</section>
 
-        <div class="notice">
-          Microbiology, Immunology and Parasitology introduces
-          students to microorganisms, immune responses, and
-          parasites of medical importance.
+<div class="container">
 
-          <br><br>
+<section class="courses">
 
-          It provides a foundation for understanding infectious
-          agents, host defense mechanisms, and parasitic diseases
-          relevant to pharmacy and healthcare.
+  <h2 class="section-title">
+    📚 Select Your Course
+  </h2>
 
-          <br><br>
+  <div class="notice">
+    Each course has its own dedicated learning page.
+    Click a course to explore its educational resources.
+  </div>
 
-          <strong>Important:</strong> The specific topics and
-          learning outcomes depend on the official course
-          syllabus. Confirm your course outline with your
-          department before adding course-specific materials.
-        </div>
-      </section>
+  <div class="course-grid">
 
-      <section>
-        <h2 class="section-title">🗂️ Learning Resources</h2>
+    <!-- MICROBIOLOGY -->
 
-        <div class="grid">
+    <a href="microbiology.html" class="course-card">
 
-          <article class="card">
-            <div class="card-icon">📖</div>
-            <h3>Course Modules</h3>
-            <p>Organize the official course topics into manageable study units.</p>
-            <a class="button" href="#modules">View Modules →</a>
-          </article>
+      <div class="course-image microbiology">
+        🦠
+      </div>
 
-          <article class="card">
-            <div class="card-icon">📊</div>
-            <h3>PowerPoint Slides</h3>
-            <p>Review lecture presentations for your selected course.</p>
-            <a class="button" href="#slides">View Slides →</a>
-          </article>
+      <div class="course-content">
 
-          <article class="card">
-            <div class="card-icon">📄</div>
-            <h3>PDF Materials</h3>
-            <p>Keep course handouts and approved reading materials together.</p>
-            <a class="button" href="#pdfs">View PDFs →</a>
-          </article>
+        <h2>Microbiology</h2>
 
-          <article class="card">
-            <div class="card-icon">🎥</div>
-            <h3>Video Lessons</h3>
-            <p>Find educational videos related to your course topics.</p>
-            <a class="button" href="#videos">Watch Videos →</a>
-          </article>
+        <p>
+          Explore microorganisms, bacteria, viruses,
+          fungi, microbial diseases and their importance
+          in pharmacy and healthcare.
+        </p>
 
-          <article class="card">
-            <div class="card-icon">🎧</div>
-            <h3>Audio Lessons</h3>
-            <p>Review recorded explanations and audio learning materials.</p>
-            <a class="button" href="#audio">Listen Now →</a>
-          </article>
+        <span class="open-button">
+          Open Course →
+        </span>
 
-          <article class="card">
-            <div class="card-icon">📝</div>
-            <h3>Short Notes</h3>
-            <p>Organize concise revision notes for important concepts.</p>
-            <a class="button" href="#notes">Read Notes →</a>
-          </article>
+      </div>
 
-          <article class="card">
-            <div class="card-icon">🧠</div>
-            <h3>Practice Quizzes</h3>
-            <p>Test your understanding with practice questions.</p>
-            <a class="button" href="#quizzes">Take Quiz →</a>
-          </article>
+    </a>
 
-          <article class="card">
-            <div class="card-icon">🏆</div>
-            <h3>Exam Preparation</h3>
-            <p>Prepare with revision questions and authorized past exams.</p>
-            <a class="button" href="#exams">Prepare Now →</a>
-          </article>
+    <!-- PARASITOLOGY -->
 
-        </div>
-      </section>
+    <a href="parasitology.html" class="course-card">
 
-      <section id="modules" class="resource-section">
-        <h2 class="section-title">📖 Course Modules</h2>
-        <div class="card">
-          <h3>Official Course Outline</h3>
-          <p>
-            Add the module titles and learning objectives from
-            the official Microbiology, Immunology and Parasitology syllabus.
-          </p>
-          <p><strong>Resource status:</strong> Awaiting course materials.</p>
-        </div>
-      </section>
+      <div class="course-image parasitology">
+        🪱
+      </div>
 
-      <section id="slides" class="resource-section">
-        <h2 class="section-title">📊 PowerPoint Slides</h2>
-        <div class="card">
-          <h3>Lecture Presentations</h3>
-          <p>
-            Upload or link the relevant PowerPoint files for
-            Microbiology, Immunology and Parasitology.
-          </p>
-          <p><strong>Resource status:</strong> No slides added yet.</p>
-        </div>
-      </section>
+      <div class="course-content">
 
-      <section id="pdfs" class="resource-section">
-        <h2 class="section-title">📄 PDF Materials</h2>
-        <div class="card">
-          <h3>Course Reading Materials</h3>
-          <p>
-            Add course handouts, approved readings, and other
-            relevant PDF documents.
-          </p>
-          <p><strong>Resource status:</strong> No PDFs added yet.</p>
-        </div>
-      </section>
+        <h2>Parasitology</h2>
 
-      <section id="videos" class="resource-section">
-        <h2 class="section-title">🎥 Video Lessons</h2>
-        <div class="card">
-          <h3>Video Learning Library</h3>
-          <p>
-            Add educational video links that match the official
-            course content.
-          </p>
-          <p><strong>Resource status:</strong> No videos added yet.</p>
-        </div>
-      </section>
+        <p>
+          Learn about medically important parasites,
+          their life cycles, transmission, diagnosis
+          and associated diseases.
+        </p>
 
-      <section id="audio" class="resource-section">
-        <h2 class="section-title">🎧 Audio Lessons</h2>
-        <div class="card">
-          <h3>Audio Learning Library</h3>
-          <p>
-            Add recorded lectures and audio explanations for
-            this course.
-          </p>
-          <p><strong>Resource status:</strong> No audio added yet.</p>
-        </div>
-      </section>
+        <span class="open-button">
+          Open Course →
+        </span>
 
-      <section id="notes" class="resource-section">
-        <h2 class="section-title">📝 Short Notes</h2>
-        <div class="card">
-          <h3>Revision Notes</h3>
-          <p>
-            Add clear, concise notes based on your actual
-            lecture materials and course objectives.
-          </p>
-          <p><strong>Resource status:</strong> No notes added yet.</p>
-        </div>
-      </section>
+      </div>
 
-      <section id="quizzes" class="resource-section">
-        <h2 class="section-title">🧠 Practice Quizzes</h2>
-        <div class="card">
-          <h3>Test Your Knowledge</h3>
-          <p>
-            Add multiple-choice questions and explanations
-            based on the confirmed course syllabus.
-          </p>
-          <p><strong>Resource status:</strong> No quizzes added yet.</p>
-        </div>
-      </section>
+    </a>
 
-      <section id="exams" class="resource-section">
-        <h2 class="section-title">🏆 Exam Preparation</h2>
-        <div class="card">
-          <h3>Revision and Examination Practice</h3>
-          <p>
-            Add revision questions and past examinations that
-            you are authorized to share.
-          </p>
-          <p><strong>Resource status:</strong> No exam materials added yet.</p>
-        </div>
-      </section>
+    <!-- IMMUNOLOGY -->
 
-    </div>
-  </main>
+    <a href="immunology.html" class="course-card">
 
-  <footer>
-    <p>🎓 Microbiology, Immunology and Parasitology · Pharmacy Education</p>
-    <p>Created for learning, sharing, and growing together.</p>
-    <p>
-      <a href="../index.html">← Back to Semester I</a>
-      &nbsp; | &nbsp;
-      <a href="../../../../../index.html">Main Website</a>
-    </p>
-    <p>© 2026 Gidy Nega</p>
-  </footer>
+      <div class="course-image immunology">
+        🧬
+      </div>
+
+      <div class="course-content">
+
+        <h2>Immunology</h2>
+
+        <p>
+          Understand the immune system, antibodies,
+          antigens, immune responses, immunity
+          and immunological disorders.
+        </p>
+
+        <span class="open-button">
+          Open Course →
+        </span>
+
+      </div>
+
+    </a>
+
+  </div>
+
+</section>
+
+</div>
+
+</main>
+
+<footer>
+  <p>🎓 Pharmacy Education | Gidy Nega</p>
+
+  <p>
+    <a href="../index.html">Back to Semester I</a>
+    |
+    <a href="../../../../../index.html">Main Website</a>
+  </p>
+
+  <p>© 2026 Gidy Nega. Learn, Create, Share & Grow.</p>
+</footer>
 
 </body>
 </html>
